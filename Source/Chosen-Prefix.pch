@@ -1,0 +1,35 @@
+//
+//  Chosen-Prefix.pch
+//  Chosen
+//
+//  Created by AppsbeeTechnology on 02/02/15.
+//  Copyright (c) 2015 appsbee. All rights reserved.
+//
+//
+// Prefix header
+//
+// The contents of this file are implicitly
+// included at the beginning of every source file
+//
+
+
+
+
+#ifndef __IPHONE_5_0
+#warning "This project uses features only available in iOS SDK 5.0 and later."
+#endif
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "AppDelegate.h"
+#define   IsIphone4     ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )480 ) < DBL_EPSILON )
+#define   IsIphone5     ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
+#define   IsIphone6     ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )667 ) < DBL_EPSILON )
+#define   IsIphone6Plus     ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )736 ) < DBL_EPSILON )
+
+#endif
+
+#import "SlideOutMenuViewController.h"
+
+SlideOutMenuViewController *slideMenu;

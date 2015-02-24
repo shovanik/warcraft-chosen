@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="LithosPro-Regular.ttf">
+            <string>LithosPro-Regular</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WorldMapViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="wrldMapView" destination="HcW-z4-BVw" id="wwt-Zl-yl2"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="HcW-z4-BVw">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="Kjg-Ie-RU9"/>
+                    </connections>
+                </mapView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navbg" translatesAutoresizingMaskIntoConstraints="NO" id="CaO-O2-qiv">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Kq-We-uaa" userLabel="Button - Slide menu">
+                    <rect key="frame" x="17" y="10" width="25" height="21"/>
+                    <state key="normal" backgroundImage="slidemenu">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lbn-2O-H32" userLabel="Button - Slide Menu Custome">
+                    <rect key="frame" x="0.0" y="0.0" width="86" height="55"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="55" id="TXA-Af-Txc"/>
+                        <constraint firstAttribute="width" constant="86" id="TaD-rh-fxL"/>
+                    </constraints>
+                    <state key="normal">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="btnMenuTapped:" destination="-1" eventType="touchUpInside" id="vy0-nY-OZq"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="WORLD MAP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vQb-bB-2fF">
+                    <rect key="frame" x="248" y="19" width="104" height="21"/>
+                    <fontDescription key="fontDescription" name="LithosPro-Regular" family="Lithos Pro" pointSize="24"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="vQb-bB-2fF" firstAttribute="centerY" secondItem="CaO-O2-qiv" secondAttribute="centerY" constant="-3" id="3wO-uR-HMF"/>
+                <constraint firstItem="vQb-bB-2fF" firstAttribute="centerX" secondItem="CaO-O2-qiv" secondAttribute="centerX" id="5XZ-cD-Wcy"/>
+                <constraint firstItem="HcW-z4-BVw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Prp-ND-Xaf"/>
+                <constraint firstItem="2Kq-We-uaa" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="YXP-sp-C3c"/>
+                <constraint firstItem="CaO-O2-qiv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="cKY-jv-TKT"/>
+                <constraint firstItem="2Kq-We-uaa" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="17" id="cvZ-Gr-Lac"/>
+                <constraint firstItem="HcW-z4-BVw" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="fqo-CC-dOO"/>
+                <constraint firstItem="Lbn-2O-H32" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="iHd-6Y-YQY"/>
+                <constraint firstItem="CaO-O2-qiv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="jTr-il-nEu"/>
+                <constraint firstItem="Lbn-2O-H32" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="nQu-0d-bhE"/>
+                <constraint firstAttribute="trailing" secondItem="CaO-O2-qiv" secondAttribute="trailing" id="qSM-He-iVN"/>
+                <constraint firstAttribute="bottom" secondItem="HcW-z4-BVw" secondAttribute="bottom" id="y21-XQ-bRo"/>
+                <constraint firstAttribute="trailing" secondItem="HcW-z4-BVw" secondAttribute="trailing" id="zdb-Qo-cee"/>
+            </constraints>
+            <point key="canvasLocation" x="291" y="393"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="navbg" width="320" height="64"/>
+        <image name="slidemenu" width="25" height="21"/>
+    </resources>
+</document>

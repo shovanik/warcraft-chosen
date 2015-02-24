@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="GARA.TTF">
+            <string>Garamond</string>
+        </mutableArray>
+        <mutableArray key="LithosPro-Regular.ttf">
+            <string>LithosPro-Regular</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController">
+            <connections>
+                <outlet property="lgncontentView" destination="756-A8-zIU" id="fSW-Ns-toa"/>
+                <outlet property="logContentViewVerticalyCenter" destination="5G6-Tc-l4o" id="pg8-AL-Dkc"/>
+                <outlet property="navTitle" destination="XbY-sW-3an" id="Ofk-my-uYA"/>
+                <outlet property="passwordTextField" destination="I72-v9-Bcn" id="hU2-NZ-bAJ"/>
+                <outlet property="userNameTextField" destination="T82-Q4-gR1" id="CcQ-ms-XCH"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="Klt-n0-Gyo"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="kIQ-fq-Uji">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navbg" translatesAutoresizingMaskIntoConstraints="NO" id="fJH-np-JfV">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOGIN" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XbY-sW-3an">
+                    <rect key="frame" x="259" y="17" width="83" height="24"/>
+                    <fontDescription key="fontDescription" name="LithosPro-Regular" family="Lithos Pro" pointSize="24"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="puI-NA-XpJ">
+                    <rect key="frame" x="559" y="8" width="35" height="30"/>
+                    <state key="normal" title="Back">
+                        <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="btnBackPressed:" destination="-1" eventType="touchUpInside" id="zV9-Qx-WZI"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="756-A8-zIU" userLabel="content">
+                    <rect key="frame" x="165" y="173" width="271" height="278"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logincontentbg" translatesAutoresizingMaskIntoConstraints="NO" id="hh6-7I-w8i">
+                            <rect key="frame" x="0.0" y="0.0" width="271" height="278"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logintextbox" translatesAutoresizingMaskIntoConstraints="NO" id="6hQ-QW-3DM">
+                            <rect key="frame" x="22" y="43" width="226" height="48"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logintextbox" translatesAutoresizingMaskIntoConstraints="NO" id="xdO-XJ-SqN">
+                            <rect key="frame" x="22" y="104" width="226" height="48"/>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jlQ-zJ-MhU" userLabel="Button - login">
+                            <rect key="frame" x="22" y="202" width="227" height="47"/>
+                            <state key="normal" backgroundImage="loginbutton">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="loginButtonTapped:" destination="-1" eventType="touchUpInside" id="j7m-dm-yim"/>
+                            </connections>
+                        </button>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T82-Q4-gR1">
+                            <rect key="frame" x="24" y="48" width="223" height="40"/>
+                            <color key="textColor" red="0.79215686269999996" green="0.90196078430000004" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                <rect key="frame" x="36" y="48" width="200" height="40"/>
+                            </variation>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="huW-ig-BG1"/>
+                            </connections>
+                        </textField>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I72-v9-Bcn">
+                            <rect key="frame" x="24" y="109" width="223" height="40"/>
+                            <color key="textColor" red="0.79215686269999996" green="0.90196078430000004" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                <rect key="frame" x="36" y="108" width="200" height="40"/>
+                            </variation>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="fDh-Oe-8mY"/>
+                            </connections>
+                        </textField>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F7Z-fy-3CC">
+                            <rect key="frame" x="52" y="157" width="166" height="41"/>
+                            <fontDescription key="fontDescription" name="Garamond" family="Garamond" pointSize="13"/>
+                            <state key="normal" title="Forgot Your Password">
+                                <color key="titleColor" red="0.34901960784313724" green="0.59999999999999998" blue="0.74117647058823533" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="278" id="7iY-aS-noY"/>
+                        <constraint firstAttribute="width" constant="271" id="k4Z-eF-dWL"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright © Chosen 2015" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1fD-gk-uYx">
+                    <rect key="frame" x="201" y="560" width="199" height="20"/>
+                    <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="17"/>
+                    <color key="textColor" red="0.62352941179999999" green="0.69803921570000005" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="fJH-np-JfV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="3Ol-E3-kMQ"/>
+                <constraint firstItem="puI-NA-XpJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="525-Ow-AMg">
+                    <variation key="heightClass=regular-widthClass=compact" constant="10"/>
+                </constraint>
+                <constraint firstAttribute="centerY" secondItem="756-A8-zIU" secondAttribute="centerY" constant="-12" id="5G6-Tc-l4o"/>
+                <constraint firstItem="fJH-np-JfV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="5WU-nT-yqk"/>
+                <constraint firstAttribute="bottom" secondItem="1fD-gk-uYx" secondAttribute="bottom" constant="20" id="8vn-qv-XTa"/>
+                <constraint firstAttribute="centerX" secondItem="756-A8-zIU" secondAttribute="centerX" constant="-0.5" id="BM4-45-RM3">
+                    <variation key="heightClass=regular-widthClass=compact" constant="-1.5"/>
+                </constraint>
+                <constraint firstItem="kIQ-fq-Uji" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="DIh-mX-XPK"/>
+                <constraint firstAttribute="trailing" secondItem="puI-NA-XpJ" secondAttribute="trailing" constant="6" id="G0l-Ew-zKT">
+                    <variation key="heightClass=regular-widthClass=compact" constant="24"/>
+                </constraint>
+                <constraint firstAttribute="centerX" secondItem="XbY-sW-3an" secondAttribute="centerX" constant="-0.5" id="MvG-1k-PHZ"/>
+                <constraint firstAttribute="trailing" secondItem="fJH-np-JfV" secondAttribute="trailing" id="XMn-R6-uvU"/>
+                <constraint firstAttribute="bottom" secondItem="kIQ-fq-Uji" secondAttribute="bottom" id="hXb-yY-6IG"/>
+                <constraint firstAttribute="centerX" secondItem="1fD-gk-uYx" secondAttribute="centerX" constant="-0.5" id="rk5-dU-Vkd"/>
+                <constraint firstItem="XbY-sW-3an" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="17" id="sib-vt-MHF"/>
+                <constraint firstItem="kIQ-fq-Uji" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="xbO-yI-BvB"/>
+                <constraint firstAttribute="trailing" secondItem="kIQ-fq-Uji" secondAttribute="trailing" id="z9V-Q5-VyY"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <point key="canvasLocation" x="-221" y="310"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="background" width="320" height="480"/>
+        <image name="loginbutton" width="227" height="47"/>
+        <image name="logincontentbg" width="271" height="278"/>
+        <image name="logintextbox" width="226" height="48"/>
+        <image name="navbg" width="320" height="64"/>
+    </resources>
+</document>

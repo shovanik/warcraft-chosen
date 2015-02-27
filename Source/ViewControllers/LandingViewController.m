@@ -14,6 +14,9 @@
 #import "Context.h"
 #import "DataClass.h"
 #import "StepOneViewController.h"
+#import "CustomMapAnnotationView.h"
+
+
 NSUserDefaults *sharedPref;
 
 @interface LandingViewController ()
@@ -28,32 +31,13 @@ FBLoginView *fbLoginView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
     self.navigationController.navigationBarHidden = YES;
-    
-    //Print all font name
-  /*  for(NSString *family in [UIFont familyNames])
-    {
-        NSLog(@"%@", family);
-        for(NSString* name in [UIFont fontNamesForFamilyName: family])
-        {
-            NSLog(@"  %@", name);
-        }
-    } 
-   */
-    
-    //self.cpLabel.font = [UIFont fontWithName:@"Garamond" size:17];
     sharedPref = [NSUserDefaults standardUserDefaults];
-
-    
-    
     fbLoginView=[[FBLoginView alloc] initWithReadPermissions:@[@"public_profile", @"email", @"user_friends"]];
     fbLoginView.delegate = self;
     fbLoginView.frame = CGRectMake(1, 1, 0, 0);
-    
     for (id obj in fbLoginView.subviews)
     {
-        
         if ([obj isKindOfClass:[UILabel class]])
         {
             UILabel * loginLabel =  obj;
@@ -68,31 +52,10 @@ FBLoginView *fbLoginView;
             [loginButton setBackgroundImage:nil forState:UIControlStateHighlighted];
             [loginButton sizeToFit];
         }
-        
-        
     }
-    
     fbLoginView.hidden=YES;
     [self.view addSubview:fbLoginView];
-    
 }
-
-//- (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView
-//{
-//    StepOneViewController *sVC  = nil;
-//    if ([[Context getInstance] screenPhysicalSizeForIPhoneClassic]) {
-//        //For Iphone4
-//        sVC = [[StepOneViewController alloc] initWithNibName:@"StepOneViewController_iPhone4" bundle:nil];
-//        // NSLog(@"iPhone4");
-//    }else{
-//        sVC =  [[StepOneViewController alloc] initWithNibName:@"StepOneViewController" bundle:nil];;
-//        
-//        //  NSLog(@"iPhone6");
-//        
-//    }
-//    [self.navigationController pushViewController:sVC animated:YES];
-//}
-
 - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
                             user:(id<FBGraphUser>)user {
     
@@ -116,25 +79,11 @@ FBLoginView *fbLoginView;
             loginLabel.text = @"Log out from Facebook";
             loginLabel.font = [UIFont fontWithName:@"Arial Rounded MT Bold" size:16.0];
             loginLabel.textAlignment = NSTextAlignmentCenter;
-            //loginLabel.textAlignment = NSTextAlignmentLeft;
-            //loginLabel.textColor=[UIColor colorWithRed: 78.0/255.0f green:113.0/255.0f blue:168.0/255.0f alpha:1.0];
-            //loginLabel.backgroundColor=[UIColor colorWithRed: 78.0/255.0f green:113.0/255.0f blue:168.0/255.0f alpha:1.0];
             loginLabel.frame = CGRectMake(1, 1, 0, 0);
         }
     }
     fbLoginView.hidden=YES;
     [self.view addSubview:fbLoginView];
-    
-    // here we use helper properties of FBGraphUser to dot-through to first_name and
-    // id properties of the json response from the server; alternatively we could use
-    // NSDictionary methods such as objectForKey to get values from the my json object
-    
-    
-    //self.fbNameLabel.text = [NSString stringWithFormat:@"Welcome %@!", user.first_name];
-    // setting the profileID property of the FBProfilePictureView instance
-    // causes the control to fetch and display the profile picture for the user
-
-    //self.fbProfileView.profileID = user.objectID;
     self.loggedInUser = user;
     NSLog(@"loggedIN: %@",self.loggedInUser);
     if(self.loggedInUser)
@@ -157,19 +106,13 @@ FBLoginView *fbLoginView;
         [sharedPref setBool:YES forKey:@"isLogedin"];
 
         StepOneViewController *sVC =  [[StepOneViewController alloc] initWithNibName:@"StepOneViewController" bundle:nil];
-        //[self.revealSideViewController popViewControllerWithNewCenterController:sVC  animated:YES];
         [self.navigationController pushViewController:sVC animated:YES];
 
     }
     
-    //[self.twitterButtonLabel setEnabled:NO];
-    //self.twitterButtonLabel.userInteractionEnabled = NO;
-    
 }
 
 - (void)loginView:(FBLoginView *)loginView handleError:(NSError *)error {
-    // see https://developers.facebook.com/docs/reference/api/errors/ for general guidance on error handling for Facebook API
-    // our policy here is to let the login view handle errors, but to log the results
     NSLog(@"FBLoginView encountered an error=%@", error);
 }
 
@@ -232,22 +175,6 @@ FBLoginView *fbLoginView;
             //self.fbNameLabel.text = [error localizedDescription];
             NSLog(@"-- %@", [error localizedDescription]);
         }];
-
-        
-        /*
-         At this point, the user can use the API and you can read his access tokens with:
-         
-         _twitter.oauthAccessToken;
-         _twitter.oauthAccessTokenSecret;
-         
-         You can store these tokens (in user default, or in keychain) so that the user doesn't need to authenticate again on next launches.
-         
-         Next time, just instanciate STTwitter with the class method:
-         
-         +[STTwitterAPI twitterAPIWithOAuthConsumerKey:consumerSecret:oauthToken:oauthTokenSecret:]
-         
-         Don't forget to call the -[STTwitter verifyCredentialsWithSuccessBlock:errorBlock:] after that.
-         */
         
     } errorBlock:^(NSError *error) {
         NSLog(@"-- %@", [error localizedDescription]);

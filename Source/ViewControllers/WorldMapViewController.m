@@ -10,6 +10,8 @@
 #import <MapKit/MapKit.h>
 #import <MapKit/MKAnnotation.h>
 #import <CoreLocation/CoreLocation.h>
+#import "CustomMapAnnotationView.h"
+#import "AnnotationViewController.h"
 
 
 #define MileConversionParameter 0.621371192
@@ -24,6 +26,10 @@ NSUserDefaults *pref;
     CGFloat _offset;
     CGFloat distancePerMile;
     CLLocationManager *locationManager;
+    
+    NSMutableArray *arrAnnotations;
+    
+    AnnotationViewController *annotationViewController;
     
     
 }
@@ -45,6 +51,10 @@ NSUserDefaults *pref;
     distancePerMile = 5.0*MileConversionParameter*1000;
     
     //wrldMapView.delegate=nil;
+    arrAnnotations=[[NSMutableArray alloc] init];
+    
+    annotationViewController=[[AnnotationViewController alloc] initWithNibName:@"AnnotationViewController" bundle:nil];
+    annotationViewController.isCallOutOpen=NO;
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -141,37 +151,52 @@ NSUserDefaults *pref;
     if ([annotation isKindOfClass:[MKUserLocation class]]){
         if (!pinView)
         {
-            // If an existing pin view was not available, create one.
             pinView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"CustomPinAnnotationView"];
-            //pinView.animatesDrop = YES;
-            pinView.canShowCallout = YES;
+            //pinView.canShowCallout = YES;
             pinView.image = [UIImage imageNamed:@"location_icon.png"];
-            pinView.calloutOffset = CGPointMake(0, 32);
+            pinView.calloutOffset = CGPointMake(0, 0);
         } else {
             pinView.annotation = annotation;
         }
         return pinView;
         
     }
-    
-    // Handle any custom annotations.
-//    if ([annotation isKindOfClass:[MKPointAnnotation class]])
-//    {
-//        // Try to dequeue an existing pin view first.
-//        if (!pinView)
-//        {
-//            // If an existing pin view was not available, create one.
-//            pinView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"CustomPinAnnotationView"];
-//            //pinView.animatesDrop = YES;
-//            pinView.canShowCallout = YES;
-//            pinView.image = [UIImage imageNamed:@"pin.png"];
-//            pinView.calloutOffset = CGPointMake(0, 32);
-//        } else {
-//            pinView.annotation = annotation;
-//        }
-//        return pinView;
-//    }
+    if([annotation isKindOfClass:[CustomMapAnnotationView class]]){
+        CustomMapAnnotationView *annotationView=(CustomMapAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"CustomPinAnnotationView"];
+        NSInteger annotationNo=[arrAnnotations indexOfObject:annotation];
+        //ModelUser *obj=[allUser objectAtIndex:annotationNo];
+        if(!annotationView){
+            annotationView=[[CustomMapAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"CustomPinAnnotationView"];
+            annotationView.image=[UIImage imageNamed:@"whi_point.png"];
+            annotationView.tag=annotationNo;
+        }else{
+            annotationView.annotation=annotation;
+            annotationView.tag=annotationNo;
+        }
+        return annotationView;
+    }
     return nil;
+}
+-(void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
+{
+    NSLog(@"%@",[view class]);
+    if ([view isKindOfClass:[CustomMapAnnotationView class]]) {
+        CustomMapAnnotationView *customAnnotation=(CustomMapAnnotationView*)view;
+        NSLog(@"Tag = %d",customAnnotation.tag);
+        if (annotationViewController.isCallOutOpen) {
+            UIView *vw=annotationViewController.view;
+            annotationViewController.isCallOutOpen=NO;
+            [vw removeFromSuperview];
+        }else{
+            ModelUser *obj=[allUser objectAtIndex:customAnnotation.tag];
+            annotationViewController.lblUserName.text=obj.strUserName;
+            annotationViewController.lblUserCountry.text=obj.strCountryName;
+            UIView *vw=annotationViewController.view;
+            vw.frame=CGRectMake(-10, -view.frame.size.height/2-100, 300, 100);
+            annotationViewController.isCallOutOpen=YES;
+            [view addSubview:vw];
+        }
+    }
 }
 #pragma mark
 #pragma mark AlertView Delegate Method
@@ -202,14 +227,24 @@ NSUserDefaults *pref;
                 NSDictionary *dict=(NSDictionary*)result;
                 user=[dict objectForKey:@"User"];
                 allUser=[dict objectForKey:@"AllUser"];
+                [self updateWorldMapWithWebserViceResult:allUser];
             }
         }
     }];
 }
 
--(void)updateWorldMapWithWebserViceResult
+-(void)updateWorldMapWithWebserViceResult:(NSMutableArray*)arrAllUsers
 {
-    
+    int i=0;
+    for (ModelUser *obj in arrAllUsers) {
+        
+        CustomMapAnnotationView *annotation=[[CustomMapAnnotationView alloc] initWithCoordinate:CLLocationCoordinate2DMake( [obj.strLastName floatValue], [obj.strLongitude floatValue])];
+        annotation.tag=i++;
+        [arrAnnotations addObject:annotation];
+        
+    }
+    [wrldMapView addAnnotations:arrAnnotations];
+    [wrldMapView reloadInputViews];
 }
 
 

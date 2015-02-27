@@ -11,6 +11,9 @@
 		20119DD71A97258C00EC0111 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20119DD51A97258C00EC0111 /* FacebookSDK.framework */; };
 		201A5E5F1A95DBCF0052E53B /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 201A5E5E1A95DBCF0052E53B /* BaseViewController.m */; };
 		201A5E661A95F3B90052E53B /* CustomLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 201A5E651A95F3B90052E53B /* CustomLocationManager.m */; };
+		20224D621AA0A8CD00DE7B85 /* CustomMapAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20224D601AA0A8CD00DE7B85 /* CustomMapAnnotationView.m */; };
+		20224D671AA0A97E00DE7B85 /* AnnotationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20224D661AA0A97E00DE7B85 /* AnnotationViewController.m */; };
+		20224D691AA0A9AD00DE7B85 /* AnnotationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20224D681AA0A9AD00DE7B85 /* AnnotationViewController.xib */; };
 		20BAC3981A94A87B00E895FE /* DataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BAC3971A94A87B00E895FE /* DataClass.m */; };
 		20BAC3B71A94A88400E895FE /* NSDateFormatter+STTwitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BAC39B1A94A88400E895FE /* NSDateFormatter+STTwitter.m */; };
 		20BAC3B81A94A88400E895FE /* NSError+STTwitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BAC39D1A94A88400E895FE /* NSError+STTwitter.m */; };
@@ -68,6 +71,7 @@
 		20BAC4371A94BE2C00E895FE /* ModelUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BAC4361A94BE2C00E895FE /* ModelUser.m */; };
 		20BC8C5D1A970C7200F154BA /* SlideMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BC8C5C1A970C7200F154BA /* SlideMenuTableViewCell.m */; };
 		20BC8C5F1A970C8500F154BA /* SlideMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20BC8C5E1A970C8500F154BA /* SlideMenuTableViewCell.xib */; };
+		20BCD3991A9E1A9E0062DFE2 /* close_temp.png in Resources */ = {isa = PBXBuildFile; fileRef = 20BCD3981A9E1A9E0062DFE2 /* close_temp.png */; };
 		20C8AE471A9CBF870013DF20 /* CustomAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 20C8AE461A9CBF870013DF20 /* CustomAnnotation.m */; };
 		CD104B6E1A41DC1E0051BABF /* step_content_bg_iphn4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD104B691A41DC1E0051BABF /* step_content_bg_iphn4@2x.png */; };
 		CD104B6F1A41DC1E0051BABF /* step_next_iphn4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD104B6A1A41DC1E0051BABF /* step_next_iphn4@2x.png */; };
@@ -255,6 +259,11 @@
 		201A5E641A95F3B90052E53B /* CustomLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomLocationManager.h; path = CustomDelegate/CustomLocationManager.h; sourceTree = "<group>"; };
 		201A5E651A95F3B90052E53B /* CustomLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomLocationManager.m; path = CustomDelegate/CustomLocationManager.m; sourceTree = "<group>"; };
 		201A5E691A96132C0052E53B /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = Constant/Constants.h; sourceTree = "<group>"; };
+		20224D5F1AA0A8CD00DE7B85 /* CustomMapAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomMapAnnotationView.h; sourceTree = "<group>"; };
+		20224D601AA0A8CD00DE7B85 /* CustomMapAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomMapAnnotationView.m; sourceTree = "<group>"; };
+		20224D651AA0A97E00DE7B85 /* AnnotationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnnotationViewController.h; path = AnnotationViewController/AnnotationViewController.h; sourceTree = "<group>"; };
+		20224D661AA0A97E00DE7B85 /* AnnotationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AnnotationViewController.m; path = AnnotationViewController/AnnotationViewController.m; sourceTree = "<group>"; };
+		20224D681AA0A9AD00DE7B85 /* AnnotationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AnnotationViewController.xib; path = AnnotationViewController/AnnotationViewController.xib; sourceTree = "<group>"; };
 		20BAC3961A94A87B00E895FE /* DataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataClass.h; sourceTree = "<group>"; };
 		20BAC3971A94A87B00E895FE /* DataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataClass.m; sourceTree = "<group>"; };
 		20BAC39A1A94A88400E895FE /* NSDateFormatter+STTwitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+STTwitter.h"; sourceTree = "<group>"; };
@@ -350,6 +359,7 @@
 		20BC8C5B1A970C7200F154BA /* SlideMenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlideMenuTableViewCell.h; path = TableViewCell/SlideMenuTableViewCell.h; sourceTree = "<group>"; };
 		20BC8C5C1A970C7200F154BA /* SlideMenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SlideMenuTableViewCell.m; path = TableViewCell/SlideMenuTableViewCell.m; sourceTree = "<group>"; };
 		20BC8C5E1A970C8500F154BA /* SlideMenuTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SlideMenuTableViewCell.xib; path = TableViewCell/SlideMenuTableViewCell.xib; sourceTree = "<group>"; };
+		20BCD3981A9E1A9E0062DFE2 /* close_temp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close_temp.png; sourceTree = "<group>"; };
 		20C8AE451A9CBF870013DF20 /* CustomAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomAnnotation.h; path = CustomDelegate/CustomAnnotation.h; sourceTree = "<group>"; };
 		20C8AE461A9CBF870013DF20 /* CustomAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomAnnotation.m; path = CustomDelegate/CustomAnnotation.m; sourceTree = "<group>"; };
 		CD104B691A41DC1E0051BABF /* step_content_bg_iphn4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "step_content_bg_iphn4@2x.png"; sourceTree = "<group>"; };
@@ -729,6 +739,25 @@
 			name = Constants;
 			sourceTree = "<group>";
 		};
+		20224D5E1AA0A8CD00DE7B85 /* CustomMapAnnotation */ = {
+			isa = PBXGroup;
+			children = (
+				20224D5F1AA0A8CD00DE7B85 /* CustomMapAnnotationView.h */,
+				20224D601AA0A8CD00DE7B85 /* CustomMapAnnotationView.m */,
+			);
+			path = CustomMapAnnotation;
+			sourceTree = "<group>";
+		};
+		20224D641AA0A8DD00DE7B85 /* AnnonationView */ = {
+			isa = PBXGroup;
+			children = (
+				20224D651AA0A97E00DE7B85 /* AnnotationViewController.h */,
+				20224D661AA0A97E00DE7B85 /* AnnotationViewController.m */,
+				20224D681AA0A9AD00DE7B85 /* AnnotationViewController.xib */,
+			);
+			name = AnnonationView;
+			sourceTree = "<group>";
+		};
 		20BAC3941A94A75800E895FE /* Group For View */ = {
 			isa = PBXGroup;
 			children = (
@@ -880,6 +909,13 @@
 			path = ModelBaseClass;
 			sourceTree = "<group>";
 		};
+		20BCD3921A9E17470062DFE2 /* MapAnnotationView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = MapAnnotationView;
+			sourceTree = "<group>";
+		};
 		CD104B681A41DC1E0051BABF /* step */ = {
 			isa = PBXGroup;
 			children = (
@@ -931,6 +967,9 @@
 				CD79B1801A3F34F200AFD912 /* 120x120.png */,
 				D6F25AEF1A6550FD00ACE653 /* Guilds.h */,
 				D6F25AF01A6550FD00ACE653 /* Guilds.m */,
+				20224D641AA0A8DD00DE7B85 /* AnnonationView */,
+				20224D5E1AA0A8CD00DE7B85 /* CustomMapAnnotation */,
+				20BCD3921A9E17470062DFE2 /* MapAnnotationView */,
 				201A5E671A9611790052E53B /* Constants */,
 				201A5E631A95F3890052E53B /* CustomDelegate */,
 				20BAC42A1A94A8E900E895FE /* Model */,
@@ -1001,6 +1040,7 @@
 		CD79B1691A3F31EA00AFD912 /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				20BCD3981A9E1A9E0062DFE2 /* close_temp.png */,
 				D63CB1FC1A89FBB400049F58 /* location_icon.png */,
 				D63CB1FD1A89FBB400049F58 /* whi_point.png */,
 				D63CB1FA1A89FBA800049F58 /* blue_point.png */,
@@ -1370,6 +1410,7 @@
 				CD989EEE1A41CF84005D0380 /* step_one_pro_iphn6@2x.png in Resources */,
 				20BAC40E1A94A8B100E895FE /* LandingViewController.xib in Resources */,
 				CDE1C2001A49C9ED00287F9F /* three_star_iphn6@2x.png in Resources */,
+				20BCD3991A9E1A9E0062DFE2 /* close_temp.png in Resources */,
 				CD989EDA1A41B8AC005D0380 /* male_normal_iphn4@2x.png in Resources */,
 				CD79B1821A3F34F200AFD912 /* 80x80.png in Resources */,
 				CDA080D31A42E3C50056BA7F /* smenu_settings_normal_iphn6@2x.png in Resources */,
@@ -1387,6 +1428,7 @@
 				CD5D93C01A4877E700D5E788 /* image6.png in Resources */,
 				CDA080ED1A42F1E60056BA7F /* smenu_guild_normal_iphn4@2x.png in Resources */,
 				CD54C8C11A41A40D00BB9AD6 /* male_normal_iphn6@2x.png in Resources */,
+				20224D691AA0A9AD00DE7B85 /* AnnotationViewController.xib in Resources */,
 				CD5503911A4304990082C805 /* step_two_content_bg_iphn4@2x.png in Resources */,
 				CD8AFBF61A4187C80090F545 /* register_content_bg_iphn6@2x.png in Resources */,
 				D63CB1FE1A89FBB400049F58 /* location_icon.png in Resources */,
@@ -1548,6 +1590,7 @@
 				20BC8C5D1A970C7200F154BA /* SlideMenuTableViewCell.m in Sources */,
 				20BAC3BA1A94A88400E895FE /* STHTTPRequest+STTwitter.m in Sources */,
 				20BAC41B1A94A8B100E895FE /* StepOneViewController.m in Sources */,
+				20224D621AA0A8CD00DE7B85 /* CustomMapAnnotationView.m in Sources */,
 				20BAC4201A94A8B100E895FE /* TournamentDetailsViewController.m in Sources */,
 				20BAC4341A94BE1C00E895FE /* ModelBaseClass.m in Sources */,
 				CD79B1401A3F1DB800AFD912 /* AppDelegate.m in Sources */,
@@ -1555,6 +1598,7 @@
 				20BAC4311A94A92400E895FE /* WebService.m in Sources */,
 				20BAC41D1A94A8B100E895FE /* StepTwoViewController.m in Sources */,
 				20BAC3C31A94A88400E895FE /* STHTTPRequest.m in Sources */,
+				20224D671AA0A97E00DE7B85 /* AnnotationViewController.m in Sources */,
 				20BAC3C91A94A89200E895FE /* TournamentDetailsTableViewCell.m in Sources */,
 				20BAC40D1A94A8B100E895FE /* LandingViewController.m in Sources */,
 				20BAC3BD1A94A88400E895FE /* STTwitterHTML.m in Sources */,

@@ -14,8 +14,8 @@
 #import "AnnotationViewController.h"
 
 
-#define MileConversionParameter 0.621371192
-
+//#define MileConversionParameter 0.621371192
+//
 NSUserDefaults *pref;
 
 @interface WorldMapViewController ()<MKMapViewDelegate,CLLocationManagerDelegate,UIAlertViewDelegate>
@@ -48,7 +48,7 @@ NSUserDefaults *pref;
     // Do any additional setup after loading the view from its nib.
     
    _offset = 50;
-    distancePerMile = 5.0*MileConversionParameter*1000;
+    distancePerMile = 5*1609.344;
     
     //wrldMapView.delegate=nil;
     arrAnnotations=[[NSMutableArray alloc] init];
@@ -111,8 +111,8 @@ NSUserDefaults *pref;
              double miles = 5.0;
              double scalingFactor = ABS( (cos(2 * M_PI * region.center.latitude / 360.0) ));
              MKCoordinateSpan span;
-             span.latitudeDelta = miles/69.0;
-             span.longitudeDelta = miles/(scalingFactor * 69.0);
+             span.latitudeDelta = miles/27;
+             span.longitudeDelta = miles/(scalingFactor * 27);
              region.span = span;
              [wrldMapView regionThatFits:region];
              [wrldMapView setRegion:region animated:YES];

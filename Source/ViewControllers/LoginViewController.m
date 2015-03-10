@@ -11,6 +11,7 @@
 #import "LandingViewController.h"
 #import "Context.h"
 #import "DataClass.h"
+#import "ForgetPasswordViewController.h"
 
 
 NSUserDefaults *pref;
@@ -23,7 +24,6 @@ NSUserDefaults *pref;
     IBOutlet UIView *lgncontentView;
     IBOutlet UILabel *navTitle;
     IBOutlet NSLayoutConstraint * logContentViewVerticalyCenter;
-    
 }
 
 @end
@@ -67,8 +67,8 @@ NSUserDefaults *pref;
     userNameTextField.textColor = color;
     passwordTextField.textColor = color;
     
-    userNameTextField.text = @"usermap1";
-    passwordTextField.text = @"password123";
+    userNameTextField.text = @"user";
+    passwordTextField.text = @"Password123";
     
 
 }
@@ -159,6 +159,8 @@ NSUserDefaults *pref;
             alert.tag=1;
             [alert show];
         }
+        [self.activityIndicatorView stopAnimating];
+        [self.view setUserInteractionEnabled:YES];
     }];
 }
 
@@ -169,6 +171,16 @@ NSUserDefaults *pref;
 -(IBAction)loginButtonTapped:(id)sender
 {
     [self startLocationManager];
+    [self.activityIndicatorView startAnimating];
+    [self.view setUserInteractionEnabled:NO];
+}
+
+-(IBAction)btnForgetPasswordTapped:(id)sender
+{
+    ForgetPasswordViewController *master=[[ForgetPasswordViewController alloc] initWithNibName:@"ForgetPasswordViewController" bundle:nil];
+    [self presentViewController:master animated:YES completion:^{
+        
+    }];
 }
 
 -(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex

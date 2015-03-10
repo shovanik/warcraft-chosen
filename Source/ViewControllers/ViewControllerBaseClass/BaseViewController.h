@@ -7,15 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
 
+#import "DeviceConstant.h"
 #import "Constants.h"
 
 #import "WebService.h"
 
 #import "ModelUser.h"
+#import "ModelPrivacyPolicy.h"
+#import "ModelTerms.h"
+#import "ModelAboutUs.h"
 
 
 @interface BaseViewController : UIViewController
+
+@property(strong,nonatomic) IBOutlet UIActivityIndicatorView *activityIndicatorView;
 
 @property(assign,nonatomic) BOOL isSlidemenuOpen;
 

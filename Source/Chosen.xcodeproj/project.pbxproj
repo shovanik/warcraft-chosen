@@ -14,6 +14,9 @@
 		20224D621AA0A8CD00DE7B85 /* CustomMapAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20224D601AA0A8CD00DE7B85 /* CustomMapAnnotationView.m */; };
 		20224D671AA0A97E00DE7B85 /* AnnotationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20224D661AA0A97E00DE7B85 /* AnnotationViewController.m */; };
 		20224D691AA0A9AD00DE7B85 /* AnnotationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20224D681AA0A9AD00DE7B85 /* AnnotationViewController.xib */; };
+		203439A41AA49C3D00D1205D /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 203439A31AA49C3D00D1205D /* Fabric.framework */; };
+		2071B9DA1AA993DE00D5D261 /* CustomUITextFieldType1.m in Sources */ = {isa = PBXBuildFile; fileRef = 2071B9D91AA993DE00D5D261 /* CustomUITextFieldType1.m */; };
+		20B9ECE71AA4B1B400400626 /* ModelAvtarImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 20B9ECE61AA4B1B400400626 /* ModelAvtarImage.m */; };
 		20BAC3981A94A87B00E895FE /* DataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BAC3971A94A87B00E895FE /* DataClass.m */; };
 		20BAC3B71A94A88400E895FE /* NSDateFormatter+STTwitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BAC39B1A94A88400E895FE /* NSDateFormatter+STTwitter.m */; };
 		20BAC3B81A94A88400E895FE /* NSError+STTwitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BAC39D1A94A88400E895FE /* NSError+STTwitter.m */; };
@@ -73,6 +76,35 @@
 		20BC8C5F1A970C8500F154BA /* SlideMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20BC8C5E1A970C8500F154BA /* SlideMenuTableViewCell.xib */; };
 		20BCD3991A9E1A9E0062DFE2 /* close_temp.png in Resources */ = {isa = PBXBuildFile; fileRef = 20BCD3981A9E1A9E0062DFE2 /* close_temp.png */; };
 		20C8AE471A9CBF870013DF20 /* CustomAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 20C8AE461A9CBF870013DF20 /* CustomAnnotation.m */; };
+		20D4BC2A1AA6E753004EB2AD /* ModelPrivacyPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D4BC291AA6E753004EB2AD /* ModelPrivacyPolicy.m */; };
+		20D4BC2D1AA6EC13004EB2AD /* ModelAboutUs.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D4BC2C1AA6EC13004EB2AD /* ModelAboutUs.m */; };
+		20D4BC301AA6EEC4004EB2AD /* ModelTerms.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D4BC2F1AA6EEC4004EB2AD /* ModelTerms.m */; };
+		20D4BC351AA71DE4004EB2AD /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D4BC331AA71DE4004EB2AD /* AboutUsViewController.m */; };
+		20D4BC361AA71DE4004EB2AD /* AboutUsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20D4BC341AA71DE4004EB2AD /* AboutUsViewController.xib */; };
+		20D4BC3B1AA72E4A004EB2AD /* MyProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D4BC391AA72E4A004EB2AD /* MyProfileViewController.m */; };
+		20D4BC3C1AA72E4A004EB2AD /* MyProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20D4BC3A1AA72E4A004EB2AD /* MyProfileViewController.xib */; };
+		20D4BC3E1AA74051004EB2AD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20D4BC3D1AA74051004EB2AD /* QuartzCore.framework */; };
+		20D4BC421AA74326004EB2AD /* CustomImageViewType1.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D4BC411AA74326004EB2AD /* CustomImageViewType1.m */; };
+		20D4BC461AA74665004EB2AD /* Avatar_pic.png in Resources */ = {isa = PBXBuildFile; fileRef = 20D4BC431AA74665004EB2AD /* Avatar_pic.png */; };
+		20D4BC471AA74665004EB2AD /* Change-Avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = 20D4BC441AA74665004EB2AD /* Change-Avatar.png */; };
+		20D4BC481AA74665004EB2AD /* edit_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 20D4BC451AA74665004EB2AD /* edit_icon.png */; };
+		20D4BC4C1AA75087004EB2AD /* avatar_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 20D4BC491AA75087004EB2AD /* avatar_1.png */; };
+		20D4BC4D1AA75087004EB2AD /* avatar_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 20D4BC4A1AA75087004EB2AD /* avatar_2.png */; };
+		20D4BC4E1AA75087004EB2AD /* avatar_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 20D4BC4B1AA75087004EB2AD /* avatar_3.png */; };
+		20D4BC521AA750C2004EB2AD /* AvatarSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D4BC501AA750C2004EB2AD /* AvatarSelectionViewController.m */; };
+		20D4BC531AA750C2004EB2AD /* AvatarSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20D4BC511AA750C2004EB2AD /* AvatarSelectionViewController.xib */; };
+		20D4BC5C1AA76362004EB2AD /* UserDetailsChangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D4BC5A1AA76362004EB2AD /* UserDetailsChangeViewController.m */; };
+		20D4BC5D1AA76362004EB2AD /* UserDetailsChangeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20D4BC5B1AA76362004EB2AD /* UserDetailsChangeViewController.xib */; };
+		20D4BC611AA7637D004EB2AD /* UserLocationChangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D4BC5F1AA7637D004EB2AD /* UserLocationChangeViewController.m */; };
+		20D4BC621AA7637D004EB2AD /* UserLocationChangeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20D4BC601AA7637D004EB2AD /* UserLocationChangeViewController.xib */; };
+		20D4BC661AA76392004EB2AD /* UserPasswordChangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D4BC641AA76392004EB2AD /* UserPasswordChangeViewController.m */; };
+		20D4BC671AA76392004EB2AD /* UserPasswordChangeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20D4BC651AA76392004EB2AD /* UserPasswordChangeViewController.xib */; };
+		20F5F4C41AAA114200E34D8B /* ForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20F5F4C21AAA114200E34D8B /* ForgetPasswordViewController.m */; };
+		20F5F4C51AAA114200E34D8B /* ForgetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20F5F4C31AAA114200E34D8B /* ForgetPasswordViewController.xib */; };
+		20F782B81AA5DFD900057954 /* UpdateProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20F782B61AA5DFD900057954 /* UpdateProfileViewController.m */; };
+		20F782B91AA5DFD900057954 /* UpdateProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20F782B71AA5DFD900057954 /* UpdateProfileViewController.xib */; };
+		20FF4A661AA9CD5C00A1B252 /* CustomDatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20FF4A641AA9CD5C00A1B252 /* CustomDatePickerViewController.m */; };
+		20FF4A671AA9CD5C00A1B252 /* CustomDatePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20FF4A651AA9CD5C00A1B252 /* CustomDatePickerViewController.xib */; };
 		CD104B6E1A41DC1E0051BABF /* step_content_bg_iphn4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD104B691A41DC1E0051BABF /* step_content_bg_iphn4@2x.png */; };
 		CD104B6F1A41DC1E0051BABF /* step_next_iphn4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD104B6A1A41DC1E0051BABF /* step_next_iphn4@2x.png */; };
 		CD104B701A41DC1E0051BABF /* step_one_pro_iphn4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD104B6B1A41DC1E0051BABF /* step_one_pro_iphn4@2x.png */; };
@@ -252,8 +284,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		20119DD41A97258C00EC0111 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
-		20119DD51A97258C00EC0111 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		20119DD41A97258C00EC0111 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = FacebookSDK/Bolts.framework; sourceTree = "<group>"; };
+		20119DD51A97258C00EC0111 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		201A5E5D1A95DBCF0052E53B /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseViewController.h; path = ViewControllerBaseClass/BaseViewController.h; sourceTree = "<group>"; };
 		201A5E5E1A95DBCF0052E53B /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseViewController.m; path = ViewControllerBaseClass/BaseViewController.m; sourceTree = "<group>"; };
 		201A5E641A95F3B90052E53B /* CustomLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomLocationManager.h; path = CustomDelegate/CustomLocationManager.h; sourceTree = "<group>"; };
@@ -264,6 +296,12 @@
 		20224D651AA0A97E00DE7B85 /* AnnotationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnnotationViewController.h; path = AnnotationViewController/AnnotationViewController.h; sourceTree = "<group>"; };
 		20224D661AA0A97E00DE7B85 /* AnnotationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AnnotationViewController.m; path = AnnotationViewController/AnnotationViewController.m; sourceTree = "<group>"; };
 		20224D681AA0A9AD00DE7B85 /* AnnotationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AnnotationViewController.xib; path = AnnotationViewController/AnnotationViewController.xib; sourceTree = "<group>"; };
+		203439A31AA49C3D00D1205D /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		206DDDC81AA44EB5000E84C4 /* DeviceConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DeviceConstant.h; path = Constant/DeviceConstant.h; sourceTree = "<group>"; };
+		2071B9D81AA993DE00D5D261 /* CustomUITextFieldType1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomUITextFieldType1.h; path = CustomControl/CustomUITextFieldType1.h; sourceTree = "<group>"; };
+		2071B9D91AA993DE00D5D261 /* CustomUITextFieldType1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomUITextFieldType1.m; path = CustomControl/CustomUITextFieldType1.m; sourceTree = "<group>"; };
+		20B9ECE51AA4B1B400400626 /* ModelAvtarImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelAvtarImage.h; sourceTree = "<group>"; };
+		20B9ECE61AA4B1B400400626 /* ModelAvtarImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelAvtarImage.m; sourceTree = "<group>"; };
 		20BAC3961A94A87B00E895FE /* DataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataClass.h; sourceTree = "<group>"; };
 		20BAC3971A94A87B00E895FE /* DataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataClass.m; sourceTree = "<group>"; };
 		20BAC39A1A94A88400E895FE /* NSDateFormatter+STTwitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+STTwitter.h"; sourceTree = "<group>"; };
@@ -362,6 +400,48 @@
 		20BCD3981A9E1A9E0062DFE2 /* close_temp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close_temp.png; sourceTree = "<group>"; };
 		20C8AE451A9CBF870013DF20 /* CustomAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomAnnotation.h; path = CustomDelegate/CustomAnnotation.h; sourceTree = "<group>"; };
 		20C8AE461A9CBF870013DF20 /* CustomAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomAnnotation.m; path = CustomDelegate/CustomAnnotation.m; sourceTree = "<group>"; };
+		20D4BC281AA6E753004EB2AD /* ModelPrivacyPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelPrivacyPolicy.h; sourceTree = "<group>"; };
+		20D4BC291AA6E753004EB2AD /* ModelPrivacyPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelPrivacyPolicy.m; sourceTree = "<group>"; };
+		20D4BC2B1AA6EC13004EB2AD /* ModelAboutUs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelAboutUs.h; sourceTree = "<group>"; };
+		20D4BC2C1AA6EC13004EB2AD /* ModelAboutUs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelAboutUs.m; sourceTree = "<group>"; };
+		20D4BC2E1AA6EEC4004EB2AD /* ModelTerms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelTerms.h; sourceTree = "<group>"; };
+		20D4BC2F1AA6EEC4004EB2AD /* ModelTerms.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelTerms.m; sourceTree = "<group>"; };
+		20D4BC321AA71DE4004EB2AD /* AboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutUsViewController.h; sourceTree = "<group>"; };
+		20D4BC331AA71DE4004EB2AD /* AboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutUsViewController.m; sourceTree = "<group>"; };
+		20D4BC341AA71DE4004EB2AD /* AboutUsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutUsViewController.xib; sourceTree = "<group>"; };
+		20D4BC381AA72E4A004EB2AD /* MyProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyProfileViewController.h; sourceTree = "<group>"; };
+		20D4BC391AA72E4A004EB2AD /* MyProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyProfileViewController.m; sourceTree = "<group>"; };
+		20D4BC3A1AA72E4A004EB2AD /* MyProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyProfileViewController.xib; sourceTree = "<group>"; };
+		20D4BC3D1AA74051004EB2AD /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		20D4BC401AA74326004EB2AD /* CustomImageViewType1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomImageViewType1.h; path = CustomControl/CustomImageViewType1.h; sourceTree = "<group>"; };
+		20D4BC411AA74326004EB2AD /* CustomImageViewType1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomImageViewType1.m; path = CustomControl/CustomImageViewType1.m; sourceTree = "<group>"; };
+		20D4BC431AA74665004EB2AD /* Avatar_pic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Avatar_pic.png; path = ../../ViewControllers/Avatar_pic.png; sourceTree = "<group>"; };
+		20D4BC441AA74665004EB2AD /* Change-Avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Change-Avatar.png"; path = "../../ViewControllers/Change-Avatar.png"; sourceTree = "<group>"; };
+		20D4BC451AA74665004EB2AD /* edit_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = edit_icon.png; path = ../../ViewControllers/edit_icon.png; sourceTree = "<group>"; };
+		20D4BC491AA75087004EB2AD /* avatar_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = avatar_1.png; path = ../../ViewControllers/avatar_1.png; sourceTree = "<group>"; };
+		20D4BC4A1AA75087004EB2AD /* avatar_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = avatar_2.png; path = ../../ViewControllers/avatar_2.png; sourceTree = "<group>"; };
+		20D4BC4B1AA75087004EB2AD /* avatar_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = avatar_3.png; path = ../../ViewControllers/avatar_3.png; sourceTree = "<group>"; };
+		20D4BC4F1AA750C2004EB2AD /* AvatarSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AvatarSelectionViewController.h; path = CustomDelegate/AvatarSelectionViewController.h; sourceTree = SOURCE_ROOT; };
+		20D4BC501AA750C2004EB2AD /* AvatarSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AvatarSelectionViewController.m; path = CustomDelegate/AvatarSelectionViewController.m; sourceTree = SOURCE_ROOT; };
+		20D4BC511AA750C2004EB2AD /* AvatarSelectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AvatarSelectionViewController.xib; path = CustomDelegate/AvatarSelectionViewController.xib; sourceTree = SOURCE_ROOT; };
+		20D4BC591AA76362004EB2AD /* UserDetailsChangeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserDetailsChangeViewController.h; path = CustomDelegate/UserDetailsChangeViewController.h; sourceTree = "<group>"; };
+		20D4BC5A1AA76362004EB2AD /* UserDetailsChangeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserDetailsChangeViewController.m; path = CustomDelegate/UserDetailsChangeViewController.m; sourceTree = "<group>"; };
+		20D4BC5B1AA76362004EB2AD /* UserDetailsChangeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserDetailsChangeViewController.xib; path = CustomDelegate/UserDetailsChangeViewController.xib; sourceTree = "<group>"; };
+		20D4BC5E1AA7637D004EB2AD /* UserLocationChangeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserLocationChangeViewController.h; path = CustomDelegate/UserLocationChangeViewController.h; sourceTree = "<group>"; };
+		20D4BC5F1AA7637D004EB2AD /* UserLocationChangeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserLocationChangeViewController.m; path = CustomDelegate/UserLocationChangeViewController.m; sourceTree = "<group>"; };
+		20D4BC601AA7637D004EB2AD /* UserLocationChangeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserLocationChangeViewController.xib; path = CustomDelegate/UserLocationChangeViewController.xib; sourceTree = "<group>"; };
+		20D4BC631AA76392004EB2AD /* UserPasswordChangeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserPasswordChangeViewController.h; path = CustomDelegate/UserPasswordChangeViewController.h; sourceTree = "<group>"; };
+		20D4BC641AA76392004EB2AD /* UserPasswordChangeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserPasswordChangeViewController.m; path = CustomDelegate/UserPasswordChangeViewController.m; sourceTree = "<group>"; };
+		20D4BC651AA76392004EB2AD /* UserPasswordChangeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserPasswordChangeViewController.xib; path = CustomDelegate/UserPasswordChangeViewController.xib; sourceTree = "<group>"; };
+		20F5F4C11AAA114100E34D8B /* ForgetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ForgetPasswordViewController.h; path = CustomDelegate/ForgetPasswordViewController.h; sourceTree = "<group>"; };
+		20F5F4C21AAA114200E34D8B /* ForgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ForgetPasswordViewController.m; path = CustomDelegate/ForgetPasswordViewController.m; sourceTree = "<group>"; };
+		20F5F4C31AAA114200E34D8B /* ForgetPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ForgetPasswordViewController.xib; path = CustomDelegate/ForgetPasswordViewController.xib; sourceTree = "<group>"; };
+		20F782B51AA5DFD900057954 /* UpdateProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateProfileViewController.h; sourceTree = "<group>"; };
+		20F782B61AA5DFD900057954 /* UpdateProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateProfileViewController.m; sourceTree = "<group>"; };
+		20F782B71AA5DFD900057954 /* UpdateProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UpdateProfileViewController.xib; sourceTree = "<group>"; };
+		20FF4A631AA9CD5C00A1B252 /* CustomDatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomDatePickerViewController.h; path = CustomDelegate/CustomDatePickerViewController.h; sourceTree = "<group>"; };
+		20FF4A641AA9CD5C00A1B252 /* CustomDatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomDatePickerViewController.m; path = CustomDelegate/CustomDatePickerViewController.m; sourceTree = "<group>"; };
+		20FF4A651AA9CD5C00A1B252 /* CustomDatePickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CustomDatePickerViewController.xib; path = CustomDelegate/CustomDatePickerViewController.xib; sourceTree = "<group>"; };
 		CD104B691A41DC1E0051BABF /* step_content_bg_iphn4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "step_content_bg_iphn4@2x.png"; sourceTree = "<group>"; };
 		CD104B6A1A41DC1E0051BABF /* step_next_iphn4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "step_next_iphn4@2x.png"; sourceTree = "<group>"; };
 		CD104B6B1A41DC1E0051BABF /* step_one_pro_iphn4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "step_one_pro_iphn4@2x.png"; sourceTree = "<group>"; };
@@ -543,9 +623,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20D4BC3E1AA74051004EB2AD /* QuartzCore.framework in Frameworks */,
 				D699F1F11A88894F001FD64E /* MapKit.framework in Frameworks */,
 				D699F1EF1A88893C001FD64E /* CoreLocation.framework in Frameworks */,
 				D64322D31A79230B001F69E9 /* Social.framework in Frameworks */,
+				203439A41AA49C3D00D1205D /* Fabric.framework in Frameworks */,
 				D64322D21A792305001F69E9 /* Foundation.framework in Frameworks */,
 				D64322D11A7922FF001F69E9 /* Twitter.framework in Frameworks */,
 				D64322D01A7922F8001F69E9 /* UIKit.framework in Frameworks */,
@@ -571,15 +653,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		20119DD31A97258C00EC0111 /* FacebookSDK */ = {
-			isa = PBXGroup;
-			children = (
-				20119DD41A97258C00EC0111 /* Bolts.framework */,
-				20119DD51A97258C00EC0111 /* FacebookSDK.framework */,
-			);
-			path = FacebookSDK;
-			sourceTree = "<group>";
-		};
 		2012B15D1A9749A600E1EF3D /* Step1 */ = {
 			isa = PBXGroup;
 			children = (
@@ -727,6 +800,24 @@
 				201A5E651A95F3B90052E53B /* CustomLocationManager.m */,
 				20C8AE451A9CBF870013DF20 /* CustomAnnotation.h */,
 				20C8AE461A9CBF870013DF20 /* CustomAnnotation.m */,
+				20D4BC4F1AA750C2004EB2AD /* AvatarSelectionViewController.h */,
+				20D4BC501AA750C2004EB2AD /* AvatarSelectionViewController.m */,
+				20D4BC511AA750C2004EB2AD /* AvatarSelectionViewController.xib */,
+				20D4BC591AA76362004EB2AD /* UserDetailsChangeViewController.h */,
+				20D4BC5A1AA76362004EB2AD /* UserDetailsChangeViewController.m */,
+				20D4BC5B1AA76362004EB2AD /* UserDetailsChangeViewController.xib */,
+				20D4BC5E1AA7637D004EB2AD /* UserLocationChangeViewController.h */,
+				20D4BC5F1AA7637D004EB2AD /* UserLocationChangeViewController.m */,
+				20D4BC601AA7637D004EB2AD /* UserLocationChangeViewController.xib */,
+				20D4BC631AA76392004EB2AD /* UserPasswordChangeViewController.h */,
+				20D4BC641AA76392004EB2AD /* UserPasswordChangeViewController.m */,
+				20D4BC651AA76392004EB2AD /* UserPasswordChangeViewController.xib */,
+				20FF4A631AA9CD5C00A1B252 /* CustomDatePickerViewController.h */,
+				20FF4A641AA9CD5C00A1B252 /* CustomDatePickerViewController.m */,
+				20FF4A651AA9CD5C00A1B252 /* CustomDatePickerViewController.xib */,
+				20F5F4C11AAA114100E34D8B /* ForgetPasswordViewController.h */,
+				20F5F4C21AAA114200E34D8B /* ForgetPasswordViewController.m */,
+				20F5F4C31AAA114200E34D8B /* ForgetPasswordViewController.xib */,
 			);
 			name = CustomDelegate;
 			sourceTree = "<group>";
@@ -734,6 +825,7 @@
 		201A5E671A9611790052E53B /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				206DDDC81AA44EB5000E84C4 /* DeviceConstant.h */,
 				201A5E691A96132C0052E53B /* Constants.h */,
 			);
 			name = Constants;
@@ -758,13 +850,13 @@
 			name = AnnonationView;
 			sourceTree = "<group>";
 		};
-		20BAC3941A94A75800E895FE /* Group For View */ = {
+		20BAC3941A94A75800E895FE /* Storyboard & Launch Screen */ = {
 			isa = PBXGroup;
 			children = (
 				CD79B1441A3F1DB800AFD912 /* Main.storyboard */,
 				CD79B1491A3F1DB800AFD912 /* LaunchScreen.xib */,
 			);
-			name = "Group For View";
+			name = "Storyboard & Launch Screen";
 			path = Chosen;
 			sourceTree = "<group>";
 		};
@@ -855,6 +947,10 @@
 			isa = PBXGroup;
 			children = (
 				201A5E5C1A95DB9D0052E53B /* ViewControllerBaseClass */,
+				20D4BC371AA72E27004EB2AD /* MyProfileViewController */,
+				20D4BC311AA70DCE004EB2AD /* AboutUsViewController */,
+				20F782B41AA5DFC000057954 /* UpdateProfile */,
+				2012B1651A9760E600E1EF3D /* LandinViewController */,
 				201A5E601A95E5920052E53B /* Login */,
 				201A5E621A95E5A90052E53B /* Registration */,
 				2012B15D1A9749A600E1EF3D /* Step1 */,
@@ -862,7 +958,6 @@
 				2012B1631A9752BE00E1EF3D /* Guild */,
 				2012B1611A9749EC00E1EF3D /* WorldMap */,
 				2012B1661A9760F300E1EF3D /* AddTournament */,
-				2012B1651A9760E600E1EF3D /* LandinViewController */,
 				2012B1641A9760DB00E1EF3D /* SelectRadious */,
 				2012B1621A974FEE00E1EF3D /* Settings */,
 				2012B15F1A9749CE00E1EF3D /* TournamentDetails */,
@@ -896,6 +991,14 @@
 				20BAC42B1A94A8E900E895FE /* ModelBaseClass */,
 				20BAC4351A94BE2C00E895FE /* ModelUser.h */,
 				20BAC4361A94BE2C00E895FE /* ModelUser.m */,
+				20B9ECE51AA4B1B400400626 /* ModelAvtarImage.h */,
+				20B9ECE61AA4B1B400400626 /* ModelAvtarImage.m */,
+				20D4BC281AA6E753004EB2AD /* ModelPrivacyPolicy.h */,
+				20D4BC291AA6E753004EB2AD /* ModelPrivacyPolicy.m */,
+				20D4BC2B1AA6EC13004EB2AD /* ModelAboutUs.h */,
+				20D4BC2C1AA6EC13004EB2AD /* ModelAboutUs.m */,
+				20D4BC2E1AA6EEC4004EB2AD /* ModelTerms.h */,
+				20D4BC2F1AA6EEC4004EB2AD /* ModelTerms.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -914,6 +1017,47 @@
 			children = (
 			);
 			name = MapAnnotationView;
+			sourceTree = "<group>";
+		};
+		20D4BC311AA70DCE004EB2AD /* AboutUsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				20D4BC321AA71DE4004EB2AD /* AboutUsViewController.h */,
+				20D4BC331AA71DE4004EB2AD /* AboutUsViewController.m */,
+				20D4BC341AA71DE4004EB2AD /* AboutUsViewController.xib */,
+			);
+			name = AboutUsViewController;
+			sourceTree = "<group>";
+		};
+		20D4BC371AA72E27004EB2AD /* MyProfileViewController */ = {
+			isa = PBXGroup;
+			children = (
+				20D4BC381AA72E4A004EB2AD /* MyProfileViewController.h */,
+				20D4BC391AA72E4A004EB2AD /* MyProfileViewController.m */,
+				20D4BC3A1AA72E4A004EB2AD /* MyProfileViewController.xib */,
+			);
+			name = MyProfileViewController;
+			sourceTree = "<group>";
+		};
+		20D4BC3F1AA74303004EB2AD /* CustomControl */ = {
+			isa = PBXGroup;
+			children = (
+				20D4BC401AA74326004EB2AD /* CustomImageViewType1.h */,
+				20D4BC411AA74326004EB2AD /* CustomImageViewType1.m */,
+				2071B9D81AA993DE00D5D261 /* CustomUITextFieldType1.h */,
+				2071B9D91AA993DE00D5D261 /* CustomUITextFieldType1.m */,
+			);
+			name = CustomControl;
+			sourceTree = "<group>";
+		};
+		20F782B41AA5DFC000057954 /* UpdateProfile */ = {
+			isa = PBXGroup;
+			children = (
+				20F782B51AA5DFD900057954 /* UpdateProfileViewController.h */,
+				20F782B61AA5DFD900057954 /* UpdateProfileViewController.m */,
+				20F782B71AA5DFD900057954 /* UpdateProfileViewController.xib */,
+			);
+			name = UpdateProfile;
 			sourceTree = "<group>";
 		};
 		CD104B681A41DC1E0051BABF /* step */ = {
@@ -967,6 +1111,7 @@
 				CD79B1801A3F34F200AFD912 /* 120x120.png */,
 				D6F25AEF1A6550FD00ACE653 /* Guilds.h */,
 				D6F25AF01A6550FD00ACE653 /* Guilds.m */,
+				20D4BC3F1AA74303004EB2AD /* CustomControl */,
 				20224D641AA0A8DD00DE7B85 /* AnnonationView */,
 				20224D5E1AA0A8CD00DE7B85 /* CustomMapAnnotation */,
 				20BCD3921A9E17470062DFE2 /* MapAnnotationView */,
@@ -978,7 +1123,7 @@
 				20BAC3CC1A94A89900E895FE /* ThirdParty */,
 				20BAC3C41A94A89200E895FE /* TableViewCell */,
 				20BAC3951A94A87B00E895FE /* ApiCalling */,
-				20BAC3941A94A75800E895FE /* Group For View */,
+				20BAC3941A94A75800E895FE /* Storyboard & Launch Screen */,
 				20BAC3DA1A94A8B100E895FE /* ViewControllers */,
 				CD79B1391A3F1DB800AFD912 /* Chosen */,
 				D6ADAFB01A80F257003AD399 /* Images.xcassets */,
@@ -1040,6 +1185,12 @@
 		CD79B1691A3F31EA00AFD912 /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				20D4BC491AA75087004EB2AD /* avatar_1.png */,
+				20D4BC4A1AA75087004EB2AD /* avatar_2.png */,
+				20D4BC4B1AA75087004EB2AD /* avatar_3.png */,
+				20D4BC431AA74665004EB2AD /* Avatar_pic.png */,
+				20D4BC441AA74665004EB2AD /* Change-Avatar.png */,
+				20D4BC451AA74665004EB2AD /* edit_icon.png */,
 				20BCD3981A9E1A9E0062DFE2 /* close_temp.png */,
 				D63CB1FC1A89FBB400049F58 /* location_icon.png */,
 				D63CB1FD1A89FBB400049F58 /* whi_point.png */,
@@ -1283,7 +1434,10 @@
 		D64322C31A792198001F69E9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				20119DD31A97258C00EC0111 /* FacebookSDK */,
+				20D4BC3D1AA74051004EB2AD /* QuartzCore.framework */,
+				20119DD41A97258C00EC0111 /* Bolts.framework */,
+				20119DD51A97258C00EC0111 /* FacebookSDK.framework */,
+				203439A31AA49C3D00D1205D /* Fabric.framework */,
 				20BAC3991A94A88300E895FE /* STTwitter */,
 				D699F1F01A88894F001FD64E /* MapKit.framework */,
 				D699F1EE1A88893C001FD64E /* CoreLocation.framework */,
@@ -1312,6 +1466,7 @@
 				CD79B1331A3F1DB800AFD912 /* Sources */,
 				CD79B1341A3F1DB800AFD912 /* Frameworks */,
 				CD79B1351A3F1DB800AFD912 /* Resources */,
+				20596CA81AA496EF00F8237D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1389,7 +1544,9 @@
 				CDA080CA1A42E3C50056BA7F /* cpr_iphn6@2x.png in Resources */,
 				D6C44B4A1A666F6E00AFFB9B /* trm_details_mostKwin_logo_iphn6@2x.png in Resources */,
 				CDA080D61A42E3C50056BA7F /* smenu_tournament_selected_iphn6@2x.png in Resources */,
+				20D4BC471AA74665004EB2AD /* Change-Avatar.png in Resources */,
 				CDA080F11A42F1E60056BA7F /* smenu_propic_iphn4@2x.png in Resources */,
+				20D4BC4E1AA75087004EB2AD /* avatar_3.png in Resources */,
 				20BAC4251A94A8B100E895FE /* TournamentViewController_iPhone4.xib in Resources */,
 				D6C44B4D1A666F6E00AFFB9B /* trn_private_button_iphn6@2x.png in Resources */,
 				D6C44B7D1A6698C300AFFB9B /* addTrm_dropdown_titlebox_iphn4@2x.png in Resources */,
@@ -1415,6 +1572,7 @@
 				CD79B1821A3F34F200AFD912 /* 80x80.png in Resources */,
 				CDA080D31A42E3C50056BA7F /* smenu_settings_normal_iphn6@2x.png in Resources */,
 				CDA080CD1A42E3C50056BA7F /* smenu_details_bg_iphn6@2x.png in Resources */,
+				20D4BC361AA71DE4004EB2AD /* AboutUsViewController.xib in Resources */,
 				D6C44B491A666F6E00AFFB9B /* tournamentdetails_cellbg_iphn6@2x.png in Resources */,
 				CD104B711A41DC1E0051BABF /* step_skip_iphn4@2x.png in Resources */,
 				CDE1C2211A49D3D200287F9F /* mkw_iphn4@2x.png in Resources */,
@@ -1430,11 +1588,13 @@
 				CD54C8C11A41A40D00BB9AD6 /* male_normal_iphn6@2x.png in Resources */,
 				20224D691AA0A9AD00DE7B85 /* AnnotationViewController.xib in Resources */,
 				CD5503911A4304990082C805 /* step_two_content_bg_iphn4@2x.png in Resources */,
+				20D4BC3C1AA72E4A004EB2AD /* MyProfileViewController.xib in Resources */,
 				CD8AFBF61A4187C80090F545 /* register_content_bg_iphn6@2x.png in Resources */,
 				D63CB1FE1A89FBB400049F58 /* location_icon.png in Resources */,
 				D6C44B5A1A66746600AFFB9B /* trmDet_group_iphn4@2x.png in Resources */,
 				CD104B701A41DC1E0051BABF /* step_one_pro_iphn4@2x.png in Resources */,
 				CD104B6E1A41DC1E0051BABF /* step_content_bg_iphn4@2x.png in Resources */,
+				20D4BC531AA750C2004EB2AD /* AvatarSelectionViewController.xib in Resources */,
 				CDE1C20E1A49CAB000287F9F /* mkw_iphn6@2x.png in Resources */,
 				CDE1C21F1A49D3D200287F9F /* kfh_iphn4@2x.png in Resources */,
 				CD5D93BB1A4877E700D5E788 /* image1.png in Resources */,
@@ -1444,6 +1604,7 @@
 				CDA080E91A42F1E60056BA7F /* cpr_iphn4@2x.png in Resources */,
 				CDA080EA1A42F1E60056BA7F /* smenu_contract_normal_iph4@2x.png in Resources */,
 				CD8E033B1A40435D00112282 /* LunchImage@2x.png in Resources */,
+				20D4BC5D1AA76362004EB2AD /* UserDetailsChangeViewController.xib in Resources */,
 				D6C44B7C1A6698C300AFFB9B /* addTrm_dropdown_button_iphn4@2x.png in Resources */,
 				CDA080F41A42F1E60056BA7F /* smenu_tournament_normal_iphn4@2x.png in Resources */,
 				CD5D93BD1A4877E700D5E788 /* image3.png in Resources */,
@@ -1479,6 +1640,7 @@
 				CDA080CC1A42E3C50056BA7F /* smenu_contract_selected_iph6@2x.png in Resources */,
 				CD5503941A4305370082C805 /* steps2_back_button_iphn4@2x.png in Resources */,
 				CDE1C2271A49D3D200287F9F /* two_star_iphn4@2x.png in Resources */,
+				20D4BC621AA7637D004EB2AD /* UserLocationChangeViewController.xib in Resources */,
 				D6C44B871A66AA5000AFFB9B /* addTrm_dropdown_box_iphn6@2x.png in Resources */,
 				D6C44B641A66897500AFFB9B /* plus_icon_iphn4@2x.png in Resources */,
 				CDA080F31A42F1E60056BA7F /* smenu_settings_selected_iphn4@2x.png in Resources */,
@@ -1488,20 +1650,24 @@
 				CD989EF21A41D6C9005D0380 /* GARABD.TTF in Resources */,
 				CDA080EB1A42F1E60056BA7F /* smenu_contract_selected_iph4@2x.png in Resources */,
 				D6C44B8A1A66AA5000AFFB9B /* addTrm_select_button_iphn6@2x.png in Resources */,
+				20D4BC481AA74665004EB2AD /* edit_icon.png in Resources */,
 				D6C44B5C1A66746600AFFB9B /* trmDet_plus_iphn4@2x.png in Resources */,
 				CD8AFBE61A417B480090F545 /* GARA.TTF in Resources */,
 				D6C44B3B1A66694B00AFFB9B /* LithosPro-Regular.ttf in Resources */,
 				CDA080CB1A42E3C50056BA7F /* smenu_contract_normal_iph6@2x.png in Resources */,
 				CD55039E1A43082F0082C805 /* steps2_back_button_iphn6@2x.png in Resources */,
 				CD8AFBF41A4187C80090F545 /* male_textfield_bg_iphn6@2x.png in Resources */,
+				20D4BC461AA74665004EB2AD /* Avatar_pic.png in Resources */,
 				D6C44B591A66746600AFFB9B /* trmDet_dolar_iphn4@2x.png in Resources */,
 				20BAC4141A94A8B100E895FE /* SelectRadiusViewController.xib in Resources */,
 				CD989EEC1A41CF84005D0380 /* step_content_bg_iphn6@2x.png in Resources */,
 				D6C44B961A66BAC300AFFB9B /* trn_radious_bg_iphn4@2x.png in Resources */,
+				20D4BC671AA76392004EB2AD /* UserPasswordChangeViewController.xib in Resources */,
 				20BAC41A1A94A8B100E895FE /* SlideOutMenuViewController_iPhone4.xib in Resources */,
 				D6C44BA11A66C75900AFFB9B /* trn_radious_loc_marker_iphn6@2x.png in Resources */,
 				D6C44B4E1A666F6E00AFFB9B /* trnDet_DolarIcon_iphn6@2.png in Resources */,
 				D6C44B481A666F6E00AFFB9B /* plus_icon_iphn6@2x.png in Resources */,
+				20D4BC4D1AA75087004EB2AD /* avatar_2.png in Resources */,
 				CD4EAD301A40878E00744695 /* login_bg-iphn4@2x.png in Resources */,
 				20BAC3CB1A94A89200E895FE /* TournamentDetailsTableViewCell_iphn4.xib in Resources */,
 				20BAC4091A94A8B100E895FE /* AddTournamentViewController.xib in Resources */,
@@ -1522,6 +1688,7 @@
 				CDE1C2101A49CAB000287F9F /* trn_nav_bg_iphn6@2x.png in Resources */,
 				CD989EED1A41CF84005D0380 /* step_next_iphn6@2x.png in Resources */,
 				CDA080B61A42C6B60056BA7F /* landing_screen_bg@2x.png in Resources */,
+				20F782B91AA5DFD900057954 /* UpdateProfileViewController.xib in Resources */,
 				CD989EEF1A41CF84005D0380 /* step_skip_iphn6@2x.png in Resources */,
 				CD5503971A4306420082C805 /* steps2_progress_bar_iphn4@2x.png in Resources */,
 				D63CB1FB1A89FBA800049F58 /* blue_point.png in Resources */,
@@ -1529,6 +1696,7 @@
 				CD55039A1A4306CF0082C805 /* step_two_content_bg_iphn6@2x.png in Resources */,
 				20BAC4121A94A8B100E895FE /* RegisterViewController.xib in Resources */,
 				CD989EDD1A41B8AC005D0380 /* register_content_bg_iphn4@2x.png in Resources */,
+				20D4BC4C1AA75087004EB2AD /* avatar_1.png in Resources */,
 				20BAC41E1A94A8B100E895FE /* StepTwoViewController.xib in Resources */,
 				CD79B1811A3F34F200AFD912 /* 58x58.png in Resources */,
 				20BAC3CA1A94A89200E895FE /* TournamentDetailsTableViewCell.xib in Resources */,
@@ -1542,12 +1710,14 @@
 				D6C44BA01A66C75900AFFB9B /* trn_radious_bg_iphn6@2x.png in Resources */,
 				CD79B1881A3F3D5000AFD912 /* Icon-60@2x.png in Resources */,
 				CDA080D41A42E3C50056BA7F /* smenu_settings_selected_iphn6@2x.png in Resources */,
+				20F5F4C51AAA114200E34D8B /* ForgetPasswordViewController.xib in Resources */,
 				20BAC4151A94A8B100E895FE /* SelectRadiusViewController_iPhone4.xib in Resources */,
 				CD5503951A4305370082C805 /* steps2_play_button_iphn4.png in Resources */,
 				CD54C8C31A41A40D00BB9AD6 /* male_selected_iphn6@2x.png in Resources */,
 				D6C44B891A66AA5000AFFB9B /* addTrm_dropdown_titlebox_iphn6@2x.png in Resources */,
 				CD8E03741A40658300112282 /* LunchImage_Iphn6@2x.png in Resources */,
 				CDA080D11A42E3C50056BA7F /* smenu_map_selected_iphn6@2x.png in Resources */,
+				20FF4A671AA9CD5C00A1B252 /* CustomDatePickerViewController.xib in Resources */,
 				D6ADAFB11A80F257003AD399 /* Images.xcassets in Resources */,
 				CD104B6F1A41DC1E0051BABF /* step_next_iphn4@2x.png in Resources */,
 				CDE1C2261A49D3D200287F9F /* trn_nav_bg_iphn4@2x.png in Resources */,
@@ -1566,6 +1736,22 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		20596CA81AA496EF00F8237D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run a3607a4b3f67601463fb3f8a94ac5c982c9d19ee 4ab370a665e17cd31ca2bfd4ab4453582c046c5e71c192ef581def826cb1ee13\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CD79B1331A3F1DB800AFD912 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -1573,11 +1759,16 @@
 			files = (
 				CD79B1431A3F1DB800AFD912 /* ViewController.m in Sources */,
 				20BAC3981A94A87B00E895FE /* DataClass.m in Sources */,
+				20F5F4C41AAA114200E34D8B /* ForgetPasswordViewController.m in Sources */,
+				20D4BC3B1AA72E4A004EB2AD /* MyProfileViewController.m in Sources */,
 				20BAC3B71A94A88400E895FE /* NSDateFormatter+STTwitter.m in Sources */,
 				20BAC3BB1A94A88400E895FE /* STTwitterAPI.m in Sources */,
+				20D4BC5C1AA76362004EB2AD /* UserDetailsChangeViewController.m in Sources */,
 				20BAC3C11A94A88400E895FE /* BAVPlistNode.m in Sources */,
 				20BAC40F1A94A8B100E895FE /* LoginViewController.m in Sources */,
 				20BAC42E1A94A90A00E895FE /* WebServiceBaseClass.m in Sources */,
+				20F782B81AA5DFD900057954 /* UpdateProfileViewController.m in Sources */,
+				20D4BC611AA7637D004EB2AD /* UserLocationChangeViewController.m in Sources */,
 				20BAC3B81A94A88400E895FE /* NSError+STTwitter.m in Sources */,
 				20BAC4231A94A8B100E895FE /* TournamentViewController.m in Sources */,
 				20BAC3D11A94A89900E895FE /* InfinitePagingView.m in Sources */,
@@ -1591,29 +1782,39 @@
 				20BAC3BA1A94A88400E895FE /* STHTTPRequest+STTwitter.m in Sources */,
 				20BAC41B1A94A8B100E895FE /* StepOneViewController.m in Sources */,
 				20224D621AA0A8CD00DE7B85 /* CustomMapAnnotationView.m in Sources */,
+				20B9ECE71AA4B1B400400626 /* ModelAvtarImage.m in Sources */,
 				20BAC4201A94A8B100E895FE /* TournamentDetailsViewController.m in Sources */,
 				20BAC4341A94BE1C00E895FE /* ModelBaseClass.m in Sources */,
 				CD79B1401A3F1DB800AFD912 /* AppDelegate.m in Sources */,
+				20D4BC521AA750C2004EB2AD /* AvatarSelectionViewController.m in Sources */,
 				20BAC4131A94A8B100E895FE /* SelectRadiusViewController.m in Sources */,
 				20BAC4311A94A92400E895FE /* WebService.m in Sources */,
 				20BAC41D1A94A8B100E895FE /* StepTwoViewController.m in Sources */,
 				20BAC3C31A94A88400E895FE /* STHTTPRequest.m in Sources */,
 				20224D671AA0A97E00DE7B85 /* AnnotationViewController.m in Sources */,
+				20D4BC421AA74326004EB2AD /* CustomImageViewType1.m in Sources */,
 				20BAC3C91A94A89200E895FE /* TournamentDetailsTableViewCell.m in Sources */,
 				20BAC40D1A94A8B100E895FE /* LandingViewController.m in Sources */,
 				20BAC3BD1A94A88400E895FE /* STTwitterHTML.m in Sources */,
 				20BAC3D91A94A89F00E895FE /* Reachability.m in Sources */,
+				20FF4A661AA9CD5C00A1B252 /* CustomDatePickerViewController.m in Sources */,
 				20BAC3D81A94A89F00E895FE /* Context.m in Sources */,
 				20BAC3BE1A94A88400E895FE /* STTwitterOAuth.m in Sources */,
 				20BAC4261A94A8B100E895FE /* WorldMapViewController.m in Sources */,
+				2071B9DA1AA993DE00D5D261 /* CustomUITextFieldType1.m in Sources */,
 				201A5E661A95F3B90052E53B /* CustomLocationManager.m in Sources */,
+				20D4BC351AA71DE4004EB2AD /* AboutUsViewController.m in Sources */,
 				20C8AE471A9CBF870013DF20 /* CustomAnnotation.m in Sources */,
 				20BAC3C21A94A88400E895FE /* JSONSyntaxHighlight.m in Sources */,
 				20BAC4081A94A8B100E895FE /* AddTournamentViewController.m in Sources */,
+				20D4BC301AA6EEC4004EB2AD /* ModelTerms.m in Sources */,
 				20BAC4181A94A8B100E895FE /* SlideOutMenuViewController.m in Sources */,
+				20D4BC2D1AA6EC13004EB2AD /* ModelAboutUs.m in Sources */,
 				CD79B13D1A3F1DB800AFD912 /* main.m in Sources */,
 				20BAC4161A94A8B100E895FE /* SettingsViewController.m in Sources */,
 				20BAC40B1A94A8B100E895FE /* GuildViewController.m in Sources */,
+				20D4BC2A1AA6E753004EB2AD /* ModelPrivacyPolicy.m in Sources */,
+				20D4BC661AA76392004EB2AD /* UserPasswordChangeViewController.m in Sources */,
 				D6F25AF11A6550FD00ACE653 /* Guilds.m in Sources */,
 				201A5E5F1A95DBCF0052E53B /* BaseViewController.m in Sources */,
 			);

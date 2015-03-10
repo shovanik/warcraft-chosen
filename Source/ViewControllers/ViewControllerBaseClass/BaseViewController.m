@@ -18,7 +18,7 @@
 {
     CustomLocationManager *locationManager;
     
-    IBOutlet UIView *sidePanelViewController;
+    //IBOutlet UIView *sidePanelViewController;
     
     
 }
@@ -34,6 +34,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+#pragma mark
+#pragma mark DateFormat String Initialization
+#pragma mark
+    strDateFormat=@"yyyy-MM-dd";
+#pragma mark
+#pragma mark DateFormatter Initialization
+#pragma mark
+    dateFormattter=[[NSDateFormatter alloc] init];
+    [dateFormattter setTimeZone:[NSTimeZone systemTimeZone]];
+    [dateFormattter setDateFormat:strDateFormat];
+#pragma mark
+#pragma mark Activity Indicator Initialization
+#pragma mark
+    
+    [self.activityIndicatorView setHidesWhenStopped:YES];
     
 #pragma mark
 #pragma mark Side Panel Initialization
@@ -49,11 +64,18 @@
     locationManager=[[CustomLocationManager alloc] init];
     locationManager.delegate=self;
     
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+-(BOOL)prefersStatusBarHidden
+{
+    return YES;
 }
 #pragma mark
 #pragma mark Common IBAction
@@ -131,21 +153,25 @@
 
 -(void)openSlideMenu
 {
-    UIWindow *window=[[UIApplication sharedApplication] keyWindow];
-    [UIView animateWithDuration:0.5 animations:^{
-        window.rootViewController.view.frame=CGRectMake(window.frame.size.width-50, 0, window.frame.size.width, window.frame.size.height);
-    } completion:^(BOOL finished) {
-        _isSlidemenuOpen=YES;
-    }];
+    if (!_isSlidemenuOpen) {
+        UIWindow *window=[[UIApplication sharedApplication] keyWindow];
+        [UIView animateWithDuration:0.5 animations:^{
+            window.rootViewController.view.frame=CGRectMake(window.frame.size.width-50, 0, window.frame.size.width, window.frame.size.height);
+        } completion:^(BOOL finished) {
+            _isSlidemenuOpen=YES;
+        }];
+    }
 }
 -(void)closeSlideMenu
 {
-    UIWindow *window=[[UIApplication sharedApplication] keyWindow];
-    [UIView animateWithDuration:0.5 animations:^{
-        window.rootViewController.view.frame=CGRectMake(0, 0, window.frame.size.width, window.frame.size.height);
-    } completion:^(BOOL finished) {
-        _isSlidemenuOpen=NO;
-    }];
+    if (_isSlidemenuOpen) {
+        UIWindow *window=[[UIApplication sharedApplication] keyWindow];
+        [UIView animateWithDuration:0.5 animations:^{
+            window.rootViewController.view.frame=CGRectMake(0, 0, window.frame.size.width, window.frame.size.height);
+        } completion:^(BOOL finished) {
+            _isSlidemenuOpen=NO;
+        }];
+    }
 }
 
 
@@ -179,5 +205,7 @@
     NSLog(@"didSettingsClicked");
     [self closeSlideMenu];
 }
+
+
 
 @end

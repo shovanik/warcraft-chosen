@@ -13,8 +13,8 @@
 -(id)init
 {
     if (self=[super init]) {
-        self.strBaseURL=@"http://chosen.sulavmart.com/";
-        //self.strBaseURL=@"http://192.168.0.1/Chosen/";
+        //self.strBaseURL=@"http://chosen.sulavmart.com/";
+        self.strBaseURL=@"http://192.168.0.1/Chosen/";
     }
     return self;
 }

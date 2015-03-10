@@ -117,6 +117,8 @@
     [FBLoginView class];
     [FBProfilePictureView class];
     
+    //[self lastSeenCalling];
+    
     return YES;
 }
 
@@ -151,5 +153,23 @@
     [FBSession.activeSession close];
     [FBSession setActiveSession:nil];
 }
+
+#pragma mark
+#pragma mark Last Seen API Calling
+#pragma mark
+
+-(void)lastSeenCalling
+{
+    if (user) {
+        [[WebService service] callLastSeenServiceForUserID:user.strID WithCompletionHandler:^(id result, BOOL isError, NSString *strMessage) {
+            NSLog(@"response = %@",strMessage);
+            
+            [self performSelector:@selector(lastSeenCalling) withObject:nil afterDelay:30.0];
+        }];
+    }else{
+        [self performSelector:@selector(lastSeenCalling) withObject:nil afterDelay:30.0];
+    }
+}
+
 
 @end

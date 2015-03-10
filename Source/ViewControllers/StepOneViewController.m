@@ -109,7 +109,7 @@
 }
 -(IBAction)nextButtonTapped:(id)sender{
     StepTwoViewController *master  = [[StepTwoViewController alloc] initWithNibName:@"StepTwoViewController" bundle:nil];
-    [self.navigationController pushViewController:master animated:YES];
+    [self.navigationController pushViewController:master animated:NO];
 }
 -(IBAction)skipButtonTapped:(id)sender{
     GuildViewController *master  = [[GuildViewController alloc] initWithNibName:@"GuildViewController" bundle:nil];

@@ -9,6 +9,9 @@
 #import "SettingsViewController.h"
 #import "SlideOutMenuViewController.h"
 #import "Context.h"
+#import "UpdateProfileViewController.h"
+#import "AboutUsViewController.h"
+#import "MyProfileViewController.h"
 
 @interface SettingsViewController (){
     CGFloat _offset;
@@ -29,11 +32,22 @@
 @property (nonatomic,strong) IBOutlet NSLayoutConstraint * trmUsetopConst;
 @property (nonatomic,strong) IBOutlet NSLayoutConstraint * contentViewCenterConst;
 
+@property (nonatomic, strong) IBOutlet UIButton *proSetButton;
+@property (nonatomic, strong) IBOutlet UIButton *abtButton;
+@property (nonatomic, strong) IBOutlet UIButton *priPoliButton;
+@property (nonatomic, strong) IBOutlet UIButton *termsOfUseButton;
+
+
 @end
 
 @implementation SettingsViewController
-@synthesize proSetButton, abtButton, priPoliButton, termsOfUseButton;
+@synthesize abtButton, priPoliButton, termsOfUseButton;
 @synthesize contentViewHeightConst, contentViewWidthConst, profileSetHeightConst, profileSetWidthConst, abtHeightConst, abtWidthConst, abtTopConst, priPolHeightConst, priPolWidthConst, priPolTopConst, trmUseHeightConst, trmUseWidthConst, trmUsetopConst,contentViewCenterConst;
+
+
+#pragma mark
+#pragma mark Initialization Method
+#pragma mark
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -90,66 +104,52 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark
+#pragma mark IBAction Method
+#pragma mark
+
+
 -(IBAction)setMenuButtonTapped:(id)sender{
     
     self.proSetButton.selected = YES;
     self.abtButton.selected = NO;
     self.priPoliButton.selected = NO;
     self.termsOfUseButton.selected = NO;
-//    UIButton *button=(UIButton*)sender;
-//    button.selected = YES;
-//    if (button.tag == 1) {
-//        
-//    }else if (button.tag == 2){
-//                
-//        
-//    }
     
+//    UpdateProfileViewController *master=[[UpdateProfileViewController alloc] initWithNibName:@"UpdateProfileViewController" bundle:nil];
+//    [self.navigationController pushViewController:master animated:YES];
+    
+    MyProfileViewController *master=[[MyProfileViewController alloc] initWithNibName:@"MyProfileViewController" bundle:nil];
+    [self.navigationController pushViewController:master animated:YES];
 }
 -(IBAction)abtButtonTapped:(id)sender{
     self.proSetButton.selected = NO;
     self.priPoliButton.selected = NO;
     self.termsOfUseButton.selected = NO;
     self.abtButton.selected = YES;
-
     
+    AboutUsViewController *master=[[AboutUsViewController alloc] initWithNibName:@"AboutUsViewController" bundle:nil];
+    master.strFor=@"aboutus";
+    [self.navigationController pushViewController:master animated:YES];
 }
 -(IBAction)priPolButtonTapped:(id)sender{
     self.proSetButton.selected = NO;
     self.priPoliButton.selected = YES;
     self.termsOfUseButton.selected = NO;
     self.abtButton.selected = NO;
-    
+    AboutUsViewController *master=[[AboutUsViewController alloc] initWithNibName:@"AboutUsViewController" bundle:nil];
+    master.strFor=@"privacy";
+    [self.navigationController pushViewController:master animated:YES];
 }
 -(IBAction)trmUseBtnTapped:(id)sender{
     self.proSetButton.selected = NO;
     self.priPoliButton.selected = NO;
     self.termsOfUseButton.selected = YES;
     self.abtButton.selected = NO;
-    
+    AboutUsViewController *master=[[AboutUsViewController alloc] initWithNibName:@"AboutUsViewController" bundle:nil];
+    master.strFor=@"terms";
+    [self.navigationController pushViewController:master animated:YES];
 }
-
--(IBAction)slideMenuButtonTapped:(id)sender{
-    SlideOutMenuViewController *mVC = nil;
-    if ([[Context getInstance] screenPhysicalSizeForIPhoneClassic]) {
-        mVC = [[SlideOutMenuViewController alloc] initWithNibName:@"SlideOutMenuViewController_iPhone4" bundle:nil ];
-    }else{
-        mVC = [[SlideOutMenuViewController alloc] initWithNibName:@"SlideOutMenuViewController" bundle:nil ];
-        
-    }
-    //mVC.guildButton.selected = YES;
-}
-
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

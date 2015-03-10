@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AboutUsViewController">
+            <connections>
+                <outlet property="activityIndicatorView" destination="S5o-uY-D2T" id="wRZ-LT-PsZ"/>
+                <outlet property="lblHeading" destination="o3b-Ia-OYg" id="zA6-fq-mi8"/>
+                <outlet property="txtDisplay" destination="0M0-MT-SJv" id="Xfy-zM-7fR"/>
+                <outlet property="view" destination="Ufl-Vm-aZc" id="03K-KA-FaM"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Ufl-Vm-aZc">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="6Us-Rj-fpn">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navbg" translatesAutoresizingMaskIntoConstraints="NO" id="tcD-Wh-2Wv">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="64" id="jvL-KL-g4L"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About Us" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="o3b-Ia-OYg">
+                    <rect key="frame" x="78" y="1" width="441" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="539-PF-a4k"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="LithosPro-Regular" family="Lithos Pro" pointSize="24"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tvl-XF-Kyr">
+                    <rect key="frame" x="527" y="8" width="73" height="36"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="73" id="0gx-Nc-VXo"/>
+                        <constraint firstAttribute="height" constant="36" id="WLe-m2-IVo"/>
+                    </constraints>
+                    <state key="normal" image="back">
+                        <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                        <rect key="frame" x="319" y="8" width="73" height="36"/>
+                    </variation>
+                    <connections>
+                        <action selector="btnBackPressed:" destination="-1" eventType="touchUpInside" id="c0g-nn-4ed"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logincontentbg" translatesAutoresizingMaskIntoConstraints="NO" id="8vf-bJ-Gn4">
+                    <rect key="frame" x="8" y="72" width="584" height="520"/>
+                </imageView>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="0M0-MT-SJv">
+                    <rect key="frame" x="16" y="81" width="568" height="501"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="S5o-uY-D2T">
+                    <rect key="frame" x="290" y="290" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="20" id="ZmF-C6-S5J"/>
+                        <constraint firstAttribute="height" constant="20" id="aE1-gx-IOr"/>
+                    </constraints>
+                </activityIndicatorView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jBv-R5-hDc" userLabel="Button - Slide Menu Custome">
+                    <rect key="frame" x="0.0" y="1" width="70" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="BsX-6s-A8s"/>
+                        <constraint firstAttribute="width" constant="70" id="DRR-0y-2eR"/>
+                    </constraints>
+                    <state key="normal" image="slidemenu">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="btnMenuTapped:" destination="-1" eventType="touchUpInside" id="T65-Qt-25S"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="centerX" secondItem="6Us-Rj-fpn" secondAttribute="centerX" id="0GZ-Xu-JV7"/>
+                <constraint firstItem="tcD-Wh-2Wv" firstAttribute="centerX" secondItem="o3b-Ia-OYg" secondAttribute="centerX" constant="1.5" id="29W-hy-yY5"/>
+                <constraint firstItem="6Us-Rj-fpn" firstAttribute="leading" secondItem="Ufl-Vm-aZc" secondAttribute="leading" id="3mM-4B-pYf"/>
+                <constraint firstItem="tvl-XF-Kyr" firstAttribute="trailing" secondItem="tcD-Wh-2Wv" secondAttribute="trailing" id="4XV-Sa-VE9"/>
+                <constraint firstAttribute="trailing" secondItem="6Us-Rj-fpn" secondAttribute="trailing" id="4bK-3u-Zfe"/>
+                <constraint firstItem="tvl-XF-Kyr" firstAttribute="centerY" secondItem="jBv-R5-hDc" secondAttribute="centerY" id="9jd-FH-cnf"/>
+                <constraint firstItem="8vf-bJ-Gn4" firstAttribute="leading" secondItem="0M0-MT-SJv" secondAttribute="leading" constant="-8" id="9z5-Ys-kFJ"/>
+                <constraint firstItem="8vf-bJ-Gn4" firstAttribute="centerX" secondItem="0M0-MT-SJv" secondAttribute="centerX" id="HJP-bI-Cvl"/>
+                <constraint firstItem="tcD-Wh-2Wv" firstAttribute="top" secondItem="jBv-R5-hDc" secondAttribute="top" constant="-1" id="Kal-OO-hKt"/>
+                <constraint firstItem="8vf-bJ-Gn4" firstAttribute="top" secondItem="tcD-Wh-2Wv" secondAttribute="bottom" constant="8" id="L2F-8w-cXF"/>
+                <constraint firstItem="tcD-Wh-2Wv" firstAttribute="top" secondItem="o3b-Ia-OYg" secondAttribute="top" constant="-1" id="N92-sI-l7t"/>
+                <constraint firstItem="tvl-XF-Kyr" firstAttribute="leading" secondItem="o3b-Ia-OYg" secondAttribute="trailing" constant="8" id="RHM-XM-sum"/>
+                <constraint firstItem="tcD-Wh-2Wv" firstAttribute="leading" secondItem="jBv-R5-hDc" secondAttribute="leading" id="Tih-Ln-uC7"/>
+                <constraint firstItem="6Us-Rj-fpn" firstAttribute="centerY" secondItem="S5o-uY-D2T" secondAttribute="centerY" id="XdU-iA-ZsX"/>
+                <constraint firstItem="tcD-Wh-2Wv" firstAttribute="trailing" secondItem="6Us-Rj-fpn" secondAttribute="trailing" id="XkN-AB-kvv"/>
+                <constraint firstItem="tcD-Wh-2Wv" firstAttribute="leading" secondItem="6Us-Rj-fpn" secondAttribute="leading" id="cvc-tm-QIG"/>
+                <constraint firstItem="8vf-bJ-Gn4" firstAttribute="centerX" secondItem="6Us-Rj-fpn" secondAttribute="centerX" id="d0g-6g-wxZ"/>
+                <constraint firstAttribute="centerY" secondItem="6Us-Rj-fpn" secondAttribute="centerY" id="eD4-xu-18z"/>
+                <constraint firstItem="tcD-Wh-2Wv" firstAttribute="top" secondItem="6Us-Rj-fpn" secondAttribute="top" id="fXf-15-wcH"/>
+                <constraint firstItem="8vf-bJ-Gn4" firstAttribute="bottom" secondItem="0M0-MT-SJv" secondAttribute="bottom" constant="10" id="hOO-5Y-7aH"/>
+                <constraint firstItem="8vf-bJ-Gn4" firstAttribute="trailing" secondItem="0M0-MT-SJv" secondAttribute="trailing" constant="8" id="hkd-Eu-Omh"/>
+                <constraint firstItem="8vf-bJ-Gn4" firstAttribute="bottom" secondItem="6Us-Rj-fpn" secondAttribute="bottom" constant="-8" id="jRN-rQ-iae"/>
+                <constraint firstItem="tcD-Wh-2Wv" firstAttribute="centerX" secondItem="6Us-Rj-fpn" secondAttribute="centerX" id="mbC-1t-QvR"/>
+                <constraint firstItem="6Us-Rj-fpn" firstAttribute="top" secondItem="Ufl-Vm-aZc" secondAttribute="top" id="pmW-9z-G0o"/>
+                <constraint firstItem="8vf-bJ-Gn4" firstAttribute="leading" secondItem="6Us-Rj-fpn" secondAttribute="leading" constant="8" id="sPh-dB-AlC"/>
+                <constraint firstItem="8vf-bJ-Gn4" firstAttribute="top" secondItem="0M0-MT-SJv" secondAttribute="top" constant="-9" id="tA8-iZ-o9f"/>
+                <constraint firstItem="8vf-bJ-Gn4" firstAttribute="centerY" secondItem="0M0-MT-SJv" secondAttribute="centerY" constant="0.5" id="tpU-Jn-gs8"/>
+                <constraint firstItem="6Us-Rj-fpn" firstAttribute="centerX" secondItem="S5o-uY-D2T" secondAttribute="centerX" id="tpu-CS-3SG"/>
+                <constraint firstItem="o3b-Ia-OYg" firstAttribute="leading" secondItem="jBv-R5-hDc" secondAttribute="trailing" constant="8" id="wRv-vw-OO0"/>
+                <constraint firstItem="8vf-bJ-Gn4" firstAttribute="trailing" secondItem="6Us-Rj-fpn" secondAttribute="trailing" constant="-8" id="xSb-jp-uSO"/>
+                <constraint firstAttribute="bottom" secondItem="6Us-Rj-fpn" secondAttribute="bottom" id="zqt-xL-QSW"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <point key="canvasLocation" x="-221" y="310"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="back" width="15" height="24"/>
+        <image name="background" width="320" height="480"/>
+        <image name="logincontentbg" width="271" height="278"/>
+        <image name="navbg" width="320" height="64"/>
+        <image name="slidemenu" width="25" height="21"/>
+    </resources>
+</document>

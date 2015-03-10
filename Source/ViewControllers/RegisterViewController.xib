@@ -11,16 +11,18 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterViewController">
             <connections>
-                <outlet property="conformPasswordTextField" destination="MMm-LK-9h7" id="eBq-Z8-uWg"/>
-                <outlet property="dobTextField" destination="pa8-ge-PS8" id="y90-tj-cRh"/>
-                <outlet property="emailTextField" destination="ZHF-yL-Hhz" id="DD6-cN-fu9"/>
-                <outlet property="femaleButton" destination="tRB-Av-cd6" id="Yn6-Cc-PUS"/>
-                <outlet property="maleButton" destination="fpC-mP-Jqe" id="T3K-Y2-exT"/>
+                <outlet property="activityIndicatorView" destination="PkX-xq-308" id="oRX-ag-6TB"/>
+                <outlet property="btnFemale" destination="tRB-Av-cd6" id="6hd-ea-pzd"/>
+                <outlet property="btnMale" destination="fpC-mP-Jqe" id="dfX-U8-A62"/>
+                <outlet property="btnSubmit" destination="NPC-aN-MyS" id="se0-Ds-OWb"/>
                 <outlet property="navTitle" destination="Izs-gf-fMI" id="PWk-Qr-lYi"/>
-                <outlet property="passwordTextField" destination="uMs-fd-lte" id="HOV-1P-GA0"/>
                 <outlet property="regContentView" destination="uK7-Ar-NTU" id="pyU-Ex-oMf"/>
                 <outlet property="regContentViewVerticalyCenter" destination="GnC-Im-R29" id="Set-lT-YWd"/>
-                <outlet property="userNameTextField" destination="fzm-nx-LYZ" id="xDG-zG-821"/>
+                <outlet property="txtConfirmPassword" destination="MMm-LK-9h7" id="1mh-JY-ZLR"/>
+                <outlet property="txtDOB" destination="pa8-ge-PS8" id="D5S-is-Dua"/>
+                <outlet property="txtEmail" destination="ZHF-yL-Hhz" id="5TF-5x-rld"/>
+                <outlet property="txtPassword" destination="uMs-fd-lte" id="Vp0-85-MXj"/>
+                <outlet property="txtUserName" destination="fzm-nx-LYZ" id="txp-rg-Qr6"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -40,14 +42,17 @@
                     <fontDescription key="fontDescription" name="LithosPro-Regular" family="Lithos Pro" pointSize="24"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
+                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                        <rect key="frame" x="143" y="17" width="116" height="28"/>
+                    </variation>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pAc-pU-y2G">
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pAc-pU-y2G">
                     <rect key="frame" x="506" y="4" width="94" height="43"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="43" id="4di-RK-GXf"/>
                         <constraint firstAttribute="width" constant="94" id="OQK-yQ-DO1"/>
                     </constraints>
-                    <state key="normal" title="Back">
+                    <state key="normal" image="back">
                         <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -238,11 +243,31 @@
                         </mask>
                     </variation>
                 </view>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="PkX-xq-308">
+                    <rect key="frame" x="-10" y="-10" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="20" id="7yf-EM-FFB"/>
+                        <constraint firstAttribute="height" constant="20" id="roY-a6-bT5"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="7yf-EM-FFB"/>
+                            <exclude reference="roY-a6-bT5"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="7yf-EM-FFB"/>
+                            <include reference="roY-a6-bT5"/>
+                        </mask>
+                    </variation>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="pAc-pU-y2G" secondAttribute="trailing" id="AEq-JA-zJ7"/>
                 <constraint firstAttribute="centerY" secondItem="uK7-Ar-NTU" secondAttribute="centerY" id="GnC-Im-R29"/>
+                <constraint firstAttribute="centerY" secondItem="PkX-xq-308" secondAttribute="centerY" id="HTd-RZ-0nG"/>
                 <constraint firstAttribute="trailing" secondItem="pme-Jc-YSO" secondAttribute="trailing" id="K8M-ag-GaB"/>
                 <constraint firstItem="4TQ-LZ-fgW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Ld3-wo-rD7"/>
                 <constraint firstItem="pAc-pU-y2G" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="1" id="Neq-87-Wpq"/>
@@ -254,12 +279,18 @@
                     <variation key="heightClass=regular-widthClass=compact" constant="-1.5"/>
                 </constraint>
                 <constraint firstItem="4TQ-LZ-fgW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="rdy-Jr-Eca"/>
+                <constraint firstAttribute="centerX" secondItem="PkX-xq-308" secondAttribute="centerX" id="t30-RV-Kkl"/>
                 <constraint firstAttribute="centerX" secondItem="Izs-gf-fMI" secondAttribute="centerX" constant="-1" id="wLA-MG-g6j"/>
                 <constraint firstItem="Izs-gf-fMI" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="17" id="xwa-2z-Da3"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="PkX-xq-308"/>
+                </mask>
                 <mask key="constraints">
+                    <exclude reference="HTd-RZ-0nG"/>
+                    <exclude reference="t30-RV-Kkl"/>
                     <exclude reference="wLA-MG-g6j"/>
                     <exclude reference="xwa-2z-Da3"/>
                     <exclude reference="AEq-JA-zJ7"/>
@@ -267,7 +298,12 @@
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=compact">
+                <mask key="subviews">
+                    <include reference="PkX-xq-308"/>
+                </mask>
                 <mask key="constraints">
+                    <include reference="HTd-RZ-0nG"/>
+                    <include reference="t30-RV-Kkl"/>
                     <include reference="wLA-MG-g6j"/>
                     <include reference="xwa-2z-Da3"/>
                     <include reference="AEq-JA-zJ7"/>
@@ -278,6 +314,7 @@
         </view>
     </objects>
     <resources>
+        <image name="back" width="15" height="24"/>
         <image name="background" width="320" height="480"/>
         <image name="female_selected_iphn6.png" width="126" height="55"/>
         <image name="femalebutton" width="108" height="44"/>

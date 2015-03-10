@@ -54,7 +54,23 @@ NSUserDefaults *pref;
     lastBatttValueleLabel.font = [UIFont fontWithName:@"Garamond" size:13];
     
     arrImage=[[NSMutableArray alloc] initWithObjects:[UIImage imageNamed:@"smenu_map_normal_iphn6@2x.png"],[UIImage imageNamed:@"smenu_guild_normal_iphn6@2x.png"],[UIImage imageNamed:@"smenu_contract_normal_iph6@2x.png"],[UIImage imageNamed:@"smenu_tournament_normal_iphn6@2x.png"],[UIImage imageNamed:@"smenu_settings_normal_iphn6@2x.png"], nil];
-    NSLog(@"arrImage count = %ld",arrImage.count);
+    NSLog(@"arrImage count = %ld",(unsigned long)arrImage.count);
+    
+    
+    if (___isIphone4_4s) {
+        NSLog(@"iPhone4");
+    }
+    else if (___isIphone5_5s){
+        NSLog(@"iPhone5");
+    }
+    else if (___isIphone6){
+        NSLog(@"iPhone6");
+    }
+    else if (___isIphone6Plus){
+        NSLog(@"iPhone 6 Plus");
+    }
+    
+    
     [menuTableview reloadData];
 
 }
@@ -85,15 +101,19 @@ NSUserDefaults *pref;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CGFloat height=58.0f;
-//    if (IsIphone4) {
-//        height=58.0f;
-//    }
-//    else if (IsIphone5){
-//        height=85.0f;
-//    }else{
-//        height=58.0f;
-//    }
+    CGFloat height=0.0f;
+    if (___isIphone4_4s) {
+        height=58.0f;
+    }
+    else if (___isIphone5_5s){
+        height=75.0f;
+    }
+    else if (___isIphone6){
+        height=96.0f;
+    }
+    else if (___isIphone6Plus){
+        height=108.0f;
+    }
     return height;
 }
 

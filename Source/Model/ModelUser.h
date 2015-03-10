@@ -7,6 +7,7 @@
 //
 
 #import "ModelBaseClass.h"
+#import "ModelAvtarImage.h"
 
 @interface ModelUser : ModelBaseClass
 
@@ -17,7 +18,8 @@
 @property(strong,nonatomic) NSString *strEmailVerificationKey;
 @property(strong,nonatomic) NSString *strFirstName;
 @property(strong,nonatomic) NSString *strLastName;
-@property(strong,nonatomic) NSString *strGender;
+@property(strong,nonatomic) NSString *strGenderShort;
+@property(strong,nonatomic) NSString *strGenderLong;
 @property(strong,nonatomic) NSString *strDateOfBirth;
 @property(strong,nonatomic) NSString *strCountryName;
 @property(strong,nonatomic) NSString *strStateName;
@@ -28,7 +30,14 @@
 @property(strong,nonatomic) NSString *strStatus;
 @property(strong,nonatomic) NSString *strUpdated;
 @property(strong,nonatomic) NSString *strCreated;
+@property(strong,nonatomic) NSString *strOnline;
+@property(strong,nonatomic) ModelAvtarImage *avtarImage;
+@property(strong,nonatomic) NSString *strLastSeen;
+@property(strong,nonatomic) NSString *strDefaultImageURL;
+@property(strong,nonatomic) NSString *strDefaultImage;
+@property(assign,nonatomic) BOOL isUseDefaultImage;
+@property(strong,nonatomic) NSString *strAge;
 
--(ModelUser*)initWithDictionary:(NSDictionary*)dictionary;
+-(ModelUser*)initWithDictionary:(NSDictionary*)dictionary BaseURL:(NSString*)strBaseURL;
 
 @end

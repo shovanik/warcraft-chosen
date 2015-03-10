@@ -14,6 +14,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController">
             <connections>
+                <outlet property="activityIndicatorView" destination="env-sh-2GD" id="VUz-KD-YUJ"/>
                 <outlet property="lgncontentView" destination="756-A8-zIU" id="fSW-Ns-toa"/>
                 <outlet property="logContentViewVerticalyCenter" destination="5G6-Tc-l4o" id="pg8-AL-Dkc"/>
                 <outlet property="navTitle" destination="XbY-sW-3an" id="Ofk-my-uYA"/>
@@ -33,18 +34,24 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navbg" translatesAutoresizingMaskIntoConstraints="NO" id="fJH-np-JfV">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOGIN" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XbY-sW-3an">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="LOGIN" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XbY-sW-3an">
                     <rect key="frame" x="259" y="17" width="83" height="24"/>
                     <fontDescription key="fontDescription" name="LithosPro-Regular" family="Lithos Pro" pointSize="24"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
+                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                        <rect key="frame" x="164" y="17" width="74" height="28"/>
+                    </variation>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="puI-NA-XpJ">
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="puI-NA-XpJ">
                     <rect key="frame" x="559" y="8" width="35" height="30"/>
-                    <state key="normal" title="Back">
+                    <state key="normal" image="back">
                         <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                        <rect key="frame" x="319" y="8" width="73" height="36"/>
+                    </variation>
                     <connections>
                         <action selector="btnBackPressed:" destination="-1" eventType="touchUpInside" id="zV9-Qx-WZI"/>
                     </connections>
@@ -101,6 +108,9 @@
                                 <color key="titleColor" red="0.34901960784313724" green="0.59999999999999998" blue="0.74117647058823533" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="btnForgetPasswordTapped:" destination="-1" eventType="touchUpInside" id="8ND-kU-dTc"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -115,12 +125,32 @@
                     <color key="textColor" red="0.62352941179999999" green="0.69803921570000005" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="env-sh-2GD">
+                    <rect key="frame" x="-10" y="-10" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="M8e-6s-iJI"/>
+                        <constraint firstAttribute="width" constant="20" id="RoJ-1g-Ucj"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="M8e-6s-iJI"/>
+                            <exclude reference="RoJ-1g-Ucj"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="M8e-6s-iJI"/>
+                            <include reference="RoJ-1g-Ucj"/>
+                        </mask>
+                    </variation>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstAttribute="centerY" secondItem="env-sh-2GD" secondAttribute="centerY" id="2Bj-W4-q1t"/>
                 <constraint firstItem="fJH-np-JfV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="3Ol-E3-kMQ"/>
                 <constraint firstItem="puI-NA-XpJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="525-Ow-AMg">
-                    <variation key="heightClass=regular-widthClass=compact" constant="10"/>
+                    <variation key="heightClass=regular-widthClass=compact" constant="8"/>
                 </constraint>
                 <constraint firstAttribute="centerY" secondItem="756-A8-zIU" secondAttribute="centerY" constant="-12" id="5G6-Tc-l4o"/>
                 <constraint firstItem="fJH-np-JfV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="5WU-nT-yqk"/>
@@ -130,11 +160,12 @@
                 </constraint>
                 <constraint firstItem="kIQ-fq-Uji" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="DIh-mX-XPK"/>
                 <constraint firstAttribute="trailing" secondItem="puI-NA-XpJ" secondAttribute="trailing" constant="6" id="G0l-Ew-zKT">
-                    <variation key="heightClass=regular-widthClass=compact" constant="24"/>
+                    <variation key="heightClass=regular-widthClass=compact" constant="8"/>
                 </constraint>
                 <constraint firstAttribute="centerX" secondItem="XbY-sW-3an" secondAttribute="centerX" constant="-0.5" id="MvG-1k-PHZ"/>
                 <constraint firstAttribute="trailing" secondItem="fJH-np-JfV" secondAttribute="trailing" id="XMn-R6-uvU"/>
                 <constraint firstAttribute="bottom" secondItem="kIQ-fq-Uji" secondAttribute="bottom" id="hXb-yY-6IG"/>
+                <constraint firstAttribute="centerX" secondItem="env-sh-2GD" secondAttribute="centerX" id="izu-Wu-HBD"/>
                 <constraint firstAttribute="centerX" secondItem="1fD-gk-uYx" secondAttribute="centerX" constant="-0.5" id="rk5-dU-Vkd"/>
                 <constraint firstItem="XbY-sW-3an" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="17" id="sib-vt-MHF"/>
                 <constraint firstItem="kIQ-fq-Uji" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="xbO-yI-BvB"/>
@@ -142,10 +173,29 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="env-sh-2GD"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="2Bj-W4-q1t"/>
+                    <exclude reference="izu-Wu-HBD"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=regular-widthClass=compact">
+                <mask key="subviews">
+                    <include reference="env-sh-2GD"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="2Bj-W4-q1t"/>
+                    <include reference="izu-Wu-HBD"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="-221" y="310"/>
         </view>
     </objects>
     <resources>
+        <image name="back" width="15" height="24"/>
         <image name="background" width="320" height="480"/>
         <image name="loginbutton" width="227" height="47"/>
         <image name="logincontentbg" width="271" height="278"/>

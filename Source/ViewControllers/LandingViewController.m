@@ -55,6 +55,44 @@ FBLoginView *fbLoginView;
     }
     fbLoginView.hidden=YES;
     [self.view addSubview:fbLoginView];
+    
+    
+//    [[WebService service] callAboutUsServiceWithCompletionHandler:^(id result, BOOL isError, NSString *strMessage) {
+//        if (isError) {
+//            
+//        }else{
+//            if ([result isKindOfClass:[ModelAboutUs class]]) {
+//                ModelAboutUs *privacy=(ModelAboutUs*)result;
+//            }
+//        }
+//    }];
+//    
+//    [[WebService service] callPrivacyPolicyWithCompletionHandler:^(id result, BOOL isError, NSString *strMessage) {
+//        if (isError) {
+//            
+//        }else{
+//            if ([result isKindOfClass:[ModelPrivacyPolicy class]]) {
+//                ModelPrivacyPolicy *obj=(ModelPrivacyPolicy*)result;
+//            }
+//        }
+//    }];
+//    
+//    [[WebService service] callTermsAndConditionWithCompletionHandler:^(id result, BOOL isError, NSString *strMessage) {
+//        if (isError) {
+//            
+//        }else{
+//            if ([result isKindOfClass:[ModelTerms class]]) {
+//                ModelTerms *obj=(ModelTerms*)result;
+//            }
+//        }
+//    }];
+//    [[WebService service] callNearByUserServiceForUserID:@"35" WithCompletionHandler:^(id result, BOOL isError, NSString *strMessage) {
+//        if (isError) {
+//            NSLog(@"Error");
+//        }else{
+//            
+//        }
+//    }];
 }
 - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
                             user:(id<FBGraphUser>)user {

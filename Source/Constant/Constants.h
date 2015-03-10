@@ -19,6 +19,5 @@
 ModelUser *user;
 NSMutableArray *allUser;
 
-
-
-
+NSString *strDateFormat;
+NSDateFormatter *dateFormattter;

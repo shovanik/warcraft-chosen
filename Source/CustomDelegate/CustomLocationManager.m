@@ -30,11 +30,11 @@ CLPlacemark *placeMarkCurrent;
 #pragma mark
 -(void)startLocationManager
 {
-    [locationManager startMonitoringSignificantLocationChanges];
+    [locationManager startUpdatingLocation];
 }
 -(void)stopLocationManager
 {
-    [locationManager stopMonitoringSignificantLocationChanges];
+    [locationManager stopUpdatingLocation];
 }
 
 
@@ -44,7 +44,8 @@ CLPlacemark *placeMarkCurrent;
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
-    [self stopLocationManager];
+//    [self stopLocationManager];
+    [locationManager stopUpdatingLocation];
     CLGeocoder *geocoder=[[CLGeocoder alloc] init];
     [geocoder reverseGeocodeLocation:[locations lastObject] completionHandler:^(NSArray *placemarks, NSError *error) {
         if (error) {

@@ -11,20 +11,23 @@
 #import "StepOneViewController.h"
 #import "LandingViewController.h"
 #import "DataClass.h"
+#import "SettingsViewController.h"
+
 NSUserDefaults *pref;
 
 @interface RegisterViewController () <UITextFieldDelegate,UIAlertViewDelegate>
 {
     IBOutlet UIView *regContentView;
     IBOutlet UILabel *navTitle;
-    IBOutlet UITextField *userNameTextField;
-    IBOutlet UITextField *passwordTextField;
-    IBOutlet UITextField *conformPasswordTextField;
-    IBOutlet UITextField *dobTextField;
-    IBOutlet UITextField *emailTextField;
-    IBOutlet UIButton *maleButton;
-    IBOutlet UIButton *femaleButton;
+    IBOutlet UITextField *txtUserName;
+    IBOutlet UITextField *txtPassword;
+    IBOutlet UITextField *txtConfirmPassword;
+    IBOutlet UITextField *txtDOB;
+    IBOutlet UITextField *txtEmail;
+    IBOutlet UIButton *btnMale;
+    IBOutlet UIButton *btnFemale;
     IBOutlet NSLayoutConstraint * regContentViewVerticalyCenter;
+    IBOutlet UIButton *btnSubmit;
 
     UIDatePicker *dateatePickerView;
     UIView *datePickerEditView;
@@ -39,6 +42,7 @@ NSUserDefaults *pref;
 @end
 
 @implementation RegisterViewController
+
 
 #pragma mark
 #pragma mark Initialization Method
@@ -64,16 +68,16 @@ NSUserDefaults *pref;
 
     
     UIColor *color = [UIColor colorWithRed:202.0f/255.0f green:230.0f/255.0f blue:233.0f/255.0f alpha:1.0f];
-    userNameTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"User Name" attributes:@{NSForegroundColorAttributeName: color}];
-    passwordTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Password" attributes:@{NSForegroundColorAttributeName: color}];
-    conformPasswordTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"conform Password" attributes:@{NSForegroundColorAttributeName: color}];
-    dobTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Dat of Birth" attributes:@{NSForegroundColorAttributeName: color}];
-    emailTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"E-mail" attributes:@{NSForegroundColorAttributeName: color}];
-    userNameTextField.textColor = color;
-    passwordTextField.textColor = color;
-    conformPasswordTextField.textColor = color;
-    dobTextField.textColor = color;
-    emailTextField.textColor = color;
+    txtUserName.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"User Name" attributes:@{NSForegroundColorAttributeName: color}];
+    txtPassword.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Password" attributes:@{NSForegroundColorAttributeName: color}];
+    txtConfirmPassword.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"conform Password" attributes:@{NSForegroundColorAttributeName: color}];
+    txtDOB.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Dat of Birth" attributes:@{NSForegroundColorAttributeName: color}];
+    txtEmail.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"E-mail" attributes:@{NSForegroundColorAttributeName: color}];
+    txtUserName.textColor = color;
+    txtPassword.textColor = color;
+    txtConfirmPassword.textColor = color;
+    txtDOB.textColor = color;
+    txtEmail.textColor = color;
     
     
     if (dateatePickerView == nil) {
@@ -100,6 +104,7 @@ NSUserDefaults *pref;
         }
         
         [aPick setDatePickerMode:UIDatePickerModeDate];
+        [aPick setMaximumDate:[NSDate date]];
         [aPick addTarget:self action:@selector(dateLabelChanged:) forControlEvents:UIControlEventValueChanged];
         dateatePickerView = aPick;
     }
@@ -116,7 +121,7 @@ NSUserDefaults *pref;
 
 
     
-
+    
     
 }
 - (void)viewWillAppear:(BOOL)animated {
@@ -209,14 +214,14 @@ NSUserDefaults *pref;
 
 -(IBAction)maleFemaleButtonTapped:(id)sender{
     
-    if (sender == maleButton)
+    if (sender == btnMale)
     {
-        maleButton.selected = YES;
-        femaleButton.selected = NO;
+        btnMale.selected = YES;
+        btnFemale.selected = NO;
         genderString = @"1";
-    }else if (sender == femaleButton){
-        maleButton.selected = NO;
-        femaleButton.selected = YES;
+    }else if (sender == btnFemale){
+        btnMale.selected = NO;
+        btnFemale.selected = YES;
         genderString = @"2";
 
     }
@@ -227,7 +232,7 @@ NSUserDefaults *pref;
 -(IBAction)submitButtonTapped:(id)sender
 {
     
-    if (userNameTextField.text.length == 0 || passwordTextField.text.length == 0 || genderString.length == 0 || dobTextField == 0 || emailTextField.text.length == 0 )
+    if (txtUserName.text.length == 0 || txtPassword.text.length == 0 || genderString.length == 0 || txtDOB == 0 || txtEmail.text.length == 0 )
     {
         [self alertStatus:@"All Fields are mandatory." :@"Registration Failed!"];
         
@@ -235,22 +240,26 @@ NSUserDefaults *pref;
     else
     {
         
-        if(![self NSStringIsValidPassword:[passwordTextField text]])
+        if(![self NSStringIsValidPassword:[txtPassword text]])
         {
             //[self alertStatus:@"Your password must contain at least one numeric number or one special character." :@"Registration Failed!"];
         }
-        else if (![passwordTextField.text isEqualToString:conformPasswordTextField.text]) {
+        else if (![txtPassword.text isEqualToString:txtConfirmPassword.text]) {
             
             [self alertStatus:@"The password entered does not match the confirmation password." :@"Registration Failed!"];
             
         }
-        else if(![self NSStringIsValidEmail:[emailTextField text]])
+        else if(![self NSStringIsValidEmail:[txtEmail text]])
         {
             [self alertStatus:@"Please enter valid Email ID" :@"Registration Failed!"];
         }
         else
         {
+            [self.view setUserInteractionEnabled:NO];
+            [self.activityIndicatorView startAnimating];
             [self startLocationManager];
+            
+            
         }
     }
     
@@ -264,13 +273,13 @@ NSUserDefaults *pref;
     
     [self launchDatePicker];
     
-    if ((dobTextField.text == nil) || ([dobTextField.text length] <= 0)) {
+    if ((txtDOB.text == nil) || ([txtDOB.text length] <= 0)) {
         
         NSDateFormatter* df = [[NSDateFormatter alloc] init];
         [df setDateFormat:@"MM-dd-yyyy"];
         
         NSString *formattedDateString  = [df stringFromDate:[NSDate date]];
-        dobTextField.text = formattedDateString;
+        txtDOB.text = formattedDateString;
     }
     
 }
@@ -381,9 +390,9 @@ NSUserDefaults *pref;
     NSDateFormatter* df = [[NSDateFormatter alloc] init];
     [df setDateFormat:@"dd-MM-yyyy"];
     NSString *formattedDateString = [df stringFromDate:date];
-    dobTextField.text = formattedDateString;
+    txtDOB.text = formattedDateString;
     
-    NSLog(@"Dob = %@", dobTextField.text);
+    NSLog(@"Dob = %@", txtDOB.text);
     
 }
 -(void)assignmentStartDateDoneButtonTapped{
@@ -398,7 +407,7 @@ NSUserDefaults *pref;
 -(void)didUpdateLocationUpdateWithPlacemark:(CLPlacemark *)placeMark
 {
     NSDictionary *dict=[self addressDictionaryForPlaceMark:placeMark];
-    [[WebService service] callRegistrationServiceWithUserName:[userNameTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] Password:[passwordTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] DateOfBirth:[dobTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] Email:[emailTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] Gender:[genderString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] StateName:[dict objectForKey:@"State"] CountryName:[dict objectForKey:@"Country"] CityName:[dict objectForKey:@"City"] Latitude:[dict objectForKey:@"Latitude"] Longitude:[dict objectForKey:@"Longitude"] WithCompletionHandler:^(id result, BOOL isError, NSString *strMessage) {
+    [[WebService service] callRegistrationServiceWithUserName:[txtUserName.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] Password:[txtPassword.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] DateOfBirth:[txtDOB.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] Email:[txtEmail.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] Gender:[genderString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] StateName:[dict objectForKey:@"State"] CountryName:[dict objectForKey:@"Country"] CityName:[dict objectForKey:@"City"] Latitude:[dict objectForKey:@"Latitude"] Longitude:[dict objectForKey:@"Longitude"] WithCompletionHandler:^(id result, BOOL isError, NSString *strMessage) {
         if (isError) {
             [[[UIAlertView alloc] initWithTitle:@"Error" message:strMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
         }else{
@@ -419,6 +428,8 @@ NSUserDefaults *pref;
             alert.tag=1;
             [alert show];
         }
+        [self.view setUserInteractionEnabled:YES];
+        [self.activityIndicatorView stopAnimating];
     }];
 }
 

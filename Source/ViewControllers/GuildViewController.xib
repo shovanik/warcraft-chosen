@@ -27,10 +27,11 @@
                 <outlet property="accurencyTextTopConst" destination="X3p-JF-AFs" id="7Xi-HR-xUd"/>
                 <outlet property="accurencyWidthConst" destination="sRC-Vb-bnH" id="k58-ee-X4A"/>
                 <outlet property="background" destination="jSR-QB-o1t" id="Njx-ey-3iS"/>
+                <outlet property="btnNext" destination="Aj8-MO-HKK" id="Ooj-5d-sBg"/>
+                <outlet property="btnPrevious" destination="ahc-TK-HB6" id="XPe-cJ-hwo"/>
                 <outlet property="buyButHeightConst" destination="cQB-O9-Qmr" id="OWj-4Y-mMb"/>
                 <outlet property="buyButLeadConst" destination="RmJ-Nf-Obi" id="aoj-fd-Mhj"/>
                 <outlet property="buyButWeidthConst" destination="3Zk-wx-eNT" id="3xn-Wq-aqB"/>
-                <outlet property="cNameLabel" destination="vGH-ho-b7i" id="xq3-5v-cpl"/>
                 <outlet property="checkMarkLeadConst" destination="yBF-aR-e8L" id="Mz3-WM-mB7"/>
                 <outlet property="checkMarkTopConst" destination="8sl-D2-koe" id="Zvt-y0-DS3"/>
                 <outlet property="contentButtomBarHeightConst" destination="UGj-FD-cl7" id="jmh-pg-jaJ"/>
@@ -49,11 +50,13 @@
                 <outlet property="exchangeButHeightConst" destination="Pwg-ma-g9v" id="Ivq-tq-ehG"/>
                 <outlet property="exchangeButTrailConst" destination="N2D-Gp-Qum" id="bmw-JA-AdZ"/>
                 <outlet property="exchangeButWeidthConst" destination="OH5-CH-7KJ" id="g10-N3-wXc"/>
-                <outlet property="gNameLabel" destination="UxB-Sq-5FB" id="5dr-vd-wX7"/>
+                <outlet property="imgStar" destination="y2H-ke-ds7" id="MkI-oE-jqd"/>
+                <outlet property="lblAccuracy" destination="pqi-qR-oZj" id="a1B-Nx-Xiz"/>
+                <outlet property="lblDamage" destination="f1M-CB-HhD" id="67m-OO-b6W"/>
+                <outlet property="lblGuildName" destination="UxB-Sq-5FB" id="pc2-fx-CNW"/>
+                <outlet property="lblPrice" destination="vGH-ho-b7i" id="SH9-1t-vJs"/>
                 <outlet property="nabImgView" destination="SBy-Kf-eqs" id="jeW-mg-R2M"/>
-                <outlet property="nextButton" destination="Aj8-MO-HKK" id="TKd-o9-gi3"/>
                 <outlet property="pageControl" destination="SUH-QV-WhK" id="TWZ-Yj-D9p"/>
-                <outlet property="previousButton" destination="ahc-TK-HB6" id="WWO-gG-eEV"/>
                 <outlet property="starLeadConst" destination="ol0-rb-kpO" id="1Wa-8n-LGW"/>
                 <outlet property="starTopConst" destination="Ekn-kG-WkE" id="AFT-fN-Ha5"/>
                 <outlet property="view" destination="iN0-l3-epB" id="ahZ-8e-ceT"/>
@@ -94,6 +97,9 @@
                     <fontDescription key="fontDescription" name="LithosPro-Regular" family="Lithos Pro" pointSize="24"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
+                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                        <rect key="frame" x="165" y="17" width="72" height="28"/>
+                    </variation>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oxW-Dk-fkd" userLabel="Button - Slide menu">
                     <rect key="frame" x="20" y="12" width="30" height="25"/>
@@ -283,6 +289,9 @@
                             <fontDescription key="fontDescription" name="Garamond" family="Garamond" pointSize="17"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
+                            <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                <rect key="frame" x="98" y="116" width="105" height="20"/>
+                            </variation>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="damageBar" translatesAutoresizingMaskIntoConstraints="NO" id="mUC-lH-Sfb">
                             <rect key="frame" x="92" y="309" width="271" height="17"/>
@@ -345,6 +354,9 @@
                             <fontDescription key="fontDescription" name="Garamond" family="Garamond" pointSize="17"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
+                            <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                <rect key="frame" x="103" y="176" width="112" height="20"/>
+                            </variation>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="accuracyBar" translatesAutoresizingMaskIntoConstraints="NO" id="TaH-qg-op8">
                             <rect key="frame" x="91" y="384" width="271" height="17"/>

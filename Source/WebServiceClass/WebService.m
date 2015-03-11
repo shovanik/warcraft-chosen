@@ -11,7 +11,7 @@
 #import "ModelPrivacyPolicy.h"
 #import "ModelAboutUs.h"
 #import "ModelTerms.h"
-
+#import "ModelGuild.h"
 
 
 typedef enum : NSUInteger {
@@ -34,22 +34,22 @@ typedef enum : NSUInteger {
 
 @interface WebService ()
 {
-@private
-    NSString *strLoginURL;
-    NSString *strRegistrationURL;
-    NSString *strUpdateURL;
-    NSString *strUploadAvtarURL;
-    NSString *strResetPasswordURL;
-    NSString *strLastSeenURL;
-    NSString *strNearByUserURL;
-    NSString *strPrivacyPolicyURL;
-    NSString *strAboutUsURL;
-    NSString *strTermConditionURL;
-    NSString *strForgetPasswordURL;
-    NSString *strGetAllGuild;
-    NSString *strGetSpecificGuild;
-    NSString *strAddGuild;
-    NSString *strGetSpecificUserGuild;
+    @private
+        NSString *strLoginURL;
+        NSString *strRegistrationURL;
+        NSString *strUpdateURL;
+        NSString *strUploadAvtarURL;
+        NSString *strResetPasswordURL;
+        NSString *strLastSeenURL;
+        NSString *strNearByUserURL;
+        NSString *strPrivacyPolicyURL;
+        NSString *strAboutUsURL;
+        NSString *strTermConditionURL;
+        NSString *strForgetPasswordURL;
+        NSString *strGetAllGuild;
+        NSString *strGetSpecificGuild;
+        NSString *strAddGuild;
+        NSString *strGetSpecificUserGuild;
 }
 
 @end
@@ -212,7 +212,6 @@ typedef enum : NSUInteger {
     }];
 }
 
-
 -(void)callRegistrationServiceWithUserName:(NSString*)strUserName Password:(NSString*)strPassword DateOfBirth:(NSString*)strDateOfBirth Email:(NSString*)strEmail Gender:(NSString*)strGender StateName:(NSString*)strStateName CountryName:(NSString*)strCountrName CityName:(NSString*)strCityName Latitude:(NSString*)strLatitude Longitude:(NSString*)strLongitude WithCompletionHandler:(CompletionHandler)handler
 {
     NSMutableArray *arr=[[NSMutableArray alloc] init];
@@ -270,7 +269,6 @@ typedef enum : NSUInteger {
         });
     }];
 }
-
 -(void)callUpdateUserserviceWithUserName:(NSString*)strUserName UserID:(NSString*)strUserID DateOfBirth:(NSString*)strDateOfBirth Email:(NSString*)strEmail Gender:(NSString*)strGender StateName:(NSString*)strStateName CountryName:(NSString*)strCountrName CityName:(NSString*)strCityName Latitude:(NSString*)strLatitude Longitude:(NSString*)strLongitude WithCompletionHandler:(CompletionHandler)handler
 {
     NSMutableArray *arr=[[NSMutableArray alloc] init];
@@ -331,8 +329,6 @@ typedef enum : NSUInteger {
         });
     }];
 }
-
-
 -(void)callUploadAvtarImageforUserID:(NSString*)strUserID AvtarImage:(NSData*)imgData WithCompletionHandler:(CompletionHandler)handler
 {
     NSMutableURLRequest *request=[[NSMutableURLRequest alloc] initWithURL:[self getURLForService:UploadAvtarService]];
@@ -373,7 +369,6 @@ typedef enum : NSUInteger {
         }
     }];
 }
-
 -(void)callResetPasswordServiceForUserID:(NSString*)strUserID NewPassword:(NSString*)strNewPassword OldPassword:(NSString*)strOldPassword WithCompletionHandler:(CompletionHandler)handler
 {
     NSMutableArray *arr=[[NSMutableArray alloc] init];
@@ -415,7 +410,6 @@ typedef enum : NSUInteger {
         });
     }];
 }
-
 -(void)callLastSeenServiceForUserID:(NSString*)strUserID WithCompletionHandler:(CompletionHandler)handler
 {
     NSMutableArray *arr=[[NSMutableArray alloc] init];
@@ -441,7 +435,6 @@ typedef enum : NSUInteger {
         });
     }];
 }
-
 -(void)callNearByUserServiceForUserID:(NSString*)strUserID WithCompletionHandler:(CompletionHandler)handler
 {
     NSMutableArray *arr=[[NSMutableArray alloc] init];
@@ -527,7 +520,6 @@ typedef enum : NSUInteger {
         });
     }];
 }
-
 -(void)callPrivacyPolicyWithCompletionHandler:(CompletionHandler)handler
 {
     NSMutableArray *arr=[[NSMutableArray alloc] init];
@@ -611,7 +603,6 @@ typedef enum : NSUInteger {
         });
     }];
 }
-
 -(void)callForgetPasswordServiceForEmailID:(NSString*)strEmailID withCompletionHandler:(CompletionHandler)handler
 {
     NSMutableArray *arr=[[NSMutableArray alloc] init];
@@ -643,6 +634,161 @@ typedef enum : NSUInteger {
                         handler(nil,NO,[responseDict objectForKey:@"details"]);
                     }else{
                         handler(nil,YES,@"Something is wrong, please try again later.");
+                    }
+                }
+            }
+        });
+    }];
+}
+-(void)callGetAllGuildWithCompletionHandler:(CompletionHandler)handler
+{
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[self getURLForService:GetAllGuild] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+    NSString *postParams=@"";
+    NSData *RequestPostData = [NSData dataWithBytes: [postParams UTF8String] length: [postParams length]];
+    NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[RequestPostData length]];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:RequestPostData];
+    NSOperationQueue *queue=[NSOperationQueue new];
+    [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (connectionError) {
+                handler(connectionError,YES,@"Connection error is happen, please try again later.");
+            }else{
+                
+                NSLog(@"Response = %@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+                
+                NSError *error;
+                NSDictionary *responseDict=[NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+                if (error) {
+                    handler(error,YES,@"Something is wrong, please try agian later.");
+                }else{
+                    if (![[responseDict objectForKey:@"status"] boolValue]) {
+                        handler(nil,NO,@"Something is wrong, please try agian later.");
+                    }else{
+                        NSMutableArray *arrGuild=[[responseDict objectForKey:@"response"] mutableCopy];
+                        for (int i=0; i<arrGuild.count; i++) {
+                            ModelGuild *guild=[[ModelGuild alloc] initWithDictionary:[arrGuild objectAtIndex:i] WithBaseURL:self.strBaseURL];
+                            [arrGuild removeObjectAtIndex:i];
+                            [arrGuild insertObject:guild atIndex:i];
+                        }
+                        handler(arrGuild,NO,@"Guild have received properly.");
+                    }
+                }
+            }
+        });
+    }];
+}
+-(void)callGetGuildForGuildID:(NSString*)strGuildID WithCompletionHandler:(CompletionHandler)handler
+{
+    NSMutableArray *arr=[[NSMutableArray alloc] init];
+    [arr addObject:[NSString stringWithFormat:@"id=%@",strGuildID]];
+    
+    NSString *postParams = [arr componentsJoinedByString:@"&"];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[self getURLForService:GetSpecificGuild] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+    NSData *RequestPostData = [NSData dataWithBytes: [postParams UTF8String] length: [postParams length]];
+    NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[RequestPostData length]];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:RequestPostData];
+    NSOperationQueue *queue=[NSOperationQueue new];
+    [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (connectionError) {
+                handler(connectionError,YES,@"Connection error is happen, please try again later.");
+            }else{
+                
+                NSLog(@"Response = %@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+                NSError *error;
+                NSDictionary *responseDict=[NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+                if (error) {
+                    handler(error,YES,@"Something is wrong, please try agian later.");
+                }else{
+                    if (![[responseDict objectForKey:@"status"] boolValue]) {
+                        handler(nil,NO,@"Something is wrong, please try agian later.");
+                    }else{
+                        handler([[ModelGuild alloc] initWithDictionary:[responseDict objectForKey:@"response"] WithBaseURL:self.strBaseURL],NO,@"Guild Received Successfully");
+                    }
+                }
+            }
+        });
+    }];
+}
+-(void)callGetGuildsForUserId:(NSString*)strUserID WithCompletionHandler:(CompletionHandler)handler
+{
+    NSMutableArray *arr=[[NSMutableArray alloc] init];
+    [arr addObject:[NSString stringWithFormat:@"user_id=%@",strUserID]];
+    
+    NSString *postParams = [arr componentsJoinedByString:@"&"];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[self getURLForService:GetSpecificUserGuilds] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+    NSData *RequestPostData = [NSData dataWithBytes: [postParams UTF8String] length: [postParams length]];
+    NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[RequestPostData length]];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:RequestPostData];
+    NSOperationQueue *queue=[NSOperationQueue new];
+    [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (connectionError) {
+                handler(connectionError,YES,@"Connection error is happen, please try again later.");
+            }else{
+                
+                NSLog(@"Response = %@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+                NSError *error;
+                NSDictionary *responseDict=[NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+                if (error) {
+                    handler(error,YES,@"Something is wrong, please try agian later.");
+                }else{
+                    if (![[responseDict objectForKey:@"status"] boolValue]) {
+                        handler(nil,NO,@"Something is wrong, please try agian later.");
+                    }else{
+                        NSMutableArray *arrResponse=[[responseDict objectForKey:@"response"] mutableCopy];
+                        for (int i=0; i<arrResponse.count; i++) {
+                            ModelGuild *guild=[[ModelGuild alloc] initWithDictionary:[arrResponse objectAtIndex:i] WithBaseURL:self.strBaseURL];
+                            [arrResponse removeObjectAtIndex:i];
+                            [arrResponse insertObject:guild atIndex:i];
+                        }
+                        handler(arrResponse,NO,@"Guild For User Received");
+                    }
+                }
+            }
+        });
+    }];
+}
+-(void)callAddGuildForGuildID:(NSString*)strGuildID UserID:(NSString*)strUserID CompletionHandler:(CompletionHandler)handler
+{
+    NSMutableArray *arr=[[NSMutableArray alloc] init];
+    [arr addObject:[NSString stringWithFormat:@"user_id=%@",strUserID]];
+    [arr addObject:[NSString stringWithFormat:@"guild_id=%@",strGuildID]];
+    
+    NSString *postParams = [arr componentsJoinedByString:@"&"];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[self getURLForService:AddGuid] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+    NSData *RequestPostData = [NSData dataWithBytes: [postParams UTF8String] length: [postParams length]];
+    NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[RequestPostData length]];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:RequestPostData];
+    NSOperationQueue *queue=[NSOperationQueue new];
+    [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (connectionError) {
+                handler(connectionError,YES,@"Connection error is happen, please try again later.");
+            }else{
+                
+                NSLog(@"Response = %@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+                NSError *error;
+                NSDictionary *responseDict=[NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+                if (error) {
+                    handler(error,YES,@"Something is wrong, please try agian later.");
+                }else{
+                    if ([[responseDict objectForKey:@"status"] boolValue]) {
+                        handler(nil,NO,@"Guild is successfully added to the user.");
+                    }else{
+                        handler(nil,YES,@"Something is wrong, please try agian later.");
                     }
                 }
             }

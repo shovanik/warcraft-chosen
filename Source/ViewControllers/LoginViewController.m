@@ -67,8 +67,8 @@ NSUserDefaults *pref;
     userNameTextField.textColor = color;
     passwordTextField.textColor = color;
     
-    userNameTextField.text = @"user";
-    passwordTextField.text = @"Password123";
+//    userNameTextField.text = @"user";
+//    passwordTextField.text = @"Password123";
     
 
 }

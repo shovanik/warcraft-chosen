@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+
+
 typedef void(^CompletionHandler)(id result,BOOL isError,NSString *strMessage);
 
 @interface WebServiceBaseClass : NSObject

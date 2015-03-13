@@ -67,10 +67,8 @@ NSUserDefaults *pref;
     userNameTextField.textColor = color;
     passwordTextField.textColor = color;
     
-//    userNameTextField.text = @"user";
-//    passwordTextField.text = @"Password123";
-    
-
+    userNameTextField.text = @"user";
+    passwordTextField.text = @"Password123";
 }
 - (BOOL)prefersStatusBarHidden {
     return YES;
@@ -170,9 +168,13 @@ NSUserDefaults *pref;
 
 -(IBAction)loginButtonTapped:(id)sender
 {
-    [self startLocationManager];
-    [self.activityIndicatorView startAnimating];
-    [self.view setUserInteractionEnabled:NO];
+    if (self.isNetworkRechable) {
+        [self startLocationManager];
+        [self.activityIndicatorView startAnimating];
+        [self.view setUserInteractionEnabled:NO];
+    }else{
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:__kNetworkUnavailableMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+    }
 }
 
 -(IBAction)btnForgetPasswordTapped:(id)sender

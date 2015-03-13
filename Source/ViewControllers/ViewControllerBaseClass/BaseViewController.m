@@ -8,20 +8,25 @@
 
 #import "BaseViewController.h"
 
+#include<unistd.h>
+#include<netdb.h>
+
 #import "CustomLocationManager.h"
 #import "SlideOutMenuViewController.h"
 
 #import "WorldMapViewController.h"
 
+#import "WebServiceConstant.h"
 
 @interface BaseViewController ()<CustomLocationManagerDelegate,SlideOutMenuDelegate>
 {
     CustomLocationManager *locationManager;
-    
-    //IBOutlet UIView *sidePanelViewController;
-    
-    
 }
+
+@property(strong) Reachability * googleReach;
+@property(strong) Reachability * localWiFiReach;
+@property(strong) Reachability * internetConnectionReach;
+
 
 @end
 
@@ -64,9 +69,100 @@
     locationManager=[[CustomLocationManager alloc] init];
     locationManager.delegate=self;
     
+#pragma mark
+#pragma mark Rechability Initialization
+#pragma mark
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reachabilityChanged:)
+                                                 name:kReachabilityChangedNotification
+                                               object:nil];
+
+    __weak __block typeof(self)weakself=self;
+    
+    //////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////
+    //
+    // create a Reachability object for www.google.com
+    
+    self.googleReach = [Reachability reachabilityWithHostname:__kHostName];
+    
+    self.googleReach.reachableBlock = ^(Reachability * reachability)
+    {
+        NSLog(@"%@", [NSString stringWithFormat:@"%@ Rechable", __kHostName]);
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            weakself.isNetworkRechable=YES;
+        }];
+    };
+    
+    self.googleReach.unreachableBlock = ^(Reachability * reachability)
+    {
+        NSLog(@"%@", [NSString stringWithFormat:@"%@ Not Rechable", __kHostName]);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            weakself.isNetworkRechable=NO;
+        });
+    };
+    
+    [self.googleReach startNotifier];
     
     
     
+    //////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////
+    //
+    // create a reachability for the local WiFi
+    
+    self.localWiFiReach = [Reachability reachabilityForLocalWiFi];
+    
+    // we ONLY want to be reachable on WIFI - cellular is NOT an acceptable connectivity
+    self.localWiFiReach.reachableOnWWAN = NO;
+    
+    self.localWiFiReach.reachableBlock = ^(Reachability * reachability)
+    {
+        NSLog(@"%@", [NSString stringWithFormat:@"%@ Rechable", __kHostName]);
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            weakself.isNetworkRechable=YES;
+        });
+    };
+    
+    self.localWiFiReach.unreachableBlock = ^(Reachability * reachability)
+    {
+        NSLog(@"%@", [NSString stringWithFormat:@"%@ Not Rechable", __kHostName]);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            weakself.isNetworkRechable=NO;
+        });
+    };
+    
+    [self.localWiFiReach startNotifier];
+    
+    
+    
+    //////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////
+    //
+    // create a Reachability object for the internet
+    
+    self.internetConnectionReach = [Reachability reachabilityForInternetConnection];
+    
+    self.internetConnectionReach.reachableBlock = ^(Reachability * reachability)
+    {
+        NSLog(@"%@", [NSString stringWithFormat:@"%@ Rechable", __kHostName]);
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            weakself.isNetworkRechable=YES;
+        });
+    };
+    
+    self.internetConnectionReach.unreachableBlock = ^(Reachability * reachability)
+    {
+        NSLog(@"%@", [NSString stringWithFormat:@"%@ Not Rechable", __kHostName]);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            weakself.isNetworkRechable=NO;
+        });
+    };
+    
+    [self.internetConnectionReach startNotifier];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -206,6 +302,53 @@
     [self closeSlideMenu];
 }
 
+#pragma mark
+#pragma mark Slide Menu Delegate
+#pragma mark
 
+-(void)reachabilityChanged:(NSNotification*)note
+{
+    Reachability * reach = [note object];
+    
+    if(reach == self.googleReach)
+    {
+        if([reach isReachable])
+        {
+            NSLog(@"%@", [NSString stringWithFormat:@"%@ Reachable", __kHostName]);
+            self.isNetworkRechable=YES;
+        }
+        else
+        {
+            NSLog(@"%@", [NSString stringWithFormat:@"%@ Not Reachable", __kHostName]);
+            self.isNetworkRechable=NO;
+        }
+    }
+    else if (reach == self.localWiFiReach)
+    {
+        if([reach isReachable])
+        {
+            NSLog(@"%@", [NSString stringWithFormat:@"%@ Reachable", __kHostName]);
+            self.isNetworkRechable=YES;
+        }
+        else
+        {
+            NSLog(@"%@", [NSString stringWithFormat:@"%@ Not Reachable", __kHostName]);
+            self.isNetworkRechable=NO;
+        }
+    }
+    else if (reach == self.internetConnectionReach)
+    {
+        if([reach isReachable])
+        {
+            NSLog(@"%@", [NSString stringWithFormat:@"%@ Reachable", __kHostName]);
+            self.isNetworkRechable=YES;
+        }
+        else
+        {
+            NSLog(@"%@", [NSString stringWithFormat:@"%@ Not Reachable", __kHostName]);
+            self.isNetworkRechable=NO;
+        }
+    }
+}
 
 @end

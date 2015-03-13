@@ -657,7 +657,7 @@ typedef enum : NSUInteger {
                 handler(connectionError,YES,@"Connection error is happen, please try again later.");
             }else{
                 
-                NSLog(@"Response = %@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+                //NSLog(@"Response = %@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
                 
                 NSError *error;
                 NSDictionary *responseDict=[NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
@@ -736,7 +736,7 @@ typedef enum : NSUInteger {
                 handler(connectionError,YES,@"Connection error is happen, please try again later.");
             }else{
                 
-                NSLog(@"Response = %@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+                //NSLog(@"Response = %@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
                 NSError *error;
                 NSDictionary *responseDict=[NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
                 if (error) {

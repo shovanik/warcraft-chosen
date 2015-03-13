@@ -14,7 +14,9 @@
 		20224D621AA0A8CD00DE7B85 /* CustomMapAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20224D601AA0A8CD00DE7B85 /* CustomMapAnnotationView.m */; };
 		20224D671AA0A97E00DE7B85 /* AnnotationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20224D661AA0A97E00DE7B85 /* AnnotationViewController.m */; };
 		20224D691AA0A9AD00DE7B85 /* AnnotationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20224D681AA0A9AD00DE7B85 /* AnnotationViewController.xib */; };
-		203439A41AA49C3D00D1205D /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 203439A31AA49C3D00D1205D /* Fabric.framework */; };
+		202831DF1AB2DD0900C65D98 /* GuildImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 202831DE1AB2DD0900C65D98 /* GuildImageView.m */; };
+		202831E11AB2E9D200C65D98 /* tranparent_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 202831E01AB2E9D200C65D98 /* tranparent_bg.png */; };
+		202831F11AB30ECA00C65D98 /* NSMutableArray+FoundGuild.m in Sources */ = {isa = PBXBuildFile; fileRef = 202831F01AB30ECA00C65D98 /* NSMutableArray+FoundGuild.m */; };
 		2071B9DA1AA993DE00D5D261 /* CustomUITextFieldType1.m in Sources */ = {isa = PBXBuildFile; fileRef = 2071B9D91AA993DE00D5D261 /* CustomUITextFieldType1.m */; };
 		208FBE311AB06CCE00B391DF /* ImageViewGuild.m in Sources */ = {isa = PBXBuildFile; fileRef = 208FBE301AB06CCE00B391DF /* ImageViewGuild.m */; };
 		208FBE371AB088DA00B391DF /* five_star.png in Resources */ = {isa = PBXBuildFile; fileRef = 208FBE321AB088DA00B391DF /* five_star.png */; };
@@ -303,7 +305,12 @@
 		20224D651AA0A97E00DE7B85 /* AnnotationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnnotationViewController.h; path = AnnotationViewController/AnnotationViewController.h; sourceTree = "<group>"; };
 		20224D661AA0A97E00DE7B85 /* AnnotationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AnnotationViewController.m; path = AnnotationViewController/AnnotationViewController.m; sourceTree = "<group>"; };
 		20224D681AA0A9AD00DE7B85 /* AnnotationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AnnotationViewController.xib; path = AnnotationViewController/AnnotationViewController.xib; sourceTree = "<group>"; };
-		203439A31AA49C3D00D1205D /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		202760271AB17EDB004CAFFD /* WebServiceConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WebServiceConstant.h; path = Constant/WebServiceConstant.h; sourceTree = "<group>"; };
+		202831DD1AB2DD0900C65D98 /* GuildImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GuildImageView.h; path = CustomControl/GuildImageView.h; sourceTree = "<group>"; };
+		202831DE1AB2DD0900C65D98 /* GuildImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GuildImageView.m; path = CustomControl/GuildImageView.m; sourceTree = "<group>"; };
+		202831E01AB2E9D200C65D98 /* tranparent_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tranparent_bg.png; sourceTree = "<group>"; };
+		202831EF1AB30ECA00C65D98 /* NSMutableArray+FoundGuild.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSMutableArray+FoundGuild.h"; path = "Category/NSMutableArray+FoundGuild.h"; sourceTree = "<group>"; };
+		202831F01AB30ECA00C65D98 /* NSMutableArray+FoundGuild.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSMutableArray+FoundGuild.m"; path = "Category/NSMutableArray+FoundGuild.m"; sourceTree = "<group>"; };
 		206DDDC81AA44EB5000E84C4 /* DeviceConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DeviceConstant.h; path = Constant/DeviceConstant.h; sourceTree = "<group>"; };
 		2071B9D81AA993DE00D5D261 /* CustomUITextFieldType1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomUITextFieldType1.h; path = CustomControl/CustomUITextFieldType1.h; sourceTree = "<group>"; };
 		2071B9D91AA993DE00D5D261 /* CustomUITextFieldType1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomUITextFieldType1.m; path = CustomControl/CustomUITextFieldType1.m; sourceTree = "<group>"; };
@@ -642,7 +649,6 @@
 				D699F1F11A88894F001FD64E /* MapKit.framework in Frameworks */,
 				D699F1EF1A88893C001FD64E /* CoreLocation.framework in Frameworks */,
 				D64322D31A79230B001F69E9 /* Social.framework in Frameworks */,
-				203439A41AA49C3D00D1205D /* Fabric.framework in Frameworks */,
 				D64322D21A792305001F69E9 /* Foundation.framework in Frameworks */,
 				D64322D11A7922FF001F69E9 /* Twitter.framework in Frameworks */,
 				D64322D01A7922F8001F69E9 /* UIKit.framework in Frameworks */,
@@ -734,6 +740,7 @@
 		2012B1631A9752BE00E1EF3D /* Guild */ = {
 			isa = PBXGroup;
 			children = (
+				202831E01AB2E9D200C65D98 /* tranparent_bg.png */,
 				20BAC3DF1A94A8B100E895FE /* GuildViewController.h */,
 				20BAC3E01A94A8B100E895FE /* GuildViewController.m */,
 				20BAC3E11A94A8B100E895FE /* GuildViewController.xib */,
@@ -842,6 +849,7 @@
 			children = (
 				206DDDC81AA44EB5000E84C4 /* DeviceConstant.h */,
 				201A5E691A96132C0052E53B /* Constants.h */,
+				202760271AB17EDB004CAFFD /* WebServiceConstant.h */,
 			);
 			name = Constants;
 			sourceTree = "<group>";
@@ -863,6 +871,15 @@
 				20224D681AA0A9AD00DE7B85 /* AnnotationViewController.xib */,
 			);
 			name = AnnonationView;
+			sourceTree = "<group>";
+		};
+		202831E21AB3076100C65D98 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				202831EF1AB30ECA00C65D98 /* NSMutableArray+FoundGuild.h */,
+				202831F01AB30ECA00C65D98 /* NSMutableArray+FoundGuild.m */,
+			);
+			name = Category;
 			sourceTree = "<group>";
 		};
 		20BAC3941A94A75800E895FE /* Storyboard & Launch Screen */ = {
@@ -1065,6 +1082,8 @@
 				208FBE301AB06CCE00B391DF /* ImageViewGuild.m */,
 				2071B9D81AA993DE00D5D261 /* CustomUITextFieldType1.h */,
 				2071B9D91AA993DE00D5D261 /* CustomUITextFieldType1.m */,
+				202831DD1AB2DD0900C65D98 /* GuildImageView.h */,
+				202831DE1AB2DD0900C65D98 /* GuildImageView.m */,
 			);
 			name = CustomControl;
 			sourceTree = "<group>";
@@ -1128,6 +1147,7 @@
 				CD79B17E1A3F34F200AFD912 /* 80x80.png */,
 				CD79B17F1A3F34F200AFD912 /* 114x114.png */,
 				CD79B1801A3F34F200AFD912 /* 120x120.png */,
+				202831E21AB3076100C65D98 /* Category */,
 				20D4BC3F1AA74303004EB2AD /* CustomControl */,
 				20224D641AA0A8DD00DE7B85 /* AnnonationView */,
 				20224D5E1AA0A8CD00DE7B85 /* CustomMapAnnotation */,
@@ -1145,8 +1165,8 @@
 				CD79B1391A3F1DB800AFD912 /* Chosen */,
 				D6ADAFB01A80F257003AD399 /* Images.xcassets */,
 				CD79B1531A3F1DB800AFD912 /* ChosenTests */,
-				CD79B1381A3F1DB800AFD912 /* Products */,
 				D64322C31A792198001F69E9 /* Frameworks */,
+				CD79B1381A3F1DB800AFD912 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1460,7 +1480,6 @@
 				20D4BC3D1AA74051004EB2AD /* QuartzCore.framework */,
 				20119DD41A97258C00EC0111 /* Bolts.framework */,
 				20119DD51A97258C00EC0111 /* FacebookSDK.framework */,
-				203439A31AA49C3D00D1205D /* Fabric.framework */,
 				20BAC3991A94A88300E895FE /* STTwitter */,
 				D699F1F01A88894F001FD64E /* MapKit.framework */,
 				D699F1EE1A88893C001FD64E /* CoreLocation.framework */,
@@ -1489,7 +1508,6 @@
 				CD79B1331A3F1DB800AFD912 /* Sources */,
 				CD79B1341A3F1DB800AFD912 /* Frameworks */,
 				CD79B1351A3F1DB800AFD912 /* Resources */,
-				20596CA81AA496EF00F8237D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1659,6 +1677,7 @@
 				CD104B721A41DC1E0051BABF /* steps_nav_bg_iphn4@2x.png in Resources */,
 				CD8AFBF51A4187C80090F545 /* reg_submit_button_iphn6@2x.png in Resources */,
 				D6C44B4C1A666F6E00AFFB9B /* trmDet_Single_icon_iphn6@2x.png in Resources */,
+				202831E11AB2E9D200C65D98 /* tranparent_bg.png in Resources */,
 				D6C44B861A66AA5000AFFB9B /* addTrm_contentBg_iphn6@2x.png in Resources */,
 				CDE1C2251A49D3D200287F9F /* trn_content_box_iphn4@2x.png in Resources */,
 				CD5D93BE1A4877E700D5E788 /* image4.png in Resources */,
@@ -1765,22 +1784,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		20596CA81AA496EF00F8237D /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "./Fabric.framework/run a3607a4b3f67601463fb3f8a94ac5c982c9d19ee 4ab370a665e17cd31ca2bfd4ab4453582c046c5e71c192ef581def826cb1ee13\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		CD79B1331A3F1DB800AFD912 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -1842,8 +1845,10 @@
 				20BAC4181A94A8B100E895FE /* SlideOutMenuViewController.m in Sources */,
 				20D4BC2D1AA6EC13004EB2AD /* ModelAboutUs.m in Sources */,
 				CD79B13D1A3F1DB800AFD912 /* main.m in Sources */,
+				202831DF1AB2DD0900C65D98 /* GuildImageView.m in Sources */,
 				20BAC4161A94A8B100E895FE /* SettingsViewController.m in Sources */,
 				20BAC40B1A94A8B100E895FE /* GuildViewController.m in Sources */,
+				202831F11AB30ECA00C65D98 /* NSMutableArray+FoundGuild.m in Sources */,
 				20D4BC2A1AA6E753004EB2AD /* ModelPrivacyPolicy.m in Sources */,
 				20D4BC661AA76392004EB2AD /* UserPasswordChangeViewController.m in Sources */,
 				201A5E5F1A95DBCF0052E53B /* BaseViewController.m in Sources */,

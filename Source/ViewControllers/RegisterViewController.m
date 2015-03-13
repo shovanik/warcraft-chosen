@@ -406,31 +406,36 @@ NSUserDefaults *pref;
 
 -(void)didUpdateLocationUpdateWithPlacemark:(CLPlacemark *)placeMark
 {
-    NSDictionary *dict=[self addressDictionaryForPlaceMark:placeMark];
-    [[WebService service] callRegistrationServiceWithUserName:[txtUserName.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] Password:[txtPassword.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] DateOfBirth:[txtDOB.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] Email:[txtEmail.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] Gender:[genderString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] StateName:[dict objectForKey:@"State"] CountryName:[dict objectForKey:@"Country"] CityName:[dict objectForKey:@"City"] Latitude:[dict objectForKey:@"Latitude"] Longitude:[dict objectForKey:@"Longitude"] WithCompletionHandler:^(id result, BOOL isError, NSString *strMessage) {
-        if (isError) {
-            [[[UIAlertView alloc] initWithTitle:@"Error" message:strMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
-        }else{
-            if ([result isKindOfClass:[NSDictionary class]]) {
-                NSMutableDictionary *dict=(NSMutableDictionary*)result;
+    if (self.isNetworkRechable) {
+        NSDictionary *dict=[self addressDictionaryForPlaceMark:placeMark];
+        [[WebService service] callRegistrationServiceWithUserName:[txtUserName.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] Password:[txtPassword.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] DateOfBirth:[txtDOB.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] Email:[txtEmail.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] Gender:[genderString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] StateName:[dict objectForKey:@"State"] CountryName:[dict objectForKey:@"Country"] CityName:[dict objectForKey:@"City"] Latitude:[dict objectForKey:@"Latitude"] Longitude:[dict objectForKey:@"Longitude"] WithCompletionHandler:^(id result, BOOL isError, NSString *strMessage) {
+            if (isError) {
+                [[[UIAlertView alloc] initWithTitle:@"Error" message:strMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+            }else{
+                if ([result isKindOfClass:[NSDictionary class]]) {
+                    NSMutableDictionary *dict=(NSMutableDictionary*)result;
+                    
+                    id tempUser=[dict objectForKey:@"User"];
+                    if ([tempUser isKindOfClass:[ModelUser class]]) {
+                        user=(ModelUser*)tempUser;
+                    }
+                    id tempAllUser=[dict objectForKey:@"AllUser"];
+                    if ([tempAllUser isKindOfClass:[NSMutableArray class]]) {
+                        allUser=(NSMutableArray*)tempAllUser;
+                    }
+                }
                 
-                id tempUser=[dict objectForKey:@"User"];
-                if ([tempUser isKindOfClass:[ModelUser class]]) {
-                    user=(ModelUser*)tempUser;
-                }
-                id tempAllUser=[dict objectForKey:@"AllUser"];
-                if ([tempAllUser isKindOfClass:[NSMutableArray class]]) {
-                    allUser=(NSMutableArray*)tempAllUser;
-                }
+                UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Success" message:strMessage delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                alert.tag=1;
+                [alert show];
             }
-            
-            UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Success" message:strMessage delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            alert.tag=1;
-            [alert show];
-        }
-        [self.view setUserInteractionEnabled:YES];
-        [self.activityIndicatorView stopAnimating];
-    }];
+            [self.view setUserInteractionEnabled:YES];
+            [self.activityIndicatorView stopAnimating];
+        }];
+    }else{
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:__kNetworkUnavailableMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+    }
+    
 }
 
 #pragma mark

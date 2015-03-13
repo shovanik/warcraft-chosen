@@ -76,10 +76,8 @@
     IBOutlet UILabel *lblPrice;
     IBOutlet UILabel *lblDamage;
     IBOutlet UILabel *lblAccuracy;
-    IBOutlet UISlider *damageSlider, *accurancySlider;
-
-    
-    
+    IBOutlet GuildImageView *imgSliderDamage;
+    IBOutlet GuildImageView *imgSliderAccuracy;
     
     
     NSMutableDictionary *guildDictionary;
@@ -88,6 +86,8 @@
     InfinitePagingView *pagingView;
     
     CGRect guildSize;
+    
+    ModelGuild *guildSelected;
 }
 
 
@@ -103,6 +103,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    arrAllGuilds=[[NSMutableArray alloc] init];
+    arrUserGuilds=[[NSMutableArray alloc] init];
     
     [self setUIAndConstraint];
     
@@ -121,7 +124,9 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [self loadAllGuildFromServer];
+    if (self.isNetworkRechable) {
+        [self loadAllGuildFromServer];
+    }
 }
 - (BOOL)prefersStatusBarHidden {
     return YES;
@@ -133,17 +138,20 @@
 
 
 #pragma mark
-#pragma mark Load Data From Server Method
+#pragma mark Web Service Interaction Method
 #pragma mark
 
 -(void)loadAllGuildFromServer
 {
+    [self.activityIndicatorView startAnimating];
     [[WebService service] callGetAllGuildWithCompletionHandler:^(id result, BOOL isError, NSString *strMessage) {
+        [self.activityIndicatorView stopAnimating];
         if (isError) {
             [[[UIAlertView alloc] initWithTitle:@"Error" message:strMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
         }else{
             if ([result isKindOfClass:[NSMutableArray class]]) {
                 arrAllGuilds=(NSMutableArray*)result;
+                [self updateUIForGuild:[arrAllGuilds firstObject]];
                 [self loadAllGuildForUser];
             }
         }
@@ -151,17 +159,37 @@
 }
 -(void)loadAllGuildForUser
 {
+    [self.activityIndicatorView startAnimating];
     [[WebService service] callGetGuildsForUserId:user.strID WithCompletionHandler:^(id result, BOOL isError, NSString *strMessage) {
+        [self.activityIndicatorView stopAnimating];
         if (isError) {
             [[[UIAlertView alloc] initWithTitle:@"Error" message:strMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
         }else{
             if ([result isKindOfClass:[NSMutableArray class]]) {
                 arrUserGuilds=(NSMutableArray*)result;
+                [self.activityIndicatorView stopAnimating];
                 [self makeUIDesign];
-                [self updateUIForGuild:[arrAllGuilds firstObject]];
             }
         }
     }];
+}
+
+-(void)addGuildToTheUserWithGuild:(ModelGuild*)guild
+{
+    if (self.isNetworkRechable) {
+        [self.activityIndicatorView startAnimating];
+        [[WebService service] callAddGuildForGuildID:guild.strId UserID:user.strID CompletionHandler:^(id result, BOOL isError, NSString *strMessage) {
+            [self.activityIndicatorView stopAnimating];
+            if (isError) {
+                [[[UIAlertView alloc] initWithTitle:@"Error" message:strMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+            }else{
+                [[[UIAlertView alloc] initWithTitle:@"Error" message:strMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+                [arrUserGuilds addObject:guild];
+            }
+        }];
+    }else{
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:__kNetworkUnavailableMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+    }
 }
 
 #pragma mark
@@ -300,10 +328,13 @@
 
 -(void)updateUIForGuild:(ModelGuild*)guild
 {
+    guildSelected=guild;
     lblGuildName.text = [guild.strName uppercaseString];
     lblDamage.text=[NSString stringWithFormat:@"Damage %@%%",[guild.strDamage stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
-    lblPrice.text=[NSString stringWithFormat:@"%@ $",[guild.strPrice stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
+    [imgSliderDamage setPercentage:[[guild.strDamage stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] integerValue]];
     lblAccuracy.text=[NSString stringWithFormat:@"Accuracy %@%%",[guild.strAccuracy stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
+    [imgSliderAccuracy setPercentage:[[guild.strAccuracy stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] integerValue]];
+    lblPrice.text=[NSString stringWithFormat:@"%@ $",[guild.strPrice stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
     
     switch ([[guild.strRating stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] integerValue]) {
         case 0:
@@ -339,5 +370,26 @@
     pageControl.currentPage = pageIndex;
     [self updateUIForGuild:guild];
 }
+
+#pragma mark
+#pragma mark IBAction Method
+#pragma mark
+
+-(IBAction)btnBuyPressed:(id)sender
+{
+    if ([arrUserGuilds getGuildIndex:guildSelected]>=0) {
+        [[[UIAlertView alloc] initWithTitle:@"Warning" message:@"Guild is already added to the user." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+    }else{
+        [self addGuildToTheUserWithGuild:guildSelected];
+    }
+}
+
+-(IBAction)btnExchangePressed:(id)sender
+{
+    
+}
+
+
+
 
 @end

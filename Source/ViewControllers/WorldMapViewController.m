@@ -215,22 +215,28 @@ NSUserDefaults *pref;
 
 -(void)callUpdateUserWebServiceWithPlaceMarks:(NSArray*)arrPlaceMarks
 {
-    CLPlacemark *placemark = [arrPlaceMarks objectAtIndex:0];
-    NSDictionary *dict=[self addressDictionaryForPlaceMark:placemark];
-    [[WebService service] callUpdateUserserviceWithUserName:@"" UserID:user.strID DateOfBirth:@"" Email:@"" Gender:@"" StateName:[dict objectForKey:@"State"] CountryName:[dict objectForKey:@"Country"] CityName:[dict objectForKey:@"City"] Latitude:[NSString stringWithFormat:@"%f",placemark.location.coordinate.latitude] Longitude:[NSString stringWithFormat:@"%f",placemark.location.coordinate.longitude] WithCompletionHandler:^(id result, BOOL isError, NSString *strMessage) {
-        if (isError) {
-            UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Error" message:@"Something is wrong, please try again later." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-            alert.tag=1;
-            [alert show];
-        }else{
-            if ([result isKindOfClass:[NSDictionary class]]) {
-                NSDictionary *dict=(NSDictionary*)result;
-                user=[dict objectForKey:@"User"];
-                allUser=[dict objectForKey:@"AllUser"];
-                [self updateWorldMapWithWebserViceResult:allUser];
+    
+    if (self.isNetworkRechable) {
+        CLPlacemark *placemark = [arrPlaceMarks objectAtIndex:0];
+        NSDictionary *dict=[self addressDictionaryForPlaceMark:placemark];
+        [[WebService service] callUpdateUserserviceWithUserName:@"" UserID:user.strID DateOfBirth:@"" Email:@"" Gender:@"" StateName:[dict objectForKey:@"State"] CountryName:[dict objectForKey:@"Country"] CityName:[dict objectForKey:@"City"] Latitude:[NSString stringWithFormat:@"%f",placemark.location.coordinate.latitude] Longitude:[NSString stringWithFormat:@"%f",placemark.location.coordinate.longitude] WithCompletionHandler:^(id result, BOOL isError, NSString *strMessage) {
+            if (isError) {
+                UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Error" message:@"Something is wrong, please try again later." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+                alert.tag=1;
+                [alert show];
+            }else{
+                if ([result isKindOfClass:[NSDictionary class]]) {
+                    NSDictionary *dict=(NSDictionary*)result;
+                    user=[dict objectForKey:@"User"];
+                    allUser=[dict objectForKey:@"AllUser"];
+                    [self updateWorldMapWithWebserViceResult:allUser];
+                }
             }
-        }
-    }];
+        }];
+    }else{
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:__kNetworkUnavailableMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+    }
+    
 }
 
 -(void)updateWorldMapWithWebserViceResult:(NSMutableArray*)arrAllUsers

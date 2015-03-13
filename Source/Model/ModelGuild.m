@@ -34,15 +34,15 @@
         }
         
         if ([dict objectForKey:@"damage"]&& ![[dict objectForKey:@"damage"] isKindOfClass:[NSNull class]]) {
-            strDamage=[dict objectForKey:@"damage"];
+            strDamage=[[dict objectForKey:@"damage"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         }else{
-            strDamage=@"";
+            strDamage=@"0";
         }
         
         if ([dict objectForKey:@"accuracy"]&& ![[dict objectForKey:@"accuracy"] isKindOfClass:[NSNull class]]) {
-            strAccuracy=[dict objectForKey:@"accuracy"];
+            strAccuracy=[[dict objectForKey:@"accuracy"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         }else{
-            strAccuracy=@"";
+            strAccuracy=@"0";
         }
         
         if ([dict objectForKey:@"rating"]&& ![[dict objectForKey:@"rating"] isKindOfClass:[NSNull class]]) {

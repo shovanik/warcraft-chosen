@@ -116,40 +116,53 @@
     self.abtButton.selected = NO;
     self.priPoliButton.selected = NO;
     self.termsOfUseButton.selected = NO;
-    
-//    UpdateProfileViewController *master=[[UpdateProfileViewController alloc] initWithNibName:@"UpdateProfileViewController" bundle:nil];
-//    [self.navigationController pushViewController:master animated:YES];
-    
-    MyProfileViewController *master=[[MyProfileViewController alloc] initWithNibName:@"MyProfileViewController" bundle:nil];
-    [self.navigationController pushViewController:master animated:YES];
+    if (self.isNetworkRechable) {
+        MyProfileViewController *master=[[MyProfileViewController alloc] initWithNibName:@"MyProfileViewController" bundle:nil];
+        [self.navigationController pushViewController:master animated:YES];
+    }else{
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:__kNetworkUnavailableMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+    }
 }
 -(IBAction)abtButtonTapped:(id)sender{
     self.proSetButton.selected = NO;
     self.priPoliButton.selected = NO;
     self.termsOfUseButton.selected = NO;
     self.abtButton.selected = YES;
-    
-    AboutUsViewController *master=[[AboutUsViewController alloc] initWithNibName:@"AboutUsViewController" bundle:nil];
-    master.strFor=@"aboutus";
-    [self.navigationController pushViewController:master animated:YES];
+    if (self.isNetworkRechable) {
+        AboutUsViewController *master=[[AboutUsViewController alloc] initWithNibName:@"AboutUsViewController" bundle:nil];
+        master.strFor=@"aboutus";
+        [self.navigationController pushViewController:master animated:YES];
+    }else{
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:__kNetworkUnavailableMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+    }
 }
 -(IBAction)priPolButtonTapped:(id)sender{
     self.proSetButton.selected = NO;
     self.priPoliButton.selected = YES;
     self.termsOfUseButton.selected = NO;
     self.abtButton.selected = NO;
-    AboutUsViewController *master=[[AboutUsViewController alloc] initWithNibName:@"AboutUsViewController" bundle:nil];
-    master.strFor=@"privacy";
-    [self.navigationController pushViewController:master animated:YES];
+    if (self.isNetworkRechable) {
+        AboutUsViewController *master=[[AboutUsViewController alloc] initWithNibName:@"AboutUsViewController" bundle:nil];
+        master.strFor=@"privacy";
+        [self.navigationController pushViewController:master animated:YES];
+    }else{
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:__kNetworkUnavailableMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+    }
+    
 }
 -(IBAction)trmUseBtnTapped:(id)sender{
     self.proSetButton.selected = NO;
     self.priPoliButton.selected = NO;
     self.termsOfUseButton.selected = YES;
     self.abtButton.selected = NO;
-    AboutUsViewController *master=[[AboutUsViewController alloc] initWithNibName:@"AboutUsViewController" bundle:nil];
-    master.strFor=@"terms";
-    [self.navigationController pushViewController:master animated:YES];
+    if (self.isNetworkRechable) {
+        AboutUsViewController *master=[[AboutUsViewController alloc] initWithNibName:@"AboutUsViewController" bundle:nil];
+        master.strFor=@"terms";
+        [self.navigationController pushViewController:master animated:YES];
+    }else{
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:__kNetworkUnavailableMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+    }
+    
 }
 
 @end

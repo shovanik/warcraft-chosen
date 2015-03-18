@@ -2,7 +2,15 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="GARA.TTF">
+            <string>Garamond</string>
+            <string>Garamond</string>
+            <string>Garamond</string>
+        </mutableArray>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -13,43 +21,89 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="trmDet_cellBg_iphn4.png" translatesAutoresizingMaskIntoConstraints="NO" id="AOd-ju-mgL">
-                        <rect key="frame" x="19" y="0.0" width="283" height="94"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="tournDetailCellBg" translatesAutoresizingMaskIntoConstraints="NO" id="AOd-ju-mgL">
+                        <rect key="frame" x="0.0" y="1" width="320" height="94"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="94" id="6lx-Zh-iuQ"/>
+                        </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="GAME 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eng-Az-pDC">
-                        <rect key="frame" x="30" y="0.0" width="200" height="24"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="tournDetailCellOutLine" translatesAutoresizingMaskIntoConstraints="NO" id="Rdw-X3-YNG">
+                        <rect key="frame" x="10" y="35" width="300" height="54"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="54" id="jcP-Fc-gaK"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="GAME 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eng-Az-pDC">
+                        <rect key="frame" x="10" y="4" width="63" height="20"/>
+                        <fontDescription key="fontDescription" name="Garamond" family="Garamond" pointSize="17"/>
                         <color key="textColor" red="0.792156862745098" green="0.90196078431372551" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="trmDet_group_iphn4.png" translatesAutoresizingMaskIntoConstraints="NO" id="0VM-BH-0L8">
-                        <rect key="frame" x="35" y="42" width="35" height="35"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="trmDet_group_iphn4.png" translatesAutoresizingMaskIntoConstraints="NO" id="0VM-BH-0L8">
+                        <rect key="frame" x="18" y="44" width="37" height="37"/>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="trmDet_dolar_iphn4.png" translatesAutoresizingMaskIntoConstraints="NO" id="bdQ-tX-fpp">
-                        <rect key="frame" x="80" y="42" width="35" height="35"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="trmDet_dolar_iphn4.png" translatesAutoresizingMaskIntoConstraints="NO" id="bdQ-tX-fpp">
+                        <rect key="frame" x="64" y="45" width="36" height="36"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </imageView>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pdb-ba-yQ2">
-                        <rect key="frame" x="171" y="42" width="117" height="35"/>
-                        <state key="normal" title="PRIVATE" backgroundImage="trmDet_PubPriv_Bg_iphn4.png">
-                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                        </state>
-                    </button>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gfr-bf-j2a">
-                        <rect key="frame" x="171" y="42" width="117" height="35"/>
-                        <state key="normal" title="PUBLIC" backgroundImage="trmDet_PubPriv_Bg_iphn4.png">
-                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                        </state>
-                    </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="40" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oYB-ur-HQC">
-                        <rect key="frame" x="122" y="49" width="42" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="40" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oYB-ur-HQC">
+                        <rect key="frame" x="107" y="51" width="42" height="21"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="42" id="Ov1-N1-Ves"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.80784313725490198" green="0.92156862745098034" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pdb-ba-yQ2">
+                        <rect key="frame" x="157" y="44" width="143" height="35"/>
+                        <color key="backgroundColor" red="0.80784313730000001" green="0.92156862750000001" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="35" id="qJs-AJ-6Vx"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Garamond" family="Garamond" pointSize="14"/>
+                        <state key="normal" title="PRIVATE">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gfr-bf-j2a">
+                        <rect key="frame" x="157" y="44" width="143" height="35"/>
+                        <color key="backgroundColor" red="0.80784313730000001" green="0.92156862750000001" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="35" id="Tjo-Bl-iyf"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Garamond" family="Garamond" pointSize="14"/>
+                        <state key="normal" title="PUBLIC">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="eng-Az-pDC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="3" id="0tK-ZR-bHD"/>
+                    <constraint firstItem="bdQ-tX-fpp" firstAttribute="top" secondItem="eng-Az-pDC" secondAttribute="bottom" constant="20" id="68t-DV-1O9"/>
+                    <constraint firstAttribute="trailing" secondItem="Rdw-X3-YNG" secondAttribute="trailing" constant="10" id="6Fa-fq-Nau"/>
+                    <constraint firstItem="Gfr-bf-j2a" firstAttribute="leading" secondItem="oYB-ur-HQC" secondAttribute="trailing" constant="8" id="9i4-N4-0Mb"/>
+                    <constraint firstItem="AOd-ju-mgL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Ae2-Qu-oow"/>
+                    <constraint firstItem="0VM-BH-0L8" firstAttribute="top" secondItem="eng-Az-pDC" secondAttribute="bottom" constant="19" id="DFT-Oy-2mW"/>
+                    <constraint firstItem="oYB-ur-HQC" firstAttribute="leading" secondItem="bdQ-tX-fpp" secondAttribute="trailing" constant="7" id="Gre-v3-CtH"/>
+                    <constraint firstItem="Pdb-ba-yQ2" firstAttribute="leading" secondItem="oYB-ur-HQC" secondAttribute="trailing" constant="8" id="JRp-Cr-RTd"/>
+                    <constraint firstItem="Gfr-bf-j2a" firstAttribute="trailing" secondItem="Rdw-X3-YNG" secondAttribute="trailing" constant="-10" id="KZA-Zs-8Mi"/>
+                    <constraint firstItem="eng-Az-pDC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="O3Y-wk-SqT"/>
+                    <constraint firstItem="bdQ-tX-fpp" firstAttribute="leading" secondItem="0VM-BH-0L8" secondAttribute="trailing" constant="9" id="OrO-d5-WCr"/>
+                    <constraint firstItem="Pdb-ba-yQ2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="44" id="Po8-cW-FUc"/>
+                    <constraint firstItem="Pdb-ba-yQ2" firstAttribute="trailing" secondItem="Rdw-X3-YNG" secondAttribute="trailing" constant="-10" id="TW0-Rt-OIg"/>
+                    <constraint firstItem="AOd-ju-mgL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="VzH-8V-C0s"/>
+                    <constraint firstItem="Rdw-X3-YNG" firstAttribute="top" secondItem="eng-Az-pDC" secondAttribute="bottom" constant="10" id="XlV-5O-76F"/>
+                    <constraint firstAttribute="trailing" secondItem="AOd-ju-mgL" secondAttribute="trailing" id="boO-LU-NYH"/>
+                    <constraint firstItem="0VM-BH-0L8" firstAttribute="centerY" secondItem="bdQ-tX-fpp" secondAttribute="centerY" id="cCa-Fv-qzm"/>
+                    <constraint firstItem="Gfr-bf-j2a" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="36" id="dlR-I1-hk4"/>
+                    <constraint firstItem="bdQ-tX-fpp" firstAttribute="centerY" secondItem="oYB-ur-HQC" secondAttribute="centerY" constant="1.5" id="jdx-Tx-T4B"/>
+                    <constraint firstItem="Rdw-X3-YNG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="ktb-1u-h2G"/>
+                    <constraint firstItem="0VM-BH-0L8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="18" id="mcu-Jm-0ob"/>
+                </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
@@ -59,12 +113,12 @@
                 <outlet property="pubButton" destination="Gfr-bf-j2a" id="Cme-ka-Edb"/>
                 <outlet property="turNameLabel" destination="eng-Az-pDC" id="X9y-ce-jiq"/>
             </connections>
-            <point key="canvasLocation" x="229" y="413.5"/>
+            <point key="canvasLocation" x="229" y="411"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="trmDet_PubPriv_Bg_iphn4.png" width="117" height="35"/>
-        <image name="trmDet_cellBg_iphn4.png" width="283" height="94"/>
+        <image name="tournDetailCellBg" width="565" height="188"/>
+        <image name="tournDetailCellOutLine" width="531" height="98"/>
         <image name="trmDet_dolar_iphn4.png" width="36" height="36"/>
         <image name="trmDet_group_iphn4.png" width="37" height="37"/>
     </resources>

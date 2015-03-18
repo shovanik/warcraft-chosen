@@ -9,55 +9,29 @@
 #import "TournamentViewController.h"
 #import "SlideOutMenuViewController.h"
 #import "TournamentDetailsViewController.h"
+#import "TournamentTableViewCell.h"
 #import "GuildViewController.h"
 #import "Context.h"
 
 @interface TournamentViewController (){
-    CGFloat _offset;
+    IBOutlet UITableView *tblTournament;
 
 }
 
 @end
 
 @implementation TournamentViewController
-@synthesize mostWinLabel, kingofTheHillsLabel, lastManStandingLabel, navTitleLabel;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    _offset = 50;
-    self.mostWinLabel.font = [UIFont fontWithName:@"Garamond" size:16];
-    self.kingofTheHillsLabel.font = [UIFont fontWithName:@"Garamond" size:16];
-    self.lastManStandingLabel.font = [UIFont fontWithName:@"Garamond" size:16];
-    if ([[Context getInstance] screenPhysicalSizeForIPhoneClassic]) {
-        //For Iphone4
-        // NSLog(@"iPhone4");
-        self.navTitleLabel.font = [UIFont fontWithName:@"LithosPro-Regular" size:17];
-        
-    }else{
-        self.navTitleLabel.font = [UIFont fontWithName:@"LithosPro-Regular" size:30];
-        
-        //  NSLog(@"iPhone6");
-        
-    }
-
+    tblTournament.backgroundColor = [UIColor clearColor];
 
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
--(IBAction)slideMenuButtonTapped:(id)sender{
-    SlideOutMenuViewController *mVC = nil;
-    if ([[Context getInstance] screenPhysicalSizeForIPhoneClassic]) {
-        mVC = [[SlideOutMenuViewController alloc] initWithNibName:@"SlideOutMenuViewController_iPhone4" bundle:nil ];
-    }else{
-        mVC = [[SlideOutMenuViewController alloc] initWithNibName:@"SlideOutMenuViewController" bundle:nil ];
-        
-    }
-    //mVC.guildButton.selected = YES;
-    
 }
 -(IBAction)tournamentButtonTapped:(id)sender
 {
@@ -74,16 +48,65 @@
         
     }
 }
+#pragma mark
+#pragma mark UITableViewDelegate
+#pragma mark
 
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
 }
-*/
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    
+    return 3;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (IsIphone4) {
+        //For Iphone4
+        // NSLog(@"iPhone4");
+        return 130.0f;
+        
+    }else{
+        return 143.0f;
+        //  NSLog(@"iPhone6");
+    }
+    
+}
+-(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *tableCellIdentfire = @"Cell";
+    
+    TournamentTableViewCell *cell = (TournamentTableViewCell *)[tableView dequeueReusableCellWithIdentifier:tableCellIdentfire];
+    if (cell == nil)
+    {
+        cell=[[[NSBundle mainBundle] loadNibNamed:@"TournamentTableViewCell" owner:self options:nil]objectAtIndex:0];
+    }
+    cell.backgroundColor = [UIColor clearColor];
+    if (indexPath.row == 0) {
+        cell.imgTurnament.image = [UIImage imageNamed:@"mkw_iphn4.png"];
+        cell.lblTurnament.text = @"MOST KILLS WIN";
+    }else if (indexPath.row == 1) {
+        cell.imgTurnament.image = [UIImage imageNamed:@"ls_iphn4.png"];
+        cell.lblTurnament.text = @"LAST MAN STANDING";
+
+    }else{
+        cell.imgTurnament.image = [UIImage imageNamed:@"kfh_iphn4.png"];
+        cell.lblTurnament.text = @"KING OF THE HEELS";
+
+    }
+    return cell;
+
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    TournamentDetailsViewController *tdVC  = [[TournamentDetailsViewController alloc] initWithNibName:@"TournamentDetailsViewController" bundle:nil];
+    [self.navigationController pushViewController:tdVC animated:YES];
+    
+}
+
+
+
 
 @end

@@ -84,7 +84,7 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="8nf-XD-tz1">
                     <rect key="frame" x="49" y="150" width="223" height="45"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="   No. of player can play" backgroundImage="addTrm_dropdown_box_iphn4.png">
+                    <state key="normal" title="   No. of player can play" backgroundImage="addTournmentcellBg">
                         <color key="titleColor" red="0.81960784313725488" green="0.92941176470588238" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -95,7 +95,7 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="GW8-Xa-l9E">
                     <rect key="frame" x="48" y="207" width="223" height="45"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="   Gold Required" backgroundImage="addTrm_dropdown_box_iphn4.png">
+                    <state key="normal" title="   Gold Required" backgroundImage="addTournmentcellBg">
                         <color key="titleColor" red="0.81960784310000001" green="0.92941176469999998" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -106,7 +106,7 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3sa-mb-Hpg">
                     <rect key="frame" x="48" y="264" width="223" height="45"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="   Ranking" backgroundImage="addTrm_dropdown_box_iphn4.png">
+                    <state key="normal" title="   Ranking" backgroundImage="addTournmentcellBg">
                         <color key="titleColor" red="0.81960784310000001" green="0.92941176469999998" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -117,7 +117,7 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1M3-Ud-tBR">
                     <rect key="frame" x="48" y="321" width="223" height="45"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="   Play Time" backgroundImage="addTrm_dropdown_box_iphn4.png">
+                    <state key="normal" title="   Play Time" backgroundImage="addTournmentcellBg">
                         <color key="titleColor" red="0.81960784310000001" green="0.92941176469999998" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -128,7 +128,7 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="R5B-om-KDu">
                     <rect key="frame" x="48" y="378" width="223" height="45"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="   Radius" backgroundImage="addTrm_dropdown_box_iphn4.png">
+                    <state key="normal" title="   Radius" backgroundImage="addTournmentcellBg">
                         <color key="titleColor" red="0.81960784310000001" green="0.92941176469999998" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -161,8 +161,8 @@
         </view>
     </objects>
     <resources>
+        <image name="addTournmentcellBg" width="223" height="45"/>
         <image name="addTrm_contentBg_iphn4.png" width="271" height="388"/>
-        <image name="addTrm_dropdown_box_iphn4.png" width="223" height="45"/>
         <image name="addTrm_dropdown_titlebox_iphn4.png" width="223" height="45"/>
         <image name="addTrm_select_button_iphn4.png" width="97" height="36"/>
         <image name="back_btn_iphn4.png" width="30" height="47"/>

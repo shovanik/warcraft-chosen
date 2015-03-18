@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="GARA.TTF">
+            <string>Garamond</string>
+            <string>Garamond</string>
+            <string>Garamond</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="KGk-i7-Jjw" customClass="AddTournamentTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="addTournmentcellBg" translatesAutoresizingMaskIntoConstraints="NO" id="haK-KT-CuY">
+                        <rect key="frame" x="0.0" y="1" width="320" height="43"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="43" id="UWw-oV-dJ6"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eur-vU-MCV">
+                        <rect key="frame" x="10" y="14" width="27" height="17"/>
+                        <fontDescription key="fontDescription" name="Garamond" family="Garamond" pointSize="15"/>
+                        <color key="textColor" red="0.81960784310000001" green="0.92941176469999998" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="downArrow" translatesAutoresizingMaskIntoConstraints="NO" id="LSP-C6-nSI">
+                        <rect key="frame" x="293" y="19" width="15" height="8"/>
+                    </imageView>
+                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JHG-2b-1CI">
+                        <rect key="frame" x="230" y="6" width="80" height="28"/>
+                        <color key="backgroundColor" red="0.12941176470588234" green="0.31764705882352939" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="8UN-9k-g0I"/>
+                            <constraint firstAttribute="height" constant="28" id="r9y-SN-TtO"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Garamond" family="Garamond" pointSize="17"/>
+                        <state key="normal" title="SELECT">
+                            <color key="titleColor" red="0.81960784310000001" green="0.92941176469999998" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                    <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DqG-bt-SYq">
+                        <rect key="frame" x="10" y="8" width="302" height="30"/>
+                        <color key="textColor" red="0.81960784310000001" green="0.92941176469999998" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <fontDescription key="fontDescription" name="Garamond" family="Garamond" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                        <connections>
+                            <outlet property="delegate" destination="KGk-i7-Jjw" id="r7e-xM-5bg"/>
+                        </connections>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="eur-vU-MCV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="2fy-PZ-3qH"/>
+                    <constraint firstItem="haK-KT-CuY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Cz5-Wu-jAf"/>
+                    <constraint firstItem="eur-vU-MCV" firstAttribute="centerY" secondItem="LSP-C6-nSI" secondAttribute="centerY" constant="-0.5" id="LZb-Or-WA7"/>
+                    <constraint firstItem="haK-KT-CuY" firstAttribute="centerY" secondItem="eur-vU-MCV" secondAttribute="centerY" id="SCG-kw-BLa"/>
+                    <constraint firstItem="haK-KT-CuY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Xio-da-Ea2"/>
+                    <constraint firstAttribute="trailing" secondItem="LSP-C6-nSI" secondAttribute="trailing" constant="12" id="lBJ-Vm-avK"/>
+                    <constraint firstItem="JHG-2b-1CI" firstAttribute="centerY" secondItem="eur-vU-MCV" secondAttribute="centerY" constant="-1.5" id="naf-s9-GVn"/>
+                    <constraint firstAttribute="trailing" secondItem="haK-KT-CuY" secondAttribute="trailing" id="pS7-Al-VuN"/>
+                    <constraint firstAttribute="trailing" secondItem="JHG-2b-1CI" secondAttribute="trailing" constant="10" id="zvU-8w-JFy"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="btnselect" destination="JHG-2b-1CI" id="zex-OI-V9h"/>
+                <outlet property="imgArrow" destination="LSP-C6-nSI" id="zHH-A6-hSk"/>
+                <outlet property="imgBackground" destination="haK-KT-CuY" id="5Db-Qh-2qF"/>
+                <outlet property="labelTitle" destination="eur-vU-MCV" id="WtB-jl-LDp"/>
+                <outlet property="textFieldTitle" destination="DqG-bt-SYq" id="rKl-qa-g2c"/>
+            </connections>
+            <point key="canvasLocation" x="360" y="379"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="addTournmentcellBg" width="223" height="45"/>
+        <image name="downArrow" width="15" height="8"/>
+    </resources>
+</document>

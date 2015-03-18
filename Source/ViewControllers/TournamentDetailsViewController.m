@@ -67,30 +67,9 @@
     static NSString *tableCellIdentfire = @"Iphn4Cell";
     
     TournamentDetailsTableViewCell *cell = (TournamentDetailsTableViewCell *)[tableView dequeueReusableCellWithIdentifier:tableCellIdentfire];
-    NSArray* topLevelObjects = nil;
-    if ([[Context getInstance] screenPhysicalSizeForIPhoneClassic]) {
-        //For Iphone4
-        // NSLog(@"iPhone4");
-        topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"TournamentDetailsTableViewCell_iphn4" owner:self options:nil];
-        
-    }else{
-        topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"TournamentDetailsTableViewCell" owner:self options:nil];
-        
-        //  NSLog(@"iPhone6");
-        
-    }
-
-    
     if (cell == nil)
     {
-        for (id currentObject in topLevelObjects)
-        {
-            if ([currentObject isKindOfClass:[UITableViewCell class]])
-            {
-                cell = (TournamentDetailsTableViewCell *)currentObject;
-                break;
-            }
-        }
+        cell=[[[NSBundle mainBundle] loadNibNamed:@"TournamentDetailsTableViewCell_iphn4" owner:self options:nil]objectAtIndex:0];
     }
     if ([indexPath row] == 1) {
         cell.pubButton.hidden = YES;
@@ -105,31 +84,19 @@
 }
 -(IBAction)addButtonTapped:(id)sender
 {
-    AddTournamentViewController *atVC  = nil;
-    if ([[Context getInstance] screenPhysicalSizeForIPhoneClassic]) {
-        //For Iphone4
-        atVC = [[AddTournamentViewController alloc] initWithNibName:@"AddTournamentViewController_iPhone4" bundle:nil];
-        // NSLog(@"iPhone4");
-    }else{
-        atVC =  [[AddTournamentViewController alloc] initWithNibName:@"AddTournamentViewController" bundle:nil];
-        
-        //  NSLog(@"iPhone6");
-        
-    }
-    
-
-    
+    AddTournamentViewController *atVC  = [[AddTournamentViewController alloc] initWithNibName:@"AddTournamentViewController" bundle:nil];
+    [self.navigationController pushViewController:atVC animated:YES];
 }
 -(IBAction)slideMenuButtonTapped:(id)sender{
-    SlideOutMenuViewController *mVC = nil;
-    if ([[Context getInstance] screenPhysicalSizeForIPhoneClassic]) {
-        mVC = [[SlideOutMenuViewController alloc] initWithNibName:@"SlideOutMenuViewController_iPhone4" bundle:nil ];
-    }else{
-        mVC = [[SlideOutMenuViewController alloc] initWithNibName:@"SlideOutMenuViewController" bundle:nil ];
-        
-    }
-    //mVC.guildButton.selected = YES;
-    
+//    SlideOutMenuViewController *mVC = nil;
+//    if ([[Context getInstance] screenPhysicalSizeForIPhoneClassic]) {
+//        mVC = [[SlideOutMenuViewController alloc] initWithNibName:@"SlideOutMenuViewController_iPhone4" bundle:nil ];
+//    }else{
+//        mVC = [[SlideOutMenuViewController alloc] initWithNibName:@"SlideOutMenuViewController" bundle:nil ];
+//        
+//    }
+//    //mVC.guildButton.selected = YES;
+//    
 }
 
 

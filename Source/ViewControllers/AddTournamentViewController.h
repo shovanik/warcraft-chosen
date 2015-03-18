@@ -8,7 +8,7 @@
 
 #import "BaseViewController.h"
 
-@interface AddTournamentViewController : BaseViewController<UITextFieldDelegate>
+@interface AddTournamentViewController : BaseViewController<UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) IBOutlet UILabel *navTitleLabel;
 @property (nonatomic, strong) IBOutlet UIButton *noOfPlayerCanPlayButton;
 @property (nonatomic, strong) IBOutlet UIButton *goldRequiredButton;

@@ -11,10 +11,12 @@
 #import "Context.h"
 #import "SlideOutMenuViewController.h"
 #import "SelectRadiusViewController.h"
+#import "AddTournamentTableViewCell.h"
 
 
 @interface AddTournamentViewController (){
     CGFloat _offset;
+    IBOutlet UITableView *tblAddTournament;
 }
 
 @end
@@ -26,8 +28,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     _offset = 50;
-
-    
     if ([[Context getInstance] screenPhysicalSizeForIPhoneClassic]) {
         //For Iphone4
         // NSLog(@"iPhone4");
@@ -52,6 +52,7 @@
         //  NSLog(@"iPhone6");
         
     }
+    tblAddTournament.backgroundColor = [UIColor clearColor];
 
 }
 -(IBAction)slideMenuButtonTapped:(id)sender{
@@ -97,14 +98,68 @@
 }
 
 
-/*
-#pragma mark - Navigation
+#pragma mark
+#pragma mark UITableViewDelegate
+#pragma mark
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
 }
-*/
 
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    
+    return 6;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (IsIphone4) {
+        return 48.0f;
+    }else if (IsIphone5) {
+        return 63.0f;
+        
+    }else if (IsIphone6) {
+        return 80.0f;
+    }
+    else if(IsIphone6Plus){
+        return 90.0f;
+    }
+    return 0;
+}
+-(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *tableCellIdentfire = @"Cell";
+    
+    AddTournamentTableViewCell *cell = (AddTournamentTableViewCell *)[tableView dequeueReusableCellWithIdentifier:tableCellIdentfire];
+    if (cell == nil)
+    {
+        cell=[[[NSBundle mainBundle] loadNibNamed:@"AddTournamentTableViewCell" owner:self options:nil]objectAtIndex:0];
+    }
+    cell.backgroundColor = [UIColor clearColor];
+    if (indexPath.row == 0) {
+        cell.imgBackground.image = [UIImage imageNamed:@"addTrm_dropdown_titlebox_iphn4"];
+        cell.labelTitle.text = @"Title";
+        cell.textFieldTitle.hidden = NO;
+        cell.imgArrow.hidden = YES;
+        cell.labelTitle.hidden = YES;
+
+    }
+    NSInteger totalRow = [tableView numberOfRowsInSection:indexPath.section];//first get total rows in that section by current indexPath.
+    if(indexPath.row == totalRow -1){
+        cell.labelTitle.text = @"Radious";
+        cell.btnselect.hidden = NO;
+        cell.imgArrow.hidden = YES;
+        
+        //this is the last row in section.
+    }
+
+    return cell;
+    
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    TournamentDetailsViewController *tdVC  = [[TournamentDetailsViewController alloc] initWithNibName:@"TournamentDetailsViewController" bundle:nil];
+    [self.navigationController pushViewController:tdVC animated:YES];
+    
+}
 @end

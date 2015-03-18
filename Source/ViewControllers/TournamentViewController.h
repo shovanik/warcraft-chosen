@@ -8,13 +8,8 @@
 
 #import "BaseViewController.h"
 
-@interface TournamentViewController : BaseViewController
-@property (nonatomic, strong) IBOutlet UILabel *mostWinLabel;
-@property (nonatomic, strong) IBOutlet UILabel *lastManStandingLabel;
-@property (nonatomic, strong) IBOutlet UILabel *kingofTheHillsLabel;
-@property (nonatomic, strong) IBOutlet UILabel *navTitleLabel;
+@interface TournamentViewController : BaseViewController<UITableViewDelegate, UITableViewDataSource>
 
--(IBAction)slideMenuButtonTapped:(id)sender;
 -(IBAction)tournamentButtonTapped:(id)sender;
 
 @end

@@ -4,6 +4,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="LithosPro-Regular.ttf">
+            <string>LithosPro-Regular</string>
+        </mutableArray>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TournamentDetailsViewController">
             <connections>
@@ -16,10 +21,10 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="tdZ-rv-DeE">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="tdZ-rv-DeE">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="navbg" translatesAutoresizingMaskIntoConstraints="NO" id="OR1-OK-BKu">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navbg" translatesAutoresizingMaskIntoConstraints="NO" id="OR1-OK-BKu">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="77"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="64" id="SXB-Jg-hW8"/>
@@ -50,19 +55,19 @@
                         <action selector="slideMenuButtonTapped:" destination="-1" eventType="touchUpInside" id="Xhk-Hv-JzB"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="TOURNAMENT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SeV-rB-oc5">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TOURNAMENT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SeV-rB-oc5">
                     <rect key="frame" x="52" y="5" width="271" height="41"/>
                     <fontDescription key="fontDescription" name="LithosPro-Regular" family="Lithos Pro" pointSize="24"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zeZ-QJ-6sQ" userLabel="Button - Add">
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zeZ-QJ-6sQ" userLabel="Button - Add">
                     <rect key="frame" x="337" y="9" width="29" height="28"/>
                     <state key="normal" backgroundImage="btnAdd">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HoF-fO-Jen" userLabel="Button - Custome Add">
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HoF-fO-Jen" userLabel="Button - Custome Add">
                     <rect key="frame" x="289" y="2" width="86" height="55"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="55" id="dJG-aE-KFY"/>
@@ -87,7 +92,7 @@
                         <action selector="addButtonTapped:" destination="-1" eventType="touchUpInside" id="nyH-Hg-nw7"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="trm_details_mostKwin_logo_iphn6.png" translatesAutoresizingMaskIntoConstraints="NO" id="KNp-JA-kpy">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="trm_details_mostKwin_logo_iphn6.png" translatesAutoresizingMaskIntoConstraints="NO" id="KNp-JA-kpy">
                     <rect key="frame" x="0.0" y="71" width="375" height="157"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="KNp-JA-kpy" secondAttribute="height" multiplier="400:157" id="vF8-vy-tGT"/>
@@ -103,7 +108,7 @@
                         </mask>
                     </variation>
                 </imageView>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="100" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="5T8-bl-18m">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="100" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="5T8-bl-18m">
                     <rect key="frame" x="0.0" y="229" width="375" height="439"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -151,26 +156,26 @@
                     <exclude reference="SeV-rB-oc5"/>
                 </mask>
                 <mask key="constraints">
+                    <exclude reference="Gro-Qy-B3e"/>
+                    <exclude reference="uqO-oM-jka"/>
+                    <exclude reference="3c7-Xu-KPS"/>
+                    <exclude reference="d0H-9T-WfY"/>
                     <exclude reference="8O3-9c-Ppn"/>
                     <exclude reference="X4a-pg-X74"/>
                     <exclude reference="yae-rc-p6T"/>
-                    <exclude reference="0PE-hb-SFF"/>
-                    <exclude reference="CIW-BL-jGC"/>
-                    <exclude reference="KTr-5i-WVr"/>
-                    <exclude reference="xK5-LM-adX"/>
-                    <exclude reference="Gro-Qy-B3e"/>
-                    <exclude reference="uqO-oM-jka"/>
                     <exclude reference="OgW-5W-VjV"/>
                     <exclude reference="UF2-A4-R0a"/>
                     <exclude reference="Vlq-Ma-gxh"/>
-                    <exclude reference="3c7-Xu-KPS"/>
-                    <exclude reference="d0H-9T-WfY"/>
                     <exclude reference="WyN-qF-o1Q"/>
                     <exclude reference="g4N-0d-XN2"/>
                     <exclude reference="kri-gY-DN9"/>
                     <exclude reference="tgV-1G-7ot"/>
                     <exclude reference="sKe-NG-sy5"/>
                     <exclude reference="zDZ-lK-8gD"/>
+                    <exclude reference="0PE-hb-SFF"/>
+                    <exclude reference="CIW-BL-jGC"/>
+                    <exclude reference="KTr-5i-WVr"/>
+                    <exclude reference="xK5-LM-adX"/>
                     <exclude reference="D2I-eH-erh"/>
                     <exclude reference="LBy-4e-jJE"/>
                 </mask>
@@ -183,26 +188,26 @@
                     <include reference="SeV-rB-oc5"/>
                 </mask>
                 <mask key="constraints">
+                    <include reference="Gro-Qy-B3e"/>
+                    <include reference="uqO-oM-jka"/>
+                    <include reference="3c7-Xu-KPS"/>
+                    <include reference="d0H-9T-WfY"/>
                     <include reference="8O3-9c-Ppn"/>
                     <include reference="X4a-pg-X74"/>
                     <include reference="yae-rc-p6T"/>
-                    <include reference="0PE-hb-SFF"/>
-                    <include reference="CIW-BL-jGC"/>
-                    <include reference="KTr-5i-WVr"/>
-                    <include reference="xK5-LM-adX"/>
-                    <include reference="Gro-Qy-B3e"/>
-                    <include reference="uqO-oM-jka"/>
                     <include reference="OgW-5W-VjV"/>
                     <include reference="UF2-A4-R0a"/>
                     <include reference="Vlq-Ma-gxh"/>
-                    <include reference="3c7-Xu-KPS"/>
-                    <include reference="d0H-9T-WfY"/>
                     <include reference="WyN-qF-o1Q"/>
                     <include reference="g4N-0d-XN2"/>
                     <include reference="kri-gY-DN9"/>
                     <include reference="tgV-1G-7ot"/>
                     <include reference="sKe-NG-sy5"/>
                     <include reference="zDZ-lK-8gD"/>
+                    <include reference="0PE-hb-SFF"/>
+                    <include reference="CIW-BL-jGC"/>
+                    <include reference="KTr-5i-WVr"/>
+                    <include reference="xK5-LM-adX"/>
                     <include reference="D2I-eH-erh"/>
                     <include reference="LBy-4e-jJE"/>
                 </mask>

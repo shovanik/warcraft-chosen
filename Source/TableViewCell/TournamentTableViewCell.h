@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GuildImageView.h"
 
 @interface TournamentTableViewCell : UITableViewCell
 @property (nonatomic, strong) IBOutlet UIImageView *imgTurnament;
 @property (nonatomic, strong) IBOutlet UILabel *lblTurnament;
+@property (strong,nonatomic) IBOutlet GuildImageView *imgSlider;
 @end

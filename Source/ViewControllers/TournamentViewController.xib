@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TournamentViewController">
             <connections>
+                <outlet property="activityIndicatorView" destination="YPE-eM-XcP" id="ifD-fn-yCb"/>
                 <outlet property="tblTournament" destination="4b4-H5-Xtm" id="RjY-A0-Pn2"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -44,6 +45,9 @@
                     <state key="normal" backgroundImage="slidemenu">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="btnMenuTapped:" destination="-1" eventType="touchUpInside" id="KNa-Ta-Apm"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F1o-aT-hx3" userLabel="Button - Slide Menu Custome">
                     <rect key="frame" x="0.0" y="0.0" width="86" height="55"/>
@@ -63,15 +67,38 @@
                     <fontDescription key="fontDescription" name="LithosPro-Regular" family="Lithos Pro" pointSize="24"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
+                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                        <rect key="frame" x="117" y="7" width="166" height="28"/>
+                    </variation>
                 </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="143" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="4b4-H5-Xtm">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <connections>
-                        <outlet property="dataSource" destination="-1" id="LjY-Zc-Pfg"/>
-                        <outlet property="delegate" destination="-1" id="z0I-YG-NP9"/>
+                        <outlet property="dataSource" destination="-1" id="OZJ-xz-hvz"/>
+                        <outlet property="delegate" destination="-1" id="J8i-lB-lVA"/>
                     </connections>
                 </tableView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="YPE-eM-XcP">
+                    <rect key="frame" x="-10" y="-10" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="20" id="aDb-AX-BVV"/>
+                        <constraint firstAttribute="height" constant="20" id="mOL-F0-61s"/>
+                    </constraints>
+                    <color key="color" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="aDb-AX-BVV"/>
+                            <exclude reference="mOL-F0-61s"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="aDb-AX-BVV"/>
+                            <include reference="mOL-F0-61s"/>
+                        </mask>
+                    </variation>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -81,10 +108,12 @@
                 <constraint firstItem="F1o-aT-hx3" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="5Mp-E2-mok"/>
                 <constraint firstItem="2nL-N4-64a" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="17" id="5jm-Qq-vcU"/>
                 <constraint firstAttribute="trailing" secondItem="CQy-r6-UUz" secondAttribute="trailing" id="6mX-R0-ZFb"/>
+                <constraint firstAttribute="centerX" secondItem="YPE-eM-XcP" secondAttribute="centerX" id="Iiv-11-o2s"/>
                 <constraint firstItem="2nL-N4-64a" firstAttribute="top" relation="greaterThanOrEqual" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="IvB-uy-PXI"/>
                 <constraint firstAttribute="bottom" secondItem="YgY-iQ-ihX" secondAttribute="bottom" id="J3r-rK-waQ"/>
                 <constraint firstItem="2nL-N4-64a" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="JGr-6u-VjH"/>
                 <constraint firstItem="YgY-iQ-ihX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="KTP-hB-k1e"/>
+                <constraint firstAttribute="centerY" secondItem="YPE-eM-XcP" secondAttribute="centerY" id="LrB-SE-WJh"/>
                 <constraint firstItem="F1o-aT-hx3" firstAttribute="leading" secondItem="CQy-r6-UUz" secondAttribute="leading" id="O7e-3C-Lpl"/>
                 <constraint firstItem="CQy-r6-UUz" firstAttribute="centerX" secondItem="5KO-JJ-afD" secondAttribute="centerX" constant="-0.5" id="P1R-07-xZ9"/>
                 <constraint firstItem="2nL-N4-64a" firstAttribute="centerY" secondItem="5KO-JJ-afD" secondAttribute="centerY" constant="-0.5" id="PEm-2z-KTd"/>
@@ -109,8 +138,11 @@
                     <exclude reference="2nL-N4-64a"/>
                     <exclude reference="F1o-aT-hx3"/>
                     <exclude reference="4b4-H5-Xtm"/>
+                    <exclude reference="YPE-eM-XcP"/>
                 </mask>
                 <mask key="constraints">
+                    <exclude reference="Iiv-11-o2s"/>
+                    <exclude reference="LrB-SE-WJh"/>
                     <exclude reference="5jm-Qq-vcU"/>
                     <exclude reference="IvB-uy-PXI"/>
                     <exclude reference="JGr-6u-VjH"/>
@@ -136,8 +168,11 @@
                     <include reference="2nL-N4-64a"/>
                     <include reference="F1o-aT-hx3"/>
                     <include reference="4b4-H5-Xtm"/>
+                    <include reference="YPE-eM-XcP"/>
                 </mask>
                 <mask key="constraints">
+                    <include reference="Iiv-11-o2s"/>
+                    <include reference="LrB-SE-WJh"/>
                     <include reference="5jm-Qq-vcU"/>
                     <include reference="IvB-uy-PXI"/>
                     <include reference="JGr-6u-VjH"/>

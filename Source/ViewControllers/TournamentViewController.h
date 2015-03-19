@@ -10,6 +10,5 @@
 
 @interface TournamentViewController : BaseViewController<UITableViewDelegate, UITableViewDataSource>
 
--(IBAction)tournamentButtonTapped:(id)sender;
 
 @end

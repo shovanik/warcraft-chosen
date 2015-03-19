@@ -13,14 +13,20 @@
 
 @implementation WebServiceBaseClass
 
+@synthesize strBaseURL;
+
 -(id)init
 {
     if (self=[super init]) {
-        self.strBaseURL=__kBaseURL;
+        strBaseURL=__kBaseURL;
     }
     return self;
 }
 
+-(NSURL*)getTotalURL:(NSString*)strAPIURL
+{
+    return [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",strBaseURL,strAPIURL]];
+}
 
 
 @end

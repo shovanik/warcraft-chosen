@@ -16,4 +16,6 @@ typedef void(^CompletionHandler)(id result,BOOL isError,NSString *strMessage);
 
 @property(strong,nonatomic) NSString *strBaseURL;
 
+-(NSURL*)getTotalURL:(NSString*)strAPIURL;
+
 @end

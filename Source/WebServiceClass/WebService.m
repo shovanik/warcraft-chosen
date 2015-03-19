@@ -12,6 +12,7 @@
 #import "ModelAboutUs.h"
 #import "ModelTerms.h"
 #import "ModelGuild.h"
+#import "ModelTournamentCategory.h"
 
 
 typedef enum : NSUInteger {
@@ -29,111 +30,37 @@ typedef enum : NSUInteger {
     GetAllGuild,
     GetSpecificGuild,
     AddGuid,
-    GetSpecificUserGuilds
+    GetSpecificUserGuilds,
+    GetTournamentCategory
 } WebServiceType;
 
-@interface WebService ()
-{
-    @private
-        NSString *strLoginURL;
-        NSString *strRegistrationURL;
-        NSString *strUpdateURL;
-        NSString *strUploadAvtarURL;
-        NSString *strResetPasswordURL;
-        NSString *strLastSeenURL;
-        NSString *strNearByUserURL;
-        NSString *strPrivacyPolicyURL;
-        NSString *strAboutUsURL;
-        NSString *strTermConditionURL;
-        NSString *strForgetPasswordURL;
-        NSString *strGetAllGuild;
-        NSString *strGetSpecificGuild;
-        NSString *strAddGuild;
-        NSString *strGetSpecificUserGuild;
-}
-
-@end
+static NSString *const allServices[]={
+    [LoginService]=@"api/user/login",
+    [RegistrationService]=@"api/user",
+    [UpdateUserService]=@"api/user/update",
+    [UploadAvtarService]=@"dfwefsdfds",
+    [ResetPassword]=@"api/user/old_password",
+    [LastSeen]=@"api/user/lastseen",
+    [NearByUser]=@"api/user/nearbyuser",
+    [PrivacyPolicy]=@"api/pages",
+    [AboutUS]=@"api/pages",
+    [TermsConditions]=@"api/pages",
+    [ForgetPassword]=@"api/user/forgot_password",
+    [GetAllGuild]=@"api/guild",
+    [GetSpecificGuild]=@"api/guild/id",
+    [AddGuid]=@"api/user/add_guild",
+    [GetSpecificUserGuilds]=@"api/user/guilds",
+    [GetTournamentCategory]=@"api/tournament/tournaments_category"
+};
 
 @implementation WebService
 
 -(id)init
 {
     if (self=[super init]) {
-        strLoginURL=@"api/user/login";
-        strRegistrationURL=@"api/user";
-        strUpdateURL=@"api/user/update";
-        strUploadAvtarURL=@"dfwefsdfds";
-        strResetPasswordURL=@"api/user/old_password";
-        strLastSeenURL=@"api/user/lastseen";
-        strNearByUserURL=@"api/user/nearbyuser";
-        strPrivacyPolicyURL=@"api/pages";
-        strAboutUsURL=@"api/pages";
-        strTermConditionURL=@"api/pages";
-        strForgetPasswordURL=@"api/user/forgot_password";
-        strGetAllGuild=@"api/guild";
-        strGetSpecificGuild=@"api/guild/id";
-        strAddGuild=@"api/user/add_guild";
-        strGetSpecificUserGuild=@"api/user/guilds";
+        
     }
     return self;
-}
-#pragma mark
-#pragma mark WebService Helping Method
-#pragma mark
-
--(NSURL*)getURLForService:(WebServiceType)serviceType
-{
-    NSString *strFinalURL=@"";
-    switch (serviceType) {
-        case LoginService:
-            strFinalURL=[NSString stringWithFormat:@"%@%@",self.strBaseURL,strLoginURL];
-            break;
-        case RegistrationService:
-            strFinalURL=[NSString stringWithFormat:@"%@%@",self.strBaseURL,strRegistrationURL];
-            break;
-        case UpdateUserService:
-            strFinalURL=[NSString stringWithFormat:@"%@%@",self.strBaseURL,strUpdateURL];
-            break;
-        case UploadAvtarService:
-            strFinalURL=[NSString stringWithFormat:@"%@%@",self.strBaseURL,strUploadAvtarURL];
-        case ResetPassword:
-            strFinalURL=[NSString stringWithFormat:@"%@%@",self.strBaseURL,strResetPasswordURL];
-            break;
-        case LastSeen:
-            strFinalURL=[NSString stringWithFormat:@"%@%@",self.strBaseURL,strLastSeenURL];
-            break;
-        case NearByUser:
-            strFinalURL=[NSString stringWithFormat:@"%@%@",self.strBaseURL,strNearByUserURL];
-            break;
-        case PrivacyPolicy:
-            strFinalURL=[NSString stringWithFormat:@"%@%@",self.strBaseURL,strPrivacyPolicyURL];
-            break;
-        case AboutUS:
-            strFinalURL=[NSString stringWithFormat:@"%@%@",self.strBaseURL,strAboutUsURL];
-            break;
-        case TermsConditions:
-            strFinalURL=[NSString stringWithFormat:@"%@%@",self.strBaseURL,strTermConditionURL];
-            break;
-        case ForgetPassword:
-            strFinalURL=[NSString stringWithFormat:@"%@%@",self.strBaseURL,strForgetPasswordURL];
-            break;
-        case GetAllGuild:
-            strFinalURL=[NSString stringWithFormat:@"%@%@",self.strBaseURL,strGetAllGuild];
-            break;
-        case GetSpecificGuild:
-            strFinalURL=[NSString stringWithFormat:@"%@%@",self.strBaseURL,strGetSpecificGuild];
-            break;
-        case AddGuid:
-            strFinalURL=[NSString stringWithFormat:@"%@%@",self.strBaseURL,strAddGuild];
-            break;
-        case GetSpecificUserGuilds:
-            strFinalURL=[NSString stringWithFormat:@"%@%@",self.strBaseURL,strGetSpecificUserGuild];
-            break;
-        default:
-            strFinalURL=[NSString stringWithFormat:@""];
-            break;
-    }
-    return [NSURL URLWithString:strFinalURL];
 }
 
 #pragma mark
@@ -164,7 +91,7 @@ typedef enum : NSUInteger {
     
     NSString *postParams = [[arr componentsJoinedByString:@"&"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     NSLog(@"postParams = %@",postParams);
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[self getURLForService:LoginService] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[self getTotalURL:allServices[LoginService]] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
     NSData *RequestPostData = [NSData dataWithBytes: [postParams UTF8String] length: [postParams length]];
     NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[RequestPostData length]];
     [request setHTTPMethod:@"POST"];
@@ -227,7 +154,7 @@ typedef enum : NSUInteger {
     [arr addObject:[NSString stringWithFormat:@"city_name=%@",strStateName]];
     
     NSString *postParams = [arr componentsJoinedByString:@"&"];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[self getURLForService:RegistrationService] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[self getTotalURL:allServices[RegistrationService]] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
     NSData *RequestPostData = [NSData dataWithBytes: [postParams UTF8String] length: [postParams length]];
     NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[RequestPostData length]];
     [request setHTTPMethod:@"POST"];
@@ -284,7 +211,7 @@ typedef enum : NSUInteger {
     [arr addObject:[NSString stringWithFormat:@"city_name=%@",strCityName]];
     
     NSString *postParams = [arr componentsJoinedByString:@"&"];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[self getURLForService:UpdateUserService] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[self getTotalURL:allServices[UpdateUserService]] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
     NSData *RequestPostData = [NSData dataWithBytes: [postParams UTF8String] length: [postParams length]];
     NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[RequestPostData length]];
     [request setHTTPMethod:@"POST"];
@@ -331,7 +258,7 @@ typedef enum : NSUInteger {
 }
 -(void)callUploadAvtarImageforUserID:(NSString*)strUserID AvtarImage:(NSData*)imgData WithCompletionHandler:(CompletionHandler)handler
 {
-    NSMutableURLRequest *request=[[NSMutableURLRequest alloc] initWithURL:[self getURLForService:UploadAvtarService]];
+    NSMutableURLRequest *request=[[NSMutableURLRequest alloc] initWithURL:[self getTotalURL:allServices[UploadAvtarService]]];
     [request setHTTPMethod:@"POST"];
     NSMutableData *body=[NSMutableData data];
     NSString *boundary = @"---------------------------14737809831466499882746641449";
@@ -378,7 +305,7 @@ typedef enum : NSUInteger {
     [arr addObject:[NSString stringWithFormat:@"id=%@",strUserID]];
     
     NSString *postParams = [arr componentsJoinedByString:@"&"];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[self getURLForService:ResetPassword] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[self getTotalURL:allServices[ResetPassword]] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
     NSData *RequestPostData = [NSData dataWithBytes: [postParams UTF8String] length: [postParams length]];
     NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[RequestPostData length]];
     [request setHTTPMethod:@"POST"];
@@ -416,7 +343,7 @@ typedef enum : NSUInteger {
     [arr addObject:[NSString stringWithFormat:@"id=%@",strUserID]];
     
     NSString *postParams = [arr componentsJoinedByString:@"&"];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[self getURLForService:LastSeen] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[self getTotalURL:allServices[LastSeen]] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
     NSData *RequestPostData = [NSData dataWithBytes: [postParams UTF8String] length: [postParams length]];
     NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[RequestPostData length]];
     [request setHTTPMethod:@"POST"];
@@ -441,7 +368,7 @@ typedef enum : NSUInteger {
     [arr addObject:[NSString stringWithFormat:@"id=%@",strUserID]];
     
     NSString *postParams = [arr componentsJoinedByString:@"&"];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[self getURLForService:NearByUser] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[self getTotalURL:allServices[NearByUser]] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
     NSData *RequestPostData = [NSData dataWithBytes: [postParams UTF8String] length: [postParams length]];
     NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[RequestPostData length]];
     [request setHTTPMethod:@"POST"];
@@ -484,7 +411,7 @@ typedef enum : NSUInteger {
     [arr addObject:[NSString stringWithFormat:@"page=about"]];
     
     NSString *postParams = [arr componentsJoinedByString:@"&"];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[self getURLForService:AboutUS] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[self getTotalURL:allServices[AboutUS]] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
     NSData *RequestPostData = [NSData dataWithBytes: [postParams UTF8String] length: [postParams length]];
     NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[RequestPostData length]];
     [request setHTTPMethod:@"POST"];
@@ -526,7 +453,7 @@ typedef enum : NSUInteger {
     [arr addObject:[NSString stringWithFormat:@"page=privacy"]];
     
     NSString *postParams = [arr componentsJoinedByString:@"&"];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[self getURLForService:PrivacyPolicy] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[self getTotalURL:allServices[PrivacyPolicy]] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
     NSData *RequestPostData = [NSData dataWithBytes: [postParams UTF8String] length: [postParams length]];
     NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[RequestPostData length]];
     [request setHTTPMethod:@"POST"];
@@ -568,7 +495,7 @@ typedef enum : NSUInteger {
     [arr addObject:[NSString stringWithFormat:@"page=terms"]];
     
     NSString *postParams = [arr componentsJoinedByString:@"&"];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[self getURLForService:TermsConditions] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[self getTotalURL:allServices[TermsConditions]] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
     NSData *RequestPostData = [NSData dataWithBytes: [postParams UTF8String] length: [postParams length]];
     NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[RequestPostData length]];
     [request setHTTPMethod:@"POST"];
@@ -609,7 +536,7 @@ typedef enum : NSUInteger {
     [arr addObject:[NSString stringWithFormat:@"email=%@",strEmailID]];
     
     NSString *postParams = [arr componentsJoinedByString:@"&"];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[self getURLForService:ForgetPassword] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[self getTotalURL:allServices[ForgetPassword]] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
     NSData *RequestPostData = [NSData dataWithBytes: [postParams UTF8String] length: [postParams length]];
     NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[RequestPostData length]];
     [request setHTTPMethod:@"POST"];
@@ -642,7 +569,7 @@ typedef enum : NSUInteger {
 }
 -(void)callGetAllGuildWithCompletionHandler:(CompletionHandler)handler
 {
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[self getURLForService:GetAllGuild] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[self getTotalURL:allServices[GetAllGuild]] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
     NSString *postParams=@"";
     NSData *RequestPostData = [NSData dataWithBytes: [postParams UTF8String] length: [postParams length]];
     NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[RequestPostData length]];
@@ -686,7 +613,7 @@ typedef enum : NSUInteger {
     [arr addObject:[NSString stringWithFormat:@"id=%@",strGuildID]];
     
     NSString *postParams = [arr componentsJoinedByString:@"&"];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[self getURLForService:GetSpecificGuild] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[self getTotalURL:allServices[GetSpecificGuild]] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
     NSData *RequestPostData = [NSData dataWithBytes: [postParams UTF8String] length: [postParams length]];
     NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[RequestPostData length]];
     [request setHTTPMethod:@"POST"];
@@ -722,7 +649,7 @@ typedef enum : NSUInteger {
     [arr addObject:[NSString stringWithFormat:@"user_id=%@",strUserID]];
     
     NSString *postParams = [arr componentsJoinedByString:@"&"];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[self getURLForService:GetSpecificUserGuilds] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[self getTotalURL:allServices[GetSpecificUserGuilds]] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
     NSData *RequestPostData = [NSData dataWithBytes: [postParams UTF8String] length: [postParams length]];
     NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[RequestPostData length]];
     [request setHTTPMethod:@"POST"];
@@ -765,7 +692,7 @@ typedef enum : NSUInteger {
     [arr addObject:[NSString stringWithFormat:@"guild_id=%@",strGuildID]];
     
     NSString *postParams = [arr componentsJoinedByString:@"&"];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[self getURLForService:AddGuid] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[self getTotalURL:allServices[AddGuid]] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
     NSData *RequestPostData = [NSData dataWithBytes: [postParams UTF8String] length: [postParams length]];
     NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[RequestPostData length]];
     [request setHTTPMethod:@"POST"];
@@ -787,6 +714,50 @@ typedef enum : NSUInteger {
                 }else{
                     if ([[responseDict objectForKey:@"status"] boolValue]) {
                         handler(nil,NO,@"Guild is successfully added to the user.");
+                    }else{
+                        handler(nil,YES,@"Something is wrong, please try agian later.");
+                    }
+                }
+            }
+        });
+    }];
+}
+
+-(void)callGetTournamentCategoryWithCompletionHandler:(CompletionHandler)handler
+{
+    NSMutableArray *arr=[[NSMutableArray alloc] init];
+    
+    NSString *postParams = [arr componentsJoinedByString:@"&"];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[self getTotalURL:allServices[GetTournamentCategory]] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+    NSData *RequestPostData = [NSData dataWithBytes: [postParams UTF8String] length: [postParams length]];
+    NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[RequestPostData length]];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:RequestPostData];
+    NSOperationQueue *queue=[NSOperationQueue new];
+    [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (connectionError) {
+                handler(connectionError,YES,@"Connection error is happen, please try again later.");
+            }else{
+                
+                NSLog(@"callGetTournamentCategoryWithCompletionHandler Response = %@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+                NSError *error;
+                NSDictionary *responseDict=[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&error];
+                if (error) {
+                    handler(error,YES,@"Something is wrong, please try agian later.");
+                }else{
+                    if ([[responseDict objectForKey:@"status"] boolValue]) {
+                        responseDict=[responseDict objectForKey:@"response"];
+                        NSMutableArray *arrTemp=[[responseDict objectForKey:@"category_tournaments"] mutableCopy];
+                        for (int i=0; i<arrTemp.count; i++) {
+                            ModelTournamentCategory *obj=[[ModelTournamentCategory alloc] initWithDictionary:[arrTemp objectAtIndex:i]];
+                            NSLog(@"Object = %@",[arrTemp objectAtIndex:i]);
+                            [arrTemp removeObjectAtIndex:i];
+                            [arrTemp insertObject:obj atIndex:i];
+                        }
+                        handler(arrTemp,NO,@"All the tournament category retrived successfully.");
                     }else{
                         handler(nil,YES,@"Something is wrong, please try agian later.");
                     }

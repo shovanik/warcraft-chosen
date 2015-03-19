@@ -18,6 +18,7 @@
 #import "ModelPrivacyPolicy.h"
 #import "ModelTerms.h"
 #import "ModelAboutUs.h"
+#import "ModelTournamentCategory.h"
 
 #import "GuildImageView.h"
 

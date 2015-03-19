@@ -14,8 +14,10 @@
 #import "Context.h"
 
 @interface TournamentViewController (){
+    
     IBOutlet UITableView *tblTournament;
-
+    
+    NSMutableArray *arrResponse;
 }
 
 @end
@@ -26,27 +28,47 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     tblTournament.backgroundColor = [UIColor clearColor];
-
+    
+    [self.activityIndicatorView setHidesWhenStopped:YES];
+    [self.activityIndicatorView startAnimating];
+    tblTournament.backgroundColor=[UIColor clearColor];
+}
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    arrResponse=[[NSMutableArray alloc] init];
+}
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [[WebService service] callGetTournamentCategoryWithCompletionHandler:^(id result, BOOL isError, NSString *strMessage) {
+        if (isError) {
+            UIAlertController *alertController=[UIAlertController alertControllerWithTitle:@"Error" message:strMessage preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *actionOK=[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                [alertController dismissViewControllerAnimated:YES completion:^{
+                    
+                }];
+            }];
+            [alertController addAction:actionOK];
+            [self presentViewController:alertController animated:YES completion:^{
+                [self.activityIndicatorView stopAnimating];
+            }];
+        }else{
+            if ([result isKindOfClass:[NSMutableArray class]]) {
+                arrResponse=(NSMutableArray*)result;
+                
+                tblTournament.dataSource=self;
+                tblTournament.delegate=self;
+                [tblTournament reloadData];
+                [self.activityIndicatorView stopAnimating];
+            }
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
--(IBAction)tournamentButtonTapped:(id)sender
-{
-    
-      TournamentDetailsViewController *tdVC  = nil;
-    if ([[Context getInstance] screenPhysicalSizeForIPhoneClassic]) {
-        //For Iphone4
-        tdVC = [[TournamentDetailsViewController alloc] initWithNibName:@"TournamentDetailsViewController_iPhone4" bundle:nil];
-        // NSLog(@"iPhone4");
-    }else{
-        tdVC =  [[TournamentDetailsViewController alloc] initWithNibName:@"TournamentDetailsViewController" bundle:nil];
-        
-        //  NSLog(@"iPhone6");
-        
-    }
 }
 #pragma mark
 #pragma mark UITableViewDelegate
@@ -59,7 +81,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return 3;
+    return arrResponse.count;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -83,21 +105,23 @@
     {
         cell=[[[NSBundle mainBundle] loadNibNamed:@"TournamentTableViewCell" owner:self options:nil]objectAtIndex:0];
     }
-    cell.backgroundColor = [UIColor clearColor];
+    
+    
+    ModelTournamentCategory *category=[arrResponse objectAtIndex:indexPath.row];
+    cell.lblTurnament.text = [category.strName uppercaseString];
+    
     if (indexPath.row == 0) {
         cell.imgTurnament.image = [UIImage imageNamed:@"mkw_iphn4.png"];
-        cell.lblTurnament.text = @"MOST KILLS WIN";
+        [cell.imgSlider setPercentage:40];
     }else if (indexPath.row == 1) {
         cell.imgTurnament.image = [UIImage imageNamed:@"ls_iphn4.png"];
-        cell.lblTurnament.text = @"LAST MAN STANDING";
-
+        [cell.imgSlider setPercentage:60];
     }else{
         cell.imgTurnament.image = [UIImage imageNamed:@"kfh_iphn4.png"];
-        cell.lblTurnament.text = @"KING OF THE HEELS";
-
+        [cell.imgSlider setPercentage:80];
     }
+    cell.backgroundColor=cell.contentView.backgroundColor=[UIColor clearColor];
     return cell;
-
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {

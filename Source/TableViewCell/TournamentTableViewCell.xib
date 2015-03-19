@@ -20,6 +20,7 @@
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_turn_cellbg" translatesAutoresizingMaskIntoConstraints="NO" id="BEO-Sz-xva">
                         <rect key="frame" x="0.0" y="1" width="283" height="102"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="102" id="35J-8W-TXV"/>
                         </constraints>
@@ -80,6 +81,7 @@
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
+                <outlet property="imgSlider" destination="6Zc-Qy-DA5" id="VBK-9I-Cdb"/>
                 <outlet property="imgTurnament" destination="u2o-1F-3O8" id="m04-AK-tm1"/>
                 <outlet property="lblTurnament" destination="7Z4-Kk-d47" id="CUj-bY-8Mn"/>
             </connections>

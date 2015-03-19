@@ -14,6 +14,7 @@
 		20224D621AA0A8CD00DE7B85 /* CustomMapAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20224D601AA0A8CD00DE7B85 /* CustomMapAnnotationView.m */; };
 		20224D671AA0A97E00DE7B85 /* AnnotationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20224D661AA0A97E00DE7B85 /* AnnotationViewController.m */; };
 		20224D691AA0A9AD00DE7B85 /* AnnotationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20224D681AA0A9AD00DE7B85 /* AnnotationViewController.xib */; };
+		2026F5EA1ABAD7EF006B616C /* ModelTournamentCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2026F5E91ABAD7EF006B616C /* ModelTournamentCategory.m */; };
 		202831DF1AB2DD0900C65D98 /* GuildImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 202831DE1AB2DD0900C65D98 /* GuildImageView.m */; };
 		202831E11AB2E9D200C65D98 /* tranparent_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 202831E01AB2E9D200C65D98 /* tranparent_bg.png */; };
 		202831F11AB30ECA00C65D98 /* NSMutableArray+FoundGuild.m in Sources */ = {isa = PBXBuildFile; fileRef = 202831F01AB30ECA00C65D98 /* NSMutableArray+FoundGuild.m */; };
@@ -71,10 +72,8 @@
 		20BAC41F1A94A8B100E895FE /* StepTwoViewController_iPhone4.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20BAC3FC1A94A8B100E895FE /* StepTwoViewController_iPhone4.xib */; };
 		20BAC4201A94A8B100E895FE /* TournamentDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BAC3FE1A94A8B100E895FE /* TournamentDetailsViewController.m */; };
 		20BAC4211A94A8B100E895FE /* TournamentDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20BAC3FF1A94A8B100E895FE /* TournamentDetailsViewController.xib */; };
-		20BAC4221A94A8B100E895FE /* TournamentDetailsViewController_iPhone4.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20BAC4001A94A8B100E895FE /* TournamentDetailsViewController_iPhone4.xib */; };
 		20BAC4231A94A8B100E895FE /* TournamentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BAC4021A94A8B100E895FE /* TournamentViewController.m */; };
 		20BAC4241A94A8B100E895FE /* TournamentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20BAC4031A94A8B100E895FE /* TournamentViewController.xib */; };
-		20BAC4251A94A8B100E895FE /* TournamentViewController_iPhone4.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20BAC4041A94A8B100E895FE /* TournamentViewController_iPhone4.xib */; };
 		20BAC4261A94A8B100E895FE /* WorldMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BAC4061A94A8B100E895FE /* WorldMapViewController.m */; };
 		20BAC4271A94A8B100E895FE /* WorldMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20BAC4071A94A8B100E895FE /* WorldMapViewController.xib */; };
 		20BAC42E1A94A90A00E895FE /* WebServiceBaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BAC42D1A94A90A00E895FE /* WebServiceBaseClass.m */; };
@@ -307,6 +306,8 @@
 		20224D651AA0A97E00DE7B85 /* AnnotationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnnotationViewController.h; path = AnnotationViewController/AnnotationViewController.h; sourceTree = "<group>"; };
 		20224D661AA0A97E00DE7B85 /* AnnotationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AnnotationViewController.m; path = AnnotationViewController/AnnotationViewController.m; sourceTree = "<group>"; };
 		20224D681AA0A9AD00DE7B85 /* AnnotationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AnnotationViewController.xib; path = AnnotationViewController/AnnotationViewController.xib; sourceTree = "<group>"; };
+		2026F5E81ABAD7EF006B616C /* ModelTournamentCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelTournamentCategory.h; sourceTree = "<group>"; };
+		2026F5E91ABAD7EF006B616C /* ModelTournamentCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelTournamentCategory.m; sourceTree = "<group>"; };
 		202760271AB17EDB004CAFFD /* WebServiceConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WebServiceConstant.h; path = Constant/WebServiceConstant.h; sourceTree = "<group>"; };
 		202831DD1AB2DD0900C65D98 /* GuildImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GuildImageView.h; path = CustomControl/GuildImageView.h; sourceTree = "<group>"; };
 		202831DE1AB2DD0900C65D98 /* GuildImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GuildImageView.m; path = CustomControl/GuildImageView.m; sourceTree = "<group>"; };
@@ -402,11 +403,9 @@
 		20BAC3FD1A94A8B100E895FE /* TournamentDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TournamentDetailsViewController.h; sourceTree = "<group>"; };
 		20BAC3FE1A94A8B100E895FE /* TournamentDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TournamentDetailsViewController.m; sourceTree = "<group>"; };
 		20BAC3FF1A94A8B100E895FE /* TournamentDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TournamentDetailsViewController.xib; sourceTree = "<group>"; };
-		20BAC4001A94A8B100E895FE /* TournamentDetailsViewController_iPhone4.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TournamentDetailsViewController_iPhone4.xib; sourceTree = "<group>"; };
 		20BAC4011A94A8B100E895FE /* TournamentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TournamentViewController.h; sourceTree = "<group>"; };
 		20BAC4021A94A8B100E895FE /* TournamentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TournamentViewController.m; sourceTree = "<group>"; };
 		20BAC4031A94A8B100E895FE /* TournamentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TournamentViewController.xib; sourceTree = "<group>"; };
-		20BAC4041A94A8B100E895FE /* TournamentViewController_iPhone4.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TournamentViewController_iPhone4.xib; sourceTree = "<group>"; };
 		20BAC4051A94A8B100E895FE /* WorldMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldMapViewController.h; sourceTree = "<group>"; };
 		20BAC4061A94A8B100E895FE /* WorldMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldMapViewController.m; sourceTree = "<group>"; };
 		20BAC4071A94A8B100E895FE /* WorldMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorldMapViewController.xib; sourceTree = "<group>"; };
@@ -707,7 +706,6 @@
 				20BAC3FD1A94A8B100E895FE /* TournamentDetailsViewController.h */,
 				20BAC3FE1A94A8B100E895FE /* TournamentDetailsViewController.m */,
 				20BAC3FF1A94A8B100E895FE /* TournamentDetailsViewController.xib */,
-				20BAC4001A94A8B100E895FE /* TournamentDetailsViewController_iPhone4.xib */,
 			);
 			name = TournamentDetails;
 			sourceTree = "<group>";
@@ -718,7 +716,6 @@
 				20BAC4011A94A8B100E895FE /* TournamentViewController.h */,
 				20BAC4021A94A8B100E895FE /* TournamentViewController.m */,
 				20BAC4031A94A8B100E895FE /* TournamentViewController.xib */,
-				20BAC4041A94A8B100E895FE /* TournamentViewController_iPhone4.xib */,
 			);
 			name = Tournament;
 			sourceTree = "<group>";
@@ -1045,6 +1042,8 @@
 				20D4BC2F1AA6EEC4004EB2AD /* ModelTerms.m */,
 				20C1EE4E1AB024AB00197A80 /* ModelGuild.h */,
 				20C1EE4F1AB024AB00197A80 /* ModelGuild.m */,
+				2026F5E81ABAD7EF006B616C /* ModelTournamentCategory.h */,
+				2026F5E91ABAD7EF006B616C /* ModelTournamentCategory.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1598,7 +1597,6 @@
 				20D4BC471AA74665004EB2AD /* Change-Avatar.png in Resources */,
 				CDA080F11A42F1E60056BA7F /* smenu_propic_iphn4@2x.png in Resources */,
 				20D4BC4E1AA75087004EB2AD /* avatar_3.png in Resources */,
-				20BAC4251A94A8B100E895FE /* TournamentViewController_iPhone4.xib in Resources */,
 				D6C44B4D1A666F6E00AFFB9B /* trn_private_button_iphn6@2x.png in Resources */,
 				208FBE391AB088DA00B391DF /* one_star.png in Resources */,
 				D6C44B7D1A6698C300AFFB9B /* addTrm_dropdown_titlebox_iphn4@2x.png in Resources */,
@@ -1679,7 +1677,6 @@
 				CDA080D21A42E3C50056BA7F /* smenu_propic_iphn6@2x.png in Resources */,
 				CDA080EE1A42F1E60056BA7F /* smenu_guild_selected_iphn4@2x.png in Resources */,
 				20BAC41C1A94A8B100E895FE /* StepOneViewController.xib in Resources */,
-				20BAC4221A94A8B100E895FE /* TournamentDetailsViewController_iPhone4.xib in Resources */,
 				CDE1C20D1A49CAB000287F9F /* ls_iphn6@2x.png in Resources */,
 				D6C44B361A665B8400AFFB9B /* back_btn_iphn6@2x.png in Resources */,
 				D6C44B951A66BAC300AFFB9B /* trn_radi_iphn4@2x.png in Resources */,
@@ -1831,6 +1828,7 @@
 				20B9ECE71AA4B1B400400626 /* ModelAvtarImage.m in Sources */,
 				20BAC4201A94A8B100E895FE /* TournamentDetailsViewController.m in Sources */,
 				20BAC4341A94BE1C00E895FE /* ModelBaseClass.m in Sources */,
+				2026F5EA1ABAD7EF006B616C /* ModelTournamentCategory.m in Sources */,
 				CD79B1401A3F1DB800AFD912 /* AppDelegate.m in Sources */,
 				20D4BC521AA750C2004EB2AD /* AvatarSelectionViewController.m in Sources */,
 				20BAC4131A94A8B100E895FE /* SelectRadiusViewController.m in Sources */,

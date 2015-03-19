@@ -26,9 +26,44 @@
 @end
 
 @implementation AppDelegate
+
+
 @synthesize navigationcontroller;
 
-
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    // Override point for customization after application launch.
+    self.window.backgroundColor = [UIColor whiteColor];
+    
+    
+    
+    LandingViewController *landingViewController =  [[LandingViewController alloc] initWithNibName:@"LandingViewController" bundle:nil];
+    navigationcontroller = [[UINavigationController alloc]initWithRootViewController:landingViewController];
+    navigationcontroller.navigationBarHidden = YES;
+    
+    
+    
+    
+    self.window.rootViewController=navigationcontroller;
+    
+    slideMenu=[[SlideOutMenuViewController alloc] initWithNibName:@"SlideOutMenuViewController_iPhone4" bundle:nil];
+    slideMenu.view.frame=[[UIScreen mainScreen] bounds];
+    NSLog(@"master = %@",NSStringFromCGRect(slideMenu.view.frame));
+    [self.window addSubview:slideMenu.view];
+    
+    
+    [self.window makeKeyAndVisible];
+    
+    
+    [FBLoginView class];
+    [FBProfilePictureView class];
+    
+    //[self lastSeenCalling];
+    
+    return YES;
+}
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation {
     
@@ -87,40 +122,7 @@
     return md;
 }
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
-    // Override point for customization after application launch.
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
-    
-    
 
-    LandingViewController *landingViewController =  [[LandingViewController alloc] initWithNibName:@"LandingViewController" bundle:nil];
-    navigationcontroller = [[UINavigationController alloc]initWithRootViewController:landingViewController];
-    navigationcontroller.navigationBarHidden = YES;
-    
-    
-    
-    
-    self.window.rootViewController=navigationcontroller;
-    
-    slideMenu=[[SlideOutMenuViewController alloc] initWithNibName:@"SlideOutMenuViewController_iPhone4" bundle:nil];
-    slideMenu.view.frame=[[UIScreen mainScreen] bounds];
-    NSLog(@"master = %@",NSStringFromCGRect(slideMenu.view.frame));
-    [self.window addSubview:slideMenu.view];
-    
-    
-    [self.window makeKeyAndVisible];
-    
-    
-    [FBLoginView class];
-    [FBProfilePictureView class];
-    
-    //[self lastSeenCalling];
-    
-    return YES;
-}
 
 
 #pragma mark - Locationmanager Delegate
@@ -154,6 +156,10 @@
     [FBSession setActiveSession:nil];
 }
 
+-(void)localnotification
+{
+    
+}
 #pragma mark
 #pragma mark Last Seen API Calling
 #pragma mark

@@ -32,6 +32,15 @@ FBLoginView *fbLoginView;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
+//    [[WebService service] callGetNearTournamentWithUserID:@"82" WithCompletionHandler:^(id result, BOOL isError, NSString *strMessage) {
+//        if (isError) {
+//            
+//        }else{
+//            
+//        }
+//    }];
+    
     self.navigationController.navigationBarHidden = YES;
     sharedPref = [NSUserDefaults standardUserDefaults];
     fbLoginView=[[FBLoginView alloc] initWithReadPermissions:@[@"public_profile", @"email", @"user_friends"]];

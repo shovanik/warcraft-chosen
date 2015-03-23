@@ -49,7 +49,6 @@
 		20BAC3D91A94A89F00E895FE /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BAC3D71A94A89F00E895FE /* Reachability.m */; };
 		20BAC4081A94A8B100E895FE /* AddTournamentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BAC3DC1A94A8B100E895FE /* AddTournamentViewController.m */; };
 		20BAC4091A94A8B100E895FE /* AddTournamentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20BAC3DD1A94A8B100E895FE /* AddTournamentViewController.xib */; };
-		20BAC40A1A94A8B100E895FE /* AddTournamentViewController_iPhone4.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20BAC3DE1A94A8B100E895FE /* AddTournamentViewController_iPhone4.xib */; };
 		20BAC40B1A94A8B100E895FE /* GuildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BAC3E01A94A8B100E895FE /* GuildViewController.m */; };
 		20BAC40C1A94A8B100E895FE /* GuildViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20BAC3E11A94A8B100E895FE /* GuildViewController.xib */; };
 		20BAC40D1A94A8B100E895FE /* LandingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BAC3E31A94A8B100E895FE /* LandingViewController.m */; };
@@ -370,7 +369,6 @@
 		20BAC3DB1A94A8B100E895FE /* AddTournamentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTournamentViewController.h; sourceTree = "<group>"; };
 		20BAC3DC1A94A8B100E895FE /* AddTournamentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTournamentViewController.m; sourceTree = "<group>"; };
 		20BAC3DD1A94A8B100E895FE /* AddTournamentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddTournamentViewController.xib; sourceTree = "<group>"; };
-		20BAC3DE1A94A8B100E895FE /* AddTournamentViewController_iPhone4.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddTournamentViewController_iPhone4.xib; sourceTree = "<group>"; };
 		20BAC3DF1A94A8B100E895FE /* GuildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuildViewController.h; sourceTree = "<group>"; };
 		20BAC3E01A94A8B100E895FE /* GuildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuildViewController.m; sourceTree = "<group>"; };
 		20BAC3E11A94A8B100E895FE /* GuildViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GuildViewController.xib; sourceTree = "<group>"; };
@@ -778,7 +776,6 @@
 				20BAC3DB1A94A8B100E895FE /* AddTournamentViewController.h */,
 				20BAC3DC1A94A8B100E895FE /* AddTournamentViewController.m */,
 				20BAC3DD1A94A8B100E895FE /* AddTournamentViewController.xib */,
-				20BAC3DE1A94A8B100E895FE /* AddTournamentViewController_iPhone4.xib */,
 			);
 			name = AddTournament;
 			sourceTree = "<group>";
@@ -998,9 +995,9 @@
 				2012B15E1A9749B600E1EF3D /* Step2 */,
 				2012B1631A9752BE00E1EF3D /* Guild */,
 				2012B1611A9749EC00E1EF3D /* WorldMap */,
-				2012B1661A9760F300E1EF3D /* AddTournament */,
 				2012B1641A9760DB00E1EF3D /* SelectRadious */,
 				2012B1621A974FEE00E1EF3D /* Settings */,
+				2012B1661A9760F300E1EF3D /* AddTournament */,
 				2012B15F1A9749CE00E1EF3D /* TournamentDetails */,
 				2012B1601A9749E000E1EF3D /* Tournament */,
 			);
@@ -1754,7 +1751,6 @@
 				20BAC41E1A94A8B100E895FE /* StepTwoViewController.xib in Resources */,
 				CD79B1811A3F34F200AFD912 /* 58x58.png in Resources */,
 				20BAC3CA1A94A89200E895FE /* TournamentDetailsTableViewCell.xib in Resources */,
-				20BAC40A1A94A8B100E895FE /* AddTournamentViewController_iPhone4.xib in Resources */,
 				CDE1C2061A49C9ED00287F9F /* two_star_iphn6@2x.png in Resources */,
 				D6C44B371A665B8400AFFB9B /* nav_bg_iphn6@2x.png in Resources */,
 				CDA080EF1A42F1E60056BA7F /* smenu_map_normal_iphn4@2x.png in Resources */,

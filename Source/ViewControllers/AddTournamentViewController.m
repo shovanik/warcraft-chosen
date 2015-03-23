@@ -158,8 +158,8 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    TournamentDetailsViewController *tdVC  = [[TournamentDetailsViewController alloc] initWithNibName:@"TournamentDetailsViewController" bundle:nil];
-    [self.navigationController pushViewController:tdVC animated:YES];
+//    TournamentDetailsViewController *tdVC  = [[TournamentDetailsViewController alloc] initWithNibName:@"TournamentDetailsViewController" bundle:nil];
+//    [self.navigationController pushViewController:tdVC animated:YES];
     
 }
 @end

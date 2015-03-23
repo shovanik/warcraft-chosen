@@ -31,7 +31,8 @@ typedef enum : NSUInteger {
     GetSpecificGuild,
     AddGuid,
     GetSpecificUserGuilds,
-    GetTournamentCategory
+    GetTournamentCategory,
+    GetNearTournament
 } WebServiceType;
 
 static NSString *const allServices[]={
@@ -50,7 +51,8 @@ static NSString *const allServices[]={
     [GetSpecificGuild]=@"api/guild/id",
     [AddGuid]=@"api/user/add_guild",
     [GetSpecificUserGuilds]=@"api/user/guilds",
-    [GetTournamentCategory]=@"api/tournament/tournaments_category"
+    [GetTournamentCategory]=@"api/tournament/tournaments_category",
+    [GetNearTournament]=@"api/tournament/near_tournament"
 };
 
 @implementation WebService
@@ -741,7 +743,6 @@ static NSString *const allServices[]={
             if (connectionError) {
                 handler(connectionError,YES,@"Connection error is happen, please try again later.");
             }else{
-                
                 NSLog(@"callGetTournamentCategoryWithCompletionHandler Response = %@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
                 NSError *error;
                 NSDictionary *responseDict=[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&error];
@@ -762,6 +763,50 @@ static NSString *const allServices[]={
                         handler(nil,YES,@"Something is wrong, please try agian later.");
                     }
                 }
+            }
+        });
+    }];
+}
+
+-(void)callGetNearTournamentWithUserID:(NSString*)strUserID WithCompletionHandler:(CompletionHandler)handler
+{
+    NSMutableArray *arr=[[NSMutableArray alloc] init];
+    [arr addObject:[NSString stringWithFormat:@"user_id=%@",strUserID]];
+    
+    NSString *postParams = [arr componentsJoinedByString:@"&"];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[self getTotalURL:allServices[GetNearTournament]] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+    NSData *RequestPostData = [NSData dataWithBytes: [postParams UTF8String] length: [postParams length]];
+    NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[RequestPostData length]];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:RequestPostData];
+    NSOperationQueue *queue=[NSOperationQueue new];
+    [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (connectionError) {
+                handler(connectionError,YES,@"Connection error is happen, please try again later.");
+            }else{
+                NSLog(@"callGetNearTournamentWithUserID Response = %@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+//                NSError *error;
+//                NSDictionary *responseDict=[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&error];
+//                if (error) {
+//                    handler(error,YES,@"Something is wrong, please try agian later.");
+//                }else{
+//                    if ([[responseDict objectForKey:@"status"] boolValue]) {
+//                        responseDict=[responseDict objectForKey:@"response"];
+//                        NSMutableArray *arrTemp=[[responseDict objectForKey:@"category_tournaments"] mutableCopy];
+//                        for (int i=0; i<arrTemp.count; i++) {
+//                            ModelTournamentCategory *obj=[[ModelTournamentCategory alloc] initWithDictionary:[arrTemp objectAtIndex:i]];
+//                            NSLog(@"Object = %@",[arrTemp objectAtIndex:i]);
+//                            [arrTemp removeObjectAtIndex:i];
+//                            [arrTemp insertObject:obj atIndex:i];
+//                        }
+//                        handler(arrTemp,NO,@"All the tournament category retrived successfully.");
+//                    }else{
+//                        handler(nil,YES,@"Something is wrong, please try agian later.");
+//                    }
+//                }
             }
         });
     }];

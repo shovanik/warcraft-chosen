@@ -112,7 +112,7 @@
        pageControl.pageIndicatorTintColor = [UIColor colorWithRed:60.0f/255.0f green:59.0f/255.0f blue:57.0f/255.0f alpha:1.0f];
     pageControl.currentPageIndicatorTintColor = [UIColor colorWithRed:110.0f/255.0f green:207.0f/255.0f blue:246.0f/255.0f alpha:1.0f];
     
-    pageControl.numberOfPages = 6;
+    
     
     
     // for ios 7
@@ -151,6 +151,7 @@
         }else{
             if ([result isKindOfClass:[NSMutableArray class]]) {
                 arrAllGuilds=(NSMutableArray*)result;
+                pageControl.numberOfPages = arrAllGuilds.count;
                 [self updateUIForGuild:[arrAllGuilds firstObject]];
                 [self loadAllGuildForUser];
             }

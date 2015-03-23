@@ -3,6 +3,11 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="LithosPro-Regular.ttf">
+            <string>LithosPro-Regular</string>
+        </mutableArray>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddTournamentViewController">
             <connections>
@@ -15,10 +20,10 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="BRA-pf-oDM">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="BRA-pf-oDM">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="navbg" translatesAutoresizingMaskIntoConstraints="NO" id="CJ4-8U-eLr">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navbg" translatesAutoresizingMaskIntoConstraints="NO" id="CJ4-8U-eLr">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="77"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="64" id="8Tt-jd-oap"/>
@@ -40,7 +45,7 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TEB-Zw-eCp" userLabel="Button - Slide Menu Custome">
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TEB-Zw-eCp" userLabel="Button - Slide Menu Custome">
                     <rect key="frame" x="2" y="1" width="61" height="54"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="54" id="BRP-J9-FKG"/>
@@ -65,19 +70,19 @@
                         <action selector="btnMenuTapped:" destination="-1" eventType="touchUpInside" id="orj-VL-gBx"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="TOURNAMENT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="chI-gB-sIG">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TOURNAMENT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="chI-gB-sIG">
                     <rect key="frame" x="52" y="5" width="271" height="41"/>
                     <fontDescription key="fontDescription" name="LithosPro-Regular" family="Lithos Pro" pointSize="24"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HeH-1Q-Oqb" userLabel="Button - Back">
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HeH-1Q-Oqb" userLabel="Button - Back">
                     <rect key="frame" x="336" y="12" width="18" height="28"/>
                     <state key="normal" backgroundImage="back">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fHa-Ne-vbJ" userLabel="Button - Back Custom">
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fHa-Ne-vbJ" userLabel="Button - Back Custom">
                     <rect key="frame" x="312" y="-1" width="61" height="54"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="61" id="RJg-VV-lIO"/>
@@ -102,7 +107,7 @@
                         <action selector="btnBackPressed:" destination="-1" eventType="touchUpInside" id="JZj-9X-5qN"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tournament5_back.png" translatesAutoresizingMaskIntoConstraints="NO" id="OSH-iY-Npb">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="tournament5_back.png" translatesAutoresizingMaskIntoConstraints="NO" id="OSH-iY-Npb">
                     <rect key="frame" x="28" y="111" width="318" height="493"/>
                 </imageView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="EZ4-qG-CyQ">
@@ -152,28 +157,28 @@
                     <exclude reference="EZ4-qG-CyQ"/>
                 </mask>
                 <mask key="constraints">
-                    <exclude reference="74e-sN-RcB"/>
-                    <exclude reference="8t6-ze-KXP"/>
-                    <exclude reference="VO7-zO-gNR"/>
-                    <exclude reference="hmf-6N-HfC"/>
-                    <exclude reference="kiD-ry-cb2"/>
-                    <exclude reference="n2Z-p2-9gD"/>
-                    <exclude reference="zEj-pQ-Wa6"/>
-                    <exclude reference="KGP-3h-v6e"/>
-                    <exclude reference="gMj-yN-Dze"/>
                     <exclude reference="Fsd-wg-a0C"/>
                     <exclude reference="hR5-Be-QlE"/>
                     <exclude reference="v4z-Iz-5Zb"/>
-                    <exclude reference="SPi-du-fpt"/>
-                    <exclude reference="WLG-ZD-DM9"/>
-                    <exclude reference="Ymk-wM-tRP"/>
-                    <exclude reference="p4Q-ID-mk6"/>
+                    <exclude reference="3Cg-n4-XFu"/>
+                    <exclude reference="dC2-Mm-3CJ"/>
+                    <exclude reference="kiD-ry-cb2"/>
+                    <exclude reference="n2Z-p2-9gD"/>
+                    <exclude reference="zEj-pQ-Wa6"/>
                     <exclude reference="E6V-YH-bDb"/>
                     <exclude reference="YYZ-iZ-H2h"/>
                     <exclude reference="bAk-kK-XOy"/>
                     <exclude reference="lTN-l9-SWA"/>
-                    <exclude reference="3Cg-n4-XFu"/>
-                    <exclude reference="dC2-Mm-3CJ"/>
+                    <exclude reference="KGP-3h-v6e"/>
+                    <exclude reference="gMj-yN-Dze"/>
+                    <exclude reference="SPi-du-fpt"/>
+                    <exclude reference="WLG-ZD-DM9"/>
+                    <exclude reference="Ymk-wM-tRP"/>
+                    <exclude reference="p4Q-ID-mk6"/>
+                    <exclude reference="74e-sN-RcB"/>
+                    <exclude reference="8t6-ze-KXP"/>
+                    <exclude reference="VO7-zO-gNR"/>
+                    <exclude reference="hmf-6N-HfC"/>
                     <exclude reference="B02-0s-Jfw"/>
                     <exclude reference="eaY-3w-rKo"/>
                     <exclude reference="FKD-LM-b9d"/>
@@ -188,28 +193,28 @@
                     <include reference="EZ4-qG-CyQ"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="74e-sN-RcB"/>
-                    <include reference="8t6-ze-KXP"/>
-                    <include reference="VO7-zO-gNR"/>
-                    <include reference="hmf-6N-HfC"/>
-                    <include reference="kiD-ry-cb2"/>
-                    <include reference="n2Z-p2-9gD"/>
-                    <include reference="zEj-pQ-Wa6"/>
-                    <include reference="KGP-3h-v6e"/>
-                    <include reference="gMj-yN-Dze"/>
                     <include reference="Fsd-wg-a0C"/>
                     <include reference="hR5-Be-QlE"/>
                     <include reference="v4z-Iz-5Zb"/>
-                    <include reference="SPi-du-fpt"/>
-                    <include reference="WLG-ZD-DM9"/>
-                    <include reference="Ymk-wM-tRP"/>
-                    <include reference="p4Q-ID-mk6"/>
+                    <include reference="3Cg-n4-XFu"/>
+                    <include reference="dC2-Mm-3CJ"/>
+                    <include reference="kiD-ry-cb2"/>
+                    <include reference="n2Z-p2-9gD"/>
+                    <include reference="zEj-pQ-Wa6"/>
                     <include reference="E6V-YH-bDb"/>
                     <include reference="YYZ-iZ-H2h"/>
                     <include reference="bAk-kK-XOy"/>
                     <include reference="lTN-l9-SWA"/>
-                    <include reference="3Cg-n4-XFu"/>
-                    <include reference="dC2-Mm-3CJ"/>
+                    <include reference="KGP-3h-v6e"/>
+                    <include reference="gMj-yN-Dze"/>
+                    <include reference="SPi-du-fpt"/>
+                    <include reference="WLG-ZD-DM9"/>
+                    <include reference="Ymk-wM-tRP"/>
+                    <include reference="p4Q-ID-mk6"/>
+                    <include reference="74e-sN-RcB"/>
+                    <include reference="8t6-ze-KXP"/>
+                    <include reference="VO7-zO-gNR"/>
+                    <include reference="hmf-6N-HfC"/>
                     <include reference="B02-0s-Jfw"/>
                     <include reference="eaY-3w-rKo"/>
                     <include reference="FKD-LM-b9d"/>

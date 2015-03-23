@@ -9,10 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface TournamentDetailsTableViewCell : UITableViewCell
-@property (nonatomic, strong) IBOutlet UILabel *turNameLabel;
-@property (nonatomic, strong) IBOutlet UIImageView *groupImageView;
-@property (nonatomic, strong) IBOutlet UILabel *dolarLabel;
-@property (nonatomic, strong) IBOutlet UIButton *pubButton;
-@property (nonatomic, strong) IBOutlet UIButton *priButton;
+@property (nonatomic, strong) IBOutlet UILabel *lblTurName;
+@property (nonatomic, strong) IBOutlet UIImageView *imgGroup;
+@property (nonatomic, strong) IBOutlet UILabel *lblDollar;
+@property (nonatomic, strong) IBOutlet UIButton *btnPublic;
+@property (nonatomic, strong) IBOutlet UIButton *btnPrivate;
 
 @end

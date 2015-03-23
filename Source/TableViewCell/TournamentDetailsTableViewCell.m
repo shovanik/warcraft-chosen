@@ -10,15 +10,15 @@
 
 @implementation TournamentDetailsTableViewCell
 
-@synthesize turNameLabel, pubButton, priButton, dolarLabel, groupImageView;
+@synthesize lblTurName, btnPublic, btnPrivate, lblDollar, imgGroup;
 
 - (void)awakeFromNib {
     // Initialization code
-    self.pubButton.titleLabel.font = [UIFont fontWithName:@"Garamond" size:13];
-    self.priButton.titleLabel.font = [UIFont fontWithName:@"Garamond" size:13];
-    self.turNameLabel.font = [UIFont fontWithName:@"Garamond" size:18];
-    self.turNameLabel.font = [UIFont fontWithName:@"Garamond" size:18];
-    self.dolarLabel.font = [UIFont fontWithName:@"Garamond" size:19];
+    self.btnPublic.titleLabel.font = [UIFont fontWithName:@"Garamond" size:13];
+    self.btnPrivate.titleLabel.font = [UIFont fontWithName:@"Garamond" size:13];
+    self.lblTurName.font = [UIFont fontWithName:@"Garamond" size:18];
+    self.lblTurName.font = [UIFont fontWithName:@"Garamond" size:18];
+    self.lblDollar.font = [UIFont fontWithName:@"Garamond" size:19];
 
 
 }

@@ -19,6 +19,7 @@
 #import "ModelTerms.h"
 #import "ModelAboutUs.h"
 #import "ModelTournamentCategory.h"
+#import "ModelTournamentSubCategory.h"
 
 #import "GuildImageView.h"
 

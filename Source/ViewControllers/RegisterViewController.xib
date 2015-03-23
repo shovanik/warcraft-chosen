@@ -88,7 +88,7 @@
                             <rect key="frame" x="46" y="47" width="225" height="42"/>
                             <color key="textColor" red="0.792156862745098" green="0.90196078431372551" blue="0.9137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                 <rect key="frame" x="40" y="79" width="200" height="48"/>
                             </variation>
@@ -106,7 +106,7 @@
                             <rect key="frame" x="46" y="118" width="225" height="42"/>
                             <color key="textColor" red="0.792156862745098" green="0.90196078431372551" blue="0.9137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                 <rect key="frame" x="40" y="134" width="200" height="42"/>
                             </variation>
@@ -124,7 +124,7 @@
                             <rect key="frame" x="46" y="189" width="225" height="42"/>
                             <color key="textColor" red="0.79215686269999996" green="0.90196078430000004" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                 <rect key="frame" x="40" y="187" width="200" height="42"/>
                             </variation>
@@ -142,7 +142,7 @@
                             <rect key="frame" x="46" y="261" width="225" height="42"/>
                             <color key="textColor" red="0.79215686269999996" green="0.90196078430000004" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                 <rect key="frame" x="40" y="239" width="200" height="42"/>
                             </variation>
@@ -172,7 +172,7 @@
                             <rect key="frame" x="46" y="332" width="225" height="42"/>
                             <color key="textColor" red="0.79215686269999996" green="0.90196078430000004" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                            <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done"/>
                             <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                 <rect key="frame" x="40" y="294" width="200" height="42"/>
                             </variation>

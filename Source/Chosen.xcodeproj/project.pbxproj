@@ -84,6 +84,7 @@
 		20BCD3991A9E1A9E0062DFE2 /* close_temp.png in Resources */ = {isa = PBXBuildFile; fileRef = 20BCD3981A9E1A9E0062DFE2 /* close_temp.png */; };
 		20C1EE501AB024AB00197A80 /* ModelGuild.m in Sources */ = {isa = PBXBuildFile; fileRef = 20C1EE4F1AB024AB00197A80 /* ModelGuild.m */; };
 		20C8AE471A9CBF870013DF20 /* CustomAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 20C8AE461A9CBF870013DF20 /* CustomAnnotation.m */; };
+		20CFBABD1AC031D30092556D /* ModelTournamentSubCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 20CFBABC1AC031D30092556D /* ModelTournamentSubCategory.m */; };
 		20D4BC2A1AA6E753004EB2AD /* ModelPrivacyPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D4BC291AA6E753004EB2AD /* ModelPrivacyPolicy.m */; };
 		20D4BC2D1AA6EC13004EB2AD /* ModelAboutUs.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D4BC2C1AA6EC13004EB2AD /* ModelAboutUs.m */; };
 		20D4BC301AA6EEC4004EB2AD /* ModelTerms.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D4BC2F1AA6EEC4004EB2AD /* ModelTerms.m */; };
@@ -423,6 +424,8 @@
 		20C1EE4F1AB024AB00197A80 /* ModelGuild.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelGuild.m; sourceTree = "<group>"; };
 		20C8AE451A9CBF870013DF20 /* CustomAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomAnnotation.h; path = CustomDelegate/CustomAnnotation.h; sourceTree = "<group>"; };
 		20C8AE461A9CBF870013DF20 /* CustomAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomAnnotation.m; path = CustomDelegate/CustomAnnotation.m; sourceTree = "<group>"; };
+		20CFBABB1AC031D30092556D /* ModelTournamentSubCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelTournamentSubCategory.h; sourceTree = "<group>"; };
+		20CFBABC1AC031D30092556D /* ModelTournamentSubCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelTournamentSubCategory.m; sourceTree = "<group>"; };
 		20D4BC281AA6E753004EB2AD /* ModelPrivacyPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelPrivacyPolicy.h; sourceTree = "<group>"; };
 		20D4BC291AA6E753004EB2AD /* ModelPrivacyPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelPrivacyPolicy.m; sourceTree = "<group>"; };
 		20D4BC2B1AA6EC13004EB2AD /* ModelAboutUs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelAboutUs.h; sourceTree = "<group>"; };
@@ -1041,6 +1044,8 @@
 				20C1EE4F1AB024AB00197A80 /* ModelGuild.m */,
 				2026F5E81ABAD7EF006B616C /* ModelTournamentCategory.h */,
 				2026F5E91ABAD7EF006B616C /* ModelTournamentCategory.m */,
+				20CFBABB1AC031D30092556D /* ModelTournamentSubCategory.h */,
+				20CFBABC1AC031D30092556D /* ModelTournamentSubCategory.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1810,6 +1815,7 @@
 				20BAC3D11A94A89900E895FE /* InfinitePagingView.m in Sources */,
 				20BAC3BC1A94A88400E895FE /* STTwitterAppOnly.m in Sources */,
 				20BAC3BF1A94A88400E895FE /* STTwitterOS.m in Sources */,
+				20CFBABD1AC031D30092556D /* ModelTournamentSubCategory.m in Sources */,
 				20BAC4111A94A8B100E895FE /* RegisterViewController.m in Sources */,
 				20BAC4371A94BE2C00E895FE /* ModelUser.m in Sources */,
 				20BAC3C01A94A88400E895FE /* STTwitterOSRequest.m in Sources */,

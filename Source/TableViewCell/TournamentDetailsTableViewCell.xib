@@ -60,10 +60,10 @@
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
-                <outlet property="groupImageView" destination="0VM-BH-0L8" id="OKi-QX-Lu8"/>
-                <outlet property="priButton" destination="Pdb-ba-yQ2" id="qeY-3Y-Lph"/>
-                <outlet property="pubButton" destination="Gfr-bf-j2a" id="Cme-ka-Edb"/>
-                <outlet property="turNameLabel" destination="eng-Az-pDC" id="X9y-ce-jiq"/>
+                <outlet property="btnPrivate" destination="Pdb-ba-yQ2" id="MaV-7L-9Wp"/>
+                <outlet property="btnPublic" destination="Gfr-bf-j2a" id="geT-ZX-QbN"/>
+                <outlet property="imgGroup" destination="0VM-BH-0L8" id="4w7-RZ-tV1"/>
+                <outlet property="lblTurName" destination="eng-Az-pDC" id="5Nm-ab-fML"/>
             </connections>
             <point key="canvasLocation" x="228.5" y="427.5"/>
         </tableViewCell>

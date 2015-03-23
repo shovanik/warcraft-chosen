@@ -95,6 +95,7 @@
 
 -(IBAction)radiusButtonTapped:(id)sender{
     SelectRadiusViewController *tdVC  = [[SelectRadiusViewController alloc] initWithNibName:@"SelectRadiusViewController" bundle:nil];
+    [self.navigationController pushViewController:tdVC animated:YES];
 }
 
 
@@ -153,6 +154,10 @@
         //this is the last row in section.
     }
 
+    
+    cell.backgroundColor=[UIColor clearColor];
+    cell.contentView.backgroundColor=[UIColor clearColor];
+    cell.selectionStyle=UITableViewCellSelectionStyleNone;
     return cell;
     
 }

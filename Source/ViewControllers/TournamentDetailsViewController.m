@@ -12,21 +12,24 @@
 #import "AddTournamentViewController.h"
 #import "SlideOutMenuViewController.h"
 
-@interface TournamentDetailsViewController (){
+@interface TournamentDetailsViewController ()<UITableViewDataSource, UITableViewDelegate>
+{
      CGFloat _offset;
+    IBOutlet UITableView *tblTournamentDetail;
+    
+    NSMutableArray *arrResponse;
 }
 
 @end
 
 @implementation TournamentDetailsViewController
-@synthesize navTitleLabel, TournamentDetailsTableView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     _offset = 50;
 
-    
+    /*
     if ([[Context getInstance] screenPhysicalSizeForIPhoneClassic]) {
         //For Iphone4
         // NSLog(@"iPhone4");
@@ -38,28 +41,57 @@
         //  NSLog(@"iPhone6");
         
     }
-    self.TournamentDetailsTableView.backgroundColor = [UIColor clearColor];
-
+    */
+    
+    
+    tblTournamentDetail.backgroundColor = [UIColor clearColor];
+    
 }
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.activityIndicatorView setHidesWhenStopped:YES];
+    [self.activityIndicatorView startAnimating];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [[WebService service] callGetNearTournamentWithUserID:/*user.strID*/@"75" CategoryID:/*_tournamentCategory.strID*/@"1" WithCompletionHandler:^(id result, BOOL isError, NSString *strMessage) {
+        if (isError) {
+            UIAlertController *controller=[UIAlertController alertControllerWithTitle:@"Error" message:strMessage preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *actionOK=[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                //[self.navigationController popViewControllerAnimated:YES];
+            }];
+            [controller addAction:actionOK];
+            [self presentViewController:controller animated:YES completion:^{
+                
+            }];
+        }else{
+            if ([result isKindOfClass:[NSMutableArray class]]) {
+                arrResponse=(NSMutableArray*)result;
+            }else{
+                arrResponse=[[NSMutableArray alloc] init];
+            }
+            [tblTournamentDetail reloadData];
+        }
+        [self.activityIndicatorView stopAnimating];
+    }];
+}
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return 3;
+    return arrResponse.count;q  
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if ([[Context getInstance] screenPhysicalSizeForIPhoneClassic]) {
-        //For Iphone4
-        // NSLog(@"iPhone4");
         return 100.0f;
-        
     }else{
         return 129.0f;
-
-        
-        //  NSLog(@"iPhone6");
-        
     }
-
+    return 0.0f;
 }
 -(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -71,52 +103,26 @@
     {
         cell=[[[NSBundle mainBundle] loadNibNamed:@"TournamentDetailsTableViewCell_iphn4" owner:self options:nil]objectAtIndex:0];
     }
-    if ([indexPath row] == 1) {
-        cell.pubButton.hidden = YES;
-        cell.turNameLabel.text = @"GAME 2";
-        cell.groupImageView.image = [UIImage imageNamed:@"trmDet_single_iphn4.png"];
-    }else if ([indexPath row] == 2) {
-        cell.priButton.hidden = YES;
-        cell.turNameLabel.text = @"GAME 3";
-    }
+    
+    ModelTournamentSubCategory *obj=[arrResponse objectAtIndex:indexPath.row];
+    
+    cell.imgGroup.image = [UIImage imageNamed:@"trmDet_single_iphn4.png"];
+    cell.lblTurName.text=obj.strTitle;
+    
+    
+    cell.backgroundColor=[UIColor clearColor];
+    cell.contentView.backgroundColor=[UIColor clearColor];
+    cell.selectionStyle=UITableViewCellSelectionStyleNone;
     return cell;
-
 }
 -(IBAction)addButtonTapped:(id)sender
 {
     AddTournamentViewController *atVC  = [[AddTournamentViewController alloc] initWithNibName:@"AddTournamentViewController" bundle:nil];
     [self.navigationController pushViewController:atVC animated:YES];
 }
--(IBAction)slideMenuButtonTapped:(id)sender{
-//    SlideOutMenuViewController *mVC = nil;
-//    if ([[Context getInstance] screenPhysicalSizeForIPhoneClassic]) {
-//        mVC = [[SlideOutMenuViewController alloc] initWithNibName:@"SlideOutMenuViewController_iPhone4" bundle:nil ];
-//    }else{
-//        mVC = [[SlideOutMenuViewController alloc] initWithNibName:@"SlideOutMenuViewController" bundle:nil ];
-//        
-//    }
-//    //mVC.guildButton.selected = YES;
-//    
-}
-
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
--(IBAction)backButtonTapped:(id)sender{
-}
-
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

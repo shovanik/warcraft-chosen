@@ -37,6 +37,6 @@
 -(void)callGetGuildsForUserId:(NSString*)strUserID WithCompletionHandler:(CompletionHandler)handler;
 -(void)callAddGuildForGuildID:(NSString*)strGuildID UserID:(NSString*)strUserID CompletionHandler:(CompletionHandler)handler;
 -(void)callGetTournamentCategoryWithCompletionHandler:(CompletionHandler)handler;
--(void)callGetNearTournamentWithUserID:(NSString*)strUserID WithCompletionHandler:(CompletionHandler)handler;
+-(void)callGetNearTournamentWithUserID:(NSString*)strUserID CategoryID:(NSString*)strCategoryID WithCompletionHandler:(CompletionHandler)handler;
 
 @end

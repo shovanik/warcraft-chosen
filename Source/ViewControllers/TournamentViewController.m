@@ -29,14 +29,14 @@
     // Do any additional setup after loading the view from its nib.
     tblTournament.backgroundColor = [UIColor clearColor];
     
-    [self.activityIndicatorView setHidesWhenStopped:YES];
-    [self.activityIndicatorView startAnimating];
     tblTournament.backgroundColor=[UIColor clearColor];
 }
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     arrResponse=[[NSMutableArray alloc] init];
+    [self.activityIndicatorView setHidesWhenStopped:YES];
+    [self.activityIndicatorView startAnimating];
 }
 -(void)viewDidAppear:(BOOL)animated
 {
@@ -125,9 +125,9 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    TournamentDetailsViewController *tdVC  = [[TournamentDetailsViewController alloc] initWithNibName:@"TournamentDetailsViewController" bundle:nil];
-    [self.navigationController pushViewController:tdVC animated:YES];
-    
+    TournamentDetailsViewController *master  = [[TournamentDetailsViewController alloc] initWithNibName:@"TournamentDetailsViewController" bundle:nil];
+    master.tournamentCategory=[arrResponse objectAtIndex:indexPath.row];
+    [self.navigationController pushViewController:master animated:YES];
 }
 
 

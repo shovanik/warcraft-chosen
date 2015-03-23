@@ -8,11 +8,10 @@
 
 #import "BaseViewController.h"
 
-@interface TournamentDetailsViewController : BaseViewController <UITableViewDataSource, UITableViewDelegate>
+@class ModelTournamentCategory;
 
-@property (nonatomic, strong) IBOutlet UILabel *navTitleLabel;
-@property (nonatomic, strong) IBOutlet UITableView *TournamentDetailsTableView;
--(IBAction)backButtonTapped:(id)sender;
--(IBAction)addButtonTapped:(id)sender;
--(IBAction)slideMenuButtonTapped:(id)sender;
+@interface TournamentDetailsViewController : BaseViewController
+
+@property(weak,nonatomic) ModelTournamentCategory *tournamentCategory;
+
 @end

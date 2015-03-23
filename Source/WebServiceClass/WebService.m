@@ -13,6 +13,7 @@
 #import "ModelTerms.h"
 #import "ModelGuild.h"
 #import "ModelTournamentCategory.h"
+#import "ModelTournamentSubCategory.h"
 
 
 typedef enum : NSUInteger {
@@ -768,10 +769,11 @@ static NSString *const allServices[]={
     }];
 }
 
--(void)callGetNearTournamentWithUserID:(NSString*)strUserID WithCompletionHandler:(CompletionHandler)handler
+-(void)callGetNearTournamentWithUserID:(NSString*)strUserID CategoryID:(NSString*)strCategoryID WithCompletionHandler:(CompletionHandler)handler
 {
     NSMutableArray *arr=[[NSMutableArray alloc] init];
     [arr addObject:[NSString stringWithFormat:@"user_id=%@",strUserID]];
+    [arr addObject:[NSString stringWithFormat:@"category_id=%@",strCategoryID]];
     
     NSString *postParams = [arr componentsJoinedByString:@"&"];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[self getTotalURL:allServices[GetNearTournament]] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
@@ -788,25 +790,24 @@ static NSString *const allServices[]={
                 handler(connectionError,YES,@"Connection error is happen, please try again later.");
             }else{
                 NSLog(@"callGetNearTournamentWithUserID Response = %@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
-//                NSError *error;
-//                NSDictionary *responseDict=[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&error];
-//                if (error) {
-//                    handler(error,YES,@"Something is wrong, please try agian later.");
-//                }else{
-//                    if ([[responseDict objectForKey:@"status"] boolValue]) {
-//                        responseDict=[responseDict objectForKey:@"response"];
-//                        NSMutableArray *arrTemp=[[responseDict objectForKey:@"category_tournaments"] mutableCopy];
-//                        for (int i=0; i<arrTemp.count; i++) {
-//                            ModelTournamentCategory *obj=[[ModelTournamentCategory alloc] initWithDictionary:[arrTemp objectAtIndex:i]];
-//                            NSLog(@"Object = %@",[arrTemp objectAtIndex:i]);
-//                            [arrTemp removeObjectAtIndex:i];
-//                            [arrTemp insertObject:obj atIndex:i];
-//                        }
-//                        handler(arrTemp,NO,@"All the tournament category retrived successfully.");
-//                    }else{
-//                        handler(nil,YES,@"Something is wrong, please try agian later.");
-//                    }
-//                }
+                NSError *error;
+                NSDictionary *responseDict=[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&error];
+                if (error) {
+                    handler(error,YES,@"Something is wrong, please try agian later.");
+                }else{
+                    if ([[responseDict objectForKey:@"status"] boolValue]) {
+                        NSMutableArray *arrResponse=[[responseDict objectForKey:@"response"] mutableCopy];
+                        for (int i=0; i<arrResponse.count; i++) {
+                            ModelTournamentSubCategory *obj=[[ModelTournamentSubCategory alloc] initWithDictionary:[arrResponse objectAtIndex:i]];
+                            NSLog(@"Object = %@",[arrResponse objectAtIndex:i]);
+                            [arrResponse removeObjectAtIndex:i];
+                            [arrResponse insertObject:obj atIndex:i];
+                        }
+                        handler(arrResponse,NO,@"All the tournament sub category retrived successfully.");
+                    }else{
+                        handler(nil,YES,[responseDict objectForKey:@"error"]);
+                    }
+                }
             }
         });
     }];

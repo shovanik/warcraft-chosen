@@ -107,11 +107,11 @@
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
-                <outlet property="dolarLabel" destination="oYB-ur-HQC" id="uzR-LT-KNi"/>
-                <outlet property="groupImageView" destination="0VM-BH-0L8" id="YJV-zM-nLg"/>
-                <outlet property="priButton" destination="Pdb-ba-yQ2" id="qeY-3Y-Lph"/>
-                <outlet property="pubButton" destination="Gfr-bf-j2a" id="Cme-ka-Edb"/>
-                <outlet property="turNameLabel" destination="eng-Az-pDC" id="X9y-ce-jiq"/>
+                <outlet property="btnPrivate" destination="Pdb-ba-yQ2" id="KgK-gc-9wM"/>
+                <outlet property="btnPublic" destination="Gfr-bf-j2a" id="cFP-XT-CnB"/>
+                <outlet property="imgGroup" destination="0VM-BH-0L8" id="7rP-hv-lgB"/>
+                <outlet property="lblDollar" destination="oYB-ur-HQC" id="tyQ-6C-JUZ"/>
+                <outlet property="lblTurName" destination="eng-Az-pDC" id="XO8-Qh-RmE"/>
             </connections>
             <point key="canvasLocation" x="229" y="411"/>
         </tableViewCell>

@@ -42,8 +42,6 @@
 		20BAC3C21A94A88400E895FE /* JSONSyntaxHighlight.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BAC3B41A94A88400E895FE /* JSONSyntaxHighlight.m */; };
 		20BAC3C31A94A88400E895FE /* STHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BAC3B61A94A88400E895FE /* STHTTPRequest.m */; };
 		20BAC3C91A94A89200E895FE /* TournamentDetailsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BAC3C61A94A89200E895FE /* TournamentDetailsTableViewCell.m */; };
-		20BAC3CA1A94A89200E895FE /* TournamentDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20BAC3C71A94A89200E895FE /* TournamentDetailsTableViewCell.xib */; };
-		20BAC3CB1A94A89200E895FE /* TournamentDetailsTableViewCell_iphn4.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20BAC3C81A94A89200E895FE /* TournamentDetailsTableViewCell_iphn4.xib */; };
 		20BAC3D11A94A89900E895FE /* InfinitePagingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BAC3CE1A94A89900E895FE /* InfinitePagingView.m */; };
 		20BAC3D81A94A89F00E895FE /* Context.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BAC3D51A94A89F00E895FE /* Context.m */; };
 		20BAC3D91A94A89F00E895FE /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BAC3D71A94A89F00E895FE /* Reachability.m */; };
@@ -84,6 +82,7 @@
 		20BCD3991A9E1A9E0062DFE2 /* close_temp.png in Resources */ = {isa = PBXBuildFile; fileRef = 20BCD3981A9E1A9E0062DFE2 /* close_temp.png */; };
 		20C1EE501AB024AB00197A80 /* ModelGuild.m in Sources */ = {isa = PBXBuildFile; fileRef = 20C1EE4F1AB024AB00197A80 /* ModelGuild.m */; };
 		20C8AE471A9CBF870013DF20 /* CustomAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 20C8AE461A9CBF870013DF20 /* CustomAnnotation.m */; };
+		20CF37721AC2B8520085A78E /* TournamentDetailsTableViewCell_iphn4.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20CF37711AC2B8520085A78E /* TournamentDetailsTableViewCell_iphn4.xib */; };
 		20CFBABD1AC031D30092556D /* ModelTournamentSubCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 20CFBABC1AC031D30092556D /* ModelTournamentSubCategory.m */; };
 		20D4BC2A1AA6E753004EB2AD /* ModelPrivacyPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D4BC291AA6E753004EB2AD /* ModelPrivacyPolicy.m */; };
 		20D4BC2D1AA6EC13004EB2AD /* ModelAboutUs.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D4BC2C1AA6EC13004EB2AD /* ModelAboutUs.m */; };
@@ -108,6 +107,7 @@
 		20D4BC621AA7637D004EB2AD /* UserLocationChangeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20D4BC601AA7637D004EB2AD /* UserLocationChangeViewController.xib */; };
 		20D4BC661AA76392004EB2AD /* UserPasswordChangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D4BC641AA76392004EB2AD /* UserPasswordChangeViewController.m */; };
 		20D4BC671AA76392004EB2AD /* UserPasswordChangeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20D4BC651AA76392004EB2AD /* UserPasswordChangeViewController.xib */; };
+		20DDDB8B1AC17A2C00A27300 /* AddTournamentLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 20DDDB8A1AC17A2C00A27300 /* AddTournamentLabel.m */; };
 		20F5F4C41AAA114200E34D8B /* ForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20F5F4C21AAA114200E34D8B /* ForgetPasswordViewController.m */; };
 		20F5F4C51AAA114200E34D8B /* ForgetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20F5F4C31AAA114200E34D8B /* ForgetPasswordViewController.xib */; };
 		20F782B81AA5DFD900057954 /* UpdateProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20F782B61AA5DFD900057954 /* UpdateProfileViewController.m */; };
@@ -359,8 +359,6 @@
 		20BAC3B61A94A88400E895FE /* STHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STHTTPRequest.m; sourceTree = "<group>"; };
 		20BAC3C51A94A89200E895FE /* TournamentDetailsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TournamentDetailsTableViewCell.h; sourceTree = "<group>"; };
 		20BAC3C61A94A89200E895FE /* TournamentDetailsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TournamentDetailsTableViewCell.m; sourceTree = "<group>"; };
-		20BAC3C71A94A89200E895FE /* TournamentDetailsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TournamentDetailsTableViewCell.xib; sourceTree = "<group>"; };
-		20BAC3C81A94A89200E895FE /* TournamentDetailsTableViewCell_iphn4.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TournamentDetailsTableViewCell_iphn4.xib; sourceTree = "<group>"; };
 		20BAC3CD1A94A89900E895FE /* InfinitePagingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfinitePagingView.h; sourceTree = "<group>"; };
 		20BAC3CE1A94A89900E895FE /* InfinitePagingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfinitePagingView.m; sourceTree = "<group>"; };
 		20BAC3D41A94A89F00E895FE /* Context.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Context.h; sourceTree = "<group>"; };
@@ -424,6 +422,7 @@
 		20C1EE4F1AB024AB00197A80 /* ModelGuild.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelGuild.m; sourceTree = "<group>"; };
 		20C8AE451A9CBF870013DF20 /* CustomAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomAnnotation.h; path = CustomDelegate/CustomAnnotation.h; sourceTree = "<group>"; };
 		20C8AE461A9CBF870013DF20 /* CustomAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomAnnotation.m; path = CustomDelegate/CustomAnnotation.m; sourceTree = "<group>"; };
+		20CF37711AC2B8520085A78E /* TournamentDetailsTableViewCell_iphn4.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TournamentDetailsTableViewCell_iphn4.xib; sourceTree = "<group>"; };
 		20CFBABB1AC031D30092556D /* ModelTournamentSubCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelTournamentSubCategory.h; sourceTree = "<group>"; };
 		20CFBABC1AC031D30092556D /* ModelTournamentSubCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelTournamentSubCategory.m; sourceTree = "<group>"; };
 		20D4BC281AA6E753004EB2AD /* ModelPrivacyPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelPrivacyPolicy.h; sourceTree = "<group>"; };
@@ -459,6 +458,8 @@
 		20D4BC631AA76392004EB2AD /* UserPasswordChangeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserPasswordChangeViewController.h; path = CustomDelegate/UserPasswordChangeViewController.h; sourceTree = "<group>"; };
 		20D4BC641AA76392004EB2AD /* UserPasswordChangeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserPasswordChangeViewController.m; path = CustomDelegate/UserPasswordChangeViewController.m; sourceTree = "<group>"; };
 		20D4BC651AA76392004EB2AD /* UserPasswordChangeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserPasswordChangeViewController.xib; path = CustomDelegate/UserPasswordChangeViewController.xib; sourceTree = "<group>"; };
+		20DDDB891AC17A2C00A27300 /* AddTournamentLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddTournamentLabel.h; path = CustomControl/AddTournamentLabel.h; sourceTree = "<group>"; };
+		20DDDB8A1AC17A2C00A27300 /* AddTournamentLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddTournamentLabel.m; path = CustomControl/AddTournamentLabel.m; sourceTree = "<group>"; };
 		20F5F4C11AAA114100E34D8B /* ForgetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ForgetPasswordViewController.h; path = CustomDelegate/ForgetPasswordViewController.h; sourceTree = "<group>"; };
 		20F5F4C21AAA114200E34D8B /* ForgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ForgetPasswordViewController.m; path = CustomDelegate/ForgetPasswordViewController.m; sourceTree = "<group>"; };
 		20F5F4C31AAA114200E34D8B /* ForgetPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ForgetPasswordViewController.xib; path = CustomDelegate/ForgetPasswordViewController.xib; sourceTree = "<group>"; };
@@ -952,8 +953,7 @@
 			children = (
 				20BAC3C51A94A89200E895FE /* TournamentDetailsTableViewCell.h */,
 				20BAC3C61A94A89200E895FE /* TournamentDetailsTableViewCell.m */,
-				20BAC3C71A94A89200E895FE /* TournamentDetailsTableViewCell.xib */,
-				20BAC3C81A94A89200E895FE /* TournamentDetailsTableViewCell_iphn4.xib */,
+				20CF37711AC2B8520085A78E /* TournamentDetailsTableViewCell_iphn4.xib */,
 				D6E578121AB83CF200280DA4 /* TournamentTableViewCell.h */,
 				D6E578131AB83CF200280DA4 /* TournamentTableViewCell.m */,
 				D6E578141AB83CF200280DA4 /* TournamentTableViewCell.xib */,
@@ -1097,6 +1097,8 @@
 				2071B9D91AA993DE00D5D261 /* CustomUITextFieldType1.m */,
 				202831DD1AB2DD0900C65D98 /* GuildImageView.h */,
 				202831DE1AB2DD0900C65D98 /* GuildImageView.m */,
+				20DDDB891AC17A2C00A27300 /* AddTournamentLabel.h */,
+				20DDDB8A1AC17A2C00A27300 /* AddTournamentLabel.m */,
 			);
 			name = CustomControl;
 			sourceTree = "<group>";
@@ -1597,6 +1599,7 @@
 				D6C44B4A1A666F6E00AFFB9B /* trm_details_mostKwin_logo_iphn6@2x.png in Resources */,
 				CDA080D61A42E3C50056BA7F /* smenu_tournament_selected_iphn6@2x.png in Resources */,
 				20D4BC471AA74665004EB2AD /* Change-Avatar.png in Resources */,
+				20CF37721AC2B8520085A78E /* TournamentDetailsTableViewCell_iphn4.xib in Resources */,
 				CDA080F11A42F1E60056BA7F /* smenu_propic_iphn4@2x.png in Resources */,
 				20D4BC4E1AA75087004EB2AD /* avatar_3.png in Resources */,
 				D6C44B4D1A666F6E00AFFB9B /* trn_private_button_iphn6@2x.png in Resources */,
@@ -1723,7 +1726,6 @@
 				D6C44B481A666F6E00AFFB9B /* plus_icon_iphn6@2x.png in Resources */,
 				20D4BC4D1AA75087004EB2AD /* avatar_2.png in Resources */,
 				CD4EAD301A40878E00744695 /* login_bg-iphn4@2x.png in Resources */,
-				20BAC3CB1A94A89200E895FE /* TournamentDetailsTableViewCell_iphn4.xib in Resources */,
 				20BAC4091A94A8B100E895FE /* AddTournamentViewController.xib in Resources */,
 				CD989EDE1A41B8AC005D0380 /* register_nav_bg_iphn4@2x.png in Resources */,
 				20BAC4271A94A8B100E895FE /* WorldMapViewController.xib in Resources */,
@@ -1755,7 +1757,6 @@
 				20D4BC4C1AA75087004EB2AD /* avatar_1.png in Resources */,
 				20BAC41E1A94A8B100E895FE /* StepTwoViewController.xib in Resources */,
 				CD79B1811A3F34F200AFD912 /* 58x58.png in Resources */,
-				20BAC3CA1A94A89200E895FE /* TournamentDetailsTableViewCell.xib in Resources */,
 				CDE1C2061A49C9ED00287F9F /* two_star_iphn6@2x.png in Resources */,
 				D6C44B371A665B8400AFFB9B /* nav_bg_iphn6@2x.png in Resources */,
 				CDA080EF1A42F1E60056BA7F /* smenu_map_normal_iphn4@2x.png in Resources */,
@@ -1810,6 +1811,7 @@
 				20BAC42E1A94A90A00E895FE /* WebServiceBaseClass.m in Sources */,
 				20F782B81AA5DFD900057954 /* UpdateProfileViewController.m in Sources */,
 				20D4BC611AA7637D004EB2AD /* UserLocationChangeViewController.m in Sources */,
+				20DDDB8B1AC17A2C00A27300 /* AddTournamentLabel.m in Sources */,
 				20BAC3B81A94A88400E895FE /* NSError+STTwitter.m in Sources */,
 				20BAC4231A94A8B100E895FE /* TournamentViewController.m in Sources */,
 				20BAC3D11A94A89900E895FE /* InfinitePagingView.m in Sources */,

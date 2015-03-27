@@ -8,20 +8,6 @@
 
 #import "BaseViewController.h"
 
-@interface AddTournamentViewController : BaseViewController<UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate>
-@property (nonatomic, strong) IBOutlet UILabel *navTitleLabel;
-@property (nonatomic, strong) IBOutlet UIButton *noOfPlayerCanPlayButton;
-@property (nonatomic, strong) IBOutlet UIButton *goldRequiredButton;
-@property (nonatomic, strong) IBOutlet UIButton *rankingButton;
-@property (nonatomic, strong) IBOutlet UIButton *playTimeButton;
-@property (nonatomic, strong) IBOutlet UIButton *radiusButton;
-@property (nonatomic, strong) IBOutlet UITextField *titleTextField;
+@interface AddTournamentViewController : BaseViewController
 
--(IBAction)backButtonTapped:(id)sender;
--(IBAction)noOfPlayerCanPlayButtonTapped:(id)sender;
--(IBAction)goldRequiredButtonTapped:(id)sender;
--(IBAction)rankingButtonTapped:(id)sender;
--(IBAction)playTimeButtonTapped:(id)sender;
--(IBAction)radiusButtonTapped:(id)sender;
--(IBAction)slideMenuButtonTapped:(id)sender;
 @end

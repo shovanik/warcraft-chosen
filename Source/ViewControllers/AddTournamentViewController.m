@@ -12,6 +12,7 @@
 #import "SlideOutMenuViewController.h"
 #import "SelectRadiusViewController.h"
 #import "AddTournamentTableViewCell.h"
+#import "SelectRadiusViewController.h"
 
 
 @interface AddTournamentViewController ()<UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate>
@@ -240,26 +241,26 @@
 {
     
     if (tableView==tblPlayer){
-        NSIndexPath *indexPath=[NSIndexPath indexPathForRow:1 inSection:0];
-        AddTournamentTableViewCell *cell=(AddTournamentTableViewCell*)[tblAddTournament cellForRowAtIndexPath:indexPath];
+        NSIndexPath *myIndexPath=[NSIndexPath indexPathForRow:1 inSection:0];
+        AddTournamentTableViewCell *cell=(AddTournamentTableViewCell*)[tblAddTournament cellForRowAtIndexPath:myIndexPath];
         cell.labelSelectedValue.text=[NSString stringWithFormat:@"%ld",indexPath.row];
         strNoOfPlayer=[NSString stringWithFormat:@"%ld",indexPath.row];
     }
     else if (tableView==tblGold){
-        NSIndexPath *indexPath=[NSIndexPath indexPathForRow:2 inSection:0];
-        AddTournamentTableViewCell *cell=(AddTournamentTableViewCell*)[tblAddTournament cellForRowAtIndexPath:indexPath];
+        NSIndexPath *myIndexPath=[NSIndexPath indexPathForRow:2 inSection:0];
+        AddTournamentTableViewCell *cell=(AddTournamentTableViewCell*)[tblAddTournament cellForRowAtIndexPath:myIndexPath];
         cell.labelSelectedValue.text=[NSString stringWithFormat:@"%ld",indexPath.row*100];
         strGoldRequired=[NSString stringWithFormat:@"%ld",indexPath.row*100];
     }
     else if (tableView==tblRanking){
-        NSIndexPath *indexPath=[NSIndexPath indexPathForRow:3 inSection:0];
-        AddTournamentTableViewCell *cell=(AddTournamentTableViewCell*)[tblAddTournament cellForRowAtIndexPath:indexPath];
+        NSIndexPath *myIndexPath=[NSIndexPath indexPathForRow:3 inSection:0];
+        AddTournamentTableViewCell *cell=(AddTournamentTableViewCell*)[tblAddTournament cellForRowAtIndexPath:myIndexPath];
         cell.labelSelectedValue.text=[NSString stringWithFormat:@"%ld",indexPath.row];
         strRanking=[NSString stringWithFormat:@"%ld",indexPath.row];
     }
     else if (tableView==tblPlayTime){
-        NSIndexPath *indexPath=[NSIndexPath indexPathForRow:4 inSection:0];
-        AddTournamentTableViewCell *cell=(AddTournamentTableViewCell*)[tblAddTournament cellForRowAtIndexPath:indexPath];
+        NSIndexPath *myIndexPath=[NSIndexPath indexPathForRow:4 inSection:0];
+        AddTournamentTableViewCell *cell=(AddTournamentTableViewCell*)[tblAddTournament cellForRowAtIndexPath:myIndexPath];
         cell.labelSelectedValue.text=[NSString stringWithFormat:@"%ld",indexPath.row];
         strPlayTime=[NSString stringWithFormat:@"%ld",indexPath.row];
     }
@@ -360,6 +361,10 @@
                 cell.imgArrow.transform=CGAffineTransformMakeRotation(M_PI);
             }];
         }
+    }
+    else if (indexPath.row==5){
+        SelectRadiusViewController *master=[[SelectRadiusViewController alloc] initWithNibName:@"SelectRadiusViewController" bundle:nil];
+        [self.navigationController pushViewController:master animated:YES];
     }
 }
 

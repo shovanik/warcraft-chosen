@@ -64,7 +64,7 @@
                 </label>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zeZ-QJ-6sQ" userLabel="Button - Add">
                     <rect key="frame" x="337" y="9" width="29" height="28"/>
-                    <state key="normal" backgroundImage="2F08B8CF-CAF1-4B68-A82C-6259B59A7712">
+                    <state key="normal" backgroundImage="C2DB0A1C-2B5E-4665-A1D0-7E882C8D7430">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
@@ -163,12 +163,16 @@
                 </constraint>
                 <constraint firstItem="5T8-bl-18m" firstAttribute="centerX" secondItem="Vzy-z5-AWX" secondAttribute="centerX" id="k7E-eP-o9E"/>
                 <constraint firstAttribute="bottom" secondItem="5T8-bl-18m" secondAttribute="bottom" id="kri-gY-DN9"/>
-                <constraint firstItem="HoF-fO-Jen" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="sKe-NG-sy5"/>
+                <constraint firstItem="HoF-fO-Jen" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="sKe-NG-sy5">
+                    <variation key="heightClass=regular-widthClass=compact" constant="-3"/>
+                </constraint>
                 <constraint firstItem="5T8-bl-18m" firstAttribute="top" secondItem="KNp-JA-kpy" secondAttribute="bottom" constant="20" id="tgV-1G-7ot"/>
                 <constraint firstItem="q7B-QW-jeM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="17" id="uqO-oM-jka"/>
                 <constraint firstAttribute="trailing" secondItem="tdZ-rv-DeE" secondAttribute="trailing" id="xK5-LM-adX"/>
                 <constraint firstItem="OR1-OK-BKu" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="yae-rc-p6T"/>
-                <constraint firstAttribute="trailing" secondItem="HoF-fO-Jen" secondAttribute="trailing" id="zDZ-lK-8gD"/>
+                <constraint firstAttribute="trailing" secondItem="HoF-fO-Jen" secondAttribute="trailing" id="zDZ-lK-8gD">
+                    <variation key="heightClass=regular-widthClass=compact" constant="-13"/>
+                </constraint>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <variation key="default">
@@ -245,7 +249,7 @@
         </view>
     </objects>
     <resources>
-        <image name="2F08B8CF-CAF1-4B68-A82C-6259B59A7712" width="25" height="24">
+        <image name="C2DB0A1C-2B5E-4665-A1D0-7E882C8D7430" width="25" height="24">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

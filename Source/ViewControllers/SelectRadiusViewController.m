@@ -134,29 +134,8 @@ NSUserDefaults *pref;
         return nil;
 }
 
--(IBAction)backButtonTapped:(id)sender{
-    AddTournamentViewController *tdVC  = nil;
-    if ([[Context getInstance] screenPhysicalSizeForIPhoneClassic]) {
-        //For Iphone4
-        tdVC = [[AddTournamentViewController alloc] initWithNibName:@"AddTournamentViewController_iPhone4" bundle:nil];
-        // NSLog(@"iPhone4");
-    }else{
-        tdVC =  [[AddTournamentViewController alloc] initWithNibName:@"AddTournamentViewController" bundle:nil];
-        
-    //  NSLog(@"iPhone6");
-        
-    }
-}
--(IBAction)slideMenuButtonTapped:(id)sender{
-    SlideOutMenuViewController *mVC = nil;
-    if ([[Context getInstance] screenPhysicalSizeForIPhoneClassic]) {
-        mVC = [[SlideOutMenuViewController alloc] initWithNibName:@"SlideOutMenuViewController_iPhone4" bundle:nil ];
-    }else{
-        mVC = [[SlideOutMenuViewController alloc] initWithNibName:@"SlideOutMenuViewController" bundle:nil ];
-        
-    }
-    //mVC.guildButton.selected = YES;
-}
+
+
 -(IBAction)radiousButtonTapped:(id)sender{
     radiousPicker.hidden = NO;
     radiousToolBar.hidden = NO;
@@ -203,7 +182,6 @@ NSUserDefaults *pref;
 }
 
 -(IBAction)saveButtonTapped:(id)sender{
-    AppDelegate *appDg =(AppDelegate *) [[UIApplication sharedApplication] delegate];
     //appDg.selectedRadious = [mapRadious integerValue];
 
     radiousPicker.hidden = YES;

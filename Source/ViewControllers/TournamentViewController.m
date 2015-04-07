@@ -97,7 +97,7 @@
         return 130.0f;
         
     }else{
-        return 143.0f;
+        return 132.50f;
         //  NSLog(@"iPhone6");
     }
     
@@ -127,6 +127,14 @@
         [cell.imgSlider setPercentage:80];
     }
     cell.backgroundColor=cell.contentView.backgroundColor=[UIColor clearColor];
+    
+    
+    if (indexPath.row<arrResponse.count-1) {
+        cell.consBelowHeight.constant=20.0f;
+    }else{
+        cell.consBelowHeight.constant=0.0f;
+    }
+    
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

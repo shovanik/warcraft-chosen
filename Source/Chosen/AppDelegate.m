@@ -82,8 +82,6 @@
             if ([[url scheme] isEqualToString:@"myapp"] == NO) return NO;
             
             NSDictionary *d = [self parametersDictionaryFromQueryString:[url query]];
-            NSString *token = d[@"oauth_token"];
-            NSString *verifier = d[@"oauth_verifier"];
             
             
             //[landingViewController setOAuthToken:token oauthVerifier:verifier];

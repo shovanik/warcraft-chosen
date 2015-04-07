@@ -8,6 +8,7 @@
         <mutableArray key="GARA.TTF">
             <string>Garamond</string>
             <string>Garamond</string>
+            <string>Garamond</string>
         </mutableArray>
         <mutableArray key="GARABD.TTF">
             <string>Garamond-Bold</string>
@@ -74,12 +75,13 @@
                         </constraints>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JHG-2b-1CI">
-                        <rect key="frame" x="230" y="6" width="80" height="28"/>
+                        <rect key="frame" x="230" y="8" width="80" height="28"/>
                         <color key="backgroundColor" red="0.12941176470588234" green="0.31764705882352939" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="80" id="8UN-9k-g0I"/>
                             <constraint firstAttribute="height" constant="28" id="r9y-SN-TtO"/>
                         </constraints>
+                        <fontDescription key="fontDescription" name="Garamond" family="Garamond" pointSize="15"/>
                         <state key="normal" title="SELECT">
                             <color key="titleColor" red="0.81960784310000001" green="0.92941176469999998" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -99,7 +101,7 @@
                     <constraint firstItem="DqG-bt-SYq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="XWZ-JT-diF"/>
                     <constraint firstItem="haK-KT-CuY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Xio-da-Ea2"/>
                     <constraint firstItem="uzS-92-yJA" firstAttribute="centerY" secondItem="eur-vU-MCV" secondAttribute="centerY" constant="0.5" id="bbA-OI-kb0"/>
-                    <constraint firstItem="JHG-2b-1CI" firstAttribute="centerY" secondItem="eur-vU-MCV" secondAttribute="centerY" constant="-1.5" id="naf-s9-GVn"/>
+                    <constraint firstItem="JHG-2b-1CI" firstAttribute="centerY" secondItem="eur-vU-MCV" secondAttribute="centerY" constant="0.5" id="naf-s9-GVn"/>
                     <constraint firstAttribute="trailing" secondItem="haK-KT-CuY" secondAttribute="trailing" id="pS7-Al-VuN"/>
                     <constraint firstAttribute="trailing" secondItem="JHG-2b-1CI" secondAttribute="trailing" constant="10" id="zvU-8w-JFy"/>
                 </constraints>

@@ -118,7 +118,6 @@
 		20BAC4121A94A8B100E895FE /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20BAC3EA1A94A8B100E895FE /* RegisterViewController.xib */; };
 		20BAC4131A94A8B100E895FE /* SelectRadiusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BAC3EC1A94A8B100E895FE /* SelectRadiusViewController.m */; };
 		20BAC4141A94A8B100E895FE /* SelectRadiusViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20BAC3ED1A94A8B100E895FE /* SelectRadiusViewController.xib */; };
-		20BAC4151A94A8B100E895FE /* SelectRadiusViewController_iPhone4.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20BAC3EE1A94A8B100E895FE /* SelectRadiusViewController_iPhone4.xib */; };
 		20BAC4161A94A8B100E895FE /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BAC3F01A94A8B100E895FE /* SettingsViewController.m */; };
 		20BAC4171A94A8B100E895FE /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20BAC3F11A94A8B100E895FE /* SettingsViewController.xib */; };
 		20BAC4181A94A8B100E895FE /* SlideOutMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BAC3F31A94A8B100E895FE /* SlideOutMenuViewController.m */; };
@@ -145,6 +144,7 @@
 		20C8AE471A9CBF870013DF20 /* CustomAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 20C8AE461A9CBF870013DF20 /* CustomAnnotation.m */; };
 		20CF37721AC2B8520085A78E /* TournamentDetailsTableViewCell_iphn4.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20CF37711AC2B8520085A78E /* TournamentDetailsTableViewCell_iphn4.xib */; };
 		20CFBABD1AC031D30092556D /* ModelTournamentSubCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 20CFBABC1AC031D30092556D /* ModelTournamentSubCategory.m */; };
+		20D10F521AD426AC007C204E /* new_game_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 20D10F511AD426AC007C204E /* new_game_btn.png */; };
 		20D4BC2A1AA6E753004EB2AD /* ModelPrivacyPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D4BC291AA6E753004EB2AD /* ModelPrivacyPolicy.m */; };
 		20D4BC2D1AA6EC13004EB2AD /* ModelAboutUs.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D4BC2C1AA6EC13004EB2AD /* ModelAboutUs.m */; };
 		20D4BC301AA6EEC4004EB2AD /* ModelTerms.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D4BC2F1AA6EEC4004EB2AD /* ModelTerms.m */; };
@@ -513,7 +513,6 @@
 		20BAC3EB1A94A8B100E895FE /* SelectRadiusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectRadiusViewController.h; sourceTree = "<group>"; };
 		20BAC3EC1A94A8B100E895FE /* SelectRadiusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectRadiusViewController.m; sourceTree = "<group>"; };
 		20BAC3ED1A94A8B100E895FE /* SelectRadiusViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectRadiusViewController.xib; sourceTree = "<group>"; };
-		20BAC3EE1A94A8B100E895FE /* SelectRadiusViewController_iPhone4.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectRadiusViewController_iPhone4.xib; sourceTree = "<group>"; };
 		20BAC3EF1A94A8B100E895FE /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		20BAC3F01A94A8B100E895FE /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		20BAC3F11A94A8B100E895FE /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
@@ -555,6 +554,7 @@
 		20CF37711AC2B8520085A78E /* TournamentDetailsTableViewCell_iphn4.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TournamentDetailsTableViewCell_iphn4.xib; sourceTree = "<group>"; };
 		20CFBABB1AC031D30092556D /* ModelTournamentSubCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelTournamentSubCategory.h; sourceTree = "<group>"; };
 		20CFBABC1AC031D30092556D /* ModelTournamentSubCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelTournamentSubCategory.m; sourceTree = "<group>"; };
+		20D10F511AD426AC007C204E /* new_game_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = new_game_btn.png; sourceTree = "<group>"; };
 		20D4BC281AA6E753004EB2AD /* ModelPrivacyPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelPrivacyPolicy.h; sourceTree = "<group>"; };
 		20D4BC291AA6E753004EB2AD /* ModelPrivacyPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelPrivacyPolicy.m; sourceTree = "<group>"; };
 		20D4BC2B1AA6EC13004EB2AD /* ModelAboutUs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelAboutUs.h; sourceTree = "<group>"; };
@@ -893,7 +893,6 @@
 				20BAC3EB1A94A8B100E895FE /* SelectRadiusViewController.h */,
 				20BAC3EC1A94A8B100E895FE /* SelectRadiusViewController.m */,
 				20BAC3ED1A94A8B100E895FE /* SelectRadiusViewController.xib */,
-				20BAC3EE1A94A8B100E895FE /* SelectRadiusViewController_iPhone4.xib */,
 			);
 			name = SelectRadious;
 			sourceTree = "<group>";
@@ -1482,6 +1481,7 @@
 		CD79B1691A3F31EA00AFD912 /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				20D10F511AD426AC007C204E /* new_game_btn.png */,
 				2058FAAE1AD2D08000FF1D8F /* btn_bg.png */,
 				2058FAAF1AD2D08000FF1D8F /* create_icon.png */,
 				2058FAB01AD2D08000FF1D8F /* join_create_page.jpg */,
@@ -2030,6 +2030,7 @@
 				20408ADE1ACED936007537E8 /* 20.png in Resources */,
 				20BAC4271A94A8B100E895FE /* WorldMapViewController.xib in Resources */,
 				20BAC40C1A94A8B100E895FE /* GuildViewController.xib in Resources */,
+				20D10F521AD426AC007C204E /* new_game_btn.png in Resources */,
 				CD55039B1A4306CF0082C805 /* steps2_progress_bar_iph6@2x.png in Resources */,
 				CD5D93BF1A4877E700D5E788 /* image5.png in Resources */,
 				D6C44B621A66885200AFFB9B /* back_btn_iphn4@2x.png in Resources */,
@@ -2080,7 +2081,6 @@
 				20408ADA1ACED936007537E8 /* 17.png in Resources */,
 				20408A911ACE91DC007537E8 /* transparent_back.png in Resources */,
 				20F5F4C51AAA114200E34D8B /* ForgetPasswordViewController.xib in Resources */,
-				20BAC4151A94A8B100E895FE /* SelectRadiusViewController_iPhone4.xib in Resources */,
 				CD5503951A4305370082C805 /* steps2_play_button_iphn4.png in Resources */,
 				CD54C8C31A41A40D00BB9AD6 /* male_selected_iphn6@2x.png in Resources */,
 				D6C44B891A66AA5000AFFB9B /* addTrm_dropdown_titlebox_iphn6@2x.png in Resources */,

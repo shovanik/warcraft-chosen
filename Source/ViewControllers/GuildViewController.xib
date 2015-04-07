@@ -62,7 +62,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="chbg" translatesAutoresizingMaskIntoConstraints="NO" id="jSR-QB-o1t">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="jSR-QB-o1t">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </imageView>
                 <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="shadow_iphn6.png" translatesAutoresizingMaskIntoConstraints="NO" id="SOg-by-tWx">
@@ -835,7 +835,7 @@
     <resources>
         <image name="accuracyicon" width="30" height="33"/>
         <image name="back" width="15" height="24"/>
-        <image name="chbg" width="320" height="480"/>
+        <image name="background" width="320" height="480"/>
         <image name="checkMark" width="40" height="40"/>
         <image name="glow" width="291" height="254"/>
         <image name="guildButtomBg" width="320" height="54"/>

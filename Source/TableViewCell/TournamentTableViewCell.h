@@ -13,4 +13,6 @@
 @property (nonatomic, strong) IBOutlet UIImageView *imgTurnament;
 @property (nonatomic, strong) IBOutlet UILabel *lblTurnament;
 @property (strong,nonatomic) IBOutlet GuildImageView *imgSlider;
+@property(strong,nonatomic) IBOutlet NSLayoutConstraint *consBelowHeight;
+
 @end

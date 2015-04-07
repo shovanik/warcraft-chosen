@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="GARA.TTF">
@@ -32,48 +33,33 @@
                             <constraint firstAttribute="width" constant="63" id="kjn-dF-KVX"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MOST KILLS WIN " lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Z4-Kk-d47">
-                        <rect key="frame" x="83" y="6" width="190" height="23"/>
-                        <fontDescription key="fontDescription" name="Garamond" family="Garamond" pointSize="20"/>
-                        <color key="textColor" red="0.79215686269999996" green="0.90196078430000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tranparent_bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="6Zc-Qy-DA5" userLabel="Image View - Progress" customClass="GuildImageView">
-                        <rect key="frame" x="83" y="38" width="190" height="15"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="15" id="6ve-kL-gXZ"/>
-                        </constraints>
-                    </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="starGuild" translatesAutoresizingMaskIntoConstraints="NO" id="glC-63-k7D" userLabel="Image View -  Star">
-                        <rect key="frame" x="83" y="61" width="80" height="13"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="13" id="aFB-7q-h2o"/>
-                            <constraint firstAttribute="width" constant="80" id="vjq-bu-TJU"/>
-                        </constraints>
-                    </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vfo-nO-OXZ">
                         <rect key="frame" x="0.0" y="102" width="283" height="40"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="9Zo-Nk-NfQ"/>
                         </constraints>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MOST KILLS WIN " lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="23" translatesAutoresizingMaskIntoConstraints="NO" id="7Z4-Kk-d47">
+                        <rect key="frame" x="86" y="23" width="185" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="7Z4-Kk-d47" secondAttribute="height" multiplier="37:12" id="eB9-1B-Ccp"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Garamond" family="Garamond" pointSize="23"/>
+                        <color key="textColor" red="0.79215686269999996" green="0.90196078430000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
-                    <constraint firstItem="6Zc-Qy-DA5" firstAttribute="top" secondItem="7Z4-Kk-d47" secondAttribute="bottom" constant="9" id="3KF-0f-8y6"/>
-                    <constraint firstItem="6Zc-Qy-DA5" firstAttribute="leading" secondItem="u2o-1F-3O8" secondAttribute="trailing" constant="10" id="5RS-k5-Qg9"/>
                     <constraint firstAttribute="trailing" secondItem="BEO-Sz-xva" secondAttribute="trailing" id="8lK-I9-Pta"/>
                     <constraint firstItem="BEO-Sz-xva" firstAttribute="bottom" secondItem="u2o-1F-3O8" secondAttribute="bottom" constant="10" id="AtR-W3-qYa"/>
-                    <constraint firstItem="glC-63-k7D" firstAttribute="top" secondItem="6Zc-Qy-DA5" secondAttribute="bottom" constant="8" id="GoH-eH-c9U"/>
+                    <constraint firstItem="7Z4-Kk-d47" firstAttribute="trailing" secondItem="BEO-Sz-xva" secondAttribute="trailing" constant="-12" id="Duj-IO-Voz"/>
                     <constraint firstItem="u2o-1F-3O8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="LxY-4T-u72"/>
-                    <constraint firstItem="glC-63-k7D" firstAttribute="leading" secondItem="u2o-1F-3O8" secondAttribute="trailing" constant="10" id="UvX-Cg-6yM"/>
                     <constraint firstAttribute="bottom" secondItem="vfo-nO-OXZ" secondAttribute="bottom" id="WIb-Rw-VOq"/>
-                    <constraint firstAttribute="trailing" secondItem="6Zc-Qy-DA5" secondAttribute="trailing" constant="10" id="Y4K-7L-m8M"/>
                     <constraint firstItem="BEO-Sz-xva" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="iae-ak-oQD"/>
-                    <constraint firstAttribute="trailing" secondItem="7Z4-Kk-d47" secondAttribute="trailing" constant="10" id="k4o-NI-rjh"/>
+                    <constraint firstItem="7Z4-Kk-d47" firstAttribute="leading" secondItem="u2o-1F-3O8" secondAttribute="trailing" constant="13" id="oX1-eQ-SqL"/>
+                    <constraint firstItem="7Z4-Kk-d47" firstAttribute="centerY" secondItem="u2o-1F-3O8" secondAttribute="centerY" constant="1.5" id="okJ-uS-wBG"/>
                     <constraint firstItem="u2o-1F-3O8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="qIG-pc-OE8"/>
-                    <constraint firstItem="7Z4-Kk-d47" firstAttribute="leading" secondItem="u2o-1F-3O8" secondAttribute="trailing" constant="10" id="r49-lK-S8U"/>
-                    <constraint firstItem="7Z4-Kk-d47" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="uaF-hr-yKY"/>
                     <constraint firstAttribute="trailing" secondItem="vfo-nO-OXZ" secondAttribute="trailing" id="wlx-kA-B6c"/>
                     <constraint firstItem="BEO-Sz-xva" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="1" id="xro-6B-LTJ"/>
                     <constraint firstItem="vfo-nO-OXZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="yAl-hI-G0i"/>
@@ -81,12 +67,28 @@
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
+                <outlet property="consBelowHeight" destination="9Zo-Nk-NfQ" id="23s-iB-dtk"/>
                 <outlet property="imgSlider" destination="6Zc-Qy-DA5" id="VBK-9I-Cdb"/>
                 <outlet property="imgTurnament" destination="u2o-1F-3O8" id="m04-AK-tm1"/>
                 <outlet property="lblTurnament" destination="7Z4-Kk-d47" id="CUj-bY-8Mn"/>
             </connections>
-            <point key="canvasLocation" x="359.5" y="379.5"/>
+            <point key="canvasLocation" x="250.5" y="364.5"/>
         </tableViewCell>
+        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tranparent_bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="6Zc-Qy-DA5" userLabel="Image View - Progress" customClass="GuildImageView">
+            <rect key="frame" x="0.0" y="0.0" width="190" height="15"/>
+            <constraints>
+                <constraint firstAttribute="height" constant="15" id="6ve-kL-gXZ"/>
+            </constraints>
+            <point key="canvasLocation" x="283" y="106.5"/>
+        </imageView>
+        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="starGuild" translatesAutoresizingMaskIntoConstraints="NO" id="glC-63-k7D" userLabel="Image View -  Star">
+            <rect key="frame" x="0.0" y="0.0" width="80" height="13"/>
+            <constraints>
+                <constraint firstAttribute="height" constant="13" id="aFB-7q-h2o"/>
+                <constraint firstAttribute="width" constant="80" id="vjq-bu-TJU"/>
+            </constraints>
+            <point key="canvasLocation" x="228" y="126.5"/>
+        </imageView>
     </objects>
     <resources>
         <image name="img_turn_cellbg" width="283" height="102"/>

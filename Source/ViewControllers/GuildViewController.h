@@ -11,7 +11,8 @@
 
 
 
-@interface GuildViewController : BaseViewController<UIScrollViewDelegate, UIPageViewControllerDelegate, InfinitePagingViewDelegate>{
+@interface GuildViewController : BaseViewController<UIScrollViewDelegate, UIPageViewControllerDelegate, InfinitePagingViewDelegate>
+{
     
     
 }

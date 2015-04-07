@@ -11,6 +11,7 @@
 
 #import "DeviceConstant.h"
 #import "Constants.h"
+#import "GlobalVariable.h"
 
 #import "WebService.h"
 
@@ -24,6 +25,8 @@
 #import "GuildImageView.h"
 
 #import "NSMutableArray+FoundGuild.h"
+#import "CustomConfirmationViewController.h"
+
 
 
 #define __kNetworkUnavailableMessage @"No internet connection is available, please try again later."

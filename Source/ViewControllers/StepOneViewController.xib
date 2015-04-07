@@ -97,9 +97,6 @@
                             <fontDescription key="fontDescription" name="Garamond" family="Garamond" pointSize="20"/>
                             <color key="textColor" red="0.792156862745098" green="0.90196078431372551" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
-                            <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                <rect key="frame" x="95" y="14" width="80" height="24"/>
-                            </variation>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stepcontentbg" translatesAutoresizingMaskIntoConstraints="NO" id="I2a-PM-k8h">
                             <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>

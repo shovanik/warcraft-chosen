@@ -12,8 +12,10 @@
 #import "TournamentTableViewCell.h"
 #import "GuildViewController.h"
 #import "Context.h"
+#import "AddTournamentViewController.h"
 
-@interface TournamentViewController (){
+@interface TournamentViewController ()<UITableViewDataSource,UITableViewDelegate>
+{
     
     IBOutlet UITableView *tblTournament;
     
@@ -26,6 +28,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    NSLog(@"Purpose = %@",strPurpose);
+    
     // Do any additional setup after loading the view from its nib.
     tblTournament.backgroundColor = [UIColor clearColor];
     
@@ -125,9 +131,17 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    TournamentDetailsViewController *master  = [[TournamentDetailsViewController alloc] initWithNibName:@"TournamentDetailsViewController" bundle:nil];
-    master.tournamentCategory=[arrResponse objectAtIndex:indexPath.row];
-    [self.navigationController pushViewController:master animated:YES];
+    
+    if ([strPurpose isEqualToString:@"JOIN"]) {
+        TournamentDetailsViewController *master  = [[TournamentDetailsViewController alloc] initWithNibName:@"TournamentDetailsViewController" bundle:nil];
+        master.tournamentCategory=[arrResponse objectAtIndex:indexPath.row];
+        [self.navigationController pushViewController:master animated:YES];
+    }
+    else if ([strPurpose isEqualToString:@"CREATE"]){
+        AddTournamentViewController *master  = [[AddTournamentViewController alloc] initWithNibName:@"AddTournamentViewController" bundle:nil];
+        master.tournamentCategory=[arrResponse objectAtIndex:indexPath.row];
+        [self.navigationController pushViewController:master animated:YES];
+    }
 }
 
 

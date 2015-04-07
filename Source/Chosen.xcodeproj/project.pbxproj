@@ -18,6 +18,67 @@
 		202831DF1AB2DD0900C65D98 /* GuildImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 202831DE1AB2DD0900C65D98 /* GuildImageView.m */; };
 		202831E11AB2E9D200C65D98 /* tranparent_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 202831E01AB2E9D200C65D98 /* tranparent_bg.png */; };
 		202831F11AB30ECA00C65D98 /* NSMutableArray+FoundGuild.m in Sources */ = {isa = PBXBuildFile; fileRef = 202831F01AB30ECA00C65D98 /* NSMutableArray+FoundGuild.m */; };
+		20408A751ACE86E2007537E8 /* ContractViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20408A741ACE86E2007537E8 /* ContractViewController.m */; };
+		20408A771ACE86FC007537E8 /* ContractViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20408A761ACE86FC007537E8 /* ContractViewController.xib */; };
+		20408A8A1ACE91DC007537E8 /* avatar_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 20408A791ACE91DC007537E8 /* avatar_1.png */; };
+		20408A8B1ACE91DC007537E8 /* avatar_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 20408A7A1ACE91DC007537E8 /* avatar_2.png */; };
+		20408A8C1ACE91DC007537E8 /* avatar_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 20408A7B1ACE91DC007537E8 /* avatar_3.png */; };
+		20408A8D1ACE91DC007537E8 /* BUY-CONTRACT_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 20408A7C1ACE91DC007537E8 /* BUY-CONTRACT_button.png */; };
+		20408A8F1ACE91DC007537E8 /* menu_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 20408A7E1ACE91DC007537E8 /* menu_button.png */; };
+		20408A911ACE91DC007537E8 /* transparent_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 20408A801ACE91DC007537E8 /* transparent_back.png */; };
+		20408A921ACE91DC007537E8 /* approx_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 20408A821ACE91DC007537E8 /* approx_icon.png */; };
+		20408A931ACE91DC007537E8 /* black_box.png in Resources */ = {isa = PBXBuildFile; fileRef = 20408A831ACE91DC007537E8 /* black_box.png */; };
+		20408A941ACE91DC007537E8 /* Contrac2_Chosen_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 20408A841ACE91DC007537E8 /* Contrac2_Chosen_2.jpg */; };
+		20408A961ACE91DC007537E8 /* location_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 20408A861ACE91DC007537E8 /* location_icon.png */; };
+		20408A971ACE91DC007537E8 /* lost_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 20408A871ACE91DC007537E8 /* lost_icon.png */; };
+		20408A981ACE91DC007537E8 /* top_box.png in Resources */ = {isa = PBXBuildFile; fileRef = 20408A881ACE91DC007537E8 /* top_box.png */; };
+		20408A991ACE91DC007537E8 /* won_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 20408A891ACE91DC007537E8 /* won_icon.png */; };
+		20408A9C1ACE97AC007537E8 /* contract_next_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 20408A9A1ACE97AC007537E8 /* contract_next_button.png */; };
+		20408A9D1ACE97AC007537E8 /* contract_prev_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 20408A9B1ACE97AC007537E8 /* contract_prev_button.png */; };
+		20408AA01ACE9A22007537E8 /* ContractHorizontalScroller.m in Sources */ = {isa = PBXBuildFile; fileRef = 20408A9F1ACE9A22007537E8 /* ContractHorizontalScroller.m */; };
+		20408AA41ACEA708007537E8 /* CustomConfirmationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20408AA21ACEA708007537E8 /* CustomConfirmationViewController.m */; };
+		20408AA51ACEA708007537E8 /* CustomConfirmationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20408AA31ACEA708007537E8 /* CustomConfirmationViewController.xib */; };
+		20408AA91ACEA763007537E8 /* Tournament3_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 20408AA61ACEA763007537E8 /* Tournament3_back.png */; };
+		20408AAA1ACEA763007537E8 /* Tournament3_yes_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 20408AA71ACEA763007537E8 /* Tournament3_yes_button.png */; };
+		20408AAB1ACEA763007537E8 /* Tournament4_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 20408AA81ACEA763007537E8 /* Tournament4_back.png */; };
+		20408AAD1ACEA88D007537E8 /* Tournament3_no_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 20408AAC1ACEA88D007537E8 /* Tournament3_no_button.png */; };
+		20408AB21ACEB6E0007537E8 /* AttackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20408AB01ACEB6E0007537E8 /* AttackViewController.m */; };
+		20408AB31ACEB6E0007537E8 /* AttackViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20408AB11ACEB6E0007537E8 /* AttackViewController.xib */; };
+		20408AB81ACECD94007537E8 /* avtar_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 20408AB41ACECD94007537E8 /* avtar_icon.png */; };
+		20408AB91ACECD94007537E8 /* circle_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 20408AB51ACECD94007537E8 /* circle_icon.png */; };
+		20408ABA1ACECD94007537E8 /* hourglass_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 20408AB61ACECD94007537E8 /* hourglass_icon.png */; };
+		20408ABB1ACECD94007537E8 /* weapon1.png in Resources */ = {isa = PBXBuildFile; fileRef = 20408AB71ACECD94007537E8 /* weapon1.png */; };
+		20408AD21ACED936007537E8 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 20408ABD1ACED936007537E8 /* 1.png */; };
+		20408AD31ACED936007537E8 /* 10.png in Resources */ = {isa = PBXBuildFile; fileRef = 20408ABE1ACED936007537E8 /* 10.png */; };
+		20408AD41ACED936007537E8 /* 11.png in Resources */ = {isa = PBXBuildFile; fileRef = 20408ABF1ACED936007537E8 /* 11.png */; };
+		20408AD51ACED936007537E8 /* 12.png in Resources */ = {isa = PBXBuildFile; fileRef = 20408AC01ACED936007537E8 /* 12.png */; };
+		20408AD61ACED936007537E8 /* 13.png in Resources */ = {isa = PBXBuildFile; fileRef = 20408AC11ACED936007537E8 /* 13.png */; };
+		20408AD71ACED936007537E8 /* 14.png in Resources */ = {isa = PBXBuildFile; fileRef = 20408AC21ACED936007537E8 /* 14.png */; };
+		20408AD81ACED936007537E8 /* 15.png in Resources */ = {isa = PBXBuildFile; fileRef = 20408AC31ACED936007537E8 /* 15.png */; };
+		20408AD91ACED936007537E8 /* 16.png in Resources */ = {isa = PBXBuildFile; fileRef = 20408AC41ACED936007537E8 /* 16.png */; };
+		20408ADA1ACED936007537E8 /* 17.png in Resources */ = {isa = PBXBuildFile; fileRef = 20408AC51ACED936007537E8 /* 17.png */; };
+		20408ADB1ACED936007537E8 /* 18.png in Resources */ = {isa = PBXBuildFile; fileRef = 20408AC61ACED936007537E8 /* 18.png */; };
+		20408ADC1ACED936007537E8 /* 19.png in Resources */ = {isa = PBXBuildFile; fileRef = 20408AC71ACED936007537E8 /* 19.png */; };
+		20408ADD1ACED936007537E8 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 20408AC81ACED936007537E8 /* 2.png */; };
+		20408ADE1ACED936007537E8 /* 20.png in Resources */ = {isa = PBXBuildFile; fileRef = 20408AC91ACED936007537E8 /* 20.png */; };
+		20408ADF1ACED936007537E8 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 20408ACA1ACED936007537E8 /* 3.png */; };
+		20408AE01ACED936007537E8 /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = 20408ACB1ACED936007537E8 /* 4.png */; };
+		20408AE11ACED936007537E8 /* 5.png in Resources */ = {isa = PBXBuildFile; fileRef = 20408ACC1ACED936007537E8 /* 5.png */; };
+		20408AE21ACED936007537E8 /* 6.png in Resources */ = {isa = PBXBuildFile; fileRef = 20408ACD1ACED936007537E8 /* 6.png */; };
+		20408AE31ACED936007537E8 /* 7.png in Resources */ = {isa = PBXBuildFile; fileRef = 20408ACE1ACED936007537E8 /* 7.png */; };
+		20408AE41ACED936007537E8 /* 8.png in Resources */ = {isa = PBXBuildFile; fileRef = 20408ACF1ACED936007537E8 /* 8.png */; };
+		20408AE51ACED936007537E8 /* 9.png in Resources */ = {isa = PBXBuildFile; fileRef = 20408AD01ACED936007537E8 /* 9.png */; };
+		20408AE91ACEE6AC007537E8 /* ImageTouchDetection.m in Sources */ = {isa = PBXBuildFile; fileRef = 20408AE81ACEE6AC007537E8 /* ImageTouchDetection.m */; };
+		20408AEC1ACEE6FA007537E8 /* ImageViewExplotion.m in Sources */ = {isa = PBXBuildFile; fileRef = 20408AEB1ACEE6FA007537E8 /* ImageViewExplotion.m */; };
+		20408AF31ACEE7FC007537E8 /* target1.png in Resources */ = {isa = PBXBuildFile; fileRef = 20408AEE1ACEE7FC007537E8 /* target1.png */; };
+		20408AF41ACEE7FC007537E8 /* target2.png in Resources */ = {isa = PBXBuildFile; fileRef = 20408AEF1ACEE7FC007537E8 /* target2.png */; };
+		20408AF51ACEE7FC007537E8 /* target3.png in Resources */ = {isa = PBXBuildFile; fileRef = 20408AF01ACEE7FC007537E8 /* target3.png */; };
+		20408AF61ACEE7FC007537E8 /* target4.png in Resources */ = {isa = PBXBuildFile; fileRef = 20408AF11ACEE7FC007537E8 /* target4.png */; };
+		20408AF71ACEE7FC007537E8 /* target5.png in Resources */ = {isa = PBXBuildFile; fileRef = 20408AF21ACEE7FC007537E8 /* target5.png */; };
+		2058FAB21AD2D08000FF1D8F /* btn_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 2058FAAE1AD2D08000FF1D8F /* btn_bg.png */; };
+		2058FAB31AD2D08000FF1D8F /* create_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2058FAAF1AD2D08000FF1D8F /* create_icon.png */; };
+		2058FAB41AD2D08000FF1D8F /* join_create_page.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2058FAB01AD2D08000FF1D8F /* join_create_page.jpg */; };
+		2058FAB51AD2D08000FF1D8F /* join_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2058FAB11AD2D08000FF1D8F /* join_icon.png */; };
 		2071B9DA1AA993DE00D5D261 /* CustomUITextFieldType1.m in Sources */ = {isa = PBXBuildFile; fileRef = 2071B9D91AA993DE00D5D261 /* CustomUITextFieldType1.m */; };
 		208FBE311AB06CCE00B391DF /* ImageViewGuild.m in Sources */ = {isa = PBXBuildFile; fileRef = 208FBE301AB06CCE00B391DF /* ImageViewGuild.m */; };
 		208FBE371AB088DA00B391DF /* five_star.png in Resources */ = {isa = PBXBuildFile; fileRef = 208FBE321AB088DA00B391DF /* five_star.png */; };
@@ -108,6 +169,8 @@
 		20D4BC661AA76392004EB2AD /* UserPasswordChangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D4BC641AA76392004EB2AD /* UserPasswordChangeViewController.m */; };
 		20D4BC671AA76392004EB2AD /* UserPasswordChangeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20D4BC651AA76392004EB2AD /* UserPasswordChangeViewController.xib */; };
 		20DDDB8B1AC17A2C00A27300 /* AddTournamentLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 20DDDB8A1AC17A2C00A27300 /* AddTournamentLabel.m */; };
+		20E484351AD293C5005B3DA4 /* TournamentHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20E484331AD293C5005B3DA4 /* TournamentHomeViewController.m */; };
+		20E484361AD293C5005B3DA4 /* TournamentHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20E484341AD293C5005B3DA4 /* TournamentHomeViewController.xib */; };
 		20F5F4C41AAA114200E34D8B /* ForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20F5F4C21AAA114200E34D8B /* ForgetPasswordViewController.m */; };
 		20F5F4C51AAA114200E34D8B /* ForgetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20F5F4C31AAA114200E34D8B /* ForgetPasswordViewController.xib */; };
 		20F782B81AA5DFD900057954 /* UpdateProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20F782B61AA5DFD900057954 /* UpdateProfileViewController.m */; };
@@ -314,6 +377,73 @@
 		202831E01AB2E9D200C65D98 /* tranparent_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tranparent_bg.png; sourceTree = "<group>"; };
 		202831EF1AB30ECA00C65D98 /* NSMutableArray+FoundGuild.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSMutableArray+FoundGuild.h"; path = "Category/NSMutableArray+FoundGuild.h"; sourceTree = "<group>"; };
 		202831F01AB30ECA00C65D98 /* NSMutableArray+FoundGuild.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSMutableArray+FoundGuild.m"; path = "Category/NSMutableArray+FoundGuild.m"; sourceTree = "<group>"; };
+		20408A731ACE86E2007537E8 /* ContractViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContractViewController.h; sourceTree = "<group>"; };
+		20408A741ACE86E2007537E8 /* ContractViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContractViewController.m; sourceTree = "<group>"; };
+		20408A761ACE86FC007537E8 /* ContractViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContractViewController.xib; sourceTree = "<group>"; };
+		20408A791ACE91DC007537E8 /* avatar_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar_1.png; sourceTree = "<group>"; };
+		20408A7A1ACE91DC007537E8 /* avatar_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar_2.png; sourceTree = "<group>"; };
+		20408A7B1ACE91DC007537E8 /* avatar_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar_3.png; sourceTree = "<group>"; };
+		20408A7C1ACE91DC007537E8 /* BUY-CONTRACT_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BUY-CONTRACT_button.png"; sourceTree = "<group>"; };
+		20408A7E1ACE91DC007537E8 /* menu_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_button.png; sourceTree = "<group>"; };
+		20408A801ACE91DC007537E8 /* transparent_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = transparent_back.png; sourceTree = "<group>"; };
+		20408A821ACE91DC007537E8 /* approx_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = approx_icon.png; sourceTree = "<group>"; };
+		20408A831ACE91DC007537E8 /* black_box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black_box.png; sourceTree = "<group>"; };
+		20408A841ACE91DC007537E8 /* Contrac2_Chosen_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Contrac2_Chosen_2.jpg; sourceTree = "<group>"; };
+		20408A861ACE91DC007537E8 /* location_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location_icon.png; sourceTree = "<group>"; };
+		20408A871ACE91DC007537E8 /* lost_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lost_icon.png; sourceTree = "<group>"; };
+		20408A881ACE91DC007537E8 /* top_box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = top_box.png; sourceTree = "<group>"; };
+		20408A891ACE91DC007537E8 /* won_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = won_icon.png; sourceTree = "<group>"; };
+		20408A9A1ACE97AC007537E8 /* contract_next_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = contract_next_button.png; sourceTree = "<group>"; };
+		20408A9B1ACE97AC007537E8 /* contract_prev_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = contract_prev_button.png; sourceTree = "<group>"; };
+		20408A9E1ACE9A22007537E8 /* ContractHorizontalScroller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContractHorizontalScroller.h; path = CustomDelegate/ContractHorizontalScroller.h; sourceTree = "<group>"; };
+		20408A9F1ACE9A22007537E8 /* ContractHorizontalScroller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContractHorizontalScroller.m; path = CustomDelegate/ContractHorizontalScroller.m; sourceTree = "<group>"; };
+		20408AA11ACEA708007537E8 /* CustomConfirmationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomConfirmationViewController.h; path = CustomDelegate/CustomConfirmationViewController.h; sourceTree = "<group>"; };
+		20408AA21ACEA708007537E8 /* CustomConfirmationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomConfirmationViewController.m; path = CustomDelegate/CustomConfirmationViewController.m; sourceTree = "<group>"; };
+		20408AA31ACEA708007537E8 /* CustomConfirmationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CustomConfirmationViewController.xib; path = CustomDelegate/CustomConfirmationViewController.xib; sourceTree = "<group>"; };
+		20408AA61ACEA763007537E8 /* Tournament3_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tournament3_back.png; sourceTree = "<group>"; };
+		20408AA71ACEA763007537E8 /* Tournament3_yes_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tournament3_yes_button.png; sourceTree = "<group>"; };
+		20408AA81ACEA763007537E8 /* Tournament4_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tournament4_back.png; sourceTree = "<group>"; };
+		20408AAC1ACEA88D007537E8 /* Tournament3_no_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tournament3_no_button.png; sourceTree = "<group>"; };
+		20408AAF1ACEB6E0007537E8 /* AttackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttackViewController.h; sourceTree = "<group>"; };
+		20408AB01ACEB6E0007537E8 /* AttackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttackViewController.m; sourceTree = "<group>"; };
+		20408AB11ACEB6E0007537E8 /* AttackViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AttackViewController.xib; sourceTree = "<group>"; };
+		20408AB41ACECD94007537E8 /* avtar_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avtar_icon.png; sourceTree = "<group>"; };
+		20408AB51ACECD94007537E8 /* circle_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle_icon.png; sourceTree = "<group>"; };
+		20408AB61ACECD94007537E8 /* hourglass_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hourglass_icon.png; sourceTree = "<group>"; };
+		20408AB71ACECD94007537E8 /* weapon1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weapon1.png; sourceTree = "<group>"; };
+		20408ABD1ACED936007537E8 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
+		20408ABE1ACED936007537E8 /* 10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 10.png; sourceTree = "<group>"; };
+		20408ABF1ACED936007537E8 /* 11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 11.png; sourceTree = "<group>"; };
+		20408AC01ACED936007537E8 /* 12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 12.png; sourceTree = "<group>"; };
+		20408AC11ACED936007537E8 /* 13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 13.png; sourceTree = "<group>"; };
+		20408AC21ACED936007537E8 /* 14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 14.png; sourceTree = "<group>"; };
+		20408AC31ACED936007537E8 /* 15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 15.png; sourceTree = "<group>"; };
+		20408AC41ACED936007537E8 /* 16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 16.png; sourceTree = "<group>"; };
+		20408AC51ACED936007537E8 /* 17.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 17.png; sourceTree = "<group>"; };
+		20408AC61ACED936007537E8 /* 18.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 18.png; sourceTree = "<group>"; };
+		20408AC71ACED936007537E8 /* 19.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 19.png; sourceTree = "<group>"; };
+		20408AC81ACED936007537E8 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
+		20408AC91ACED936007537E8 /* 20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 20.png; sourceTree = "<group>"; };
+		20408ACA1ACED936007537E8 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
+		20408ACB1ACED936007537E8 /* 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4.png; sourceTree = "<group>"; };
+		20408ACC1ACED936007537E8 /* 5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 5.png; sourceTree = "<group>"; };
+		20408ACD1ACED936007537E8 /* 6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 6.png; sourceTree = "<group>"; };
+		20408ACE1ACED936007537E8 /* 7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 7.png; sourceTree = "<group>"; };
+		20408ACF1ACED936007537E8 /* 8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 8.png; sourceTree = "<group>"; };
+		20408AD01ACED936007537E8 /* 9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 9.png; sourceTree = "<group>"; };
+		20408AE71ACEE6AC007537E8 /* ImageTouchDetection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageTouchDetection.h; path = CustomDelegate/ImageTouchDetection.h; sourceTree = "<group>"; };
+		20408AE81ACEE6AC007537E8 /* ImageTouchDetection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageTouchDetection.m; path = CustomDelegate/ImageTouchDetection.m; sourceTree = "<group>"; };
+		20408AEA1ACEE6FA007537E8 /* ImageViewExplotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageViewExplotion.h; path = CustomControl/ImageViewExplotion.h; sourceTree = "<group>"; };
+		20408AEB1ACEE6FA007537E8 /* ImageViewExplotion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageViewExplotion.m; path = CustomControl/ImageViewExplotion.m; sourceTree = "<group>"; };
+		20408AEE1ACEE7FC007537E8 /* target1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = target1.png; sourceTree = "<group>"; };
+		20408AEF1ACEE7FC007537E8 /* target2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = target2.png; sourceTree = "<group>"; };
+		20408AF01ACEE7FC007537E8 /* target3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = target3.png; sourceTree = "<group>"; };
+		20408AF11ACEE7FC007537E8 /* target4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = target4.png; sourceTree = "<group>"; };
+		20408AF21ACEE7FC007537E8 /* target5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = target5.png; sourceTree = "<group>"; };
+		2058FAAE1AD2D08000FF1D8F /* btn_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_bg.png; sourceTree = "<group>"; };
+		2058FAAF1AD2D08000FF1D8F /* create_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = create_icon.png; sourceTree = "<group>"; };
+		2058FAB01AD2D08000FF1D8F /* join_create_page.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = join_create_page.jpg; sourceTree = "<group>"; };
+		2058FAB11AD2D08000FF1D8F /* join_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = join_icon.png; sourceTree = "<group>"; };
 		206DDDC81AA44EB5000E84C4 /* DeviceConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DeviceConstant.h; path = Constant/DeviceConstant.h; sourceTree = "<group>"; };
 		2071B9D81AA993DE00D5D261 /* CustomUITextFieldType1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomUITextFieldType1.h; path = CustomControl/CustomUITextFieldType1.h; sourceTree = "<group>"; };
 		2071B9D91AA993DE00D5D261 /* CustomUITextFieldType1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomUITextFieldType1.m; path = CustomControl/CustomUITextFieldType1.m; sourceTree = "<group>"; };
@@ -460,6 +590,10 @@
 		20D4BC651AA76392004EB2AD /* UserPasswordChangeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserPasswordChangeViewController.xib; path = CustomDelegate/UserPasswordChangeViewController.xib; sourceTree = "<group>"; };
 		20DDDB891AC17A2C00A27300 /* AddTournamentLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddTournamentLabel.h; path = CustomControl/AddTournamentLabel.h; sourceTree = "<group>"; };
 		20DDDB8A1AC17A2C00A27300 /* AddTournamentLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddTournamentLabel.m; path = CustomControl/AddTournamentLabel.m; sourceTree = "<group>"; };
+		20E484321AD293C5005B3DA4 /* TournamentHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TournamentHomeViewController.h; sourceTree = "<group>"; };
+		20E484331AD293C5005B3DA4 /* TournamentHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TournamentHomeViewController.m; sourceTree = "<group>"; };
+		20E484341AD293C5005B3DA4 /* TournamentHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TournamentHomeViewController.xib; sourceTree = "<group>"; };
+		20E484371AD29ACA005B3DA4 /* GlobalVariable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GlobalVariable.h; path = Constant/GlobalVariable.h; sourceTree = "<group>"; };
 		20F5F4C11AAA114100E34D8B /* ForgetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ForgetPasswordViewController.h; path = CustomDelegate/ForgetPasswordViewController.h; sourceTree = "<group>"; };
 		20F5F4C21AAA114200E34D8B /* ForgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ForgetPasswordViewController.m; path = CustomDelegate/ForgetPasswordViewController.m; sourceTree = "<group>"; };
 		20F5F4C31AAA114200E34D8B /* ForgetPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ForgetPasswordViewController.xib; path = CustomDelegate/ForgetPasswordViewController.xib; sourceTree = "<group>"; };
@@ -816,6 +950,10 @@
 		201A5E631A95F3890052E53B /* CustomDelegate */ = {
 			isa = PBXGroup;
 			children = (
+				20408AE71ACEE6AC007537E8 /* ImageTouchDetection.h */,
+				20408AE81ACEE6AC007537E8 /* ImageTouchDetection.m */,
+				20408A9E1ACE9A22007537E8 /* ContractHorizontalScroller.h */,
+				20408A9F1ACE9A22007537E8 /* ContractHorizontalScroller.m */,
 				20BAC3F21A94A8B100E895FE /* SlideOutMenuViewController.h */,
 				20BAC3F31A94A8B100E895FE /* SlideOutMenuViewController.m */,
 				20BAC3F51A94A8B100E895FE /* SlideOutMenuViewController_iPhone4.xib */,
@@ -844,6 +982,9 @@
 				20F5F4C11AAA114100E34D8B /* ForgetPasswordViewController.h */,
 				20F5F4C21AAA114200E34D8B /* ForgetPasswordViewController.m */,
 				20F5F4C31AAA114200E34D8B /* ForgetPasswordViewController.xib */,
+				20408AA11ACEA708007537E8 /* CustomConfirmationViewController.h */,
+				20408AA21ACEA708007537E8 /* CustomConfirmationViewController.m */,
+				20408AA31ACEA708007537E8 /* CustomConfirmationViewController.xib */,
 			);
 			name = CustomDelegate;
 			sourceTree = "<group>";
@@ -854,6 +995,7 @@
 				206DDDC81AA44EB5000E84C4 /* DeviceConstant.h */,
 				201A5E691A96132C0052E53B /* Constants.h */,
 				202760271AB17EDB004CAFFD /* WebServiceConstant.h */,
+				20E484371AD29ACA005B3DA4 /* GlobalVariable.h */,
 			);
 			name = Constants;
 			sourceTree = "<group>";
@@ -884,6 +1026,94 @@
 				202831F01AB30ECA00C65D98 /* NSMutableArray+FoundGuild.m */,
 			);
 			name = Category;
+			sourceTree = "<group>";
+		};
+		20408A721ACE84D2007537E8 /* ContractHomePage */ = {
+			isa = PBXGroup;
+			children = (
+				20408A731ACE86E2007537E8 /* ContractViewController.h */,
+				20408A741ACE86E2007537E8 /* ContractViewController.m */,
+				20408A761ACE86FC007537E8 /* ContractViewController.xib */,
+			);
+			name = ContractHomePage;
+			sourceTree = "<group>";
+		};
+		20408A781ACE91DC007537E8 /* Contrac_1 */ = {
+			isa = PBXGroup;
+			children = (
+				20408A791ACE91DC007537E8 /* avatar_1.png */,
+				20408A7A1ACE91DC007537E8 /* avatar_2.png */,
+				20408A7B1ACE91DC007537E8 /* avatar_3.png */,
+				20408A7C1ACE91DC007537E8 /* BUY-CONTRACT_button.png */,
+				20408A9A1ACE97AC007537E8 /* contract_next_button.png */,
+				20408A9B1ACE97AC007537E8 /* contract_prev_button.png */,
+				20408A7E1ACE91DC007537E8 /* menu_button.png */,
+				20408A801ACE91DC007537E8 /* transparent_back.png */,
+			);
+			path = Contrac_1;
+			sourceTree = "<group>";
+		};
+		20408A811ACE91DC007537E8 /* Contrac_2 */ = {
+			isa = PBXGroup;
+			children = (
+				20408A821ACE91DC007537E8 /* approx_icon.png */,
+				20408A831ACE91DC007537E8 /* black_box.png */,
+				20408A841ACE91DC007537E8 /* Contrac2_Chosen_2.jpg */,
+				20408A861ACE91DC007537E8 /* location_icon.png */,
+				20408A871ACE91DC007537E8 /* lost_icon.png */,
+				20408A881ACE91DC007537E8 /* top_box.png */,
+				20408A891ACE91DC007537E8 /* won_icon.png */,
+			);
+			path = Contrac_2;
+			sourceTree = "<group>";
+		};
+		20408AAE1ACEB6C1007537E8 /* Attack */ = {
+			isa = PBXGroup;
+			children = (
+				20408AAF1ACEB6E0007537E8 /* AttackViewController.h */,
+				20408AB01ACEB6E0007537E8 /* AttackViewController.m */,
+				20408AB11ACEB6E0007537E8 /* AttackViewController.xib */,
+			);
+			name = Attack;
+			sourceTree = "<group>";
+		};
+		20408ABC1ACED936007537E8 /* gif_animation */ = {
+			isa = PBXGroup;
+			children = (
+				20408ABD1ACED936007537E8 /* 1.png */,
+				20408ABE1ACED936007537E8 /* 10.png */,
+				20408ABF1ACED936007537E8 /* 11.png */,
+				20408AC01ACED936007537E8 /* 12.png */,
+				20408AC11ACED936007537E8 /* 13.png */,
+				20408AC21ACED936007537E8 /* 14.png */,
+				20408AC31ACED936007537E8 /* 15.png */,
+				20408AC41ACED936007537E8 /* 16.png */,
+				20408AC51ACED936007537E8 /* 17.png */,
+				20408AC61ACED936007537E8 /* 18.png */,
+				20408AC71ACED936007537E8 /* 19.png */,
+				20408AC81ACED936007537E8 /* 2.png */,
+				20408AC91ACED936007537E8 /* 20.png */,
+				20408ACA1ACED936007537E8 /* 3.png */,
+				20408ACB1ACED936007537E8 /* 4.png */,
+				20408ACC1ACED936007537E8 /* 5.png */,
+				20408ACD1ACED936007537E8 /* 6.png */,
+				20408ACE1ACED936007537E8 /* 7.png */,
+				20408ACF1ACED936007537E8 /* 8.png */,
+				20408AD01ACED936007537E8 /* 9.png */,
+			);
+			path = gif_animation;
+			sourceTree = "<group>";
+		};
+		20408AED1ACEE7FC007537E8 /* explotion */ = {
+			isa = PBXGroup;
+			children = (
+				20408AEE1ACEE7FC007537E8 /* target1.png */,
+				20408AEF1ACEE7FC007537E8 /* target2.png */,
+				20408AF01ACEE7FC007537E8 /* target3.png */,
+				20408AF11ACEE7FC007537E8 /* target4.png */,
+				20408AF21ACEE7FC007537E8 /* target5.png */,
+			);
+			path = explotion;
 			sourceTree = "<group>";
 		};
 		20BAC3941A94A75800E895FE /* Storyboard & Launch Screen */ = {
@@ -988,6 +1218,8 @@
 			isa = PBXGroup;
 			children = (
 				201A5E5C1A95DB9D0052E53B /* ViewControllerBaseClass */,
+				20408AAE1ACEB6C1007537E8 /* Attack */,
+				20408A721ACE84D2007537E8 /* ContractHomePage */,
 				20D4BC371AA72E27004EB2AD /* MyProfileViewController */,
 				20D4BC311AA70DCE004EB2AD /* AboutUsViewController */,
 				20F782B41AA5DFC000057954 /* UpdateProfile */,
@@ -1002,6 +1234,7 @@
 				2012B1621A974FEE00E1EF3D /* Settings */,
 				2012B1661A9760F300E1EF3D /* AddTournament */,
 				2012B15F1A9749CE00E1EF3D /* TournamentDetails */,
+				20E484311AD2939A005B3DA4 /* TournamentHome */,
 				2012B1601A9749E000E1EF3D /* Tournament */,
 			);
 			path = ViewControllers;
@@ -1089,6 +1322,8 @@
 		20D4BC3F1AA74303004EB2AD /* CustomControl */ = {
 			isa = PBXGroup;
 			children = (
+				20408AEA1ACEE6FA007537E8 /* ImageViewExplotion.h */,
+				20408AEB1ACEE6FA007537E8 /* ImageViewExplotion.m */,
 				20D4BC401AA74326004EB2AD /* CustomImageViewType1.h */,
 				20D4BC411AA74326004EB2AD /* CustomImageViewType1.m */,
 				208FBE2F1AB06CCE00B391DF /* ImageViewGuild.h */,
@@ -1101,6 +1336,16 @@
 				20DDDB8A1AC17A2C00A27300 /* AddTournamentLabel.m */,
 			);
 			name = CustomControl;
+			sourceTree = "<group>";
+		};
+		20E484311AD2939A005B3DA4 /* TournamentHome */ = {
+			isa = PBXGroup;
+			children = (
+				20E484321AD293C5005B3DA4 /* TournamentHomeViewController.h */,
+				20E484331AD293C5005B3DA4 /* TournamentHomeViewController.m */,
+				20E484341AD293C5005B3DA4 /* TournamentHomeViewController.xib */,
+			);
+			name = TournamentHome;
 			sourceTree = "<group>";
 		};
 		20F782B41AA5DFC000057954 /* UpdateProfile */ = {
@@ -1237,6 +1482,12 @@
 		CD79B1691A3F31EA00AFD912 /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				2058FAAE1AD2D08000FF1D8F /* btn_bg.png */,
+				2058FAAF1AD2D08000FF1D8F /* create_icon.png */,
+				2058FAB01AD2D08000FF1D8F /* join_create_page.jpg */,
+				2058FAB11AD2D08000FF1D8F /* join_icon.png */,
+				20408AED1ACEE7FC007537E8 /* explotion */,
+				20408ABC1ACED936007537E8 /* gif_animation */,
 				D67780A51AB994F20086BEBE /* tournament5_back.png */,
 				208FBE3C1AB0896400B391DF /* zero_star.png */,
 				208FBE321AB088DA00B391DF /* five_star.png */,
@@ -1325,6 +1576,16 @@
 		CD8E035B1A40505100112282 /* iphine6 */ = {
 			isa = PBXGroup;
 			children = (
+				20408AB41ACECD94007537E8 /* avtar_icon.png */,
+				20408AB51ACECD94007537E8 /* circle_icon.png */,
+				20408AB61ACECD94007537E8 /* hourglass_icon.png */,
+				20408AB71ACECD94007537E8 /* weapon1.png */,
+				20408AAC1ACEA88D007537E8 /* Tournament3_no_button.png */,
+				20408AA61ACEA763007537E8 /* Tournament3_back.png */,
+				20408AA71ACEA763007537E8 /* Tournament3_yes_button.png */,
+				20408AA81ACEA763007537E8 /* Tournament4_back.png */,
+				20408A781ACE91DC007537E8 /* Contrac_1 */,
+				20408A811ACE91DC007537E8 /* Contrac_2 */,
 				CDE1C1F41A49C9ED00287F9F /* tournament */,
 				CDA080BC1A42E3C50056BA7F /* slidemenu */,
 				CDA080A71A42C6B60056BA7F /* landingscreen */,
@@ -1594,15 +1855,20 @@
 			files = (
 				CD54C8BF1A41A40D00BB9AD6 /* female_selected_iphn6@2x.png in Resources */,
 				D6C44B5B1A66746600AFFB9B /* trmDet_mkw_iphn4@2x.png in Resources */,
+				20408AAA1ACEA763007537E8 /* Tournament3_yes_button.png in Resources */,
 				CD85DB9A1A4478CA00DCB335 /* shadow_iphn4@2x.png in Resources */,
 				CDA080CA1A42E3C50056BA7F /* cpr_iphn6@2x.png in Resources */,
 				D6C44B4A1A666F6E00AFFB9B /* trm_details_mostKwin_logo_iphn6@2x.png in Resources */,
+				20408A931ACE91DC007537E8 /* black_box.png in Resources */,
 				CDA080D61A42E3C50056BA7F /* smenu_tournament_selected_iphn6@2x.png in Resources */,
+				20408AB31ACEB6E0007537E8 /* AttackViewController.xib in Resources */,
 				20D4BC471AA74665004EB2AD /* Change-Avatar.png in Resources */,
 				20CF37721AC2B8520085A78E /* TournamentDetailsTableViewCell_iphn4.xib in Resources */,
 				CDA080F11A42F1E60056BA7F /* smenu_propic_iphn4@2x.png in Resources */,
 				20D4BC4E1AA75087004EB2AD /* avatar_3.png in Resources */,
+				20408AD61ACED936007537E8 /* 13.png in Resources */,
 				D6C44B4D1A666F6E00AFFB9B /* trn_private_button_iphn6@2x.png in Resources */,
+				20408AB91ACECD94007537E8 /* circle_icon.png in Resources */,
 				208FBE391AB088DA00B391DF /* one_star.png in Resources */,
 				D6C44B7D1A6698C300AFFB9B /* addTrm_dropdown_titlebox_iphn4@2x.png in Resources */,
 				CD79B1461A3F1DB800AFD912 /* Main.storyboard in Resources */,
@@ -1612,13 +1878,21 @@
 				D6C44B4B1A666F6E00AFFB9B /* trm_group_icon_iphn6@2x.png in Resources */,
 				20BAC4171A94A8B100E895FE /* SettingsViewController.xib in Resources */,
 				D63CB1FF1A89FBB400049F58 /* whi_point.png in Resources */,
+				20408AE51ACED936007537E8 /* 9.png in Resources */,
 				D6C44B581A66746600AFFB9B /* trmDet_cellBg_iphn4@2x.png in Resources */,
 				CDA080F71A42F2270056BA7F /* menu_bg_iphn4@2x.png in Resources */,
+				20408AE31ACED936007537E8 /* 7.png in Resources */,
 				CD8E03511A40481900112282 /* landing_bg_iphn4@2x.png in Resources */,
 				CDE1C20F1A49CAB000287F9F /* trn_content_box_iphn6@2x.png in Resources */,
+				20408AE11ACED936007537E8 /* 5.png in Resources */,
 				CD989EDB1A41B8AC005D0380 /* male_selected_iphn4@2x.png in Resources */,
 				208FBE3D1AB0896400B391DF /* zero_star.png in Resources */,
+				2058FAB41AD2D08000FF1D8F /* join_create_page.jpg in Resources */,
 				CDA080EC1A42F1E60056BA7F /* smenu_details_bg_iphn4@2x.png in Resources */,
+				20408AF71ACEE7FC007537E8 /* target5.png in Resources */,
+				20408AD91ACED936007537E8 /* 16.png in Resources */,
+				20408AE41ACED936007537E8 /* 8.png in Resources */,
+				20E484361AD293C5005B3DA4 /* TournamentHomeViewController.xib in Resources */,
 				CD79B14B1A3F1DB800AFD912 /* LaunchScreen.xib in Resources */,
 				CD989EEE1A41CF84005D0380 /* step_one_pro_iphn6@2x.png in Resources */,
 				20BAC40E1A94A8B100E895FE /* LandingViewController.xib in Resources */,
@@ -1629,15 +1903,19 @@
 				CDA080D31A42E3C50056BA7F /* smenu_settings_normal_iphn6@2x.png in Resources */,
 				CDA080CD1A42E3C50056BA7F /* smenu_details_bg_iphn6@2x.png in Resources */,
 				20D4BC361AA71DE4004EB2AD /* AboutUsViewController.xib in Resources */,
+				20408A961ACE91DC007537E8 /* location_icon.png in Resources */,
 				D6C44B491A666F6E00AFFB9B /* tournamentdetails_cellbg_iphn6@2x.png in Resources */,
+				20408AF61ACEE7FC007537E8 /* target4.png in Resources */,
 				CD104B711A41DC1E0051BABF /* step_skip_iphn4@2x.png in Resources */,
 				CDE1C2211A49D3D200287F9F /* mkw_iphn4@2x.png in Resources */,
 				CD8E033A1A40435D00112282 /* LunchImage.png in Resources */,
+				20408AD31ACED936007537E8 /* 10.png in Resources */,
 				CD79B1841A3F34F200AFD912 /* 120x120.png in Resources */,
 				D6C44B991A66C40D00AFFB9B /* pic.png in Resources */,
 				CD55039F1A43082F0082C805 /* steps2_play_button_iphn6@2x.png in Resources */,
 				CD85DB9C1A4484C300DCB335 /* Back_R@2x.png in Resources */,
 				20BC8C5F1A970C8500F154BA /* SlideMenuTableViewCell.xib in Resources */,
+				20408ADD1ACED936007537E8 /* 2.png in Resources */,
 				CD989ED81A41B8AC005D0380 /* female_normal-iphn4@2x.png in Resources */,
 				CD5D93C01A4877E700D5E788 /* image6.png in Resources */,
 				CDA080ED1A42F1E60056BA7F /* smenu_guild_normal_iphn4@2x.png in Resources */,
@@ -1645,7 +1923,9 @@
 				20224D691AA0A9AD00DE7B85 /* AnnotationViewController.xib in Resources */,
 				CD5503911A4304990082C805 /* step_two_content_bg_iphn4@2x.png in Resources */,
 				20D4BC3C1AA72E4A004EB2AD /* MyProfileViewController.xib in Resources */,
+				20408AA91ACEA763007537E8 /* Tournament3_back.png in Resources */,
 				CD8AFBF61A4187C80090F545 /* register_content_bg_iphn6@2x.png in Resources */,
+				20408AAB1ACEA763007537E8 /* Tournament4_back.png in Resources */,
 				D63CB1FE1A89FBB400049F58 /* location_icon.png in Resources */,
 				D6C44B5A1A66746600AFFB9B /* trmDet_group_iphn4@2x.png in Resources */,
 				CD104B701A41DC1E0051BABF /* step_one_pro_iphn4@2x.png in Resources */,
@@ -1659,6 +1939,7 @@
 				CDE1C2221A49D3D200287F9F /* three_star_iphn4@2x.png in Resources */,
 				CDA080E91A42F1E60056BA7F /* cpr_iphn4@2x.png in Resources */,
 				CDA080EA1A42F1E60056BA7F /* smenu_contract_normal_iph4@2x.png in Resources */,
+				20408A981ACE91DC007537E8 /* top_box.png in Resources */,
 				CD8E033B1A40435D00112282 /* LunchImage@2x.png in Resources */,
 				20D4BC5D1AA76362004EB2AD /* UserDetailsChangeViewController.xib in Resources */,
 				D6C44B7C1A6698C300AFFB9B /* addTrm_dropdown_button_iphn4@2x.png in Resources */,
@@ -1666,6 +1947,7 @@
 				CD5D93BD1A4877E700D5E788 /* image3.png in Resources */,
 				D6C44B9F1A66C75900AFFB9B /* trn_radi_iphn6@2x.png in Resources */,
 				D6E578161AB83CF200280DA4 /* TournamentTableViewCell.xib in Resources */,
+				20408A991ACE91DC007537E8 /* won_icon.png in Resources */,
 				CDA080D51A42E3C50056BA7F /* smenu_tournament_normal_iphn6@2x.png in Resources */,
 				CDE1C1FE1A49C9ED00287F9F /* four_star_iphn6@2x.png in Resources */,
 				20BAC4241A94A8B100E895FE /* TournamentViewController.xib in Resources */,
@@ -1674,11 +1956,17 @@
 				CD989EF01A41CF84005D0380 /* steps_nav_bg_iphn6@2x.png in Resources */,
 				CDA080DA1A42F0700056BA7F /* menu_bg_iphn6@2x.png in Resources */,
 				CDA080CE1A42E3C50056BA7F /* smenu_guild_normal_iphn6@2x.png in Resources */,
+				2058FAB51AD2D08000FF1D8F /* join_icon.png in Resources */,
 				208FBE3A1AB088DA00B391DF /* three_star.png in Resources */,
 				CDA080CF1A42E3C50056BA7F /* smenu_guild_selected_iphn6@2x.png in Resources */,
 				CD8AFBF81A4187C80090F545 /* text_box.png in Resources */,
+				20408AF51ACEE7FC007537E8 /* target3.png in Resources */,
+				20408AE01ACED936007537E8 /* 4.png in Resources */,
+				20408AA51ACEA708007537E8 /* CustomConfirmationViewController.xib in Resources */,
 				CD54C8BD1A41A40D00BB9AD6 /* female_normal-iphn6@2x.png in Resources */,
+				20408A8F1ACE91DC007537E8 /* menu_button.png in Resources */,
 				D6C44B7A1A6698C300AFFB9B /* addTrm_contentBg_iphn4@2x.png in Resources */,
+				20408A921ACE91DC007537E8 /* approx_icon.png in Resources */,
 				CDA080D21A42E3C50056BA7F /* smenu_propic_iphn6@2x.png in Resources */,
 				CDA080EE1A42F1E60056BA7F /* smenu_guild_selected_iphn4@2x.png in Resources */,
 				20BAC41C1A94A8B100E895FE /* StepOneViewController.xib in Resources */,
@@ -1688,12 +1976,16 @@
 				20BAC41F1A94A8B100E895FE /* StepTwoViewController_iPhone4.xib in Resources */,
 				D6C44B5D1A66746600AFFB9B /* trmDet_PubPriv_Bg_iphn4@2x.png in Resources */,
 				CD104B721A41DC1E0051BABF /* steps_nav_bg_iphn4@2x.png in Resources */,
+				2058FAB21AD2D08000FF1D8F /* btn_bg.png in Resources */,
+				20408AD81ACED936007537E8 /* 15.png in Resources */,
 				CD8AFBF51A4187C80090F545 /* reg_submit_button_iphn6@2x.png in Resources */,
 				D6C44B4C1A666F6E00AFFB9B /* trmDet_Single_icon_iphn6@2x.png in Resources */,
 				202831E11AB2E9D200C65D98 /* tranparent_bg.png in Resources */,
 				D6C44B861A66AA5000AFFB9B /* addTrm_contentBg_iphn6@2x.png in Resources */,
+				20408A8D1ACE91DC007537E8 /* BUY-CONTRACT_button.png in Resources */,
 				CD5D93BE1A4877E700D5E788 /* image4.png in Resources */,
 				CD8AFBFA1A4187C80090F545 /* username_textfield_bg_iphn6@2x.png in Resources */,
+				20408A8A1ACE91DC007537E8 /* avatar_1.png in Resources */,
 				CDA080CC1A42E3C50056BA7F /* smenu_contract_selected_iph6@2x.png in Resources */,
 				CD5503941A4305370082C805 /* steps2_back_button_iphn4@2x.png in Resources */,
 				CDE1C2271A49D3D200287F9F /* two_star_iphn4@2x.png in Resources */,
@@ -1704,19 +1996,23 @@
 				D6C44B881A66AA5000AFFB9B /* addTrm_dropdown_button_iphn6@2x.png in Resources */,
 				CD8E033C1A40435D00112282 /* LunchImage@3x.png in Resources */,
 				CD989EF21A41D6C9005D0380 /* GARABD.TTF in Resources */,
+				20408AF41ACEE7FC007537E8 /* target2.png in Resources */,
 				CDA080EB1A42F1E60056BA7F /* smenu_contract_selected_iph4@2x.png in Resources */,
 				D6C44B8A1A66AA5000AFFB9B /* addTrm_select_button_iphn6@2x.png in Resources */,
 				20D4BC481AA74665004EB2AD /* edit_icon.png in Resources */,
 				D6C44B5C1A66746600AFFB9B /* trmDet_plus_iphn4@2x.png in Resources */,
 				CD8AFBE61A417B480090F545 /* GARA.TTF in Resources */,
 				D6C44B3B1A66694B00AFFB9B /* LithosPro-Regular.ttf in Resources */,
+				20408ABA1ACECD94007537E8 /* hourglass_icon.png in Resources */,
 				CDA080CB1A42E3C50056BA7F /* smenu_contract_normal_iph6@2x.png in Resources */,
 				CD55039E1A43082F0082C805 /* steps2_back_button_iphn6@2x.png in Resources */,
 				CD8AFBF41A4187C80090F545 /* male_textfield_bg_iphn6@2x.png in Resources */,
 				20D4BC461AA74665004EB2AD /* Avatar_pic.png in Resources */,
 				D6C44B591A66746600AFFB9B /* trmDet_dolar_iphn4@2x.png in Resources */,
+				20408AD51ACED936007537E8 /* 12.png in Resources */,
 				20BAC4141A94A8B100E895FE /* SelectRadiusViewController.xib in Resources */,
 				CD989EEC1A41CF84005D0380 /* step_content_bg_iphn6@2x.png in Resources */,
+				20408A8C1ACE91DC007537E8 /* avatar_3.png in Resources */,
 				D6C44B961A66BAC300AFFB9B /* trn_radious_bg_iphn4@2x.png in Resources */,
 				20D4BC671AA76392004EB2AD /* UserPasswordChangeViewController.xib in Resources */,
 				20BAC41A1A94A8B100E895FE /* SlideOutMenuViewController_iPhone4.xib in Resources */,
@@ -1724,29 +2020,39 @@
 				D6C44BA11A66C75900AFFB9B /* trn_radious_loc_marker_iphn6@2x.png in Resources */,
 				D6C44B4E1A666F6E00AFFB9B /* trnDet_DolarIcon_iphn6@2.png in Resources */,
 				D6C44B481A666F6E00AFFB9B /* plus_icon_iphn6@2x.png in Resources */,
+				20408A9D1ACE97AC007537E8 /* contract_prev_button.png in Resources */,
 				20D4BC4D1AA75087004EB2AD /* avatar_2.png in Resources */,
 				CD4EAD301A40878E00744695 /* login_bg-iphn4@2x.png in Resources */,
+				20408AF31ACEE7FC007537E8 /* target1.png in Resources */,
+				20408AB81ACECD94007537E8 /* avtar_icon.png in Resources */,
 				20BAC4091A94A8B100E895FE /* AddTournamentViewController.xib in Resources */,
 				CD989EDE1A41B8AC005D0380 /* register_nav_bg_iphn4@2x.png in Resources */,
+				20408ADE1ACED936007537E8 /* 20.png in Resources */,
 				20BAC4271A94A8B100E895FE /* WorldMapViewController.xib in Resources */,
 				20BAC40C1A94A8B100E895FE /* GuildViewController.xib in Resources */,
 				CD55039B1A4306CF0082C805 /* steps2_progress_bar_iph6@2x.png in Resources */,
 				CD5D93BF1A4877E700D5E788 /* image5.png in Resources */,
 				D6C44B621A66885200AFFB9B /* back_btn_iphn4@2x.png in Resources */,
 				CDE1C2201A49D3D200287F9F /* ls_iphn4@2x.png in Resources */,
+				20408A8B1ACE91DC007537E8 /* avatar_2.png in Resources */,
 				20BAC4211A94A8B100E895FE /* TournamentDetailsViewController.xib in Resources */,
+				20408AD71ACED936007537E8 /* 14.png in Resources */,
 				CD79B1831A3F34F200AFD912 /* 114x114.png in Resources */,
 				CDA080F21A42F1E60056BA7F /* smenu_settings_normal_iphn4@2x.png in Resources */,
 				CDE1C20C1A49CAB000287F9F /* kfh_iphn6@2x.png in Resources */,
 				CD79B1871A3F3D5000AFD912 /* Icon-60@3x.png in Resources */,
+				20408A941ACE91DC007537E8 /* Contrac2_Chosen_2.jpg in Resources */,
 				208FBE371AB088DA00B391DF /* five_star.png in Resources */,
+				2058FAB31AD2D08000FF1D8F /* create_icon.png in Resources */,
 				D6C44B601A6687DF00AFFB9B /* nav_bg_iphn4@2x.png in Resources */,
 				CDE1C21E1A49D3D200287F9F /* four_star_iphn4@2x.png in Resources */,
+				20408AE21ACED936007537E8 /* 6.png in Resources */,
 				CDE1C2101A49CAB000287F9F /* trn_nav_bg_iphn6@2x.png in Resources */,
 				CD989EED1A41CF84005D0380 /* step_next_iphn6@2x.png in Resources */,
 				CDA080B61A42C6B60056BA7F /* landing_screen_bg@2x.png in Resources */,
 				20F782B91AA5DFD900057954 /* UpdateProfileViewController.xib in Resources */,
 				208FBE3B1AB088DA00B391DF /* two_star.png in Resources */,
+				20408ADC1ACED936007537E8 /* 19.png in Resources */,
 				CD989EEF1A41CF84005D0380 /* step_skip_iphn6@2x.png in Resources */,
 				CD5503971A4306420082C805 /* steps2_progress_bar_iphn4@2x.png in Resources */,
 				D63CB1FB1A89FBA800049F58 /* blue_point.png in Resources */,
@@ -1756,6 +2062,8 @@
 				CD989EDD1A41B8AC005D0380 /* register_content_bg_iphn4@2x.png in Resources */,
 				20D4BC4C1AA75087004EB2AD /* avatar_1.png in Resources */,
 				20BAC41E1A94A8B100E895FE /* StepTwoViewController.xib in Resources */,
+				20408ABB1ACECD94007537E8 /* weapon1.png in Resources */,
+				20408ADF1ACED936007537E8 /* 3.png in Resources */,
 				CD79B1811A3F34F200AFD912 /* 58x58.png in Resources */,
 				CDE1C2061A49C9ED00287F9F /* two_star_iphn6@2x.png in Resources */,
 				D6C44B371A665B8400AFFB9B /* nav_bg_iphn6@2x.png in Resources */,
@@ -1763,24 +2071,33 @@
 				D6C44B971A66BAC300AFFB9B /* trn_radious_loc_marker_iphn4@2x.png in Resources */,
 				CD5D93BC1A4877E700D5E788 /* image2.png in Resources */,
 				208FBE381AB088DA00B391DF /* four_star.png in Resources */,
+				20408AAD1ACEA88D007537E8 /* Tournament3_no_button.png in Resources */,
 				CD79B1681A3F272800AFD912 /* Default-736h.png in Resources */,
 				D6C44BA01A66C75900AFFB9B /* trn_radious_bg_iphn6@2x.png in Resources */,
 				CD79B1881A3F3D5000AFD912 /* Icon-60@2x.png in Resources */,
 				CDA080D41A42E3C50056BA7F /* smenu_settings_selected_iphn6@2x.png in Resources */,
+				20408A971ACE91DC007537E8 /* lost_icon.png in Resources */,
+				20408ADA1ACED936007537E8 /* 17.png in Resources */,
+				20408A911ACE91DC007537E8 /* transparent_back.png in Resources */,
 				20F5F4C51AAA114200E34D8B /* ForgetPasswordViewController.xib in Resources */,
 				20BAC4151A94A8B100E895FE /* SelectRadiusViewController_iPhone4.xib in Resources */,
 				CD5503951A4305370082C805 /* steps2_play_button_iphn4.png in Resources */,
 				CD54C8C31A41A40D00BB9AD6 /* male_selected_iphn6@2x.png in Resources */,
 				D6C44B891A66AA5000AFFB9B /* addTrm_dropdown_titlebox_iphn6@2x.png in Resources */,
+				20408A771ACE86FC007537E8 /* ContractViewController.xib in Resources */,
 				CD8E03741A40658300112282 /* LunchImage_Iphn6@2x.png in Resources */,
 				CDA080D11A42E3C50056BA7F /* smenu_map_selected_iphn6@2x.png in Resources */,
 				20FF4A671AA9CD5C00A1B252 /* CustomDatePickerViewController.xib in Resources */,
+				20408ADB1ACED936007537E8 /* 18.png in Resources */,
 				D6ADAFB11A80F257003AD399 /* Images.xcassets in Resources */,
+				20408AD41ACED936007537E8 /* 11.png in Resources */,
 				CD104B6F1A41DC1E0051BABF /* step_next_iphn4@2x.png in Resources */,
 				CDE1C2261A49D3D200287F9F /* trn_nav_bg_iphn4@2x.png in Resources */,
 				CDA080D01A42E3C50056BA7F /* smenu_map_normal_iphn6@2x.png in Resources */,
 				CDA080F51A42F1E60056BA7F /* smenu_tournament_selected_iphn4@2x.png in Resources */,
+				20408A9C1ACE97AC007537E8 /* contract_next_button.png in Resources */,
 				CD989EDC1A41B8AC005D0380 /* reg_submit_button_iphn4@2x.png in Resources */,
+				20408AD21ACED936007537E8 /* 1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1798,6 +2115,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20408AB21ACEB6E0007537E8 /* AttackViewController.m in Sources */,
 				CD79B1431A3F1DB800AFD912 /* ViewController.m in Sources */,
 				20BAC3981A94A87B00E895FE /* DataClass.m in Sources */,
 				20F5F4C41AAA114200E34D8B /* ForgetPasswordViewController.m in Sources */,
@@ -1806,6 +2124,7 @@
 				20BAC3BB1A94A88400E895FE /* STTwitterAPI.m in Sources */,
 				20D4BC5C1AA76362004EB2AD /* UserDetailsChangeViewController.m in Sources */,
 				208FBE311AB06CCE00B391DF /* ImageViewGuild.m in Sources */,
+				20408AEC1ACEE6FA007537E8 /* ImageViewExplotion.m in Sources */,
 				20BAC3C11A94A88400E895FE /* BAVPlistNode.m in Sources */,
 				20BAC40F1A94A8B100E895FE /* LoginViewController.m in Sources */,
 				20BAC42E1A94A90A00E895FE /* WebServiceBaseClass.m in Sources */,
@@ -1827,6 +2146,8 @@
 				20C1EE501AB024AB00197A80 /* ModelGuild.m in Sources */,
 				20BAC3BA1A94A88400E895FE /* STHTTPRequest+STTwitter.m in Sources */,
 				20BAC41B1A94A8B100E895FE /* StepOneViewController.m in Sources */,
+				20408AA41ACEA708007537E8 /* CustomConfirmationViewController.m in Sources */,
+				20408AE91ACEE6AC007537E8 /* ImageTouchDetection.m in Sources */,
 				D67780A31AB986670086BEBE /* AddTournamentTableViewCell.m in Sources */,
 				20224D621AA0A8CD00DE7B85 /* CustomMapAnnotationView.m in Sources */,
 				20B9ECE71AA4B1B400400626 /* ModelAvtarImage.m in Sources */,
@@ -1844,7 +2165,9 @@
 				20BAC3C91A94A89200E895FE /* TournamentDetailsTableViewCell.m in Sources */,
 				20BAC40D1A94A8B100E895FE /* LandingViewController.m in Sources */,
 				20BAC3BD1A94A88400E895FE /* STTwitterHTML.m in Sources */,
+				20408A751ACE86E2007537E8 /* ContractViewController.m in Sources */,
 				20BAC3D91A94A89F00E895FE /* Reachability.m in Sources */,
+				20E484351AD293C5005B3DA4 /* TournamentHomeViewController.m in Sources */,
 				20FF4A661AA9CD5C00A1B252 /* CustomDatePickerViewController.m in Sources */,
 				20BAC3D81A94A89F00E895FE /* Context.m in Sources */,
 				20BAC3BE1A94A88400E895FE /* STTwitterOAuth.m in Sources */,
@@ -1862,6 +2185,7 @@
 				202831DF1AB2DD0900C65D98 /* GuildImageView.m in Sources */,
 				20BAC4161A94A8B100E895FE /* SettingsViewController.m in Sources */,
 				20BAC40B1A94A8B100E895FE /* GuildViewController.m in Sources */,
+				20408AA01ACE9A22007537E8 /* ContractHorizontalScroller.m in Sources */,
 				202831F11AB30ECA00C65D98 /* NSMutableArray+FoundGuild.m in Sources */,
 				20D4BC2A1AA6E753004EB2AD /* ModelPrivacyPolicy.m in Sources */,
 				20D4BC661AA76392004EB2AD /* UserPasswordChangeViewController.m in Sources */,

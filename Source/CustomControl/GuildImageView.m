@@ -65,14 +65,13 @@
     imgSlider.backgroundColor=[UIColor colorWithRed:24.0f/255.0f green:63.0f/255.0f blue:120.0f/255.0f alpha:1.0f];
 }
 
+-(void)setSliderColor:(UIColor *)color
+{
+    imgSlider.backgroundColor=color;
+}
+
 -(void)setPercentage:(NSInteger)percentage
 {
-//    CGFloat width=(self.frame.size.width*percentage)/100;
-//    [UIView animateWithDuration:0.3 animations:^{
-//        imgSlider.frame=CGRectMake(0, 0, width, self.frame.size.height);
-//        NSLog(@"imgSlider Frame = %@",NSStringFromCGRect(imgSlider.frame));
-//    }];
-//    NSLog(@"imgMain Frame = %@",NSStringFromCGRect(self.frame));
     
     UIImageView *img=nil;
     if (self.subviews.count>0) {

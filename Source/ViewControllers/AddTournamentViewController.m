@@ -41,6 +41,7 @@
 @end
 
 @implementation AddTournamentViewController
+@synthesize tournamentCategory;
 
 - (void)viewDidLoad {
     [super viewDidLoad];

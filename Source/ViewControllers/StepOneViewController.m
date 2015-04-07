@@ -113,7 +113,7 @@
 }
 -(IBAction)skipButtonTapped:(id)sender{
     GuildViewController *master  = [[GuildViewController alloc] initWithNibName:@"GuildViewController" bundle:nil];
-    [self.navigationController pushViewController:master animated:YES];
+    [self.navigationController pushViewController:master animated:NO];
 }
 - (BOOL)prefersStatusBarHidden {
     return YES;

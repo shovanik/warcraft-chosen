@@ -12,4 +12,6 @@
 
 -(void)setPercentage:(NSInteger)percentage;
 
+-(void)setSliderColor:(UIColor *)color;
+
 @end

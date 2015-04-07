@@ -123,7 +123,7 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    [super viewDidAppear:animated];
+    //[super viewDidAppear:animated];
     if (self.isNetworkRechable) {
         [self loadAllGuildFromServer];
     }

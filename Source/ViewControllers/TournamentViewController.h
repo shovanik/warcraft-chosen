@@ -8,7 +8,7 @@
 
 #import "BaseViewController.h"
 
-@interface TournamentViewController : BaseViewController<UITableViewDelegate, UITableViewDataSource>
+@interface TournamentViewController : BaseViewController
 
 
 @end

@@ -8,6 +8,10 @@
 
 #import "BaseViewController.h"
 
+@class ModelTournamentCategory;
+
 @interface AddTournamentViewController : BaseViewController
+
+@property(strong,nonatomic) ModelTournamentCategory *tournamentCategory;
 
 @end

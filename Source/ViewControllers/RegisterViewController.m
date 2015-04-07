@@ -36,6 +36,9 @@ NSUserDefaults *pref;
     CGRect keyboardBounds;
     CGRect actuallRect ;
     NSString *genderString;
+    
+    
+    CGRect prevFrame;
 }
 
 
@@ -231,15 +234,12 @@ NSUserDefaults *pref;
 }
 -(IBAction)submitButtonTapped:(id)sender
 {
-    
     if (txtUserName.text.length == 0 || txtPassword.text.length == 0 || genderString.length == 0 || txtDOB == 0 || txtEmail.text.length == 0 )
     {
         [self alertStatus:@"All Fields are mandatory." :@"Registration Failed!"];
-        
     }
     else
     {
-        
         if(![self NSStringIsValidPassword:[txtPassword text]])
         {
             //[self alertStatus:@"Your password must contain at least one numeric number or one special character." :@"Registration Failed!"];
@@ -247,7 +247,6 @@ NSUserDefaults *pref;
         else if (![txtPassword.text isEqualToString:txtConfirmPassword.text]) {
             
             [self alertStatus:@"The password entered does not match the confirmation password." :@"Registration Failed!"];
-            
         }
         else if(![self NSStringIsValidEmail:[txtEmail text]])
         {
@@ -258,12 +257,8 @@ NSUserDefaults *pref;
             [self.view setUserInteractionEnabled:NO];
             [self.activityIndicatorView startAnimating];
             [self startLocationManager];
-            
-            
         }
     }
-    
-    
 }
 -(IBAction)dobButtonClicked:(id)sender;
 {
@@ -271,7 +266,18 @@ NSUserDefaults *pref;
     
     //  self.seletedDateButtonString = START_DATE_BUTTON_CLICKED_KEY;
     
+    
+    
     [self launchDatePicker];
+    
+    [self.view endEditing:YES];
+    
+    prevFrame=regContentView.frame;
+    [UIView animateWithDuration:0.2 animations:^{
+        regContentViewVerticalyCenter.constant=120.0f;
+    } completion:^(BOOL finished) {
+        
+    }];
     
     if ((txtDOB.text == nil) || ([txtDOB.text length] <= 0)) {
         
@@ -396,7 +402,11 @@ NSUserDefaults *pref;
     
 }
 -(void)assignmentStartDateDoneButtonTapped{
-    
+    [UIView animateWithDuration:0.2 animations:^{
+        regContentViewVerticalyCenter.constant=0.0f;
+    } completion:^(BOOL finished) {
+        
+    }];
     [datePickerEditView removeFromSuperview];
 }
 

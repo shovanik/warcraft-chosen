@@ -11,18 +11,25 @@
 #import "TournamentDetailsTableViewCell.h"
 #import "AddTournamentViewController.h"
 #import "SlideOutMenuViewController.h"
+#import "AttackViewController.h"
 
-@interface TournamentDetailsViewController ()<UITableViewDataSource, UITableViewDelegate>
+@interface TournamentDetailsViewController ()<UITableViewDataSource, UITableViewDelegate,CustomConfirmationViewControllerDelegate>
 {
      CGFloat _offset;
     IBOutlet UITableView *tblTournamentDetail;
     
     NSMutableArray *arrResponse;
+    CustomConfirmationViewController *confirmationDiagolueView;
 }
 
 @end
 
 @implementation TournamentDetailsViewController
+
+
+#pragma mark
+#pragma mark Initialization Method
+#pragma mark
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -80,6 +87,15 @@
     }];
 }
 
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark
+#pragma mark Table Delegate Method
+#pragma mark
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
     return arrResponse.count;
@@ -115,14 +131,41 @@
     cell.selectionStyle=UITableViewCellSelectionStyleNone;
     return cell;
 }
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    confirmationDiagolueView=[[CustomConfirmationViewController alloc] initWithNibName:@"CustomConfirmationViewController" bundle:nil];
+    confirmationDiagolueView.view.frame=[[UIScreen mainScreen] bounds];
+    [self.view addSubview:confirmationDiagolueView.view];
+    confirmationDiagolueView.delegate=self;
+}
+
+#pragma mark
+#pragma mark IBAction Method
+#pragma mark
+
 -(IBAction)addButtonTapped:(id)sender
 {
-    AddTournamentViewController *atVC  = [[AddTournamentViewController alloc] initWithNibName:@"AddTournamentViewController" bundle:nil];
-    [self.navigationController pushViewController:atVC animated:YES];
+    
 }
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+#pragma mark
+#pragma mark CustomConfirmationViewControllerDelegate Method
+#pragma mark
+
+-(void)didYesPressed
+{
+    NSLog(@"didYesPressed");
+    [confirmationDiagolueView.view removeFromSuperview];
+    AttackViewController *master=[[AttackViewController alloc] initWithNibName:@"AttackViewController" bundle:nil];
+    [self.navigationController pushViewController:master animated:YES];
 }
+
+-(void)didNoPressed
+{
+    NSLog(@"didNoPressed");
+    [confirmationDiagolueView.view removeFromSuperview];
+}
+
 
 @end

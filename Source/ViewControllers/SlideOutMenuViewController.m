@@ -12,8 +12,10 @@
 
 #import "WorldMapViewController.h"
 #import "GuildViewController.h"
-#import "TournamentViewController.h"
 #import "SettingsViewController.h"
+#import "TournamentHomeViewController.h"
+
+#import "ContractViewController.h"
 
 NSUserDefaults *pref;
 @interface SlideOutMenuViewController ()<UITableViewDataSource,UITableViewDelegate>
@@ -185,6 +187,12 @@ NSUserDefaults *pref;
 {
     if (self.delegate && [self.delegate respondsToSelector:@selector(didContractClicked)]) {
         [self.delegate didContractClicked];
+        
+        if ([self.delegate isKindOfClass:[BaseViewController class]]) {
+            BaseViewController *base=(BaseViewController*)self.delegate;
+            ContractViewController *master=[[ContractViewController alloc] initWithNibName:@"ContractViewController" bundle:nil];
+            [base.navigationController pushViewController:master animated:YES];
+        }
     }
 }
 -(void)btnTournamentClicked
@@ -194,7 +202,7 @@ NSUserDefaults *pref;
         
         if ([self.delegate isKindOfClass:[BaseViewController class]]) {
             BaseViewController *base=(BaseViewController*)self.delegate;
-            TournamentViewController *master=[[TournamentViewController alloc] initWithNibName:@"TournamentViewController" bundle:nil];
+            TournamentHomeViewController *master=[[TournamentHomeViewController alloc] initWithNibName:@"TournamentHomeViewController" bundle:nil];
             [base.navigationController pushViewController:master animated:YES];
         }
     }

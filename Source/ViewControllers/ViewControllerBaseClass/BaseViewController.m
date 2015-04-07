@@ -286,6 +286,7 @@
     NSLog(@"didGuildClicked");
     [self closeSlideMenu];
 }
+
 -(void)didContractClicked
 {
     NSLog(@"didContractClicked");

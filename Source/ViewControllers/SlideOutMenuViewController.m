@@ -17,6 +17,28 @@
 
 #import "ContractViewController.h"
 
+
+NSString static *arrImages[]={
+    [0]=@"world_map_icon.png",
+    [1]=@"guild_icon.png",
+    [2]=@"contract_icon.png",
+    [3]=@"tournameny_icon.png",
+    [4]=@"settings_icon.png",
+};
+
+NSString static *arrSelectionImages[]={
+    [0]=@"menu_button_1.png",
+    [1]=@"menu_button_2.png",
+};
+
+NSString static *arrContentText[]={
+    [0]=@"WORLD MAP",
+    [1]=@"GUILD",
+    [2]=@"CONTRACT",
+    [3]=@"TOURNAMENT",
+    [4]=@"SETTINGS",
+};
+
 NSUserDefaults *pref;
 @interface SlideOutMenuViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
@@ -31,8 +53,8 @@ NSUserDefaults *pref;
     IBOutlet UIButton *settingsButton;
     IBOutlet UITableView *menuTableview;
     
-    NSMutableArray *arrImage;
-
+    NSIndexPath *indexPathSelected;
+    NSMutableArray *arrAllIndexPath;
 }
 
 @end
@@ -45,6 +67,9 @@ NSUserDefaults *pref;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    arrAllIndexPath=[[NSMutableArray alloc] init];
+    
     guildButton.selected = NO;
     pref = [NSUserDefaults standardUserDefaults];
 
@@ -54,10 +79,6 @@ NSUserDefaults *pref;
     trainingTimeLeftValueLabel.font = [UIFont fontWithName:@"Garamond" size:13];
     lastBatttleLabel.font = [UIFont fontWithName:@"Garamond" size:12];
     lastBatttValueleLabel.font = [UIFont fontWithName:@"Garamond" size:13];
-    
-    arrImage=[[NSMutableArray alloc] initWithObjects:[UIImage imageNamed:@"smenu_map_normal_iphn6@2x.png"],[UIImage imageNamed:@"smenu_guild_normal_iphn6@2x.png"],[UIImage imageNamed:@"smenu_contract_normal_iph6@2x.png"],[UIImage imageNamed:@"smenu_tournament_normal_iphn6@2x.png"],[UIImage imageNamed:@"smenu_settings_normal_iphn6@2x.png"], nil];
-    NSLog(@"arrImage count = %ld",(unsigned long)arrImage.count);
-    
     
     if (___isIphone4_4s) {
         NSLog(@"iPhone4");
@@ -99,7 +120,7 @@ NSUserDefaults *pref;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return arrImage.count;
+    return 5;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -127,12 +148,39 @@ NSUserDefaults *pref;
         cell=[[[NSBundle mainBundle] loadNibNamed:@"SlideMenuTableViewCell" owner:self options:nil] objectAtIndex:0];
     }
     //[cell.btn setBackgroundImage:[arrImage objectAtIndex:indexPath.row] forState:UIControlStateNormal];
-    cell.imgBackGround.image=[arrImage objectAtIndex:indexPath.row];
+    
+    if (indexPathSelected==indexPath) {
+        cell.imgBackGround.image=[UIImage imageNamed:arrSelectionImages[1]];
+    }else{
+        cell.imgBackGround.image=[UIImage imageNamed:arrSelectionImages[0]];
+    }
+    
+    cell.imgIcon.image=[UIImage imageNamed:arrImages[indexPath.row]];
+    cell.lblText.text=arrContentText[indexPath.row];
+    
+    
+    if (___isIphone4_4s) {
+        cell.consImageHeight.constant=25.0f;
+    }
+    else if (___isIphone5_5s){
+        cell.consImageHeight.constant=30.0f;
+    }
+    else if (___isIphone6){
+        cell.consImageHeight.constant=38.0f;
+    }
+    else if (___isIphone6Plus){
+        cell.consImageHeight.constant=40.0f;
+    }
+    
+    cell.selectionStyle=UITableViewCellSelectionStyleNone;
+    cell.backgroundColor=cell.contentView.backgroundColor=[UIColor clearColor];
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    indexPathSelected=indexPath;
+    [tableView reloadData];
     switch (indexPath.row) {
         case 0:
             [self btnWorldMapClicked];

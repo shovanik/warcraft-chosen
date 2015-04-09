@@ -11,5 +11,8 @@
 @interface SlideMenuTableViewCell : UITableViewCell
 
 @property(strong,nonatomic) IBOutlet UIImageView *imgBackGround;
+@property(strong,nonatomic) IBOutlet UIImageView *imgIcon;
+@property(strong,nonatomic) IBOutlet UILabel *lblText;
+@property(strong,nonatomic) IBOutlet NSLayoutConstraint *consImageHeight;
 
 @end

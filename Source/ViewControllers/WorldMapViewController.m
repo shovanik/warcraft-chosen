@@ -117,7 +117,6 @@ NSUserDefaults *pref;
              [wrldMapView regionThatFits:region];
              [wrldMapView setRegion:region animated:YES];
              [wrldMapView setShowsUserLocation:YES];
-             
              [self callUpdateUserWebServiceWithPlaceMarks:placemarks];
          }
      }];
@@ -182,7 +181,7 @@ NSUserDefaults *pref;
     NSLog(@"%@",[view class]);
     if ([view isKindOfClass:[CustomMapAnnotationView class]]) {
         CustomMapAnnotationView *customAnnotation=(CustomMapAnnotationView*)view;
-        NSLog(@"Tag = %d",customAnnotation.tag);
+        NSLog(@"Tag = %ld",(long)customAnnotation.tag);
         if (annotationViewController.isCallOutOpen) {
             UIView *vw=annotationViewController.view;
             annotationViewController.isCallOutOpen=NO;

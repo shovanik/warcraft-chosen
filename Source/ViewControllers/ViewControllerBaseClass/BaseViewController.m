@@ -163,6 +163,18 @@
     };
     
     [self.internetConnectionReach startNotifier];
+    
+    
+#pragma mark
+#pragma mark Shadow Set
+#pragma mark
+    
+    CALayer *layer = self.navigationController.view.layer;
+    layer.shadowOffset = CGSizeMake(1, 1);
+    layer.shadowColor = [[UIColor darkTextColor] CGColor];
+    layer.shadowRadius = 10.0f;
+    layer.shadowOpacity = 1.0f;
+    layer.shadowPath = [[UIBezierPath bezierPathWithRect:layer.bounds] CGPath];
 }
 
 - (void)didReceiveMemoryWarning {

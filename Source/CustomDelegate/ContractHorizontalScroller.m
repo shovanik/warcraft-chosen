@@ -47,7 +47,6 @@
         UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scrollerTapped:)];
         [scroller addGestureRecognizer:tapRecognizer];
         [scroller setBounces:NO];
-        
     }
     return self;
 }

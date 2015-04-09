@@ -12,9 +12,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SelectRadiusViewController">
             <connections>
                 <outlet property="addressLabel" destination="jnE-aj-8PP" id="oKG-Bs-oKd"/>
+                <outlet property="mapRadious" destination="oRh-7Y-YP5" id="6D0-fc-5ck"/>
                 <outlet property="playeNameLabel" destination="Tmy-Ev-Diz" id="1H5-M9-iYc"/>
                 <outlet property="radiousButton" destination="tXU-6a-Wy3" id="kR9-lq-ocD"/>
-                <outlet property="radiousMapView" destination="oRh-7Y-YP5" id="gBz-cj-5W9"/>
                 <outlet property="radiousPicker" destination="GKl-af-6BR" id="Goc-CJ-A41"/>
                 <outlet property="radiousToolBar" destination="dQO-Aq-MbO" id="E2p-mQ-91A"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -43,11 +43,14 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KyW-gs-WQN" userLabel="Button - Slide Menu Custome">
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KyW-gs-WQN" userLabel="Button - Slide Menu Custome">
                     <rect key="frame" x="-1" y="-1" width="61" height="54"/>
                     <state key="normal">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="0.0" y="0.0" width="59" height="54"/>
+                    </variation>
                     <connections>
                         <action selector="btnMenuTapped:" destination="-1" eventType="touchUpInside" id="C9O-Dq-pFq"/>
                     </connections>
@@ -136,7 +139,7 @@
                                 <action selector="radiousButtonTapped:" destination="-1" eventType="touchUpInside" id="jCd-en-dTZ"/>
                             </connections>
                         </button>
-                        <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="oRh-7Y-YP5">
+                        <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oRh-7Y-YP5">
                             <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                             <connections>
                                 <outlet property="delegate" destination="-1" id="uD8-dv-aaE"/>
@@ -241,7 +244,6 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="Fkz-Oc-qIi" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="01U-HK-3uU"/>
-                <constraint firstItem="KyW-gs-WQN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="0oI-6y-ESP"/>
                 <constraint firstItem="yiJ-wq-Vmn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="17" id="34k-t8-M81"/>
                 <constraint firstAttribute="bottom" secondItem="Zf7-8M-r3l" secondAttribute="bottom" id="4cq-vq-D9a"/>
                 <constraint firstAttribute="trailing" secondItem="dQO-Aq-MbO" secondAttribute="trailing" id="6b4-ca-ljB"/>
@@ -262,7 +264,6 @@
                 <constraint firstItem="GKl-af-6BR" firstAttribute="top" secondItem="dQO-Aq-MbO" secondAttribute="bottom" id="opb-Bj-jDE"/>
                 <constraint firstItem="Fkz-Oc-qIi" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="rog-Bd-xil"/>
                 <constraint firstAttribute="trailing" secondItem="Zf7-8M-r3l" secondAttribute="trailing" id="tzb-o9-udl"/>
-                <constraint firstItem="KyW-gs-WQN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="yuG-NU-Hf0"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <variation key="default">
@@ -282,18 +283,16 @@
                     <exclude reference="01U-HK-3uU"/>
                     <exclude reference="A7y-bP-9Jz"/>
                     <exclude reference="rog-Bd-xil"/>
-                    <exclude reference="4cq-vq-D9a"/>
-                    <exclude reference="TY9-1C-8E7"/>
-                    <exclude reference="eQf-Hk-YUA"/>
-                    <exclude reference="tzb-o9-udl"/>
-                    <exclude reference="0oI-6y-ESP"/>
-                    <exclude reference="yuG-NU-Hf0"/>
                     <exclude reference="34k-t8-M81"/>
                     <exclude reference="jvq-0l-eMs"/>
                     <exclude reference="N6a-Sc-uOs"/>
                     <exclude reference="UjR-5v-hkC"/>
                     <exclude reference="FZ1-Zl-rHy"/>
                     <exclude reference="hnL-5T-Rtl"/>
+                    <exclude reference="4cq-vq-D9a"/>
+                    <exclude reference="TY9-1C-8E7"/>
+                    <exclude reference="eQf-Hk-YUA"/>
+                    <exclude reference="tzb-o9-udl"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=compact">
@@ -313,18 +312,16 @@
                     <include reference="01U-HK-3uU"/>
                     <include reference="A7y-bP-9Jz"/>
                     <include reference="rog-Bd-xil"/>
-                    <include reference="4cq-vq-D9a"/>
-                    <include reference="TY9-1C-8E7"/>
-                    <include reference="eQf-Hk-YUA"/>
-                    <include reference="tzb-o9-udl"/>
-                    <include reference="0oI-6y-ESP"/>
-                    <include reference="yuG-NU-Hf0"/>
                     <include reference="34k-t8-M81"/>
                     <include reference="jvq-0l-eMs"/>
                     <include reference="N6a-Sc-uOs"/>
                     <include reference="UjR-5v-hkC"/>
                     <include reference="FZ1-Zl-rHy"/>
                     <include reference="hnL-5T-Rtl"/>
+                    <include reference="4cq-vq-D9a"/>
+                    <include reference="TY9-1C-8E7"/>
+                    <include reference="eQf-Hk-YUA"/>
+                    <include reference="tzb-o9-udl"/>
                 </mask>
             </variation>
         </view>

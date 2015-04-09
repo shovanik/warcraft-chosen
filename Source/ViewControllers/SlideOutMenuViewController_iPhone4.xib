@@ -17,7 +17,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menu_bg_iphn4.png" translatesAutoresizingMaskIntoConstraints="NO" id="oro-Sg-C4k">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menu_bg_iphn6@2x.png" translatesAutoresizingMaskIntoConstraints="NO" id="oro-Sg-C4k">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smenu_details_bg_iphn4.png" translatesAutoresizingMaskIntoConstraints="NO" id="1Ma-Dg-pa0">
@@ -33,7 +33,7 @@
                         <constraint firstAttribute="height" constant="115" id="PQS-GI-h0M"/>
                     </constraints>
                 </imageView>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="bCb-4r-HPh">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" bouncesZoom="NO" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="bCb-4r-HPh">
                     <rect key="frame" x="0.0" y="146" width="320" height="286"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <connections>
@@ -121,7 +121,7 @@
     </objects>
     <resources>
         <image name="cpr_iphn4.png" width="320" height="49"/>
-        <image name="menu_bg_iphn4.png" width="320" height="480"/>
+        <image name="menu_bg_iphn6@2x.png" width="320" height="480"/>
         <image name="smenu_details_bg_iphn4.png" width="320" height="146"/>
         <image name="smenu_propic_iphn4.png" width="73" height="115"/>
     </resources>

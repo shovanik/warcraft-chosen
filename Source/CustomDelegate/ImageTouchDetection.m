@@ -7,6 +7,14 @@
 //
 
 #import "ImageTouchDetection.h"
+#import "ImageViewExplotion.h"
+
+@interface ImageTouchDetection ()
+{
+    ImageViewExplotion *imgExplotion;
+}
+
+@end
 
 @implementation ImageTouchDetection
 
@@ -50,13 +58,108 @@
     return self;
 }
 
+
+
 -(void)initialize
 {
+    imgExplotion=[[ImageViewExplotion alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+    imgExplotion.animationImages=[NSArray arrayWithObjects:
+                                  [UIImage imageNamed:@"target1.png"],
+                                  [UIImage imageNamed:@"target2.png"],
+                                  [UIImage imageNamed:@"target3.png"],
+                                  [UIImage imageNamed:@"target4.png"],
+                                  nil];
+    imgExplotion.animationDuration=0.3;
+    imgExplotion.animationRepeatCount=0;
+    //imgExplotion.backgroundColor=[UIColor redColor];
+    
+    
     UITapGestureRecognizer * tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageTapped:)];
     [self addGestureRecognizer:tapRecognizer];
     self.userInteractionEnabled = YES;
 }
 
+-(void)startAnimator
+{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(didAnimationStarted)]) {
+        [self animator];
+        [self.delegate didAnimationStarted];
+    }
+    
+}
+
+
+-(void)animator
+{
+    UIGraphicsBeginImageContext(self.bounds.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    [self.layer renderInContext:context];
+    
+    int bpr =(int) CGBitmapContextGetBytesPerRow(context);
+    unsigned char * data = CGBitmapContextGetData(context);
+    
+    while (1)
+    {
+        int randomX = arc4random()%(u_int32_t)self.frame.size.width;
+        int randomY = arc4random()%(u_int32_t)self.frame.size.height;
+        CGPoint myPoint=CGPointMake(randomX, randomY);
+        
+        int offset = bpr*round(myPoint.y) + 4*round(myPoint.x);
+        int blue = data[offset+0];
+        int green = data[offset+1];
+        int red = data[offset+2];
+        int alpha =  data[offset+3];
+        
+        CGFloat derivedAlpha=alpha/255.0f;
+        
+        NSLog(@"%d %d %d %d %f", alpha, red, green, blue,derivedAlpha);
+        if (alpha > 0)
+        {
+            imgExplotion.center =myPoint;
+            [self addSubview:imgExplotion];
+            [imgExplotion startAnimating];
+            return;
+        }
+        else
+        {
+            continue;
+        }
+    }
+}
+
+-(void)didReceiveLocalNotifications
+{
+    
+}
+
+-(void)stopAnimator
+{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(didAnimationStopped)]) {
+        [imgExplotion stopAnimating];
+        [imgExplotion removeFromSuperview];
+        [self.delegate didAnimationStopped];
+    }
+}
+
+-(void)imageTapped:(UITapGestureRecognizer *)recognizer
+{
+    CGPoint point = [recognizer locationInView:self];
+    NSLog(@"Location = %@",NSStringFromCGPoint(point));
+    if (CGRectContainsPoint(imgExplotion.frame, point)) {
+        NSLog(@"Contain Point");
+        if (self.delegate && [self.delegate respondsToSelector:@selector(didHitTarget)]) {
+            [self.delegate didHitTarget];
+        }
+    }else{
+        NSLog(@"Not Contain Point");
+        if (self.delegate && [self.delegate respondsToSelector:@selector(didMissTarget)]) {
+            [self.delegate didMissTarget];
+        }
+    }
+}
+
+
+/*
 -(void)imageTapped:(UITapGestureRecognizer *)recognizer
 {
     CGPoint point = [recognizer locationInView:self];
@@ -94,7 +197,6 @@
     
     UIGraphicsEndImageContext();
 }
-
-
-
+*/
+ 
 @end

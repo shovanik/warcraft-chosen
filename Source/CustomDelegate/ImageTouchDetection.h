@@ -10,10 +10,19 @@
 
 @protocol ImageTouchDetectionDelegate <NSObject>
 
+@required
+
+-(NSTimeInterval)willShowExplotionForSecond;
+
 @optional
 
 -(void)didClickedOnImageWithLocation:(CGPoint)touchLocation RGB:(UIColor*)color Alpha:(CGFloat)alpha;
 -(void)didClickedBlankPortion;
+-(void)didAnimationStopped;
+-(void)didAnimationStarted;
+
+-(void)didHitTarget;
+-(void)didMissTarget;
 
 
 @end
@@ -21,5 +30,9 @@
 @interface ImageTouchDetection : UIImageView
 
 @property(weak,nonatomic) id <ImageTouchDetectionDelegate> delegate;
+
+
+-(void)startAnimator;
+-(void)stopAnimator;
 
 @end

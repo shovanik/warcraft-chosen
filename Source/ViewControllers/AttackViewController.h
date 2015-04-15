@@ -10,4 +10,6 @@
 
 @interface AttackViewController : BaseViewController
 
+-(void)didReceiveLocalNotifications:(UILocalNotification *)notification;
+
 @end

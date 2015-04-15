@@ -14,6 +14,7 @@
 #import <Social/Social.h>
 #import "LandingViewController.h"
 #import "SlideOutMenuViewController.h"
+#import "AttackViewController.h"
 
 #import "STTwitter.h"
 
@@ -61,6 +62,10 @@
     [FBProfilePictureView class];
     
     //[self lastSeenCalling];
+    
+    if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]){
+        [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
+    }
     
     return YES;
 }
@@ -118,6 +123,21 @@
     }
     
     return md;
+}
+
+-(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
+{
+    if ([[UIApplication sharedApplication].keyWindow.rootViewController isKindOfClass:[UINavigationController class]]) {
+        UINavigationController *nav=(UINavigationController*)[UIApplication sharedApplication].keyWindow.rootViewController;
+        UIViewController * controller=[nav topViewController];
+        if ([controller isKindOfClass:[AttackViewController class]]) {
+            AttackViewController *master=(AttackViewController*)controller;
+            [master didReceiveLocalNotifications:notification];
+        }
+        NSLog(@"%@",[controller class]);
+    }else{
+        NSLog(@"dsfddw");
+    }
 }
 
 

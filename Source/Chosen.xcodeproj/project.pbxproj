@@ -98,6 +98,7 @@
 		208FBE3A1AB088DA00B391DF /* three_star.png in Resources */ = {isa = PBXBuildFile; fileRef = 208FBE351AB088DA00B391DF /* three_star.png */; };
 		208FBE3B1AB088DA00B391DF /* two_star.png in Resources */ = {isa = PBXBuildFile; fileRef = 208FBE361AB088DA00B391DF /* two_star.png */; };
 		208FBE3D1AB0896400B391DF /* zero_star.png in Resources */ = {isa = PBXBuildFile; fileRef = 208FBE3C1AB0896400B391DF /* zero_star.png */; };
+		20B24BB61ADE320C000452CE /* TimerLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 20B24BB51ADE320C000452CE /* TimerLabel.m */; };
 		20B9ECE71AA4B1B400400626 /* ModelAvtarImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 20B9ECE61AA4B1B400400626 /* ModelAvtarImage.m */; };
 		20BAC3981A94A87B00E895FE /* DataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BAC3971A94A87B00E895FE /* DataClass.m */; };
 		20BAC3B71A94A88400E895FE /* NSDateFormatter+STTwitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BAC39B1A94A88400E895FE /* NSDateFormatter+STTwitter.m */; };
@@ -462,6 +463,8 @@
 		208FBE351AB088DA00B391DF /* three_star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = three_star.png; sourceTree = "<group>"; };
 		208FBE361AB088DA00B391DF /* two_star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = two_star.png; sourceTree = "<group>"; };
 		208FBE3C1AB0896400B391DF /* zero_star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zero_star.png; sourceTree = "<group>"; };
+		20B24BB41ADE320C000452CE /* TimerLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimerLabel.h; path = CustomDelegate/TimerLabel.h; sourceTree = "<group>"; };
+		20B24BB51ADE320C000452CE /* TimerLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimerLabel.m; path = CustomDelegate/TimerLabel.m; sourceTree = "<group>"; };
 		20B9ECE51AA4B1B400400626 /* ModelAvtarImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelAvtarImage.h; sourceTree = "<group>"; };
 		20B9ECE61AA4B1B400400626 /* ModelAvtarImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelAvtarImage.m; sourceTree = "<group>"; };
 		20BAC3961A94A87B00E895FE /* DataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataClass.h; sourceTree = "<group>"; };
@@ -943,6 +946,8 @@
 			children = (
 				20408AE71ACEE6AC007537E8 /* ImageTouchDetection.h */,
 				20408AE81ACEE6AC007537E8 /* ImageTouchDetection.m */,
+				20B24BB41ADE320C000452CE /* TimerLabel.h */,
+				20B24BB51ADE320C000452CE /* TimerLabel.m */,
 				20408A9E1ACE9A22007537E8 /* ContractHorizontalScroller.h */,
 				20408A9F1ACE9A22007537E8 /* ContractHorizontalScroller.m */,
 				20BAC3F21A94A8B100E895FE /* SlideOutMenuViewController.h */,
@@ -2171,6 +2176,7 @@
 				20BAC40B1A94A8B100E895FE /* GuildViewController.m in Sources */,
 				20408AA01ACE9A22007537E8 /* ContractHorizontalScroller.m in Sources */,
 				202831F11AB30ECA00C65D98 /* NSMutableArray+FoundGuild.m in Sources */,
+				20B24BB61ADE320C000452CE /* TimerLabel.m in Sources */,
 				20D4BC2A1AA6E753004EB2AD /* ModelPrivacyPolicy.m in Sources */,
 				20D4BC661AA76392004EB2AD /* UserPasswordChangeViewController.m in Sources */,
 				201A5E5F1A95DBCF0052E53B /* BaseViewController.m in Sources */,

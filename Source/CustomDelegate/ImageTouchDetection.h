@@ -16,23 +16,33 @@
 
 @optional
 
--(void)didClickedOnImageWithLocation:(CGPoint)touchLocation RGB:(UIColor*)color Alpha:(CGFloat)alpha;
--(void)didClickedBlankPortion;
--(void)didAnimationStopped;
--(void)didAnimationStarted;
+-(void)didAnimationStoppedOwn;
+-(void)didAnimationStartedOwn;
 
--(void)didHitTarget;
--(void)didMissTarget;
+-(void)didHitTargetOwn;
+-(void)didMissTargetOwn;
 
+-(void)didAnimationStartedRival;
+-(void)didAnimationStoppedRival;
 
 @end
+
+
+
+
+
+
+
 
 @interface ImageTouchDetection : UIImageView
 
 @property(weak,nonatomic) id <ImageTouchDetectionDelegate> delegate;
 
 
--(void)startAnimator;
--(void)stopAnimator;
+-(void)startAnimatorOwn;
+-(void)stopAnimatorOwn;
+
+-(void)startAnimationRivalAtPoint:(CGPoint)point;
+-(void)stopAnimationRival;
 
 @end

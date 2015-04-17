@@ -14,6 +14,7 @@
 
 @implementation AnnotationViewController
 
+
 -(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     if (self=[super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
@@ -32,14 +33,18 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(IBAction)btnClosePressed:(id)sender
+{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(didAnnonationClosePressed)]) {
+        [self.delegate didAnnonationClosePressed];
+    }
 }
-*/
+-(IBAction)btnAttackPressed:(id)sender;
+{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(didAnnonationAttackPressedWithUser:)]) {
+        [self.delegate didAnnonationAttackPressedWithUser:[self.delegate selectedUser]];
+    }
+}
+
 
 @end

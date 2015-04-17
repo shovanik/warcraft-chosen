@@ -94,7 +94,7 @@
                     <rect key="frame" x="0.0" y="120" width="320" height="448"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DO7-0h-unb">
-                    <rect key="frame" x="8" y="90" width="38" height="38"/>
+                    <rect key="frame" x="8" y="98" width="28" height="23"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="DO7-0h-unb" secondAttribute="height" multiplier="13:19" constant="12" id="czC-Ax-N01"/>
@@ -204,7 +204,7 @@
                 <constraint firstItem="ckk-Xz-hGM" firstAttribute="bottom" secondItem="1Sb-Lc-K3s" secondAttribute="bottom" constant="-1" id="mxq-Tr-CiW"/>
                 <constraint firstItem="rgJ-GS-tQf" firstAttribute="top" secondItem="7AM-8J-i9X" secondAttribute="top" id="oiQ-60-Cys"/>
                 <constraint firstItem="XNv-be-vpk" firstAttribute="top" secondItem="h7w-7c-tWj" secondAttribute="top" constant="3" id="sAv-tu-QZe"/>
-                <constraint firstItem="DO7-0h-unb" firstAttribute="trailing" secondItem="oDs-7U-ISB" secondAttribute="leading" constant="-8" id="sYx-5p-Oot"/>
+                <constraint firstItem="DO7-0h-unb" firstAttribute="trailing" secondItem="oDs-7U-ISB" secondAttribute="leading" constant="-18" id="sYx-5p-Oot"/>
                 <constraint firstItem="oDs-7U-ISB" firstAttribute="trailing" secondItem="nZF-c2-Xk9" secondAttribute="trailing" constant="8" id="t7W-KF-qbi"/>
                 <constraint firstItem="DPU-1K-tvM" firstAttribute="height" secondItem="ahK-gt-oJH" secondAttribute="height" id="u9H-8O-WMZ"/>
                 <constraint firstItem="W47-Lj-HDb" firstAttribute="trailing" secondItem="DPU-1K-tvM" secondAttribute="trailing" id="wht-3j-ODe"/>
@@ -215,7 +215,7 @@
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-            <point key="canvasLocation" x="-192" y="302"/>
+            <point key="canvasLocation" x="-187" y="302"/>
         </view>
     </objects>
     <resources>

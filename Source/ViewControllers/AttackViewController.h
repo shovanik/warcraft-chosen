@@ -8,7 +8,12 @@
 
 #import "BaseViewController.h"
 
+@class ModelUser;
+
 @interface AttackViewController : BaseViewController
+
+
+@property(strong,nonatomic) ModelUser *userOponents;
 
 -(void)didReceiveLocalNotifications:(UILocalNotification *)notification;
 

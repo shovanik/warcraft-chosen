@@ -12,6 +12,7 @@
 @interface ImageTouchDetection ()
 {
     ImageViewExplotion *imgExplotion;
+    ImageViewExplotion *imgExplotionOponents;
 }
 
 @end
@@ -69,9 +70,20 @@
                                   [UIImage imageNamed:@"target3.png"],
                                   [UIImage imageNamed:@"target4.png"],
                                   nil];
-    imgExplotion.animationDuration=0.3;
+    imgExplotion.animationDuration=0.7;
     imgExplotion.animationRepeatCount=0;
     //imgExplotion.backgroundColor=[UIColor redColor];
+    
+    imgExplotionOponents=[[ImageViewExplotion alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+    imgExplotionOponents.animationImages=[NSArray arrayWithObjects:
+                                          [UIImage imageNamed:@"r1.png"],
+                                          [UIImage imageNamed:@"r2.png"],
+                                          [UIImage imageNamed:@"r3.png"],
+                                          [UIImage imageNamed:@"r4.png"],
+                                          [UIImage imageNamed:@"r5.png"],
+                                          nil];
+    imgExplotionOponents.animationDuration=0.7;
+    imgExplotionOponents.animationRepeatCount=0;
     
     
     UITapGestureRecognizer * tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageTapped:)];
@@ -79,16 +91,13 @@
     self.userInteractionEnabled = YES;
 }
 
--(void)startAnimator
+-(void)startAnimatorOwn
 {
-    if (self.delegate && [self.delegate respondsToSelector:@selector(didAnimationStarted)]) {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(didAnimationStartedOwn)]) {
         [self animator];
-        [self.delegate didAnimationStarted];
+        [self.delegate didAnimationStartedOwn];
     }
-    
 }
-
-
 -(void)animator
 {
     UIGraphicsBeginImageContext(self.bounds.size);
@@ -132,12 +141,12 @@
     
 }
 
--(void)stopAnimator
+-(void)stopAnimatorOwn
 {
-    if (self.delegate && [self.delegate respondsToSelector:@selector(didAnimationStopped)]) {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(didAnimationStoppedOwn)]) {
         [imgExplotion stopAnimating];
         [imgExplotion removeFromSuperview];
-        [self.delegate didAnimationStopped];
+        [self.delegate didAnimationStoppedOwn];
     }
 }
 
@@ -147,56 +156,34 @@
     NSLog(@"Location = %@",NSStringFromCGPoint(point));
     if (CGRectContainsPoint(imgExplotion.frame, point)) {
         NSLog(@"Contain Point");
-        if (self.delegate && [self.delegate respondsToSelector:@selector(didHitTarget)]) {
-            [self.delegate didHitTarget];
+        if (self.delegate && [self.delegate respondsToSelector:@selector(didHitTargetOwn)]) {
+            [self.delegate didHitTargetOwn];
         }
     }else{
         NSLog(@"Not Contain Point");
-        if (self.delegate && [self.delegate respondsToSelector:@selector(didMissTarget)]) {
-            [self.delegate didMissTarget];
+        if (self.delegate && [self.delegate respondsToSelector:@selector(didMissTargetOwn)]) {
+            [self.delegate didMissTargetOwn];
         }
     }
 }
 
-
-/*
--(void)imageTapped:(UITapGestureRecognizer *)recognizer
+-(void)startAnimationRivalAtPoint:(CGPoint)point
 {
-    CGPoint point = [recognizer locationInView:self];
-    
-    UIGraphicsBeginImageContext(self.bounds.size);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    [self.layer renderInContext:context];
-    
-    int bpr =(int) CGBitmapContextGetBytesPerRow(context);
-    unsigned char * data = CGBitmapContextGetData(context);
-    if (data != NULL)
-    {
-        int offset = bpr*round(point.y) + 4*round(point.x);
-        int blue = data[offset+0];
-        int green = data[offset+1];
-        int red = data[offset+2];
-        int alpha =  data[offset+3];
-        
-        CGFloat derivedAlpha=alpha/255.0f;
-        
-        NSLog(@"%d %d %d %d %f", alpha, red, green, blue,derivedAlpha);
-        if (alpha == 0)
-        {
-            if (self.delegate && [self.delegate respondsToSelector:@selector(didClickedBlankPortion)]) {
-                [self.delegate didClickedBlankPortion];
-            }
-        }
-        else
-        {
-            if (self.delegate && [self.delegate respondsToSelector:@selector(didClickedOnImageWithLocation:RGB:Alpha:)]) {
-                [self.delegate didClickedOnImageWithLocation:point RGB:[UIColor colorWithRed:red/255.0f green:green/255.0f blue:blue/255.0f alpha:derivedAlpha] Alpha:alpha];
-            }
-        }
+    if (self.delegate && [self.delegate respondsToSelector:@selector(didAnimationStartedRival)]) {
+        [self.delegate didAnimationStartedRival];
     }
-    
-    UIGraphicsEndImageContext();
+    imgExplotionOponents.center=point;
+    [self addSubview:imgExplotionOponents];
+    [imgExplotionOponents startAnimating];
 }
-*/
+-(void)stopAnimationRival
+{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(didAnimationStoppedRival)]) {
+        [self.delegate didAnimationStoppedRival];
+    }
+    [imgExplotionOponents stopAnimating];
+    [imgExplotionOponents removeFromSuperview];
+}
+
  
 @end

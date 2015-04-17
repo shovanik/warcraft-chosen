@@ -198,6 +198,18 @@
         }else{
             self.isUseDefaultImage=YES;
         }
+        
+        if ([dictionary objectForKey:@"avatar_image"]&&!([[dictionary objectForKey:@"avatar_image"] isKindOfClass:[[NSNull null] class]])) {
+            self.strAvtarImage=[[dictionary objectForKey:@"avatar_image"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        }else{
+            self.strAvtarImage=@"";
+        }
+        
+        if ([dictionary objectForKey:@"level"]&&!([[dictionary objectForKey:@"level"] isKindOfClass:[[NSNull null] class]])) {
+            self.strLevel=[[dictionary objectForKey:@"level"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        }else{
+            self.strLevel=@"0";
+        }
     }
     
     if ([strDateOfBirth stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]].length>0) {

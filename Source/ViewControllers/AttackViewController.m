@@ -61,7 +61,7 @@
     }
     
     imgTimerLeft.animationImages=imgTimerRight.animationImages=arrImages;
-    imgTimerLeft.animationDuration=imgTimerRight.animationDuration=1.5;
+    imgTimerLeft.animationDuration=imgTimerRight.animationDuration=2.0;
     imgTimerLeft.animationRepeatCount=imgTimerRight.animationRepeatCount=0;
     [imgTimerLeft startAnimating];
     [imgTimerRight startAnimating];
@@ -105,21 +105,7 @@
     return 5.0;
 }
 
--(void)didAnimationStopped
-{
-    imgTimerLeft.hidden=YES;
-    imgTimerRight.hidden=NO;
-    [lblRight startCountDownTimer];
-    [self performSelector:@selector(startAnimation) withObject:nil afterDelay:[self willShowExplotionForSecond]];
-}
--(void)didAnimationStarted
-{
-    imgTimerLeft.hidden=NO;
-    imgTimerRight.hidden=YES;
-    [lblLeft startCountDownTimer];
-}
-
--(void)didHitTarget
+-(void)didHitTargetOwn
 {
     for (UILocalNotification *localNotification in [[UIApplication sharedApplication] scheduledLocalNotifications]) {
         
@@ -131,7 +117,7 @@
         }
     }
 }
--(void)didMissTarget
+-(void)didMissTargetOwn
 {
     for (UILocalNotification *localNotification in [[UIApplication sharedApplication] scheduledLocalNotifications]) {
         
@@ -158,19 +144,34 @@
 }
 
 #pragma mark
-#pragma mark HelperMethod
+#pragma mark Helper Method For Own
 #pragma mark
 
 -(void)startAnimation
 {
-    [imgMain startAnimator];
+    [imgMain startAnimatorOwn];
     [self scheduleLocalNotificationForStop];
 }
 
 -(void)stopAnimation
 {
-    [imgMain stopAnimator];
+    [imgMain stopAnimatorOwn];
 }
+
+
+-(void)didAnimationStoppedOwn
+{
+    //[self performSelector:@selector(startAnimation) withObject:nil afterDelay:[self willShowExplotionForSecond]];
+    
+    [self startRivalAnimation];
+}
+-(void)didAnimationStartedOwn
+{
+    imgTimerLeft.hidden=NO;
+    imgTimerRight.hidden=YES;
+    [lblLeft startCountDownTimer];
+}
+
 
 -(void)scheduleLocalNotificationForStop
 {
@@ -179,19 +180,92 @@
     localNotification.alertBody = @"My notification text";
     localNotification.timeZone = [NSTimeZone defaultTimeZone];
     
-    NSDictionary *dict=[[NSDictionary alloc] initWithObjects:@[user.strID] forKeys:@[@"UserID"]];
+    NSDictionary *dict=[[NSDictionary alloc] initWithObjects:@[user.strID,@"OWN"] forKeys:@[@"UserID",@"Player"]];
     localNotification.userInfo=dict;
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
 }
 
--(void)didReceiveLocalNotifications:(UILocalNotification *)notification
+#pragma mark
+#pragma mark Helper Method For Rival
+#pragma mark
+
+-(void)startRivalAnimation
 {
-    NSLog(@"UserInfo = %@",notification.userInfo);
-    if ([user.strID isEqualToString:[notification.userInfo objectForKey:@"UserID"]]) {
-        [self stopAnimation];
+    UIGraphicsBeginImageContext(imgMain.bounds.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    [imgMain.layer renderInContext:context];
+    
+    int bpr =(int) CGBitmapContextGetBytesPerRow(context);
+    unsigned char * data = CGBitmapContextGetData(context);
+    
+    while (1)
+    {
+        int randomX = arc4random()%(u_int32_t)imgMain.frame.size.width;
+        int randomY = arc4random()%(u_int32_t)imgMain.frame.size.height;
+        CGPoint myPoint=CGPointMake(randomX, randomY);
+        
+        int offset = bpr*round(myPoint.y) + 4*round(myPoint.x);
+        int blue = data[offset+0];
+        int green = data[offset+1];
+        int red = data[offset+2];
+        int alpha =  data[offset+3];
+        
+        CGFloat derivedAlpha=alpha/255.0f;
+        
+        NSLog(@"%d %d %d %d %f", alpha, red, green, blue,derivedAlpha);
+        if (alpha > 0)
+        {
+            [imgMain startAnimationRivalAtPoint:myPoint];
+            return;
+        }
+        else
+        {
+            continue;
+        }
     }
 }
 
+-(void)stopRivalAnimation
+{
+    [imgMain stopAnimationRival];
+}
+
+-(void)didAnimationStartedRival
+{
+    [self scheduleLocalNotificationForRivalToStop];
+}
+
+-(void)didAnimationStoppedRival
+{
+    [self startAnimation];
+}
+
+-(void)scheduleLocalNotificationForRivalToStop
+{
+    UILocalNotification* localNotification = [[UILocalNotification alloc] init];
+    localNotification.fireDate = [[NSDate date] dateByAddingTimeInterval:[self willShowExplotionForSecond]];
+    localNotification.alertBody = @"My notification text";
+    localNotification.timeZone = [NSTimeZone defaultTimeZone];
+    
+    NSDictionary *dict=[[NSDictionary alloc] initWithObjects:@[user.strID,@"RIVAL"] forKeys:@[@"UserID",@"Player"]];
+    localNotification.userInfo=dict;
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+}
+
+#pragma mark
+#pragma mark Did Recive Local Notification
+#pragma mark
+
+-(void)didReceiveLocalNotifications:(UILocalNotification *)notification
+{
+    NSLog(@"UserInfo = %@",notification.userInfo);
+    if ([user.strID isEqualToString:[notification.userInfo objectForKey:@"UserID"]] && [[notification.userInfo objectForKey:@"Player"] isEqualToString:@"OWN"]) {
+        [self stopAnimation];
+    }
+    if ([user.strID isEqualToString:[notification.userInfo objectForKey:@"UserID"]] && [[notification.userInfo objectForKey:@"Player"] isEqualToString:@"RIVAL"]) {
+        [self stopRivalAnimation];
+    }
+}
 
 
 @end

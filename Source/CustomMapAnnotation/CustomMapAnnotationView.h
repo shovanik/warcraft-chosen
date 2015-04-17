@@ -10,6 +10,7 @@
 #import "AnnotationViewController.h"
 #import "ModelUser.h"
 
+@class ModelUser;
 @interface CustomMapAnnotationView : MKPinAnnotationView<MKAnnotation>
 {
     NSString *_name;
@@ -18,12 +19,13 @@
 }
 
 @property (nonatomic, retain) NSString *name;
-@property (nonatomic, retain) NSString *description;
+//@property (nonatomic, retain) NSString *description;
 @property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
 
 @property(assign,nonatomic) BOOL showCustomCallout;
 @property(strong,nonatomic) UIView *calloutView;
 @property(strong,nonatomic) AnnotationViewController *annotationViewController;
+@property(strong,nonatomic) ModelUser *user;
 
 
 -(id)initWithAnnotation:(id<MKAnnotation>)annotation reuseIdentifier:(NSString *)reuseIdentifier;

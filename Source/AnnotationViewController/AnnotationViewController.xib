@@ -44,6 +44,9 @@
                     <variation key="heightClass=compact-widthClass=compact" fixedFrame="YES">
                         <rect key="frame" x="267" y="0.0" width="25" height="25"/>
                     </variation>
+                    <connections>
+                        <action selector="btnClosePressed:" destination="-1" eventType="touchUpInside" id="s8a-9W-lZ8"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ron Tinner" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mUX-j6-XGF">
                     <rect key="frame" x="66" y="24" width="226" height="21"/>
@@ -79,6 +82,9 @@
                     <variation key="heightClass=compact-widthClass=compact" fixedFrame="YES">
                         <rect key="frame" x="204" y="70" width="88" height="22"/>
                     </variation>
+                    <connections>
+                        <action selector="btnAttackPressed:" destination="-1" eventType="touchUpInside" id="id5-Zc-Itz"/>
+                    </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic.png" id="7eP-4B-qh9">
                     <rect key="frame" x="8" y="16" width="50" height="50"/>
@@ -93,7 +99,7 @@
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="458" y="362"/>
+            <point key="canvasLocation" x="272" y="330"/>
         </view>
     </objects>
     <resources>

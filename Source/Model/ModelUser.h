@@ -37,6 +37,8 @@
 @property(strong,nonatomic) NSString *strDefaultImage;
 @property(assign,nonatomic) BOOL isUseDefaultImage;
 @property(strong,nonatomic) NSString *strAge;
+@property(strong,nonatomic) NSString *strAvtarImage;
+@property(strong,nonatomic) NSString *strLevel;
 
 -(ModelUser*)initWithDictionary:(NSDictionary*)dictionary BaseURL:(NSString*)strBaseURL;
 

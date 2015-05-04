@@ -41,5 +41,6 @@
 @property(strong,nonatomic) NSString *strLevel;
 
 -(ModelUser*)initWithDictionary:(NSDictionary*)dictionary BaseURL:(NSString*)strBaseURL;
+-(id)initWithUser:(ModelUser*)myUser;
 
 @end

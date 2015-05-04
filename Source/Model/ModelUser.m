@@ -232,4 +232,37 @@
     return self;
 }
 
+-(id)initWithUser:(ModelUser*)myUser
+{
+    if (self=[super init]) {
+        self.strAddress=[NSString stringWithString:myUser.strAddress];
+        self.strAge=[NSString stringWithString:myUser.strAge];
+        self.strAvtarImage=[NSString stringWithString:myUser.strAvtarImage];
+        self.strCityName=[NSString stringWithString:myUser.strCityName];
+        self.strCountryName=[NSString stringWithString:myUser.strCountryName];
+        self.strCreated=[NSString stringWithString:myUser.strCreated];
+        self.strDateOfBirth=[NSString stringWithString:myUser.strDateOfBirth];
+        self.strDefaultImage=[NSString stringWithString:myUser.strDefaultImage];
+        self.strDefaultImageURL=[NSString stringWithString:myUser.strDefaultImageURL];
+        self.strEmailID=[NSString stringWithString:myUser.strEmailID];
+        self.strEmailVerificationKey=[NSString stringWithString:myUser.strEmailVerificationKey];
+        self.strFbID=[NSString stringWithString:myUser.strFbID];
+        self.strFirstName=[NSString stringWithString:myUser.strFirstName];
+        self.strGenderLong=[NSString stringWithString:myUser.strGenderLong];
+        self.strGenderShort=[NSString stringWithString:myUser.strGenderShort];
+        self.strID=[NSString stringWithString:myUser.strID];
+        self.strLastName=[NSString stringWithString:myUser.strLastName];
+        self.strLastSeen=[NSString stringWithString:myUser.strLastSeen];
+        self.strLatitude=[NSString stringWithString:myUser.strLatitude];
+        self.strLevel=[NSString stringWithString:myUser.strLevel];
+        self.strLongitude=[NSString stringWithString:myUser.strLongitude];
+        self.strOnline=[NSString stringWithString:myUser.strOnline];
+        self.strStateName=[NSString stringWithString:myUser.strStateName];
+        self.strStatus=[NSString stringWithString:myUser.strStatus];
+        self.strUpdated=[NSString stringWithString:myUser.strUpdated];
+        self.strUserName=[NSString stringWithString:myUser.strUserName];
+    }
+    return self;
+}
+
 @end

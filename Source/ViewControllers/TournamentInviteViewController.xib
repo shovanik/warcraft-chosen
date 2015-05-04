@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="LithosPro-Regular.ttf">
+            <string>LithosPro-Regular</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TournamentInviteViewController">
+            <connections>
+                <outlet property="view" destination="aCX-RV-4gY" id="iRz-Cf-eAa"/>
+                <outlet property="wrldMapView" destination="gX6-uP-PAF" id="3lW-y4-zEK"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="aCX-RV-4gY">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="gX6-uP-PAF">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="pkA-wg-AjH"/>
+                    </connections>
+                </mapView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navbg" translatesAutoresizingMaskIntoConstraints="NO" id="UFn-B0-PTJ">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bz0-j1-vJY" userLabel="Button - Slide menu">
+                    <rect key="frame" x="17" y="10" width="25" height="21"/>
+                    <state key="normal" backgroundImage="slidemenu">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I9z-qA-AYp" userLabel="Button - Slide Menu Custome">
+                    <rect key="frame" x="0.0" y="0.0" width="86" height="55"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="55" id="WrC-P4-uyX"/>
+                        <constraint firstAttribute="width" constant="86" id="baR-bH-1A3"/>
+                    </constraints>
+                    <state key="normal">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="btnMenuTapped:" destination="-1" eventType="touchUpInside" id="qag-2I-StE"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="INVITE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AzX-Vb-4Zj">
+                    <rect key="frame" x="219" y="18" width="163" height="24"/>
+                    <fontDescription key="fontDescription" name="LithosPro-Regular" family="Lithos Pro" pointSize="24"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="bz0-j1-vJY" firstAttribute="top" secondItem="aCX-RV-4gY" secondAttribute="top" constant="10" id="4iC-yS-FJQ"/>
+                <constraint firstItem="gX6-uP-PAF" firstAttribute="leading" secondItem="aCX-RV-4gY" secondAttribute="leading" id="6Mf-aa-lOW"/>
+                <constraint firstAttribute="bottom" secondItem="gX6-uP-PAF" secondAttribute="bottom" id="AcE-Z7-OML"/>
+                <constraint firstItem="I9z-qA-AYp" firstAttribute="leading" secondItem="aCX-RV-4gY" secondAttribute="leading" id="MsF-Lc-4gv"/>
+                <constraint firstItem="UFn-B0-PTJ" firstAttribute="leading" secondItem="aCX-RV-4gY" secondAttribute="leading" id="OPi-xL-rl3"/>
+                <constraint firstItem="AzX-Vb-4Zj" firstAttribute="centerY" secondItem="UFn-B0-PTJ" secondAttribute="centerY" constant="-3" id="Qfv-ic-qcL"/>
+                <constraint firstItem="gX6-uP-PAF" firstAttribute="top" secondItem="aCX-RV-4gY" secondAttribute="top" id="RqH-iR-QFg"/>
+                <constraint firstItem="I9z-qA-AYp" firstAttribute="top" secondItem="aCX-RV-4gY" secondAttribute="top" id="iZH-Kk-bM3"/>
+                <constraint firstAttribute="trailing" secondItem="UFn-B0-PTJ" secondAttribute="trailing" id="lnt-7Q-4IG"/>
+                <constraint firstItem="AzX-Vb-4Zj" firstAttribute="centerX" secondItem="UFn-B0-PTJ" secondAttribute="centerX" id="o3u-bb-sJO"/>
+                <constraint firstItem="UFn-B0-PTJ" firstAttribute="top" secondItem="aCX-RV-4gY" secondAttribute="top" id="p4Y-8g-uMD"/>
+                <constraint firstItem="bz0-j1-vJY" firstAttribute="leading" secondItem="aCX-RV-4gY" secondAttribute="leading" constant="17" id="w6v-Xc-W7c"/>
+                <constraint firstAttribute="trailing" secondItem="gX6-uP-PAF" secondAttribute="trailing" id="z8C-Wc-Clc"/>
+            </constraints>
+            <point key="canvasLocation" x="291" y="393"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="navbg" width="320" height="64"/>
+        <image name="slidemenu" width="25" height="21"/>
+    </resources>
+</document>

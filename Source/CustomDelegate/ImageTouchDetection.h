@@ -25,6 +25,9 @@
 -(void)didAnimationStartedRival;
 -(void)didAnimationStoppedRival;
 
+-(void)willImageStartLoading;
+-(void)didImageFinishedLoading;
+
 @end
 
 
@@ -37,6 +40,7 @@
 @interface ImageTouchDetection : UIImageView
 
 @property(weak,nonatomic) id <ImageTouchDetectionDelegate> delegate;
+@property(strong,nonatomic) NSData *imgData;
 
 
 -(void)startAnimatorOwn;
@@ -44,5 +48,7 @@
 
 -(void)startAnimationRivalAtPoint:(CGPoint)point;
 -(void)stopAnimationRival;
+
+-(void)loadImageFromURL:(NSURL*)imgURL;
 
 @end

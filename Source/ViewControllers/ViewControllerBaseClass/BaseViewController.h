@@ -25,7 +25,21 @@
 #import "GuildImageView.h"
 
 #import "NSMutableArray+FoundGuild.h"
+#import "NSMutableArray+FoundUser.h"
 #import "CustomConfirmationViewController.h"
+
+typedef enum : NSUInteger {
+    StartFight=0,
+    AcceptFight,
+    DeclineFight,
+} SocketEvent;
+
+
+NSString static *socketEvents[]={
+    [StartFight]=@"startFight",
+    [AcceptFight]=@"acceptFight",
+    [DeclineFight]=@"declineFight",
+};
 
 
 
@@ -49,8 +63,15 @@
 -(NSDictionary*)addressDictionaryForPlaceMark:(CLPlacemark *)placeMark;
 
 -(BOOL) NSStringIsValidEmail:(NSString *)checkString;
+
 -(void)openSlideMenu;
+
 -(void)closeSlideMenu;
+
 -(IBAction)btnMenuTapped:(id)sender;
+
+-(void)makeSocketConnectionWithUser:(ModelUser*)myUser;
+
+-(void)sendFightRequestToUser:(ModelUser*)userTo;
 
 @end

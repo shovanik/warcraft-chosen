@@ -16,12 +16,12 @@
 #import "SlideOutMenuViewController.h"
 #import "AttackViewController.h"
 
-#import "STTwitter.h"
+
+//#import "SRWebSocket.h"
 
 
 @interface AppDelegate ()
 {
-    
 }
 
 @end
@@ -66,6 +66,8 @@
     if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]){
         [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
     }
+    
+    
     
     return YES;
 }
@@ -194,6 +196,7 @@
         [self performSelector:@selector(lastSeenCalling) withObject:nil afterDelay:30.0];
     }
 }
+
 
 
 @end

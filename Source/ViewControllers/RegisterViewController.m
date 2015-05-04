@@ -282,7 +282,7 @@ NSUserDefaults *pref;
     if ((txtDOB.text == nil) || ([txtDOB.text length] <= 0)) {
         
         NSDateFormatter* df = [[NSDateFormatter alloc] init];
-        [df setDateFormat:@"MM-dd-yyyy"];
+        [df setDateFormat:@"yyyy-MM-dd"];
         
         NSString *formattedDateString  = [df stringFromDate:[NSDate date]];
         txtDOB.text = formattedDateString;
@@ -394,7 +394,7 @@ NSUserDefaults *pref;
 -(void)dateLabelChanged:(id)sender{
     NSDate *date = dateatePickerView.date;
     NSDateFormatter* df = [[NSDateFormatter alloc] init];
-    [df setDateFormat:@"dd-MM-yyyy"];
+    [df setDateFormat:@"yyyy-MM-dd"];
     NSString *formattedDateString = [df stringFromDate:date];
     txtDOB.text = formattedDateString;
     
@@ -418,6 +418,10 @@ NSUserDefaults *pref;
 {
     if (self.isNetworkRechable) {
         NSDictionary *dict=[self addressDictionaryForPlaceMark:placeMark];
+        
+        NSLog(@"Latitude = %@",[dict objectForKey:@"Latitude"]);
+        NSLog(@"Longitude = %@",[dict objectForKey:@"Longitude"]);
+        
         [[WebService service] callRegistrationServiceWithUserName:[txtUserName.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] Password:[txtPassword.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] DateOfBirth:[txtDOB.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] Email:[txtEmail.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] Gender:[genderString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] StateName:[dict objectForKey:@"State"] CountryName:[dict objectForKey:@"Country"] CityName:[dict objectForKey:@"City"] Latitude:[dict objectForKey:@"Latitude"] Longitude:[dict objectForKey:@"Longitude"] WithCompletionHandler:^(id result, BOOL isError, NSString *strMessage) {
             if (isError) {
                 [[[UIAlertView alloc] initWithTitle:@"Error" message:strMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];

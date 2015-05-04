@@ -18,6 +18,7 @@
 @end
 
 @implementation ImageTouchDetection
+@synthesize imgData;
 
 -(id)init
 {
@@ -89,6 +90,24 @@
     UITapGestureRecognizer * tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageTapped:)];
     [self addGestureRecognizer:tapRecognizer];
     self.userInteractionEnabled = YES;
+}
+
+-(void)loadImageFromURL:(NSURL*)imgURL
+{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(willImageStartLoading)]) {
+        [self.delegate willImageStartLoading];
+    }
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        imgData=[NSData dataWithContentsOfURL:imgURL];
+        if (imgData.length>0) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.image=[UIImage imageWithData:imgData];
+                if (self.delegate && [self.delegate respondsToSelector:@selector(didImageFinishedLoading)]) {
+                    [self.delegate didImageFinishedLoading];
+                }
+            });
+        }
+    });
 }
 
 -(void)startAnimatorOwn

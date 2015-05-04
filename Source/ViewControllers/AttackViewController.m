@@ -11,8 +11,11 @@
 #import "ImageTouchDetection.h"
 #import "ImageViewExplotion.h"
 #import "TimerLabel.h"
+#import "SocketIO.h"
+#import "SocketIOPacket.h"
+#import "WebServiceConstant.h"
 
-@interface AttackViewController ()<ImageTouchDetectionDelegate,TimerLabelDelegate>
+@interface AttackViewController ()<ImageTouchDetectionDelegate,TimerLabelDelegate,SocketIODelegate>
 {
     IBOutlet GuildImageView *imgSliderOwn;
     IBOutlet GuildImageView *imgSliderRival;
@@ -34,7 +37,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
     
     [imgSliderOwn setSliderColor:[UIColor blueColor]];
     [imgSliderRival setSliderColor:[UIColor redColor]];
@@ -66,6 +68,8 @@
     [imgTimerLeft startAnimating];
     [imgTimerRight startAnimating];
     imgTimerLeft.hidden=imgTimerRight.hidden=YES;
+    
+    [imgMain loadImageFromURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",__kBaseURL,userRival.strAvtarImage]]];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -128,6 +132,16 @@
             break;
         }
     }
+}
+
+-(void)willImageStartLoading
+{
+    [self.activityIndicatorView startAnimating];
+}
+
+-(void)didImageFinishedLoading
+{
+    [self.activityIndicatorView stopAnimating];
 }
 
 #pragma mark

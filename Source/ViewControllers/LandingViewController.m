@@ -15,8 +15,6 @@
 #import "DataClass.h"
 #import "StepOneViewController.h"
 #import "CustomMapAnnotationView.h"
-
-
 NSUserDefaults *sharedPref;
 
 @interface LandingViewController ()

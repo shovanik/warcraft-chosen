@@ -67,7 +67,7 @@ NSUserDefaults *pref;
     userNameTextField.textColor = color;
     passwordTextField.textColor = color;
     
-    userNameTextField.text = @"user";
+    userNameTextField.text = @"aa";
     passwordTextField.text = @"Password123";
 }
 - (BOOL)prefersStatusBarHidden {
@@ -134,7 +134,11 @@ NSUserDefaults *pref;
 
 -(void)didUpdateLocationUpdateWithPlacemark:(CLPlacemark *)placeMark
 {
+    
+
     NSDictionary *dict=[self addressDictionaryForPlaceMark:placeMark];
+    NSLog(@"Latitude = %@",[dict objectForKey:@"Latitude"]);
+    NSLog(@"Longitude = %@",[dict objectForKey:@"Longitude"]);
     [[WebService service] callLoginServiceWithUserName:[userNameTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] Password:[passwordTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] Latitude:[dict objectForKey:@"Latitude"] Longitude:[dict objectForKey:@"Longitude"] WithCompletionHandler:^(id result, BOOL isError, NSString *strMessage) {
         if (isError) {
             [[[UIAlertView alloc] initWithTitle:@"Error" message:strMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
@@ -188,6 +192,9 @@ NSUserDefaults *pref;
 -(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
     if (alertView.tag==1) {
+        
+        [self makeSocketConnectionWithUser:user];
+        
         StepOneViewController *sVC  = [[StepOneViewController alloc] initWithNibName:@"StepOneViewController" bundle:nil];
         [self.navigationController pushViewController:sVC animated:YES];
     }

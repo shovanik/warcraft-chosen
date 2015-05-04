@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
@@ -21,6 +21,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AttackViewController">
             <connections>
+                <outlet property="activityIndicatorView" destination="KTu-Zf-D5K" id="tMk-kQ-9xc"/>
                 <outlet property="imgMain" destination="G15-si-Rmf" id="cFU-np-NFd"/>
                 <outlet property="imgSliderOwn" destination="ahK-gt-oJH" id="nJh-u0-mB1"/>
                 <outlet property="imgSliderRival" destination="DPU-1K-tvM" id="FJg-q5-mBx"/>
@@ -90,7 +91,7 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DPU-1K-tvM" customClass="GuildImageView">
                     <rect key="frame" x="179" y="72" width="128" height="13"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Avatar_pic.png" translatesAutoresizingMaskIntoConstraints="NO" id="G15-si-Rmf" customClass="ImageTouchDetection">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="G15-si-Rmf" customClass="ImageTouchDetection">
                     <rect key="frame" x="0.0" y="120" width="320" height="448"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DO7-0h-unb">
@@ -153,6 +154,9 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="KTu-Zf-D5K">
+                    <rect key="frame" x="150" y="334" width="20" height="20"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
@@ -219,7 +223,6 @@
         </view>
     </objects>
     <resources>
-        <image name="Avatar_pic.png" width="1323" height="2247"/>
         <image name="avtar_icon.png" width="219" height="219"/>
         <image name="back" width="15" height="24"/>
         <image name="background" width="320" height="480"/>

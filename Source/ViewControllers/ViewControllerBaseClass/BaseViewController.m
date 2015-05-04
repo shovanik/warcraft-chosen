@@ -17,10 +17,21 @@
 #import "WorldMapViewController.h"
 
 #import "WebServiceConstant.h"
+#import "SocketService.h"
+#import "SocketIO.h"
+#import "SocketIOPacket.h"
+#import "AttackViewController.h"
 
-@interface BaseViewController ()<CustomLocationManagerDelegate,SlideOutMenuDelegate>
+@import AVKit;
+
+@interface BaseViewController ()<CustomLocationManagerDelegate,SlideOutMenuDelegate,SocketIODelegate>
 {
     CustomLocationManager *locationManager;
+    SocketService *socketService;
+    
+    
+    NSString *strSocketFromUID;
+    NSString *strSocketToUID;
 }
 
 @property(strong) Reachability * googleReach;
@@ -175,6 +186,7 @@
     layer.shadowRadius = 10.0f;
     layer.shadowOpacity = 1.0f;
     layer.shadowPath = [[UIBezierPath bezierPathWithRect:layer.bounds] CGPath];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -362,6 +374,149 @@
             self.isNetworkRechable=NO;
         }
     }
+}
+
+#pragma mark
+#pragma mark SocketConnection Helper Method
+#pragma mark
+
+-(void)makeSocketConnectionWithUser:(ModelUser*)myUser
+{
+    [[SocketService service] makeSocketConnectionWithUser:myUser Delegate:self];
+    userRival=[[ModelUser alloc] initWithUser:myUser];
+}
+
+-(void)sendFightRequestToUser:(ModelUser*)userTo
+{
+    NSLog(@"sendFightRequest");
+    [mySocket sendEvent:socketEvents[StartFight] withData:[NSDictionary dictionaryWithObjects:@[user.strID,userTo.strID,@"sendFightRequest"] forKeys:@[@"uid",@"fid",@"meta"]]];
+}
+
+-(void)acceptFightPressed
+{
+    NSLog(@"acceptFightPressed");
+    [mySocket sendEvent:socketEvents[AcceptFight] withData:[NSDictionary dictionaryWithObjects:@[user.strID,userRival.strID,socketEvents[AcceptFight]] forKeys:@[@"uid",@"fid",@"meta"]]];
+    AttackViewController *master=[[AttackViewController alloc] initWithNibName:@"AttackViewController" bundle:nil];
+    [self.navigationController pushViewController:master animated:YES];
+}
+
+-(void)declineFightPressed
+{
+    NSLog(@"declineFightPressed");
+    [mySocket sendEvent:socketEvents[DeclineFight] withData:[NSDictionary dictionaryWithObjects:@[user.strID,userRival.strID,socketEvents[DeclineFight]] forKeys:@[@"uid",@"fid",@"meta"]]];
+}
+
+#pragma mark
+# pragma mark socket.IO-objc delegate methods
+#pragma mark
+
+- (void) socketIODidConnect:(SocketIO *)socket
+{
+    NSLog(@"socket.io connected.");
+    mySocket=socket;
+}
+- (void) socketIO:(SocketIO *)socket didReceiveEvent:(SocketIOPacket *)packet
+{
+    //NSLog(@"didReceiveEvent()");
+    
+    NSLog(@"%@",packet.data);
+    NSLog(@"%@",packet.dataAsJSON);
+    
+    NSError *error;
+    NSDictionary *dict=packet.dataAsJSON;
+    
+    if ([[dict objectForKey:@"name"] isEqualToString:socketEvents[StartFight]]) {
+        NSLog(@"This is start Fight.");
+        
+        NSDictionary *dict=packet.dataAsJSON;
+        NSArray *arrTemp=[dict objectForKey:@"args"];
+        dict=arrTemp[0];
+        userRival=[allUser getUserForUserID:[dict objectForKey:@"uid"]];
+        
+        UIAlertController *alertController=[UIAlertController alertControllerWithTitle:@"Fight Request" message:@"You have received a fight request, please confirm whether you want to fight or not." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *actionStartFight=[UIAlertAction actionWithTitle:@"Start Fight" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            [alertController dismissViewControllerAnimated:YES completion:^{
+                
+            }];
+            [self acceptFightPressed];
+        }];
+        UIAlertAction *actionDeclineFight=[UIAlertAction actionWithTitle:@"Decline Fight" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            [alertController dismissViewControllerAnimated:YES completion:^{
+                
+            }];
+            [self declineFightPressed];
+        }];
+        [alertController addAction:actionStartFight];
+        [alertController addAction:actionDeclineFight];
+        [self presentViewController:alertController animated:YES completion:^{
+            
+        }];
+    }
+    else if ([[dict objectForKey:@"name"] isEqualToString:socketEvents[AcceptFight]]) {
+        NSLog(@"This is AcceptFight.");
+        
+        NSDictionary *dict=packet.dataAsJSON;
+        NSArray *arrTemp=[dict objectForKey:@"args"];
+        dict=arrTemp[0];
+        userRival=[allUser getUserForUserID:[dict objectForKey:@"uid"]];
+        AttackViewController *master=[[AttackViewController alloc] initWithNibName:@"AttackViewController" bundle:nil];
+        [self.navigationController pushViewController:master animated:YES];
+    }
+    else if ([[dict objectForKey:@"name"] isEqualToString:socketEvents[DeclineFight]]) {
+        NSLog(@"This is DeclineFight.");
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    if (error) {
+        [socket disconnectForced];
+    }else{
+        NSLog(@"%@",dict);
+        
+        
+    }
+    
+     /*test acknowledge
+        SocketIOCallback cb = ^(id argsData) {
+            NSDictionary *response = argsData;
+            // do something with response
+            NSLog(@"ack arrived: %@", response);
+    
+            // test forced disconnect
+            //[socketIO disconnectForced];
+        };
+        [socketIO sendMessage:@"hello back!" withAcknowledge:cb];
+    
+        // test different event data types
+        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+        [dict setObject:@"test1" forKey:@"key1"];
+        [dict setObject:@"test2" forKey:@"key2"];
+        [socketIO sendEvent:@"welcome" withData:dict];
+    
+        [socketIO sendEvent:@"welcome" withData:@"testWithString"];
+    
+        NSArray *arr = [NSArray arrayWithObjects:@"test1", @"test2", nil];
+        [socketIO sendEvent:@"welcome" withData:arr];*/
+}
+
+- (void) socketIO:(SocketIO *)socket onError:(NSError *)error
+{
+    if ([error code] == SocketIOUnauthorized) {
+        NSLog(@"not authorized");
+    } else {
+        NSLog(@"onError() %@", error);
+    }
+}
+
+
+- (void) socketIODidDisconnect:(SocketIO *)socket disconnectedWithError:(NSError *)error
+{
+    NSLog(@"socket.io disconnected. did error occur? %@", error);
 }
 
 @end

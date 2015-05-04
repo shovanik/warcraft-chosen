@@ -31,5 +31,8 @@
 #endif
 
 #import "SlideOutMenuViewController.h"
+#import "SocketIO.h"
 
 SlideOutMenuViewController *slideMenu;
+SocketIO *mySocket;
+ModelUser *userRival;

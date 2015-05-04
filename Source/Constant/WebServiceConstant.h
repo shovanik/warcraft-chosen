@@ -14,8 +14,8 @@
 
 
 
-//#define __kBaseURL @"http://192.168.0.1/Chosen/"
-#define __kBaseURL @"http://chosen.sulavmart.com/"
+#define __kBaseURL @"http://192.168.0.1/Chosen/"
+//#define __kBaseURL @"http://chosen.sulavmart.com/"
 
 //#define __kHostName @"192.168.0.1"
 #define __kHostName @"chosen.sulavmart.com"

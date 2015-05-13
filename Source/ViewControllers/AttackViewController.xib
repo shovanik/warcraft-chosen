@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
@@ -26,6 +26,8 @@
                 <outlet property="imgSliderOwn" destination="ahK-gt-oJH" id="nJh-u0-mB1"/>
                 <outlet property="imgSliderRival" destination="DPU-1K-tvM" id="FJg-q5-mBx"/>
                 <outlet property="imgTimerLeft" destination="DO7-0h-unb" id="KZI-Ne-Ka0"/>
+                <outlet property="lblLifeOther" destination="W47-Lj-HDb" id="KML-P6-SCf"/>
+                <outlet property="lblLifeOwn" destination="qzs-E7-wIh" id="wcw-aW-xb9"/>
                 <outlet property="view" destination="7AM-8J-i9X" id="vUk-oO-sbB"/>
             </connections>
         </placeholder>
@@ -108,7 +110,7 @@
                         <constraint firstAttribute="width" secondItem="oDs-7U-ISB" secondAttribute="height" multiplier="99:26" id="KJf-PE-8gX"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="85" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qzs-E7-wIh">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="qzs-E7-wIh">
                     <rect key="frame" x="8" y="64" width="42" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="eLF-Io-GaI"/>
@@ -118,7 +120,7 @@
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="85" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W47-Lj-HDb">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="W47-Lj-HDb">
                     <rect key="frame" x="265" y="64" width="42" height="30"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="42" id="8Oc-xA-lJL"/>

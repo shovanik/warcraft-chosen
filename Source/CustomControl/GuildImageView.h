@@ -10,8 +10,11 @@
 
 @interface GuildImageView : UIImageView
 
+@property(assign,nonatomic) CGFloat parcentage;
+
 -(void)setPercentage:(NSInteger)percentage;
 
 -(void)setSliderColor:(UIColor *)color;
+
 
 @end

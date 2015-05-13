@@ -85,7 +85,7 @@
         [UIView animateWithDuration:0.3 animations:^{
             img.frame=CGRectMake(0, 0, width, self.frame.size.height);
         } completion:^(BOOL finished) {
-            
+            self.parcentage=percentage;
         }];
     }
     

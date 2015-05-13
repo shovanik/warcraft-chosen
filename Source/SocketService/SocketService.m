@@ -49,5 +49,10 @@
     [socketIO connectToHost:@"106.187.95.65" onPort:8088 withParams:[NSDictionary dictionaryWithObjects:@[myUser.strID,myUser.strUserName] forKeys:@[@"uid",@"name"]]];//For remote Test
 }
 
+-(void)makeSocketDelegate:(id)myDelegate
+{
+    socketIO.delegate=myDelegate;
+}
+
 
 @end

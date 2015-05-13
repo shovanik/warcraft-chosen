@@ -8,6 +8,9 @@
 
 #import "ImageTouchDetection.h"
 #import "ImageViewExplotion.h"
+//#import <math.h>
+
+#define Square(x) ((x) * (x))
 
 @interface ImageTouchDetection ()
 {
@@ -172,13 +175,25 @@
 -(void)imageTapped:(UITapGestureRecognizer *)recognizer
 {
     CGPoint point = [recognizer locationInView:self];
+
     NSLog(@"Location = %@",NSStringFromCGPoint(point));
     if (CGRectContainsPoint(imgExplotion.frame, point)) {
         NSLog(@"Contain Point");
-        if (self.delegate && [self.delegate respondsToSelector:@selector(didHitTargetOwn)]) {
-            [self.delegate didHitTargetOwn];
+        
+        CGPoint imgExplotionCenter=imgExplotion.center;
+        NSLog(@"imgExplotionCenter = %@",NSStringFromCGPoint(imgExplotionCenter));
+        NSLog(@"click point = %@",NSStringFromCGPoint(point));
+        NSLog(@"%f",(imgExplotionCenter.x-point.x));
+        NSLog(@"%f",(imgExplotionCenter.y-point.y));
+        NSLog(@"%f",Square(imgExplotionCenter.x-point.x));
+        NSLog(@"%f",Square(imgExplotionCenter.y-point.y));
+        CGFloat distance=sqrt(Square(imgExplotionCenter.x-point.x)+Square((imgExplotionCenter.y-point.y)));
+        
+        if (self.delegate && [self.delegate respondsToSelector:@selector(didHitTargetOwnWithDistance:)]) {
+            [self.delegate didHitTargetOwnWithDistance:distance];
         }
     }else{
+        
         NSLog(@"Not Contain Point");
         if (self.delegate && [self.delegate respondsToSelector:@selector(didMissTargetOwn)]) {
             [self.delegate didMissTargetOwn];

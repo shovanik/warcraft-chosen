@@ -25,6 +25,12 @@
     IBOutlet UIImageView *imgTimerRight;
     IBOutlet TimerLabel *lblLeft;
     IBOutlet TimerLabel *lblRight;
+    
+    IBOutlet UILabel *lblLifeOwn;
+    IBOutlet UILabel *lblLifeOther;
+    
+    BOOL isOponentImageDownloaded;
+    BOOL isSelfImageDownloadComplete;
 }
 
 @end
@@ -41,9 +47,12 @@
     [imgSliderOwn setSliderColor:[UIColor blueColor]];
     [imgSliderRival setSliderColor:[UIColor redColor]];
     
-    [imgSliderOwn setPercentage:85];
-    [imgSliderRival setPercentage:45];
+    [imgSliderOwn setPercentage:100];
+    [imgSliderRival setPercentage:100];
     
+    lblLifeOwn.text=lblLifeOther.text=@"100";
+    
+    imgSliderRival.transform=CGAffineTransformMakeRotation(M_PI);
     
     NSMutableArray *arrImages=[[NSMutableArray alloc] init];
     for (int i=1; i<=20; i++) {
@@ -68,27 +77,22 @@
     [imgTimerLeft startAnimating];
     [imgTimerRight startAnimating];
     imgTimerLeft.hidden=imgTimerRight.hidden=YES;
-    
+    isOponentImageDownloaded=NO;
+    isSelfImageDownloadComplete=NO;
     [imgMain loadImageFromURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",__kBaseURL,userRival.strAvtarImage]]];
 }
 
--(void)viewDidAppear:(BOOL)animated
+
+-(void)startOfGame
 {
-    [super viewDidAppear:animated];
-    UIAlertController *controller=[UIAlertController alertControllerWithTitle:@"Start Game" message:@"Please select whether you are ready to start game or not" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *controller=[UIAlertController alertControllerWithTitle:@"Start Game" message:@"Please select the ok button to startup the game" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *actionOK=[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         [controller dismissViewControllerAnimated:YES completion:^{
             
         }];
         [self startAnimation];
     }];
-    UIAlertAction *actionCancel=[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        [controller dismissViewControllerAnimated:YES completion:^{
-            
-        }];
-    }];
     [controller addAction:actionOK];
-    [controller addAction:actionCancel];
     [self presentViewController:controller animated:YES completion:^{
         
     }];
@@ -109,8 +113,49 @@
     return 5.0;
 }
 
--(void)didHitTargetOwn
+-(void)didHitTargetOwnWithDistance:(CGFloat)distance
 {
+    
+    [self sendHitWithStatus:@"HIT" Distance:[NSString stringWithFormat:@"%f",distance]];
+    NSLog(@"Distance = %f",distance);
+    
+    
+    CGFloat damage;
+    if (distance>0 && distance<2) {
+        damage=5.0f;
+    }
+    else if (distance>2 && distance<7){
+        damage=2.5f;
+    }
+    else if (distance>7 && distance<12){
+        damage=1.25f;
+    }
+    else if (distance>12 && distance<17){
+        damage=0.625f;
+    }
+    else if (distance>17){
+        damage=0.3125f;
+    }
+    if (imgSliderRival.parcentage-damage>=0) {
+        [imgSliderRival setPercentage:imgSliderRival.parcentage-damage];
+        lblLifeOther.text=[NSString stringWithFormat:@"%d",(int)imgSliderRival.parcentage];
+    }else{
+        //User Win...
+        
+        UIAlertController *controller=[UIAlertController alertControllerWithTitle:@"Congrats" message:@"You have win" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *actionOk=[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            [controller dismissViewControllerAnimated:YES completion:^{
+                
+            }];
+            [self.navigationController popViewControllerAnimated:YES];
+        }];
+        [controller addAction:actionOk];
+        [self presentViewController:controller animated:YES completion:^{
+            
+        }];
+    }
+    
+    
     for (UILocalNotification *localNotification in [[UIApplication sharedApplication] scheduledLocalNotifications]) {
         
         if ([[localNotification.userInfo objectForKey:@"UserID"] isEqualToString:user.strID]) {
@@ -123,6 +168,7 @@
 }
 -(void)didMissTargetOwn
 {
+    [self sendHitWithStatus:@"MISS" Distance:@"-1.0"];
     for (UILocalNotification *localNotification in [[UIApplication sharedApplication] scheduledLocalNotifications]) {
         
         if ([[localNotification.userInfo objectForKey:@"UserID"] isEqualToString:user.strID]) {
@@ -142,6 +188,11 @@
 -(void)didImageFinishedLoading
 {
     [self.activityIndicatorView stopAnimating];
+    isSelfImageDownloadComplete=YES;
+    
+    if (_isStartFightReceived && isSelfImageDownloadComplete) {
+        [self sendReadyToFight];
+    }
 }
 
 #pragma mark
@@ -177,11 +228,14 @@
 {
     //[self performSelector:@selector(startAnimation) withObject:nil afterDelay:[self willShowExplotionForSecond]];
     
-    [self startRivalAnimation];
+    //[self startRivalAnimation];
+    
+    [imgTimerLeft stopAnimating];
 }
 -(void)didAnimationStartedOwn
 {
     imgTimerLeft.hidden=NO;
+    [imgTimerLeft startAnimating];
     imgTimerRight.hidden=YES;
     [lblLeft startCountDownTimer];
 }
@@ -272,7 +326,9 @@
 
 -(void)didReceiveLocalNotifications:(UILocalNotification *)notification
 {
+    [self sendHitWithStatus:@"MISS" Distance:@"-1.0"];
     NSLog(@"UserInfo = %@",notification.userInfo);
+    
     if ([user.strID isEqualToString:[notification.userInfo objectForKey:@"UserID"]] && [[notification.userInfo objectForKey:@"Player"] isEqualToString:@"OWN"]) {
         [self stopAnimation];
     }
@@ -281,5 +337,106 @@
     }
 }
 
+#pragma mark
+# pragma mark socket.IO-objc delegate methods
+#pragma mark
+
+- (void) socketIODidConnect:(SocketIO *)socket
+{
+    NSLog(@"socket.io connected.");
+    mySocket=socket;
+}
+- (void) socketIO:(SocketIO *)socket didReceiveEvent:(SocketIOPacket *)packet
+{
+    NSLog(@"%@",packet.data);
+    NSLog(@"%@",packet.dataAsJSON);
+    
+    NSDictionary *dict=packet.dataAsJSON;
+    
+    if ([[dict objectForKey:@"name"] isEqualToString:socketEvents[ReadyToFight]]) {
+        NSLog(@"This is ReadyToFight.");
+        isOponentImageDownloaded=YES;
+        if (!imgMain.image) {
+            [self sendReadyToFightResponse:@"WAIT"];
+        }else{
+            [self sendReadyToFightResponse:@"READY"];
+        }
+        
+    }
+    else if ([[dict objectForKey:@"name"] isEqualToString:socketEvents[ReadyToFightResponse]]) {
+        NSLog(@"This is ReadyToFightResponse.");
+        
+        NSDictionary *dict=(NSDictionary*)packet.dataAsJSON;
+        dict=[(NSArray*)[dict objectForKey:@"args"] objectAtIndex:0];
+        if ([[dict objectForKey:@"meta"] isEqualToString:@"READY"]) {
+            isOponentImageDownloaded=YES;
+            [self startOfGame];
+        }else{
+            [self sendReadyToFight];
+        }
+    }
+    else if ([[dict objectForKey:@"name"] isEqualToString:socketEvents[SendHit]]) {
+        NSDictionary *dict=packet.dataAsJSON;
+        dict=[(NSArray*)[dict objectForKey:@"args"] objectAtIndex:0];
+        dict=[dict objectForKey:@"meta"];
+        CGFloat damage;
+        
+        if ([dict objectForKey:@"Distance"] && ![[dict objectForKey:@"Distance"] isKindOfClass:[NSNull class]]) {
+            if ([[dict objectForKey:@"Distance"] floatValue]>0 && [[dict objectForKey:@"Distance"] floatValue]<2) {
+                damage=5.0f;
+            }
+            else if ([[dict objectForKey:@"Distance"] floatValue]>2 && [[dict objectForKey:@"Distance"] floatValue]<7){
+                damage=2.5f;
+            }
+            else if ([[dict objectForKey:@"Distance"] floatValue]>7 && [[dict objectForKey:@"Distance"] floatValue]<12){
+                damage=1.25f;
+            }
+            else if ([[dict objectForKey:@"Distance"] floatValue]>12 && [[dict objectForKey:@"Distance"] floatValue]<17){
+                damage=0.625f;
+            }
+            else if ([[dict objectForKey:@"Distance"] floatValue]>17){
+                damage=0.3125f;
+            }
+            else if ([[dict objectForKey:@"Distance"] floatValue]==-1.0f){
+                damage=0.0f;
+            }
+            
+            if (imgSliderOwn.parcentage-damage>=0) {
+                [imgSliderOwn setPercentage:imgSliderOwn.parcentage-damage];
+                lblLifeOwn.text=[NSString stringWithFormat:@"%d",(int)imgSliderOwn.parcentage];
+            }else{
+                //Oponent Win...
+                
+                UIAlertController *controller=[UIAlertController alertControllerWithTitle:@"Sorry" message:@"Oponents have win" preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *actionOk=[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                    [controller dismissViewControllerAnimated:YES completion:^{
+                        
+                    }];
+                    [self.navigationController popViewControllerAnimated:YES];
+                }];
+                [controller addAction:actionOk];
+                [self presentViewController:controller animated:YES completion:^{
+                    
+                }];
+            }
+        }
+        [self startAnimation];
+    }
+}
+
+- (void) socketIO:(SocketIO *)socket onError:(NSError *)error
+{
+    if ([error code] == SocketIOUnauthorized) {
+        NSLog(@"not authorized");
+    } else {
+        NSLog(@"onError() %@", error);
+    }
+}
+
+
+- (void) socketIODidDisconnect:(SocketIO *)socket disconnectedWithError:(NSError *)error
+{
+    NSLog(@"socket.io disconnected. did error occur? %@", error);
+}
 
 @end

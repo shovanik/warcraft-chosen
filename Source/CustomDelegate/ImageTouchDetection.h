@@ -19,7 +19,7 @@
 -(void)didAnimationStoppedOwn;
 -(void)didAnimationStartedOwn;
 
--(void)didHitTargetOwn;
+-(void)didHitTargetOwnWithDistance:(CGFloat)distance;
 -(void)didMissTargetOwn;
 
 -(void)didAnimationStartedRival;

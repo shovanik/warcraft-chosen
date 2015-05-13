@@ -14,4 +14,6 @@
 
 -(void)makeSocketConnectionWithUser:(ModelUser*)myUser Delegate:(id)myDelegate;
 
+-(void)makeSocketDelegate:(id)myDelegate;
+
 @end

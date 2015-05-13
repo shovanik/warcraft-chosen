@@ -32,6 +32,8 @@
     
     NSString *strSocketFromUID;
     NSString *strSocketToUID;
+    
+    BOOL isReadyToFightReceived;
 }
 
 @property(strong) Reachability * googleReach;
@@ -397,6 +399,9 @@
     NSLog(@"acceptFightPressed");
     [mySocket sendEvent:socketEvents[AcceptFight] withData:[NSDictionary dictionaryWithObjects:@[user.strID,userRival.strID,socketEvents[AcceptFight]] forKeys:@[@"uid",@"fid",@"meta"]]];
     AttackViewController *master=[[AttackViewController alloc] initWithNibName:@"AttackViewController" bundle:nil];
+    [[SocketService service] makeSocketDelegate:nil];
+    [[SocketService service] makeSocketDelegate:master];
+    master.isStartFightReceived=YES;
     [self.navigationController pushViewController:master animated:YES];
 }
 
@@ -405,6 +410,23 @@
     NSLog(@"declineFightPressed");
     [mySocket sendEvent:socketEvents[DeclineFight] withData:[NSDictionary dictionaryWithObjects:@[user.strID,userRival.strID,socketEvents[DeclineFight]] forKeys:@[@"uid",@"fid",@"meta"]]];
 }
+
+-(void)sendReadyToFight
+{
+    [mySocket sendEvent:socketEvents[ReadyToFight] withData:[NSDictionary dictionaryWithObjects:@[user.strID,userRival.strID,socketEvents[ReadyToFight]] forKeys:@[@"uid",@"fid",@"meta"]]];
+}
+
+-(void)sendReadyToFightResponse:(NSString *)strResponse
+{
+    [mySocket sendEvent:socketEvents[ReadyToFightResponse] withData:[NSDictionary dictionaryWithObjects:@[user.strID,userRival.strID,strResponse] forKeys:@[@"uid",@"fid",@"meta"]]];
+}
+
+-(void)sendHitWithStatus:(NSString*)strStatus Distance:(NSString*)strDistance
+{
+    NSDictionary *dict=[NSDictionary dictionaryWithObjects:@[strStatus,strDistance] forKeys:@[@"Status",@"Distance"]];
+    [mySocket sendEvent:socketEvents[SendHit] withData:[NSDictionary dictionaryWithObjects:@[user.strID,userRival.strID,dict] forKeys:@[@"uid",@"fid",@"meta"]]];
+}
+
 
 #pragma mark
 # pragma mark socket.IO-objc delegate methods
@@ -460,6 +482,8 @@
         dict=arrTemp[0];
         userRival=[allUser getUserForUserID:[dict objectForKey:@"uid"]];
         AttackViewController *master=[[AttackViewController alloc] initWithNibName:@"AttackViewController" bundle:nil];
+        [[SocketService service] makeSocketDelegate:nil];
+        [[SocketService service] makeSocketDelegate:master];
         [self.navigationController pushViewController:master animated:YES];
     }
     else if ([[dict objectForKey:@"name"] isEqualToString:socketEvents[DeclineFight]]) {
@@ -480,28 +504,6 @@
         
         
     }
-    
-     /*test acknowledge
-        SocketIOCallback cb = ^(id argsData) {
-            NSDictionary *response = argsData;
-            // do something with response
-            NSLog(@"ack arrived: %@", response);
-    
-            // test forced disconnect
-            //[socketIO disconnectForced];
-        };
-        [socketIO sendMessage:@"hello back!" withAcknowledge:cb];
-    
-        // test different event data types
-        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-        [dict setObject:@"test1" forKey:@"key1"];
-        [dict setObject:@"test2" forKey:@"key2"];
-        [socketIO sendEvent:@"welcome" withData:dict];
-    
-        [socketIO sendEvent:@"welcome" withData:@"testWithString"];
-    
-        NSArray *arr = [NSArray arrayWithObjects:@"test1", @"test2", nil];
-        [socketIO sendEvent:@"welcome" withData:arr];*/
 }
 
 - (void) socketIO:(SocketIO *)socket onError:(NSError *)error

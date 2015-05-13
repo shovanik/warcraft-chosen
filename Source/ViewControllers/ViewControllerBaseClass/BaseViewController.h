@@ -32,6 +32,9 @@ typedef enum : NSUInteger {
     StartFight=0,
     AcceptFight,
     DeclineFight,
+    ReadyToFight,
+    ReadyToFightResponse,
+    SendHit,
 } SocketEvent;
 
 
@@ -39,6 +42,9 @@ NSString static *socketEvents[]={
     [StartFight]=@"startFight",
     [AcceptFight]=@"acceptFight",
     [DeclineFight]=@"declineFight",
+    [ReadyToFight]=@"readyToFight",
+    [ReadyToFightResponse]=@"readyToFightResponse",
+    [SendHit]=@"sendHit",
 };
 
 
@@ -73,5 +79,11 @@ NSString static *socketEvents[]={
 -(void)makeSocketConnectionWithUser:(ModelUser*)myUser;
 
 -(void)sendFightRequestToUser:(ModelUser*)userTo;
+
+-(void)sendReadyToFight;
+
+-(void)sendReadyToFightResponse:(NSString*)strResponse;
+
+-(void)sendHitWithStatus:(NSString*)strStatus Distance:(NSString*)strDistance;
 
 @end

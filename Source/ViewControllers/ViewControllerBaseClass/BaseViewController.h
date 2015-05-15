@@ -35,6 +35,7 @@ typedef enum : NSUInteger {
     ReadyToFight,
     ReadyToFightResponse,
     SendHit,
+    SocketError,
 } SocketEvent;
 
 
@@ -45,6 +46,7 @@ NSString static *socketEvents[]={
     [ReadyToFight]=@"readyToFight",
     [ReadyToFightResponse]=@"readyToFightResponse",
     [SendHit]=@"sendHit",
+    [SocketError]=@"socketError",
 };
 
 

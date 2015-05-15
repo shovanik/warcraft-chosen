@@ -134,8 +134,6 @@ NSUserDefaults *pref;
 
 -(void)didUpdateLocationUpdateWithPlacemark:(CLPlacemark *)placeMark
 {
-    
-
     NSDictionary *dict=[self addressDictionaryForPlaceMark:placeMark];
     NSLog(@"Latitude = %@",[dict objectForKey:@"Latitude"]);
     NSLog(@"Longitude = %@",[dict objectForKey:@"Longitude"]);

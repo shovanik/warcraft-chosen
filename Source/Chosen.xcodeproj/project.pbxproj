@@ -15,13 +15,13 @@
 		20119DD71A97258C00EC0111 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20119DD51A97258C00EC0111 /* FacebookSDK.framework */; };
 		201A5E5F1A95DBCF0052E53B /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 201A5E5E1A95DBCF0052E53B /* BaseViewController.m */; };
 		201A5E661A95F3B90052E53B /* CustomLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 201A5E651A95F3B90052E53B /* CustomLocationManager.m */; };
-		20224D621AA0A8CD00DE7B85 /* CustomMapAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20224D601AA0A8CD00DE7B85 /* CustomMapAnnotationView.m */; };
 		20224D671AA0A97E00DE7B85 /* AnnotationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20224D661AA0A97E00DE7B85 /* AnnotationViewController.m */; };
 		20224D691AA0A9AD00DE7B85 /* AnnotationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20224D681AA0A9AD00DE7B85 /* AnnotationViewController.xib */; };
 		2026F5EA1ABAD7EF006B616C /* ModelTournamentCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2026F5E91ABAD7EF006B616C /* ModelTournamentCategory.m */; };
 		202831DF1AB2DD0900C65D98 /* GuildImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 202831DE1AB2DD0900C65D98 /* GuildImageView.m */; };
 		202831E11AB2E9D200C65D98 /* tranparent_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 202831E01AB2E9D200C65D98 /* tranparent_bg.png */; };
 		202831F11AB30ECA00C65D98 /* NSMutableArray+FoundGuild.m in Sources */ = {isa = PBXBuildFile; fileRef = 202831F01AB30ECA00C65D98 /* NSMutableArray+FoundGuild.m */; };
+		2039481A1B04C49200059F1B /* CustomTimerLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 203948191B04C49200059F1B /* CustomTimerLabel.m */; };
 		20408A751ACE86E2007537E8 /* ContractViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20408A741ACE86E2007537E8 /* ContractViewController.m */; };
 		20408A771ACE86FC007537E8 /* ContractViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20408A761ACE86FC007537E8 /* ContractViewController.xib */; };
 		20408A8A1ACE91DC007537E8 /* avatar_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 20408A791ACE91DC007537E8 /* avatar_1.png */; };
@@ -84,6 +84,7 @@
 		2058FAB41AD2D08000FF1D8F /* join_create_page.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2058FAB01AD2D08000FF1D8F /* join_create_page.jpg */; };
 		2058FAB51AD2D08000FF1D8F /* join_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2058FAB11AD2D08000FF1D8F /* join_icon.png */; };
 		2071B9DA1AA993DE00D5D261 /* CustomUITextFieldType1.m in Sources */ = {isa = PBXBuildFile; fileRef = 2071B9D91AA993DE00D5D261 /* CustomUITextFieldType1.m */; };
+		2081CE4F1B0617D800C1D37E /* CustomMapAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2081CE4E1B0617D800C1D37E /* CustomMapAnnotationView.m */; };
 		208FA0401AD6867D00CE4CDC /* contract_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 208FA0351AD6867D00CE4CDC /* contract_icon.png */; };
 		208FA0411AD6867D00CE4CDC /* cpr_iphn6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 208FA0361AD6867D00CE4CDC /* cpr_iphn6@2x.png */; };
 		208FA0421AD6867D00CE4CDC /* guild_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 208FA0371AD6867D00CE4CDC /* guild_icon.png */; };
@@ -110,7 +111,6 @@
 		2094C7811AEA8D8000665733 /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 2094C77E1AEA8D8000665733 /* SRWebSocket.m */; };
 		20A253411AE937C600DB6E8A /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 20A253401AE937C600DB6E8A /* libicucore.dylib */; };
 		20A253431AE937D400DB6E8A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20A253421AE937D400DB6E8A /* CFNetwork.framework */; };
-		20B24BB61ADE320C000452CE /* TimerLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 20B24BB51ADE320C000452CE /* TimerLabel.m */; };
 		20B9ECE71AA4B1B400400626 /* ModelAvtarImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 20B9ECE61AA4B1B400400626 /* ModelAvtarImage.m */; };
 		20BAC3981A94A87B00E895FE /* DataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BAC3971A94A87B00E895FE /* DataClass.m */; };
 		20BAC3B71A94A88400E895FE /* NSDateFormatter+STTwitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BAC39B1A94A88400E895FE /* NSDateFormatter+STTwitter.m */; };
@@ -381,8 +381,6 @@
 		201A5E641A95F3B90052E53B /* CustomLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomLocationManager.h; path = CustomDelegate/CustomLocationManager.h; sourceTree = "<group>"; };
 		201A5E651A95F3B90052E53B /* CustomLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomLocationManager.m; path = CustomDelegate/CustomLocationManager.m; sourceTree = "<group>"; };
 		201A5E691A96132C0052E53B /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = Constant/Constants.h; sourceTree = "<group>"; };
-		20224D5F1AA0A8CD00DE7B85 /* CustomMapAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomMapAnnotationView.h; sourceTree = "<group>"; };
-		20224D601AA0A8CD00DE7B85 /* CustomMapAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomMapAnnotationView.m; sourceTree = "<group>"; };
 		20224D651AA0A97E00DE7B85 /* AnnotationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnnotationViewController.h; path = AnnotationViewController/AnnotationViewController.h; sourceTree = "<group>"; };
 		20224D661AA0A97E00DE7B85 /* AnnotationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AnnotationViewController.m; path = AnnotationViewController/AnnotationViewController.m; sourceTree = "<group>"; };
 		20224D681AA0A9AD00DE7B85 /* AnnotationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AnnotationViewController.xib; path = AnnotationViewController/AnnotationViewController.xib; sourceTree = "<group>"; };
@@ -394,6 +392,8 @@
 		202831E01AB2E9D200C65D98 /* tranparent_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tranparent_bg.png; sourceTree = "<group>"; };
 		202831EF1AB30ECA00C65D98 /* NSMutableArray+FoundGuild.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSMutableArray+FoundGuild.h"; path = "Category/NSMutableArray+FoundGuild.h"; sourceTree = "<group>"; };
 		202831F01AB30ECA00C65D98 /* NSMutableArray+FoundGuild.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSMutableArray+FoundGuild.m"; path = "Category/NSMutableArray+FoundGuild.m"; sourceTree = "<group>"; };
+		203948181B04C49200059F1B /* CustomTimerLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomTimerLabel.h; path = CustomControl/CustomTimerLabel.h; sourceTree = "<group>"; };
+		203948191B04C49200059F1B /* CustomTimerLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomTimerLabel.m; path = CustomControl/CustomTimerLabel.m; sourceTree = "<group>"; };
 		20408A731ACE86E2007537E8 /* ContractViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContractViewController.h; sourceTree = "<group>"; };
 		20408A741ACE86E2007537E8 /* ContractViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContractViewController.m; sourceTree = "<group>"; };
 		20408A761ACE86FC007537E8 /* ContractViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContractViewController.xib; sourceTree = "<group>"; };
@@ -464,6 +464,8 @@
 		206DDDC81AA44EB5000E84C4 /* DeviceConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DeviceConstant.h; path = Constant/DeviceConstant.h; sourceTree = "<group>"; };
 		2071B9D81AA993DE00D5D261 /* CustomUITextFieldType1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomUITextFieldType1.h; path = CustomControl/CustomUITextFieldType1.h; sourceTree = "<group>"; };
 		2071B9D91AA993DE00D5D261 /* CustomUITextFieldType1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomUITextFieldType1.m; path = CustomControl/CustomUITextFieldType1.m; sourceTree = "<group>"; };
+		2081CE4D1B0617D800C1D37E /* CustomMapAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomMapAnnotationView.h; sourceTree = "<group>"; };
+		2081CE4E1B0617D800C1D37E /* CustomMapAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomMapAnnotationView.m; sourceTree = "<group>"; };
 		208FA0351AD6867D00CE4CDC /* contract_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = contract_icon.png; sourceTree = "<group>"; };
 		208FA0361AD6867D00CE4CDC /* cpr_iphn6@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cpr_iphn6@2x.png"; sourceTree = "<group>"; };
 		208FA0371AD6867D00CE4CDC /* guild_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guild_icon.png; sourceTree = "<group>"; };
@@ -498,8 +500,6 @@
 		2094C77E1AEA8D8000665733 /* SRWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWebSocket.m; sourceTree = "<group>"; };
 		20A253401AE937C600DB6E8A /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		20A253421AE937D400DB6E8A /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
-		20B24BB41ADE320C000452CE /* TimerLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimerLabel.h; path = CustomDelegate/TimerLabel.h; sourceTree = "<group>"; };
-		20B24BB51ADE320C000452CE /* TimerLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimerLabel.m; path = CustomDelegate/TimerLabel.m; sourceTree = "<group>"; };
 		20B9ECE51AA4B1B400400626 /* ModelAvtarImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelAvtarImage.h; sourceTree = "<group>"; };
 		20B9ECE61AA4B1B400400626 /* ModelAvtarImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelAvtarImage.m; sourceTree = "<group>"; };
 		20BAC3961A94A87B00E895FE /* DataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataClass.h; sourceTree = "<group>"; };
@@ -1001,8 +1001,6 @@
 			children = (
 				20408AE71ACEE6AC007537E8 /* ImageTouchDetection.h */,
 				20408AE81ACEE6AC007537E8 /* ImageTouchDetection.m */,
-				20B24BB41ADE320C000452CE /* TimerLabel.h */,
-				20B24BB51ADE320C000452CE /* TimerLabel.m */,
 				20408A9E1ACE9A22007537E8 /* ContractHorizontalScroller.h */,
 				20408A9F1ACE9A22007537E8 /* ContractHorizontalScroller.m */,
 				20BAC3F21A94A8B100E895FE /* SlideOutMenuViewController.h */,
@@ -1049,15 +1047,6 @@
 				20E484371AD29ACA005B3DA4 /* GlobalVariable.h */,
 			);
 			name = Constants;
-			sourceTree = "<group>";
-		};
-		20224D5E1AA0A8CD00DE7B85 /* CustomMapAnnotation */ = {
-			isa = PBXGroup;
-			children = (
-				20224D5F1AA0A8CD00DE7B85 /* CustomMapAnnotationView.h */,
-				20224D601AA0A8CD00DE7B85 /* CustomMapAnnotationView.m */,
-			);
-			path = CustomMapAnnotation;
 			sourceTree = "<group>";
 		};
 		20224D641AA0A8DD00DE7B85 /* AnnonationView */ = {
@@ -1167,6 +1156,15 @@
 				20408AF21ACEE7FC007537E8 /* target5.png */,
 			);
 			path = explotion;
+			sourceTree = "<group>";
+		};
+		2081CE4C1B0617D800C1D37E /* CustomMapAnnotation */ = {
+			isa = PBXGroup;
+			children = (
+				2081CE4D1B0617D800C1D37E /* CustomMapAnnotationView.h */,
+				2081CE4E1B0617D800C1D37E /* CustomMapAnnotationView.m */,
+			);
+			path = CustomMapAnnotation;
 			sourceTree = "<group>";
 		};
 		2094C7661AEA8CC600665733 /* Socket */ = {
@@ -1413,6 +1411,8 @@
 		20D4BC3F1AA74303004EB2AD /* CustomControl */ = {
 			isa = PBXGroup;
 			children = (
+				203948181B04C49200059F1B /* CustomTimerLabel.h */,
+				203948191B04C49200059F1B /* CustomTimerLabel.m */,
 				20408AEA1ACEE6FA007537E8 /* ImageViewExplotion.h */,
 				20408AEB1ACEE6FA007537E8 /* ImageViewExplotion.m */,
 				20D4BC401AA74326004EB2AD /* CustomImageViewType1.h */,
@@ -1508,13 +1508,13 @@
 				CD79B17E1A3F34F200AFD912 /* 80x80.png */,
 				CD79B17F1A3F34F200AFD912 /* 114x114.png */,
 				CD79B1801A3F34F200AFD912 /* 120x120.png */,
+				2081CE4C1B0617D800C1D37E /* CustomMapAnnotation */,
 				20CE38AE1AEE62710098810F /* SocketService */,
 				2094C7661AEA8CC600665733 /* Socket */,
 				201A5E671A9611790052E53B /* Constants */,
 				202831E21AB3076100C65D98 /* Category */,
 				20D4BC3F1AA74303004EB2AD /* CustomControl */,
 				20224D641AA0A8DD00DE7B85 /* AnnonationView */,
-				20224D5E1AA0A8CD00DE7B85 /* CustomMapAnnotation */,
 				20BCD3921A9E17470062DFE2 /* MapAnnotationView */,
 				201A5E631A95F3890052E53B /* CustomDelegate */,
 				20BAC42A1A94A8E900E895FE /* Model */,
@@ -2256,7 +2256,6 @@
 				20408AA41ACEA708007537E8 /* CustomConfirmationViewController.m in Sources */,
 				20408AE91ACEE6AC007537E8 /* ImageTouchDetection.m in Sources */,
 				D67780A31AB986670086BEBE /* AddTournamentTableViewCell.m in Sources */,
-				20224D621AA0A8CD00DE7B85 /* CustomMapAnnotationView.m in Sources */,
 				20B9ECE71AA4B1B400400626 /* ModelAvtarImage.m in Sources */,
 				20BAC4201A94A8B100E895FE /* TournamentDetailsViewController.m in Sources */,
 				20BAC4341A94BE1C00E895FE /* ModelBaseClass.m in Sources */,
@@ -2281,6 +2280,7 @@
 				20BAC3D81A94A89F00E895FE /* Context.m in Sources */,
 				20BAC3BE1A94A88400E895FE /* STTwitterOAuth.m in Sources */,
 				20BAC4261A94A8B100E895FE /* WorldMapViewController.m in Sources */,
+				2081CE4F1B0617D800C1D37E /* CustomMapAnnotationView.m in Sources */,
 				2071B9DA1AA993DE00D5D261 /* CustomUITextFieldType1.m in Sources */,
 				201A5E661A95F3B90052E53B /* CustomLocationManager.m in Sources */,
 				20D4BC351AA71DE4004EB2AD /* AboutUsViewController.m in Sources */,
@@ -2296,11 +2296,11 @@
 				20D4BC2D1AA6EC13004EB2AD /* ModelAboutUs.m in Sources */,
 				CD79B13D1A3F1DB800AFD912 /* main.m in Sources */,
 				202831DF1AB2DD0900C65D98 /* GuildImageView.m in Sources */,
+				2039481A1B04C49200059F1B /* CustomTimerLabel.m in Sources */,
 				20BAC4161A94A8B100E895FE /* SettingsViewController.m in Sources */,
 				20BAC40B1A94A8B100E895FE /* GuildViewController.m in Sources */,
 				20408AA01ACE9A22007537E8 /* ContractHorizontalScroller.m in Sources */,
 				202831F11AB30ECA00C65D98 /* NSMutableArray+FoundGuild.m in Sources */,
-				20B24BB61ADE320C000452CE /* TimerLabel.m in Sources */,
 				20D4BC2A1AA6E753004EB2AD /* ModelPrivacyPolicy.m in Sources */,
 				20D4BC661AA76392004EB2AD /* UserPasswordChangeViewController.m in Sources */,
 				201A5E5F1A95DBCF0052E53B /* BaseViewController.m in Sources */,

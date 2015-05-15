@@ -489,7 +489,18 @@
     else if ([[dict objectForKey:@"name"] isEqualToString:socketEvents[DeclineFight]]) {
         NSLog(@"This is DeclineFight.");
     }
-    
+    else if ([[dict objectForKey:@"name"] isEqualToString:socketEvents[SocketError]]) {
+        UIAlertController *alertController=[UIAlertController alertControllerWithTitle:@"Error" message:@"Sorry you have send the game play request to an offline user." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *actionOK=[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            [alertController dismissViewControllerAnimated:YES completion:^{
+                
+            }];
+        }];
+        [alertController addAction:actionOK];
+        [self presentViewController:alertController animated:YES completion:^{
+            
+        }];
+    }
     
     
     

@@ -22,4 +22,14 @@
     return nil;
 }
 
+-(ModelUser*)getUserForLatitude:(CGFloat)latitude Longitude:(CGFloat)longitude
+{
+    for (ModelUser *obj in self) {
+        if ([obj.strLatitude floatValue]==latitude && [obj.strLongitude floatValue]==longitude) {
+            return obj;
+        }
+    }
+    return nil;
+}
+
 @end

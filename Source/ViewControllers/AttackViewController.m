@@ -10,12 +10,12 @@
 #import "GuildImageView.h"
 #import "ImageTouchDetection.h"
 #import "ImageViewExplotion.h"
-#import "TimerLabel.h"
 #import "SocketIO.h"
 #import "SocketIOPacket.h"
 #import "WebServiceConstant.h"
+#import "CustomTimerLabel.h"
 
-@interface AttackViewController ()<ImageTouchDetectionDelegate,TimerLabelDelegate,SocketIODelegate>
+@interface AttackViewController ()<ImageTouchDetectionDelegate,SocketIODelegate,TimerLabelDelegate>
 {
     IBOutlet GuildImageView *imgSliderOwn;
     IBOutlet GuildImageView *imgSliderRival;
@@ -23,8 +23,9 @@
     
     IBOutlet UIImageView *imgTimerLeft;
     IBOutlet UIImageView *imgTimerRight;
-    IBOutlet TimerLabel *lblLeft;
-    IBOutlet TimerLabel *lblRight;
+    
+    IBOutlet CustomTimerLabel *lblTimerLeft;
+    IBOutlet CustomTimerLabel *lblTimerRight;
     
     IBOutlet UILabel *lblLifeOwn;
     IBOutlet UILabel *lblLifeOther;
@@ -51,6 +52,7 @@
     [imgSliderRival setPercentage:100];
     
     lblLifeOwn.text=lblLifeOther.text=@"100";
+    lblTimerLeft.delegate=self;
     
     imgSliderRival.transform=CGAffineTransformMakeRotation(M_PI);
     
@@ -61,14 +63,6 @@
     
     if (imgMain) {
         imgMain.delegate=self;
-    }
-    
-    if (lblLeft) {
-        lblLeft.delegate=self;
-    }
-    
-    if (lblRight) {
-        lblRight.delegate=self;
     }
     
     imgTimerLeft.animationImages=imgTimerRight.animationImages=arrImages;
@@ -231,13 +225,14 @@
     //[self startRivalAnimation];
     
     [imgTimerLeft stopAnimating];
+    [lblTimerLeft stop];
 }
 -(void)didAnimationStartedOwn
 {
+    [lblTimerLeft start];
     imgTimerLeft.hidden=NO;
     [imgTimerLeft startAnimating];
     imgTimerRight.hidden=YES;
-    [lblLeft startCountDownTimer];
 }
 
 
@@ -438,5 +433,30 @@
 {
     NSLog(@"socket.io disconnected. did error occur? %@", error);
 }
+
+#pragma mark
+#pragma mark CustomerTimerLabel Delegate
+#pragma mark
+
+-(NSInteger)displayForSecond
+{
+    return [self willShowExplotionForSecond];
+}
+
+-(void)didStartTimer
+{
+    
+}
+
+-(void)didStopTimer
+{
+    
+}
+
+-(void)didResetTimer
+{
+    
+}
+
 
 @end

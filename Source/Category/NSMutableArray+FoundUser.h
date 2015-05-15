@@ -13,5 +13,6 @@
 @interface NSMutableArray (FoundUser)
 
 -(ModelUser*)getUserForUserID:(NSString*)strUserID;
+-(ModelUser*)getUserForLatitude:(CGFloat)latitude Longitude:(CGFloat)longitude;
 
 @end

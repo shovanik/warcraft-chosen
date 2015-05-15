@@ -10,10 +10,9 @@
 #import <MapKit/MapKit.h>
 #import <MapKit/MKAnnotation.h>
 #import <CoreLocation/CoreLocation.h>
-#import "CustomMapAnnotationView.h"
 #import "AnnotationViewController.h"
 #import "AttackViewController.h"
-
+#import "NSMutableArray+FoundUser.h"
 
 //#define MileConversionParameter 0.621371192
 //
@@ -57,6 +56,16 @@ NSUserDefaults *pref;
     annotationViewController=[[AnnotationViewController alloc] initWithNibName:@"AnnotationViewController" bundle:nil];
     annotationViewController.isCallOutOpen=NO;
     annotationViewController.delegate=self;
+    
+    
+    if(locationManager==nil)
+        locationManager = [[CLLocationManager alloc] init];
+    locationManager.delegate = self;
+    locationManager.distanceFilter = kCLDistanceFilterNone;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    [locationManager requestAlwaysAuthorization];
+    [locationManager requestWhenInUseAuthorization];
+    [locationManager startUpdatingLocation];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -67,14 +76,6 @@ NSUserDefaults *pref;
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    if(locationManager==nil)
-        locationManager = [[CLLocationManager alloc] init];
-    locationManager.delegate = self;
-    locationManager.distanceFilter = kCLDistanceFilterNone;
-    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    [locationManager requestAlwaysAuthorization];
-    [locationManager requestWhenInUseAuthorization];
-    [locationManager startUpdatingLocation];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -163,7 +164,7 @@ NSUserDefaults *pref;
         return pinView;
         
     }
-    if([annotation isKindOfClass:[CustomMapAnnotationView class]]){
+    /*if([annotation isKindOfClass:[CustomMapAnnotationView class]]){
         CustomMapAnnotationView *annotationView=(CustomMapAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"CustomPinAnnotationView"];
         if(!annotationView){
             annotationView=[[CustomMapAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"CustomPinAnnotationView"];
@@ -178,13 +179,31 @@ NSUserDefaults *pref;
         NSLog(@"Index = %lu",(unsigned long)[arrAnnotations indexOfObject:annotation]);
         annotationView.user=[allUser objectAtIndex:[arrAnnotations indexOfObject:annotation]];
         return annotationView;
+    }*/
+    
+    if ([annotation isKindOfClass:[MKPointAnnotation class]]) {
+        
+        if (!pinView)
+        {
+            // If an existing pin view was not available, create one.
+            pinView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"CustomPinAnnotationView"];
+            //pinView.animatesDrop = YES;
+            //pinView.canShowCallout = YES;
+            pinView.image = [UIImage imageNamed:@"whi_point.png"];
+            //pinView.calloutOffset = CGPointMake(0, 32);
+        } else {
+            pinView.annotation = annotation;
+        }
+        return pinView;
     }
     return nil;
 }
+
+
 -(void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
 {
-    NSLog(@"%@",[view class]);
-    if ([view isKindOfClass:[CustomMapAnnotationView class]]) {
+//    [wrldMapView reloadInputViews];
+    /*if ([view isKindOfClass:[CustomMapAnnotationView class]]) {
         CustomMapAnnotationView *customAnnotation=(CustomMapAnnotationView*)view;
         NSLog(@"Tag = %ld",(long)customAnnotation.tag);
         if (annotationViewController.isCallOutOpen) {
@@ -208,8 +227,65 @@ NSUserDefaults *pref;
         NSLog(@"User ID = %@",obj.strID);
         userSelected=customAnnotation.user;
         
+    }*/
+    
+    //This one is most useful
+    if ([view isKindOfClass:[MKAnnotationView class]]) {
+        if (annotationViewController.isCallOutOpen) {
+            annotationViewController.isCallOutOpen=NO;
+            [annotationViewController.view removeFromSuperview];
+        }else{
+            NSLog(@"View Frame = %@",NSStringFromCGRect(view.frame));
+             NSLog(@"View Frame Center= %@",NSStringFromCGPoint(view.center));
+            ModelUser *obj=[allUser getUserForLatitude:[[view annotation] coordinate].latitude Longitude:[[view annotation] coordinate].longitude];
+            userSelected=obj;
+            NSLog(@"User Name = %@",obj.strUserName);
+            //annotationViewController.view.frame=CGRectMake(-140, -120, 280, 100);
+            [wrldMapView setCenterCoordinate:CLLocationCoordinate2DMake([[view annotation] coordinate].latitude, [[view annotation] coordinate].longitude) animated:YES];
+            annotationViewController.isCallOutOpen=YES;
+            annotationViewController.lblUserName.text=obj.strUserName;
+            annotationViewController.lblUserCountry.text=obj.strCountryName;
+            annotationViewController.view.center=CGPointMake(self.view.center.x, self.view.center.y-annotationViewController.view.frame.size.height/2-20);
+            [self.view addSubview:annotationViewController.view];
+            [wrldMapView setUserInteractionEnabled:NO];
+            
+        }
     }
     
+    /*if ([view isKindOfClass:[MKAnnotationView class]]) {
+        
+        if ([view.annotation isKindOfClass:[MKUserLocation class]]) {
+            NSLog(@"User Location");
+        }else{
+            NSLog(@"Other User Location");
+            
+            if (annotationViewController.isCallOutOpen) {
+                annotationViewController.isCallOutOpen=NO;
+                [annotationViewController.view removeFromSuperview];
+            }else{
+                NSLog(@"View Frame = %@",NSStringFromCGRect(view.frame));
+                NSLog(@"View Frame Center= %@",NSStringFromCGPoint(view.center));
+                ModelUser *obj=[allUser getUserForLatitude:[[view annotation] coordinate].latitude Longitude:[[view annotation] coordinate].longitude];
+                userSelected=obj;
+                NSLog(@"User Name = %@",obj.strUserName);
+                annotationViewController.view.frame=CGRectMake(-140, -120, 280, 100);
+                [wrldMapView setCenterCoordinate:CLLocationCoordinate2DMake([[view annotation] coordinate].latitude, [[view annotation] coordinate].longitude) animated:YES];
+                annotationViewController.isCallOutOpen=YES;
+                annotationViewController.lblUserName.text=obj.strUserName;
+                annotationViewController.lblUserCountry.text=obj.strCountryName;
+                view.backgroundColor=[UIColor redColor];
+                [view addSubview:annotationViewController.view];
+                [wrldMapView bringSubviewToFront:view];
+            }
+        }
+    }*/
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
+shouldRecognizeSimultaneouslyWithGestureRecognizer
+                         :(UIGestureRecognizer *)otherGestureRecognizer
+{
+    return YES;
 }
 #pragma mark
 #pragma mark AlertView Delegate Method
@@ -255,9 +331,9 @@ NSUserDefaults *pref;
 -(void)updateWorldMapWithWebserViceResult:(NSMutableArray*)arrAllUsers
 {
     for (ModelUser *obj in arrAllUsers) {
-        
-        CustomMapAnnotationView *annotation=[[CustomMapAnnotationView alloc] initWithCoordinate:CLLocationCoordinate2DMake( [obj.strLatitude floatValue], [obj.strLongitude floatValue])];
-        [arrAnnotations addObject:annotation];
+        MKPointAnnotation *pointAnnonation=[[MKPointAnnotation alloc] init];
+        pointAnnonation.coordinate=CLLocationCoordinate2DMake([obj.strLatitude floatValue], [obj.strLongitude floatValue]);
+        [arrAnnotations addObject:pointAnnonation];
     }
     [wrldMapView addAnnotations:arrAnnotations];
     [wrldMapView reloadInputViews];
@@ -279,6 +355,8 @@ NSUserDefaults *pref;
         UIView *vw=annotationViewController.view;
         annotationViewController.isCallOutOpen=NO;
         [vw removeFromSuperview];
+        [wrldMapView setUserInteractionEnabled:YES];
+        [wrldMapView reloadInputViews];
     }
 }
 
@@ -288,15 +366,27 @@ NSUserDefaults *pref;
         UIView *vw=annotationViewController.view;
         annotationViewController.isCallOutOpen=NO;
         [vw removeFromSuperview];
+        [wrldMapView setUserInteractionEnabled:YES];
+        [wrldMapView reloadInputViews];
+
     }
     NSLog(@"\n\n%@=%@\n\n",user.strID,user.strUserName);
     
 
     [self sendFightRequestToUser:userTapped];
     
-//    AttackViewController *master=[[AttackViewController alloc] initWithNibName:@"AttackViewController" bundle:nil];
-//    master.userOponents=userTapped;
-//    [self.navigationController pushViewController:master animated:YES];
 }
+
+//-(void)didAttackPressed
+//{
+//    if (annotationViewController.isCallOutOpen) {
+//        annotationViewController.isCallOutOpen=NO;
+//        [annotationViewController.view removeFromSuperview];
+//    }
+//    NSLog(@"\n\n%@=%@\n\n",user.strID,user.strUserName);
+//    
+//    
+//    [self sendFightRequestToUser:userSelected];
+//}
 
 @end

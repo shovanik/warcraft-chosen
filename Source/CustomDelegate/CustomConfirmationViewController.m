@@ -13,12 +13,20 @@
 @end
 
 @implementation CustomConfirmationViewController
-@synthesize delegate;
+@synthesize delegate,messageValue;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    if (messageValue.length>0)
+    {
+        [self.displayMessage setText:messageValue];
+        self.displayMessage.font=[UIFont fontWithName:@"Garamond-Regular" size:17.0f];
+
+    }
     // Do any additional setup after loading the view from its nib.
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

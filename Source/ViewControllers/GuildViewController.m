@@ -14,12 +14,17 @@
 #import "StepOneViewController.h"
 #import "ModelGuild.h"
 #import "ImageViewGuild.h"
+#import "CustomConfirmationViewController.h"
 
+#import "ModelInAppPurchase.h"
+#import <StoreKit/StoreKit.h>
 
 //#import "Guilds.h"
 //#import "STTwitter.h"
 
-@interface GuildViewController ()
+
+
+@interface GuildViewController ()<UIAlertViewDelegate,CustomConfirmationViewControllerDelegate>
 {
 //     STTwitterAPI *twitter;
 //    
@@ -78,6 +83,7 @@
     IBOutlet UILabel *lblAccuracy;
     IBOutlet GuildImageView *imgSliderDamage;
     IBOutlet GuildImageView *imgSliderAccuracy;
+    CustomConfirmationViewController *confirmationDiagolueView;
     
     
     NSMutableDictionary *guildDictionary;
@@ -88,6 +94,11 @@
     CGRect guildSize;
     
     ModelGuild *guildSelected;
+    int globalPageIndex;
+    
+    NSArray *inAppProducts;
+    NSNumberFormatter * priceFormatter;
+    
 }
 
 
@@ -119,6 +130,16 @@
     if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
         self.edgesForExtendedLayout = UIRectEdgeNone;
     }
+    
+    priceFormatter = [[NSNumberFormatter alloc] init];
+    [priceFormatter setFormatterBehavior:NSNumberFormatterBehavior10_4];
+    [priceFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+    
+}
+
+-(void) viewWillAppear:(BOOL)animated
+{
+     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(productPurchased:) name:IAPHelperProductPurchasedNotification object:nil];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -368,6 +389,10 @@
 - (void)pagingView:(InfinitePagingView *)pagingView didEndDecelerating:(UIScrollView *)scrollView atPageIndex:(NSInteger)pageIndex
 {
     ModelGuild *guild = [arrAllGuilds objectAtIndex:pageIndex];
+    
+    //Store the current pageIndex to globalPageIndex
+    globalPageIndex=(int)pageIndex;
+    
     pageControl.currentPage = pageIndex;
     [self updateUIForGuild:guild];
 }
@@ -378,11 +403,13 @@
 
 -(IBAction)btnBuyPressed:(id)sender
 {
-    if ([arrUserGuilds getGuildIndex:guildSelected]>=0) {
+    /*if ([arrUserGuilds getGuildIndex:guildSelected]>=0) {
         [[[UIAlertView alloc] initWithTitle:@"Warning" message:@"Guild is already added to the user." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
     }else{
         [self addGuildToTheUserWithGuild:guildSelected];
-    }
+    }*/
+    
+    [self reload];
 }
 
 -(IBAction)btnExchangePressed:(id)sender
@@ -390,7 +417,103 @@
     
 }
 
+#pragma mark
+#pragma mark Fetch InApp Products
+#pragma mark
 
 
+- (void)reload
+{
+    [self.activityIndicatorView startAnimating];
+    inAppProducts = nil;
+    [[ModelInAppPurchase sharedInstance] requestProductsWithCompletionHandler:^(BOOL success, NSArray *products) {
+        if (success)
+        {
+            inAppProducts = products;
+            if (inAppProducts.count>0)
+            {
+                SKProduct * product = (SKProduct *) inAppProducts[globalPageIndex];
+                NSLog(@"Selected Product Details: %@ %@ %0.2f",
+                      product.productIdentifier,
+                      product.localizedTitle,
+                      product.price.floatValue);
+                
+                
+                confirmationDiagolueView=[[CustomConfirmationViewController alloc] initWithNibName:@"CustomConfirmationViewController" bundle:nil];
+                
+                
+                confirmationDiagolueView.messageValue=[NSString stringWithFormat:@"%@ \n Description: %@\nPrice: %@",product.localizedTitle,product.localizedDescription,product.price];
+                confirmationDiagolueView.view.frame=[[UIScreen mainScreen] bounds];
+                [self.view addSubview:confirmationDiagolueView.view];
+                confirmationDiagolueView.delegate=self;
+                confirmationDiagolueView.view.tag=globalPageIndex;
+                
+                /*UIAlertView *buyAlert= [[UIAlertView alloc] initWithTitle:product.localizedTitle message:[NSString stringWithFormat:@"Description:%@ \nPrice:%@",product.localizedDescription,[priceFormatter stringFromNumber:product.price]] delegate:self cancelButtonTitle:@"Buy" otherButtonTitles:@"Cancel",nil];
+                
+                buyAlert.tag=globalPageIndex;
+                [buyAlert show];*/
+            }
+        
+            [self.activityIndicatorView stopAnimating];
+        }
+    }];
+}
+
+#pragma mark
+#pragma mark AlertView Delegate Methods
+#pragma mark
+
+-(void) alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    NSLog(@"Clicked: %@ atIndex: %ld",[alertView buttonTitleAtIndex:buttonIndex],(long)buttonIndex);
+    
+    if (buttonIndex==0)
+    {
+        SKProduct *product = inAppProducts[alertView.tag];
+        
+        NSLog(@"Buying %@...", product.productIdentifier);
+        [[ModelInAppPurchase sharedInstance] buyProduct:product];
+    }
+
+}
+
+#pragma mark
+#pragma mark CustomConfirmationViewControllerDelegate Method
+#pragma mark
+
+-(void)didYesPressed
+{
+    NSLog(@"didYesPressed");
+    [confirmationDiagolueView.view removeFromSuperview];
+    SKProduct *product = inAppProducts[confirmationDiagolueView.view.tag];
+    
+    NSLog(@"Buying %@...", product.productIdentifier);
+    [[ModelInAppPurchase sharedInstance] buyProduct:product];
+}
+
+-(void)didNoPressed
+{
+    NSLog(@"didNoPressed");
+    [confirmationDiagolueView.view removeFromSuperview];
+}
+
+#pragma mark
+#pragma mark Notification
+#pragma mark
+
+- (void)productPurchased:(NSNotification *)notification {
+    
+    NSString * productIdentifier = notification.object;
+    [inAppProducts enumerateObjectsUsingBlock:^(SKProduct * product, NSUInteger idx, BOOL *stop) {
+        if ([product.productIdentifier isEqualToString:productIdentifier])
+        {
+            //[self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:idx inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
+            //*stop = YES;
+            
+            NSLog(@"Notification against %@ registered.",product.productIdentifier);
+        }
+    }];
+    
+}
 
 @end

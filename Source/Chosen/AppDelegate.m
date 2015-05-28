@@ -16,13 +16,14 @@
 #import "SlideOutMenuViewController.h"
 #import "AttackViewController.h"
 
+#import <StoreKit/StoreKit.h>  
+#import "ModelInAppPurchase.h"
 
 //#import "SRWebSocket.h"
 
 
 @interface AppDelegate ()
-{
-}
+{}
 
 @end
 
@@ -68,6 +69,9 @@
     }
     
     
+    //Transaction Observer if User lost network connection
+    
+    [ModelInAppPurchase sharedInstance];
     
     return YES;
 }

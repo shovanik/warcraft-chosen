@@ -16,8 +16,12 @@
 -(void)didNoPressed;
 
 @end
+
 @interface CustomConfirmationViewController : UIViewController
 
 @property(weak,nonatomic) id <CustomConfirmationViewControllerDelegate> delegate;
+@property (strong, nonatomic) IBOutlet UILabel *displayMessage;
+
+@property (strong, nonatomic) NSString *messageValue;
 
 @end

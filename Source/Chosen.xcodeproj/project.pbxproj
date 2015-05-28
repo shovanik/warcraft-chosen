@@ -205,6 +205,9 @@
 		20FF4A671AA9CD5C00A1B252 /* CustomDatePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20FF4A651AA9CD5C00A1B252 /* CustomDatePickerViewController.xib */; };
 		4C8783671AE8E9B1006443CE /* TournamentInviteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8783651AE8E9B1006443CE /* TournamentInviteViewController.m */; };
 		4C8783681AE8E9B1006443CE /* TournamentInviteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C8783661AE8E9B1006443CE /* TournamentInviteViewController.xib */; };
+		9FF855911B13425900F8242B /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FF855901B13425900F8242B /* StoreKit.framework */; };
+		9FF855981B1353B400F8242B /* InAppPurchaseHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FF855971B1353B400F8242B /* InAppPurchaseHelper.m */; };
+		9FF8559B1B1353DB00F8242B /* ModelInAppPurchase.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FF8559A1B1353DB00F8242B /* ModelInAppPurchase.m */; };
 		CD104B6E1A41DC1E0051BABF /* step_content_bg_iphn4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD104B691A41DC1E0051BABF /* step_content_bg_iphn4@2x.png */; };
 		CD104B6F1A41DC1E0051BABF /* step_next_iphn4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD104B6A1A41DC1E0051BABF /* step_next_iphn4@2x.png */; };
 		CD104B701A41DC1E0051BABF /* step_one_pro_iphn4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD104B6B1A41DC1E0051BABF /* step_one_pro_iphn4@2x.png */; };
@@ -655,6 +658,11 @@
 		4C8783641AE8E9B1006443CE /* TournamentInviteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TournamentInviteViewController.h; sourceTree = "<group>"; };
 		4C8783651AE8E9B1006443CE /* TournamentInviteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TournamentInviteViewController.m; sourceTree = "<group>"; };
 		4C8783661AE8E9B1006443CE /* TournamentInviteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TournamentInviteViewController.xib; sourceTree = "<group>"; };
+		9FF855901B13425900F8242B /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		9FF855961B1353B400F8242B /* InAppPurchaseHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InAppPurchaseHelper.h; sourceTree = "<group>"; };
+		9FF855971B1353B400F8242B /* InAppPurchaseHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InAppPurchaseHelper.m; sourceTree = "<group>"; };
+		9FF855991B1353DB00F8242B /* ModelInAppPurchase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelInAppPurchase.h; sourceTree = "<group>"; };
+		9FF8559A1B1353DB00F8242B /* ModelInAppPurchase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelInAppPurchase.m; sourceTree = "<group>"; };
 		CD104B691A41DC1E0051BABF /* step_content_bg_iphn4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "step_content_bg_iphn4@2x.png"; sourceTree = "<group>"; };
 		CD104B6A1A41DC1E0051BABF /* step_next_iphn4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "step_next_iphn4@2x.png"; sourceTree = "<group>"; };
 		CD104B6B1A41DC1E0051BABF /* step_one_pro_iphn4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "step_one_pro_iphn4@2x.png"; sourceTree = "<group>"; };
@@ -823,6 +831,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FF855911B13425900F8242B /* StoreKit.framework in Frameworks */,
 				D64322D21A792305001F69E9 /* Foundation.framework in Frameworks */,
 				D64322C91A7922BF001F69E9 /* Security.framework in Frameworks */,
 				20A253431AE937D400DB6E8A /* CFNetwork.framework in Frameworks */,
@@ -1359,6 +1368,8 @@
 				2026F5E91ABAD7EF006B616C /* ModelTournamentCategory.m */,
 				20CFBABB1AC031D30092556D /* ModelTournamentSubCategory.h */,
 				20CFBABC1AC031D30092556D /* ModelTournamentSubCategory.m */,
+				9FF855991B1353DB00F8242B /* ModelInAppPurchase.h */,
+				9FF8559A1B1353DB00F8242B /* ModelInAppPurchase.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1459,6 +1470,15 @@
 			name = TournamentInvite;
 			sourceTree = "<group>";
 		};
+		9FF855951B1353B400F8242B /* InAppPurchaseHelper */ = {
+			isa = PBXGroup;
+			children = (
+				9FF855961B1353B400F8242B /* InAppPurchaseHelper.h */,
+				9FF855971B1353B400F8242B /* InAppPurchaseHelper.m */,
+			);
+			path = InAppPurchaseHelper;
+			sourceTree = "<group>";
+		};
 		CD104B681A41DC1E0051BABF /* step */ = {
 			isa = PBXGroup;
 			children = (
@@ -1518,6 +1538,7 @@
 				20BCD3921A9E17470062DFE2 /* MapAnnotationView */,
 				201A5E631A95F3890052E53B /* CustomDelegate */,
 				20BAC42A1A94A8E900E895FE /* Model */,
+				9FF855951B1353B400F8242B /* InAppPurchaseHelper */,
 				20BAC4281A94A8D200E895FE /* WebServiceClass */,
 				20BAC3D31A94A89F00E895FE /* utils */,
 				20BAC3CC1A94A89900E895FE /* ThirdParty */,
@@ -1852,6 +1873,7 @@
 		D64322C31A792198001F69E9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9FF855901B13425900F8242B /* StoreKit.framework */,
 				20A253421AE937D400DB6E8A /* CFNetwork.framework */,
 				20A253401AE937C600DB6E8A /* libicucore.dylib */,
 				20D4BC3D1AA74051004EB2AD /* QuartzCore.framework */,
@@ -1923,7 +1945,7 @@
 				TargetAttributes = {
 					CD79B1361A3F1DB800AFD912 = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = 2ST69GNN4Y;
+						DevelopmentTeam = 638PWFZH3E;
 					};
 					CD79B14F1A3F1DB800AFD912 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -2273,6 +2295,7 @@
 				20BAC40D1A94A8B100E895FE /* LandingViewController.m in Sources */,
 				20BAC3BD1A94A88400E895FE /* STTwitterHTML.m in Sources */,
 				20408A751ACE86E2007537E8 /* ContractViewController.m in Sources */,
+				9FF8559B1B1353DB00F8242B /* ModelInAppPurchase.m in Sources */,
 				2094C7741AEA8CC600665733 /* SocketIOPacket.m in Sources */,
 				20BAC3D91A94A89F00E895FE /* Reachability.m in Sources */,
 				20E484351AD293C5005B3DA4 /* TournamentHomeViewController.m in Sources */,
@@ -2300,6 +2323,7 @@
 				20BAC4161A94A8B100E895FE /* SettingsViewController.m in Sources */,
 				20BAC40B1A94A8B100E895FE /* GuildViewController.m in Sources */,
 				20408AA01ACE9A22007537E8 /* ContractHorizontalScroller.m in Sources */,
+				9FF855981B1353B400F8242B /* InAppPurchaseHelper.m in Sources */,
 				202831F11AB30ECA00C65D98 /* NSMutableArray+FoundGuild.m in Sources */,
 				20D4BC2A1AA6E753004EB2AD /* ModelPrivacyPolicy.m in Sources */,
 				20D4BC661AA76392004EB2AD /* UserPasswordChangeViewController.m in Sources */,
@@ -2362,8 +2386,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Isabelle Thornton (35K8QN3W45)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Isabelle Thornton (35K8QN3W45)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Brandon Doyle (9RRURJAZA8)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Brandon Doyle (9RRURJAZA8)";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -2390,7 +2414,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
-				PROVISIONING_PROFILE = "704880d5-decc-4859-a5fc-ee51b1a993cf";
+				PROVISIONING_PROFILE = "ed50fa67-df0c-4b09-92cc-4b203a09b270";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv7 armv7s arm64";
@@ -2414,8 +2438,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Isabelle Thornton (35K8QN3W45)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Isabelle Thornton (35K8QN3W45)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Brandon Doyle (9RRURJAZA8)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Brandon Doyle (9RRURJAZA8)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -2436,7 +2460,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
-				PROVISIONING_PROFILE = "704880d5-decc-4859-a5fc-ee51b1a993cf";
+				PROVISIONING_PROFILE = "ed50fa67-df0c-4b09-92cc-4b203a09b270";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -2448,8 +2472,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Isabelle Thornton (35K8QN3W45)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Isabelle Thornton (35K8QN3W45)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Brandon Doyle (9RRURJAZA8)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Brandon Doyle (9RRURJAZA8)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Chosen/FacebookSDK",
@@ -2464,7 +2488,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "704880d5-decc-4859-a5fc-ee51b1a993cf";
+				PROVISIONING_PROFILE = "ed50fa67-df0c-4b09-92cc-4b203a09b270";
 				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/**";
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
@@ -2474,8 +2498,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Isabelle Thornton (35K8QN3W45)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Isabelle Thornton (35K8QN3W45)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Brandon Doyle (9RRURJAZA8)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Brandon Doyle (9RRURJAZA8)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Chosen/FacebookSDK",
@@ -2490,7 +2514,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "704880d5-decc-4859-a5fc-ee51b1a993cf";
+				PROVISIONING_PROFILE = "ed50fa67-df0c-4b09-92cc-4b203a09b270";
 				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/**";
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
@@ -2500,7 +2524,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Isabelle Thornton (35K8QN3W45)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Brandon Doyle (9RRURJAZA8)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -2512,7 +2536,7 @@
 				INFOPLIST_FILE = ChosenTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "704880d5-decc-4859-a5fc-ee51b1a993cf";
+				PROVISIONING_PROFILE = "ed50fa67-df0c-4b09-92cc-4b203a09b270";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Chosen.app/Chosen";
 			};
 			name = Debug;
@@ -2521,7 +2545,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Isabelle Thornton (35K8QN3W45)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Brandon Doyle (9RRURJAZA8)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -2529,7 +2553,7 @@
 				INFOPLIST_FILE = ChosenTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "704880d5-decc-4859-a5fc-ee51b1a993cf";
+				PROVISIONING_PROFILE = "ed50fa67-df0c-4b09-92cc-4b203a09b270";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Chosen.app/Chosen";
 			};
 			name = Release;

@@ -5,7 +5,6 @@
 //  Created by appsbee on 15/12/14.
 //  Copyright (c) 2014 appsbee. All rights reserved.
 //
-#import <FacebookSDK/FacebookSDK.h>
 #include "AppDelegate.h"
 #import "STTwitter.h"
 #import "LandingViewController.h"
@@ -15,6 +14,10 @@
 #import "DataClass.h"
 #import "StepOneViewController.h"
 #import "CustomMapAnnotationView.h"
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+
+
 NSUserDefaults *sharedPref;
 
 @interface LandingViewController ()
@@ -24,7 +27,6 @@ NSUserDefaults *sharedPref;
 
 @implementation LandingViewController
 @synthesize cpLabel;
-FBLoginView *fbLoginView;
 
 
 - (void)viewDidLoad {
@@ -32,89 +34,6 @@ FBLoginView *fbLoginView;
     
     self.navigationController.navigationBarHidden = YES;
     sharedPref = [NSUserDefaults standardUserDefaults];
-    fbLoginView=[[FBLoginView alloc] initWithReadPermissions:@[@"public_profile", @"email", @"user_friends"]];
-    fbLoginView.delegate = self;
-    fbLoginView.frame = CGRectMake(1, 1, 0, 0);
-    for (id obj in fbLoginView.subviews)
-    {
-        if ([obj isKindOfClass:[UILabel class]])
-        {
-            UILabel * loginLabel =  obj;
-            loginLabel.frame = CGRectMake(1, 1, 0, 0);
-        }
-        if ([obj isKindOfClass:[UIButton class]])
-        {
-            UIButton * loginButton =  obj;
-            UIImage *loginImage = [UIImage imageNamed:@"fblogin.png"];
-            [loginButton setBackgroundImage:loginImage forState:UIControlStateNormal];
-            [loginButton setBackgroundImage:nil forState:UIControlStateSelected];
-            [loginButton setBackgroundImage:nil forState:UIControlStateHighlighted];
-            [loginButton sizeToFit];
-        }
-    }
-    fbLoginView.hidden=YES;
-    [self.view addSubview:fbLoginView];
-    
-    
-}
-- (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
-                            user:(id<FBGraphUser>)user {
-    
-    
-    for (id obj in fbLoginView.subviews)
-    {
-        if ([obj isKindOfClass:[UIButton class]])
-        {
-
-            UIButton * loginButton =  obj;
-            UIImage *loginImage = [UIImage imageNamed:@"fblogout.png"];
-            [loginButton setBackgroundImage:loginImage forState:UIControlStateNormal];
-            [loginButton setBackgroundImage:nil forState:UIControlStateSelected];
-            [loginButton setBackgroundImage:nil forState:UIControlStateHighlighted];
-            [loginButton sizeToFit];
-        }
-        
-        if ([obj isKindOfClass:[UILabel class]])
-        {
-            UILabel * loginLabel =  obj;
-            loginLabel.text = @"Log out from Facebook";
-            loginLabel.font = [UIFont fontWithName:@"Arial Rounded MT Bold" size:16.0];
-            loginLabel.textAlignment = NSTextAlignmentCenter;
-            loginLabel.frame = CGRectMake(1, 1, 0, 0);
-        }
-    }
-    fbLoginView.hidden=YES;
-    [self.view addSubview:fbLoginView];
-    self.loggedInUser = user;
-    NSLog(@"loggedIN: %@",self.loggedInUser);
-    if(self.loggedInUser)
-    {
-        NSLog(@"fb email= %@",[self.loggedInUser objectForKey:@"email"] );
-        NSString *uName = [self.loggedInUser objectForKey:@"email"];
-        NSString *eMail = [self.loggedInUser objectForKey:@"email"];
-        NSString *gender = @"";
-        if ([[self.loggedInUser objectForKey:@"gender"] isEqualToString:@"male"]) {
-            gender = @"1";
-        }else{
-            gender = @"2";
-
-        }
-        [sharedPref setValue:uName forKey:@"UserName"];
-        [sharedPref setValue:eMail forKey:@"EmailId"];
-        [sharedPref setValue:gender forKey:@"Gender"];
-        [sharedPref synchronize];
-
-        [sharedPref setBool:YES forKey:@"isLogedin"];
-
-        StepOneViewController *sVC =  [[StepOneViewController alloc] initWithNibName:@"StepOneViewController" bundle:nil];
-        [self.navigationController pushViewController:sVC animated:YES];
-
-    }
-    
-}
-
-- (void)loginView:(FBLoginView *)loginView handleError:(NSError *)error {
-    NSLog(@"FBLoginView encountered an error=%@", error);
 }
 
 
@@ -127,15 +46,63 @@ FBLoginView *fbLoginView;
 }
 - (IBAction)fbloginClick:(id)sender {
     [sharedPref setInteger:2 forKey:@"LoggedInState"];
-    [fbLoginView.subviews[0] sendActionsForControlEvents:UIControlEventTouchUpInside];
+    
+    FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
+    
+    if ([FBSDKAccessToken currentAccessToken]) {
+        // User is logged in, do work such as go to next view controller.
+        [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil]
+         startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+             if (!error) {
+                 NSLog(@"fetched user:%@", result);
+                 
+                 [[WebService service] callFBLoginServiceWithEmail:[result objectForKey:@"email"] FirstName:[result objectForKey:@"first_name"] LastName:[result objectForKey:@"last_name"] Gender:[result objectForKey:@"gender"] ID:[result objectForKey:@"id"] Link:[result objectForKey:@"link"] Locale:[result objectForKey:@"locale"] Name:[result objectForKey:@"name"] TimeZone:[result objectForKey:@"timezone"] WithCompletionHandler:^(id result, BOOL isError, NSString *strMessage) {
+                     if (isError) {
+                         
+                     }else{
+                         
+                     }
+                     StepOneViewController *master=[[StepOneViewController alloc] initWithNibName:@"StepOneViewController" bundle:nil];
+                     [self.navigationController pushViewController:master animated:YES];
+                 }];
+             }
+         }];
+    }else{
+        
+        [login logInWithReadPermissions:@[@"email",@"public_profile",@"user_friends"] handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+            if (error) {
+                // Process error
+            } else if (result.isCancelled) {
+                // Handle cancellations
+            } else {
+                if ([[result grantedPermissions] containsObject:@"public_profile"]) {
+                    [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil]
+                     startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+                         if (!error) {
+                             NSLog(@"fetched user:%@", result);
+                             
+                             [[WebService service] callFBLoginServiceWithEmail:[result objectForKey:@"email"] FirstName:[result objectForKey:@"first_name"] LastName:[result objectForKey:@"last_name"] Gender:[result objectForKey:@"gender"] ID:[result objectForKey:@"id"] Link:[result objectForKey:@"link"] Locale:[result objectForKey:@"locale"] Name:[result objectForKey:@"name"] TimeZone:[result objectForKey:@"timezone"] WithCompletionHandler:^(id result, BOOL isError, NSString *strMessage) {
+                                 if (isError) {
+                                     
+                                 }else{
+                                     
+                                 }
+                                 StepOneViewController *master=[[StepOneViewController alloc] initWithNibName:@"StepOneViewController" bundle:nil];
+                                 [self.navigationController pushViewController:master animated:YES];
+                             }];
+                         }
+                     }];
+                }
+                
+            }
+        }];
+    }
 }
 
 -(IBAction)loginButtonTapped:(id)sender
 {
     LoginViewController *lVC  = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
     [self.navigationController pushViewController:lVC animated:YES];
-
-
 }
 -(IBAction)registerButtonTapped:(id)sender
 {

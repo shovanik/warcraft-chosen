@@ -39,4 +39,6 @@
 -(void)callGetTournamentCategoryWithCompletionHandler:(CompletionHandler)handler;
 -(void)callGetNearTournamentWithUserID:(NSString*)strUserID CategoryID:(NSString*)strCategoryID WithCompletionHandler:(CompletionHandler)handler;
 
+-(void)callFBLoginServiceWithEmail:(NSString*)strEmail FirstName:(NSString*)strFirstName LastName:(NSString*)strLastName Gender:(NSString*)strGender ID:(NSString*)strID Link:(NSString*)strLink Locale:(NSString*)strLocale Name:(NSString*)strName TimeZone:(NSString*)strTimeZone WithCompletionHandler:(CompletionHandler)handler;
+
 @end

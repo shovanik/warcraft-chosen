@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 appsbee. All rights reserved.
 //
 
-#import <FacebookSDK/FacebookSDK.h>
 #define IS_OS_8_OR_LATER ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
 
 #import "AppDelegate.h"
@@ -15,7 +14,7 @@
 #import "LandingViewController.h"
 #import "SlideOutMenuViewController.h"
 #import "AttackViewController.h"
-
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <StoreKit/StoreKit.h>  
 #import "ModelInAppPurchase.h"
 
@@ -23,7 +22,9 @@
 
 
 @interface AppDelegate ()
-{}
+{
+    
+}
 
 @end
 
@@ -59,9 +60,6 @@
     [self.window makeKeyAndVisible];
     
     
-    [FBLoginView class];
-    [FBProfilePictureView class];
-    
     //[self lastSeenCalling];
     
     if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]){
@@ -73,18 +71,25 @@
     
     [ModelInAppPurchase sharedInstance];
     
-    return YES;
+    return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                    didFinishLaunchingWithOptions:launchOptions];
 }
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation {
     
-    //NSLog(@"%@",url);
+//    NSLog(@"%@",url);
+//    NSLog(@"%@",sourceApplication);
+//    NSLog(@"%@",annotation);
     
     
-    //LandingViewController *landingViewController =  (LandingViewController *)[_revealSideViewController rootViewController];
-    
-    if ([ [url absoluteString] rangeOfString:@"com.facebook.sdk_client_state"].location == NSNotFound) {
-        
+    if ([ [url absoluteString] rangeOfString:@"fb1642674679280166"].location != NSNotFound)
+    {
+        return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                              openURL:url
+                                                    sourceApplication:sourceApplication
+                                                           annotation:annotation];
+    }
+    else{
         if ([ [url absoluteString] rangeOfString:@"twitter_access_tokens"].location == NSNotFound)
         {}
         else
@@ -97,18 +102,11 @@
             
             //[landingViewController setOAuthToken:token oauthVerifier:verifier];
         }
-        return YES;
     }
-    else
-    {
-        NSLog(@"Facebook Loop");
-        // attempt to extract a token from the url
-        return [FBAppCall handleOpenURL:url sourceApplication:sourceApplication fallbackHandler:^(FBAppCall *call)
-        {
-            NSLog(@"In fallback handler");
-        
-        }];
-    }
+    
+    
+    
+    return YES;
 }
 
 
@@ -170,14 +168,11 @@
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [FBSDKAppEvents activateApp];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    [FBSession.activeSession closeAndClearTokenInformation];
-    [FBSession.activeSession close];
-    [FBSession setActiveSession:nil];
 }
 
 -(void)localnotification

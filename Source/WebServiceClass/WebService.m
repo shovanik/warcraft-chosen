@@ -18,6 +18,7 @@
 
 typedef enum : NSUInteger {
     LoginService=0,
+    FBLoginService,
     RegistrationService,
     UpdateUserService,
     UploadAvtarService,
@@ -38,6 +39,7 @@ typedef enum : NSUInteger {
 
 static NSString *const allServices[]={
     [LoginService]=@"api/user/login",
+    [FBLoginService]=@"api/user/fb_login",
     [RegistrationService]=@"api/user",
     [UpdateUserService]=@"api/user/update",
     [UploadAvtarService]=@"dfwefsdfds",
@@ -95,6 +97,69 @@ static NSString *const allServices[]={
     NSString *postParams = [[arr componentsJoinedByString:@"&"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     NSLog(@"postParams = %@",postParams);
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[self getTotalURL:allServices[LoginService]] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+    NSData *RequestPostData = [NSData dataWithBytes: [postParams UTF8String] length: [postParams length]];
+    NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[RequestPostData length]];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:RequestPostData];
+    NSOperationQueue *queue=[NSOperationQueue new];
+    [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (connectionError) {
+                handler(connectionError,YES,@"Connection error is happen, please try again later.");
+            }else{
+                NSError *error;
+                NSLog(@"%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+                NSDictionary *responseDict=[NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+                if (error) {
+                    handler(error,YES,@"Login is failed due to some issues, please try again later.");
+                }else{
+                    BOOL status=[[responseDict objectForKey:@"status"] boolValue];
+                    if (status) {
+                        NSDictionary *dict=[responseDict objectForKey:@"response"];
+                        NSDictionary *dictUserInfo=[dict objectForKey:@"user_info"];
+                        NSMutableArray *arrAllUserInfo=[[dict objectForKey:@"all_user_info"] mutableCopy];
+                        
+                        
+                        ModelUser *user=[[ModelUser alloc] initWithDictionary:dictUserInfo BaseURL:self.strBaseURL];
+                        for (int i=0; i<arrAllUserInfo.count; i++) {
+                            ModelUser *obj=[[ModelUser alloc] initWithDictionary:[arrAllUserInfo objectAtIndex:i] BaseURL:self.strBaseURL];
+                            [arrAllUserInfo removeObjectAtIndex:i];
+                            [arrAllUserInfo insertObject:obj atIndex:i];
+                        }
+                        NSLog(@"UserInfo = %@",dictUserInfo);
+                        NSLog(@"arrAllUserInfo = %@",arrAllUserInfo);
+                        
+                        NSDictionary *dictResult=[[NSDictionary alloc] initWithObjects:@[user,arrAllUserInfo] forKeys:@[@"User",@"AllUser"]];
+                        
+                        handler(dictResult,NO,@"User Logged In Successfully !!!");
+                    }else{
+                        handler(nil,YES,[responseDict objectForKey:@"error"]);
+                    }
+                }
+            }
+        });
+    }];
+}
+
+-(void)callFBLoginServiceWithEmail:(NSString*)strEmail FirstName:(NSString*)strFirstName LastName:(NSString*)strLastName Gender:(NSString*)strGender ID:(NSString*)strID Link:(NSString*)strLink Locale:(NSString*)strLocale Name:(NSString*)strName TimeZone:(NSString*)strTimeZone WithCompletionHandler:(CompletionHandler)handler
+{
+    NSMutableArray *arr=[[NSMutableArray alloc] init];
+    [arr addObject:[NSString stringWithFormat:@"email=%@",strEmail]];
+    [arr addObject:[NSString stringWithFormat:@"first_name=%@",strFirstName]];
+    [arr addObject:[NSString stringWithFormat:@"last_name=%@",strLastName]];
+    [arr addObject:[NSString stringWithFormat:@"gender=%@",strGender]];
+    [arr addObject:[NSString stringWithFormat:@"fb_id=%@",strID]];
+    [arr addObject:[NSString stringWithFormat:@"link=%@",strLink]];
+    [arr addObject:[NSString stringWithFormat:@"locale=%@",strLocale]];
+    [arr addObject:[NSString stringWithFormat:@"name=%@",strName]];
+    [arr addObject:[NSString stringWithFormat:@"timeZone=%@",strTimeZone]];
+    
+    NSString *postParams = [[arr componentsJoinedByString:@"&"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    NSLog(@"postParams = %@",postParams);
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[self getTotalURL:allServices[FBLoginService]] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
     NSData *RequestPostData = [NSData dataWithBytes: [postParams UTF8String] length: [postParams length]];
     NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[RequestPostData length]];
     [request setHTTPMethod:@"POST"];

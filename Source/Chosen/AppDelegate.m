@@ -156,23 +156,72 @@
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    
+    if (user) {
+        if ([user.strID stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]].length>0) {
+            [[WebService service] callStatusChangeToOfflineWithUserID:user.strID WithCompletionHandler:^(id result, BOOL isError, NSString *strMessage) {
+                
+            }];
+        }
+    }else{
+        NSLog(@"User Not Sign In %s",__func__);
+    }
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    if (user) {
+        if ([user.strID stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]].length>0) {
+            [[WebService service] callStatusChangeToOfflineWithUserID:user.strID WithCompletionHandler:^(id result, BOOL isError, NSString *strMessage) {
+                
+            }];
+        }
+    }else{
+        NSLog(@"User Not Sign In %s",__func__);
+    }
+    
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    if (user) {
+        if ([user.strID stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]].length>0) {
+            [[WebService service] callStatusChangeToOnlineWithUserID:user.strID WithCompletionHandler:^(id result, BOOL isError, NSString *strMessage) {
+                
+            }];
+        }
+    }else{
+        NSLog(@"User Not Sign In %s",__func__);
+    }
+    
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
+    if (user) {
+        if ([user.strID stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]].length>0) {
+            [[WebService service] callStatusChangeToOnlineWithUserID:user.strID WithCompletionHandler:^(id result, BOOL isError, NSString *strMessage) {
+                
+            }];
+        }
+    }else{
+        NSLog(@"User Not Sign In %s",__func__);
+    }
+    
     [FBSDKAppEvents activateApp];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    if (user) {
+        if ([user.strID stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]].length>0) {
+            [[WebService service] callStatusChangeToOfflineWithUserID:user.strID WithCompletionHandler:^(id result, BOOL isError, NSString *strMessage) {
+                
+            }];
+        }
+    }else{
+        NSLog(@"User Not Sign In %s",__func__);
+    }
 }
 
 -(void)localnotification

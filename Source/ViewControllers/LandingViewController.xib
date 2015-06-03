@@ -6,6 +6,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LandingViewController">
             <connections>
+                <outlet property="activityIndicatorView" destination="Fcf-V4-fgn" id="iYk-ez-Ipx"/>
+                <outlet property="btnFacebook" destination="UVf-wj-1E9" id="X4P-C6-HxE"/>
+                <outlet property="btnTwitter" destination="pjB-3k-LKd" id="glZ-Xk-Py2"/>
                 <outlet property="cpLabel" destination="blF-24-gsE" id="C10-II-cqL"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -119,10 +122,17 @@
                     <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
                         <rect key="frame" x="60" y="158" width="280" height="113"/>
                     </variation>
-                    <variation key="heightClass=regular-widthClass=compact" ambiguous="YES" misplaced="YES">
-                        <rect key="frame" x="63" y="15" width="292" height="254"/>
+                    <variation key="heightClass=regular-widthClass=compact" ambiguous="YES">
+                        <rect key="frame" x="55" y="15" width="292" height="254"/>
                     </variation>
                 </imageView>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="Fcf-V4-fgn">
+                    <rect key="frame" x="-10" y="-10" width="20" height="20"/>
+                    <color key="color" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="191" y="390" width="20" height="20"/>
+                    </variation>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
@@ -187,6 +197,7 @@
                     <exclude reference="UVf-wj-1E9"/>
                     <exclude reference="pjB-3k-LKd"/>
                     <exclude reference="blF-24-gsE"/>
+                    <exclude reference="Fcf-V4-fgn"/>
                 </mask>
                 <mask key="constraints">
                     <exclude reference="KIy-SL-Aha"/>
@@ -229,6 +240,7 @@
                     <include reference="UVf-wj-1E9"/>
                     <include reference="pjB-3k-LKd"/>
                     <include reference="blF-24-gsE"/>
+                    <include reference="Fcf-V4-fgn"/>
                 </mask>
                 <mask key="constraints">
                     <include reference="KIy-SL-Aha"/>

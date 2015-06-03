@@ -16,11 +16,17 @@
 #import "CustomMapAnnotationView.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
-
+#import "CustomLocationManager.h"
 
 NSUserDefaults *sharedPref;
 
-@interface LandingViewController ()
+@interface LandingViewController ()<CustomLocationManagerDelegate>
+{
+    IBOutlet UIButton *btnFacebook;
+    IBOutlet UIButton *btnTwitter;
+    
+    UIButton *btnPressed;
+}
 @property (nonatomic, strong) STTwitterAPI *twitter;
 
 @end
@@ -47,6 +53,42 @@ NSUserDefaults *sharedPref;
 - (IBAction)fbloginClick:(id)sender {
     [sharedPref setInteger:2 forKey:@"LoggedInState"];
     
+    
+    
+    if ([CLLocationManager locationServicesEnabled]) {
+        btnPressed=sender;
+        [self startLocationManager];
+    }else{
+        UIAlertController *alertController=[UIAlertController alertControllerWithTitle:@"Warning" message:@"Please turn on the location service from the settings" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *actionOk=[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            [alertController dismissViewControllerAnimated:YES completion:^{
+                
+            }];
+        }];
+        [alertController addAction:actionOk];
+        [self presentViewController:alertController animated:YES completion:^{
+            
+        }];
+    }
+}
+
+-(void)didUpdateLocationUpdateWithPlacemark:(CLPlacemark *)placeMark
+{
+    
+    if (btnPressed==btnFacebook) {
+        [self faceBookLoginPressedWithPlaceMark:placeMark];
+    }else{
+        [self twitterLoginPressedWithPlaceMark:placeMark];
+    }
+    
+    
+}
+
+-(void)faceBookLoginPressedWithPlaceMark:(CLPlacemark*)placemark
+{
+    NSDictionary *dict=[self addressDictionaryForPlaceMark:placemark];
+    
+    
     FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
     
     if ([FBSDKAccessToken currentAccessToken]) {
@@ -56,7 +98,7 @@ NSUserDefaults *sharedPref;
              if (!error) {
                  NSLog(@"fetched user:%@", result);
                  
-                 [[WebService service] callFBLoginServiceWithEmail:[result objectForKey:@"email"] FirstName:[result objectForKey:@"first_name"] LastName:[result objectForKey:@"last_name"] Gender:[result objectForKey:@"gender"] ID:[result objectForKey:@"id"] Link:[result objectForKey:@"link"] Locale:[result objectForKey:@"locale"] Name:[result objectForKey:@"name"] TimeZone:[result objectForKey:@"timezone"] WithCompletionHandler:^(id result, BOOL isError, NSString *strMessage) {
+                 [[WebService service] callFBLoginServiceWithEmail:[result objectForKey:@"email"] FirstName:[result objectForKey:@"first_name"] LastName:[result objectForKey:@"last_name"] Gender:[result objectForKey:@"gender"] ID:[result objectForKey:@"id"] Link:[result objectForKey:@"link"] Locale:[result objectForKey:@"locale"] Name:[result objectForKey:@"name"] TimeZone:[result objectForKey:@"timezone"] Latitude:[dict objectForKey:@"Latitude"] Longitude:[dict objectForKey:@"Longitude"] Country:[dict objectForKey:@"Country"] State:[dict objectForKey:@"State"] City:[dict objectForKey:@"City"] WithCompletionHandler:^(id result, BOOL isError, NSString *strMessage) {
                      if (isError) {
                          
                      }else{
@@ -65,10 +107,20 @@ NSUserDefaults *sharedPref;
                      StepOneViewController *master=[[StepOneViewController alloc] initWithNibName:@"StepOneViewController" bundle:nil];
                      [self.navigationController pushViewController:master animated:YES];
                  }];
+             }else{
+                 UIAlertController *alertController=[UIAlertController alertControllerWithTitle:@"Error" message:@"Facebook login failed" preferredStyle:UIAlertControllerStyleAlert];
+                 UIAlertAction *actionOk=[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                     [alertController dismissViewControllerAnimated:YES completion:^{
+                         
+                     }];
+                 }];
+                 [alertController addAction:actionOk];
+                 [self presentViewController:alertController animated:YES completion:^{
+                     
+                 }];
              }
          }];
     }else{
-        
         [login logInWithReadPermissions:@[@"email",@"public_profile",@"user_friends"] handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
             if (error) {
                 // Process error
@@ -81,7 +133,7 @@ NSUserDefaults *sharedPref;
                          if (!error) {
                              NSLog(@"fetched user:%@", result);
                              
-                             [[WebService service] callFBLoginServiceWithEmail:[result objectForKey:@"email"] FirstName:[result objectForKey:@"first_name"] LastName:[result objectForKey:@"last_name"] Gender:[result objectForKey:@"gender"] ID:[result objectForKey:@"id"] Link:[result objectForKey:@"link"] Locale:[result objectForKey:@"locale"] Name:[result objectForKey:@"name"] TimeZone:[result objectForKey:@"timezone"] WithCompletionHandler:^(id result, BOOL isError, NSString *strMessage) {
+                             [[WebService service] callFBLoginServiceWithEmail:[result objectForKey:@"email"] FirstName:[result objectForKey:@"first_name"] LastName:[result objectForKey:@"last_name"] Gender:[result objectForKey:@"gender"] ID:[result objectForKey:@"id"] Link:[result objectForKey:@"link"] Locale:[result objectForKey:@"locale"] Name:[result objectForKey:@"name"] TimeZone:[result objectForKey:@"timezone"] Latitude:[dict objectForKey:@"Latitude"] Longitude:[dict objectForKey:@"Longitude"] Country:[dict objectForKey:@"Country"] State:[dict objectForKey:@"State"] City:[dict objectForKey:@"City"] WithCompletionHandler:^(id result, BOOL isError, NSString *strMessage) {
                                  if (isError) {
                                      
                                  }else{
@@ -90,6 +142,17 @@ NSUserDefaults *sharedPref;
                                  StepOneViewController *master=[[StepOneViewController alloc] initWithNibName:@"StepOneViewController" bundle:nil];
                                  [self.navigationController pushViewController:master animated:YES];
                              }];
+                         }else{
+                             UIAlertController *alertController=[UIAlertController alertControllerWithTitle:@"Error" message:@"Facebook login failed" preferredStyle:UIAlertControllerStyleAlert];
+                             UIAlertAction *actionOk=[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                                 [alertController dismissViewControllerAnimated:YES completion:^{
+                                     
+                                 }];
+                             }];
+                             [alertController addAction:actionOk];
+                             [self presentViewController:alertController animated:YES completion:^{
+                                 
+                             }];
                          }
                      }];
                 }
@@ -97,6 +160,25 @@ NSUserDefaults *sharedPref;
             }
         }];
     }
+}
+
+-(void)twitterLoginPressedWithPlaceMark:(CLPlacemark*)placemark
+{
+    
+}
+
+-(void)didLocationManagerCompletedWithError:(NSError*)error
+{
+    UIAlertController *alertController=[UIAlertController alertControllerWithTitle:@"Error" message:@"Location service is not available, please turn on the location service and try again." preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *actionOk=[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        [alertController dismissViewControllerAnimated:YES completion:^{
+            
+        }];
+    }];
+    [alertController addAction:actionOk];
+    [self presentViewController:alertController animated:YES completion:^{
+        
+    }];
 }
 
 -(IBAction)loginButtonTapped:(id)sender

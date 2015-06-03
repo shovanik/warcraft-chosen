@@ -34,7 +34,9 @@ typedef enum : NSUInteger {
     AddGuid,
     GetSpecificUserGuilds,
     GetTournamentCategory,
-    GetNearTournament
+    GetNearTournament,
+    StatusChangeToOnline,
+    StatusChangeToOffline
 } WebServiceType;
 
 static NSString *const allServices[]={
@@ -55,7 +57,9 @@ static NSString *const allServices[]={
     [AddGuid]=@"api/user/add_guild",
     [GetSpecificUserGuilds]=@"api/user/guilds",
     [GetTournamentCategory]=@"api/tournament/tournaments_category",
-    [GetNearTournament]=@"api/tournament/near_tournament"
+    [GetNearTournament]=@"api/tournament/near_tournament",
+    [StatusChangeToOnline]=@"api/user/staus_change_to_online",
+    [StatusChangeToOffline]=@"/api/user/staus_change_to_offline"
 };
 
 @implementation WebService
@@ -144,7 +148,7 @@ static NSString *const allServices[]={
     }];
 }
 
--(void)callFBLoginServiceWithEmail:(NSString*)strEmail FirstName:(NSString*)strFirstName LastName:(NSString*)strLastName Gender:(NSString*)strGender ID:(NSString*)strID Link:(NSString*)strLink Locale:(NSString*)strLocale Name:(NSString*)strName TimeZone:(NSString*)strTimeZone WithCompletionHandler:(CompletionHandler)handler
+-(void)callFBLoginServiceWithEmail:(NSString*)strEmail FirstName:(NSString*)strFirstName LastName:(NSString*)strLastName Gender:(NSString*)strGender ID:(NSString*)strID Link:(NSString*)strLink Locale:(NSString*)strLocale Name:(NSString*)strName TimeZone:(NSString*)strTimeZone Latitude:(NSString*)strLatitude Longitude:(NSString*)strLongitude Country:(NSString*)strCountry State:(NSString*)strState City:(NSString*)strCity WithCompletionHandler:(CompletionHandler)handler
 {
     NSMutableArray *arr=[[NSMutableArray alloc] init];
     [arr addObject:[NSString stringWithFormat:@"email=%@",strEmail]];
@@ -156,6 +160,11 @@ static NSString *const allServices[]={
     [arr addObject:[NSString stringWithFormat:@"locale=%@",strLocale]];
     [arr addObject:[NSString stringWithFormat:@"name=%@",strName]];
     [arr addObject:[NSString stringWithFormat:@"timeZone=%@",strTimeZone]];
+    [arr addObject:[NSString stringWithFormat:@"lat=%@",strLatitude]];
+    [arr addObject:[NSString stringWithFormat:@"lon=%@",strLongitude]];
+    [arr addObject:[NSString stringWithFormat:@"country_name=%@",strCountry]];
+    [arr addObject:[NSString stringWithFormat:@"state_name=%@",strState]];
+    [arr addObject:[NSString stringWithFormat:@"city_name=%@",strCity]];
     
     NSString *postParams = [[arr componentsJoinedByString:@"&"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     NSLog(@"postParams = %@",postParams);
@@ -219,7 +228,7 @@ static NSString *const allServices[]={
     [arr addObject:[NSString stringWithFormat:@"lon=%@",strLongitude]];
     [arr addObject:[NSString stringWithFormat:@"country_name=%@",strCountrName]];
     [arr addObject:[NSString stringWithFormat:@"state_name=%@",strStateName]];
-    [arr addObject:[NSString stringWithFormat:@"city_name=%@",strStateName]];
+    [arr addObject:[NSString stringWithFormat:@"city_name=%@",strCityName]];
     
     NSString *postParams = [arr componentsJoinedByString:@"&"];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[self getTotalURL:allServices[RegistrationService]] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
@@ -876,6 +885,60 @@ static NSString *const allServices[]={
             }
         });
     }];
+}
+
+-(void)callStatusChangeToOnlineWithUserID:(NSString*)strUserID WithCompletionHandler:(CompletionHandler)handler
+{
+    @synchronized(self){
+        NSMutableArray *arr=[[NSMutableArray alloc] init];
+        [arr addObject:[NSString stringWithFormat:@"user_id=%@",strUserID]];
+        
+        NSString *postParams = [arr componentsJoinedByString:@"&"];
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[self getTotalURL:allServices[StatusChangeToOnline]] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+        NSData *RequestPostData = [NSData dataWithBytes: [postParams UTF8String] length: [postParams length]];
+        NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[RequestPostData length]];
+        [request setHTTPMethod:@"POST"];
+        [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+        [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+        [request setHTTPBody:RequestPostData];
+        NSOperationQueue *queue=[NSOperationQueue new];
+        [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (connectionError) {
+                    handler(connectionError,YES,@"Connection error is happen, please try again later.");
+                }else{
+                    NSLog(@"%s Response = %@",__func__,[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+                }
+            });
+        }];
+    }
+}
+
+-(void)callStatusChangeToOfflineWithUserID:(NSString*)strUserID WithCompletionHandler:(CompletionHandler)handler
+{
+    @synchronized(self){
+        NSMutableArray *arr=[[NSMutableArray alloc] init];
+        [arr addObject:[NSString stringWithFormat:@"user_id=%@",strUserID]];
+        
+        NSString *postParams = [arr componentsJoinedByString:@"&"];
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[self getTotalURL:allServices[StatusChangeToOffline]] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+        NSData *RequestPostData = [NSData dataWithBytes: [postParams UTF8String] length: [postParams length]];
+        NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[RequestPostData length]];
+        [request setHTTPMethod:@"POST"];
+        [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+        [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+        [request setHTTPBody:RequestPostData];
+        NSOperationQueue *queue=[NSOperationQueue new];
+        [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (connectionError) {
+                    handler(connectionError,YES,@"Connection error is happen, please try again later.");
+                }else{
+                    NSLog(@"%s Response = %@",__func__,[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+                }
+            });
+        }];
+    }
 }
 
 @end

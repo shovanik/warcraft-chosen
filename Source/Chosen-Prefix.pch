@@ -20,10 +20,14 @@
 #endif
 
 #ifdef __OBJC__
+
+
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 #import<StoreKit/StoreKit.h>
 #import "AppDelegate.h"
+
+
 #define   IsIphone4     ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )480 ) < DBL_EPSILON )
 #define   IsIphone5     ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
 #define   IsIphone6     ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )667 ) < DBL_EPSILON )

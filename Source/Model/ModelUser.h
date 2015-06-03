@@ -40,6 +40,13 @@
 @property(strong,nonatomic) NSString *strAvtarImage;
 @property(strong,nonatomic) NSString *strLevel;
 
+
+@property(strong,nonatomic) NSString *strFBId;
+@property(strong,nonatomic) NSString *strLink;
+@property(strong,nonatomic) NSString *strLocale;
+@property(strong,nonatomic) NSString *strName;
+@property(strong,nonatomic) NSString *strTimeZone;
+
 -(ModelUser*)initWithDictionary:(NSDictionary*)dictionary BaseURL:(NSString*)strBaseURL;
 -(id)initWithUser:(ModelUser*)myUser;
 

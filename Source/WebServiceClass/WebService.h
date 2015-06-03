@@ -39,6 +39,10 @@
 -(void)callGetTournamentCategoryWithCompletionHandler:(CompletionHandler)handler;
 -(void)callGetNearTournamentWithUserID:(NSString*)strUserID CategoryID:(NSString*)strCategoryID WithCompletionHandler:(CompletionHandler)handler;
 
--(void)callFBLoginServiceWithEmail:(NSString*)strEmail FirstName:(NSString*)strFirstName LastName:(NSString*)strLastName Gender:(NSString*)strGender ID:(NSString*)strID Link:(NSString*)strLink Locale:(NSString*)strLocale Name:(NSString*)strName TimeZone:(NSString*)strTimeZone WithCompletionHandler:(CompletionHandler)handler;
+-(void)callFBLoginServiceWithEmail:(NSString*)strEmail FirstName:(NSString*)strFirstName LastName:(NSString*)strLastName Gender:(NSString*)strGender ID:(NSString*)strID Link:(NSString*)strLink Locale:(NSString*)strLocale Name:(NSString*)strName TimeZone:(NSString*)strTimeZone Latitude:(NSString*)strLatitude Longitude:(NSString*)strLongitude Country:(NSString*)strCountry State:(NSString*)strState City:(NSString*)strCity WithCompletionHandler:(CompletionHandler)handler;
+
+-(void)callStatusChangeToOnlineWithUserID:(NSString*)strUserID WithCompletionHandler:(CompletionHandler)handler;
+
+-(void)callStatusChangeToOfflineWithUserID:(NSString*)strUserID WithCompletionHandler:(CompletionHandler)handler;
 
 @end

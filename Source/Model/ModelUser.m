@@ -210,6 +210,36 @@
         }else{
             self.strLevel=@"0";
         }
+        
+        if ([dictionary objectForKey:@"fb_id"]&&!([[dictionary objectForKey:@"fb_id"] isKindOfClass:[[NSNull null] class]])) {
+            self.strFBId=[[dictionary objectForKey:@"fb_id"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        }else{
+            self.strFBId=@"";
+        }
+
+        if ([dictionary objectForKey:@"link"]&&!([[dictionary objectForKey:@"link"] isKindOfClass:[[NSNull null] class]])) {
+            self.strLink=[[dictionary objectForKey:@"link"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        }else{
+            self.strLink=@"";
+        }
+
+        if ([dictionary objectForKey:@"locale"]&&!([[dictionary objectForKey:@"locale"] isKindOfClass:[[NSNull null] class]])) {
+            self.strLocale=[[dictionary objectForKey:@"locale"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        }else{
+            self.strLocale=@"";
+        }
+        
+        if ([dictionary objectForKey:@"name"]&&!([[dictionary objectForKey:@"name"] isKindOfClass:[[NSNull null] class]])) {
+            self.strName=[[dictionary objectForKey:@"name"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        }else{
+            self.strName=@"";
+        }
+        
+        if ([dictionary objectForKey:@"timeZone"]&&!([[dictionary objectForKey:@"timeZone"] isKindOfClass:[[NSNull null] class]])) {
+            self.strTimeZone=[[dictionary objectForKey:@"timeZone"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        }else{
+            self.strTimeZone=@"";
+        }
     }
     
     if ([strDateOfBirth stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]].length>0) {
@@ -227,6 +257,8 @@
     }else{
         self.strAge=@"0";
     }
+    
+    
     
     
     return self;

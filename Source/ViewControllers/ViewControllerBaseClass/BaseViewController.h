@@ -28,6 +28,8 @@
 #import "NSMutableArray+FoundUser.h"
 #import "CustomConfirmationViewController.h"
 
+#import "OnlineOfflineTrackerManager.h"
+
 typedef enum : NSUInteger {
     StartFight=0,
     AcceptFight,
@@ -36,6 +38,7 @@ typedef enum : NSUInteger {
     ReadyToFightResponse,
     SendHit,
     SocketError,
+    OnlineUsers,
 } SocketEvent;
 
 
@@ -47,6 +50,7 @@ NSString static *socketEvents[]={
     [ReadyToFightResponse]=@"readyToFightResponse",
     [SendHit]=@"sendHit",
     [SocketError]=@"socketError",
+    [OnlineUsers]=@"getOnlineUsers"
 };
 
 
@@ -87,5 +91,7 @@ NSString static *socketEvents[]={
 -(void)sendReadyToFightResponse:(NSString*)strResponse;
 
 -(void)sendHitWithStatus:(NSString*)strStatus Distance:(NSString*)strDistance;
+
+-(void)sendGetOnlineUsers;
 
 @end

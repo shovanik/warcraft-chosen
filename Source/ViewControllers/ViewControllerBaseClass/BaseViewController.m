@@ -427,6 +427,12 @@
     [mySocket sendEvent:socketEvents[SendHit] withData:[NSDictionary dictionaryWithObjects:@[user.strID,userRival.strID,dict] forKeys:@[@"uid",@"fid",@"meta"]]];
 }
 
+-(void)sendGetOnlineUsers
+{
+    //[mySocket sendEvent:socketEvents[OnlineUsers] withData:nil forKeys:nil]];
+    [mySocket sendEvent:socketEvents[OnlineUsers] withData:nil];
+}
+
 
 #pragma mark
 # pragma mark socket.IO-objc delegate methods

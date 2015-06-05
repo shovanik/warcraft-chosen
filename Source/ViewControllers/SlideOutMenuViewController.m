@@ -8,7 +8,6 @@
 
 #import "SlideOutMenuViewController.h"
 #import "SlideMenuTableViewCell.h"
-#import "STTwitter.h"
 
 #import "WorldMapViewController.h"
 #import "GuildViewController.h"

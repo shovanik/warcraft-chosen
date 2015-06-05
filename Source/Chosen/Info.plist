@@ -21,15 +21,35 @@
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>myapp</string>
 				<string>fb1642674679280166</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
+	<key>Fabric</key>
+	<dict>
+		<key>APIKey</key>
+		<string>2936557ff722a6111e2cc8f42c2511f849b69ad2</string>
+		<key>Kits</key>
+		<array>
+			<dict>
+				<key>KitInfo</key>
+				<dict>
+					<key>consumerKey</key>
+					<string>uFB997L0b98b1uDsFl4zEirO6</string>
+					<key>consumerSecret</key>
+					<string>dDb0sLc1IQdpj1TSg2YrpSEQrV5AX36wjlZ9FSbsrX47dXAAzP</string>
+				</dict>
+				<key>KitName</key>
+				<string>Twitter</string>
+			</dict>
+		</array>
+	</dict>
 	<key>FacebookAppID</key>
 	<string>1642674679280166</string>
 	<key>FacebookDisplayName</key>

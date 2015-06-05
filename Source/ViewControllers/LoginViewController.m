@@ -153,6 +153,8 @@ NSUserDefaults *pref;
                 if ([tempAllUser isKindOfClass:[NSMutableArray class]]) {
                     allUser=(NSMutableArray*)tempAllUser;
                 }
+                stringUserID=user.strID;
+                [[OnlineOfflineTrackerManager manager] startTrackingUserForUserID:user.strID];
             }
             
             UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Success" message:strMessage delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];

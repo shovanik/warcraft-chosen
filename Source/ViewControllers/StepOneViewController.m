@@ -105,9 +105,11 @@
     else{
         helpLabel.font = [UIFont fontWithName:@"Garamond" size:14];
     }
-      
+    
+    [self sendGetOnlineUsers];
 }
 -(IBAction)nextButtonTapped:(id)sender{
+    [self sendGetOnlineUsers];
     StepTwoViewController *master  = [[StepTwoViewController alloc] initWithNibName:@"StepTwoViewController" bundle:nil];
     [self.navigationController pushViewController:master animated:NO];
 }

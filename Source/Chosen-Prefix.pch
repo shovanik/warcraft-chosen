@@ -41,3 +41,5 @@
 SlideOutMenuViewController *slideMenu;
 SocketIO *mySocket;
 ModelUser *userRival;
+
+NSString *stringUserID;

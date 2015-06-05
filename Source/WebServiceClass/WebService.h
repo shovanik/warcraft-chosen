@@ -41,6 +41,8 @@
 
 -(void)callFBLoginServiceWithEmail:(NSString*)strEmail FirstName:(NSString*)strFirstName LastName:(NSString*)strLastName Gender:(NSString*)strGender ID:(NSString*)strID Link:(NSString*)strLink Locale:(NSString*)strLocale Name:(NSString*)strName TimeZone:(NSString*)strTimeZone Latitude:(NSString*)strLatitude Longitude:(NSString*)strLongitude Country:(NSString*)strCountry State:(NSString*)strState City:(NSString*)strCity WithCompletionHandler:(CompletionHandler)handler;
 
+-(void)callTwitterLoginWithUserName:(NSString*)strUserName DisplayName:(NSString*)strDisplayName Email:(NSString*)strEmail ProfileImageLargeURL:(NSString*)strProfileImageLargeURL ProfileImageMini:(NSString*)strProfileImageMiniURL ProfileImageURL:(NSString*)strProfileImageURL Country:(NSString*)strCountry State:(NSString*)strState City:(NSString*)strCity Latitude:(NSString*)strLatitude Longitude:(NSString*)strLongitude TwitterUserID:(NSString*)strTwitterUserId WithCompletionHandler:(CompletionHandler)handler;
+
 -(void)callStatusChangeToOnlineWithUserID:(NSString*)strUserID WithCompletionHandler:(CompletionHandler)handler;
 
 -(void)callStatusChangeToOfflineWithUserID:(NSString*)strUserID WithCompletionHandler:(CompletionHandler)handler;

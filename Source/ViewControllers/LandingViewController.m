@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 appsbee. All rights reserved.
 //
 #include "AppDelegate.h"
-#import "STTwitter.h"
+//#import "STTwitter.h"
 #import "LandingViewController.h"
 #import "LoginViewController.h"
 #import "RegisterViewController.h"
@@ -17,6 +17,8 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import "CustomLocationManager.h"
+#import <TwitterKit/TwitterKit.h>
+
 
 NSUserDefaults *sharedPref;
 
@@ -26,8 +28,10 @@ NSUserDefaults *sharedPref;
     IBOutlet UIButton *btnTwitter;
     
     UIButton *btnPressed;
+    
+    TWTRLogInButton *btnBGTwitter;
 }
-@property (nonatomic, strong) STTwitterAPI *twitter;
+//@property (nonatomic, strong) STTwitterAPI *twitter;
 
 @end
 
@@ -40,6 +44,8 @@ NSUserDefaults *sharedPref;
     
     self.navigationController.navigationBarHidden = YES;
     sharedPref = [NSUserDefaults standardUserDefaults];
+    
+    
 }
 
 
@@ -72,16 +78,32 @@ NSUserDefaults *sharedPref;
     }
 }
 
+- (IBAction)twitterClick:(id)sender {
+
+    if ([CLLocationManager locationServicesEnabled]) {
+        btnPressed=sender;
+        [self startLocationManager];
+    }else{
+        UIAlertController *alertController=[UIAlertController alertControllerWithTitle:@"Warning" message:@"Please turn on the location service from the settings" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *actionOk=[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            [alertController dismissViewControllerAnimated:YES completion:^{
+                
+            }];
+        }];
+        [alertController addAction:actionOk];
+        [self presentViewController:alertController animated:YES completion:^{
+            
+        }];
+    }
+}
+
 -(void)didUpdateLocationUpdateWithPlacemark:(CLPlacemark *)placeMark
 {
-    
     if (btnPressed==btnFacebook) {
         [self faceBookLoginPressedWithPlaceMark:placeMark];
     }else{
         [self twitterLoginPressedWithPlaceMark:placeMark];
     }
-    
-    
 }
 
 -(void)faceBookLoginPressedWithPlaceMark:(CLPlacemark*)placemark
@@ -102,7 +124,21 @@ NSUserDefaults *sharedPref;
                      if (isError) {
                          
                      }else{
-                         
+                         if ([result isKindOfClass:[NSDictionary class]]) {
+                             NSMutableDictionary *dict=(NSMutableDictionary*)result;
+                             
+                             id tempUser=[dict objectForKey:@"User"];
+                             if ([tempUser isKindOfClass:[ModelUser class]]) {
+                                 user=(ModelUser*)tempUser;
+                             }
+                             id tempAllUser=[dict objectForKey:@"AllUser"];
+                             if ([tempAllUser isKindOfClass:[NSMutableArray class]]) {
+                                 allUser=(NSMutableArray*)tempAllUser;
+                             }
+                             stringUserID=user.strID;
+                             [[OnlineOfflineTrackerManager manager] startTrackingUserForUserID:user.strID];
+                             [self makeSocketConnectionWithUser:user];
+                         }
                      }
                      StepOneViewController *master=[[StepOneViewController alloc] initWithNibName:@"StepOneViewController" bundle:nil];
                      [self.navigationController pushViewController:master animated:YES];
@@ -137,7 +173,21 @@ NSUserDefaults *sharedPref;
                                  if (isError) {
                                      
                                  }else{
-                                     
+                                     if ([result isKindOfClass:[NSDictionary class]]) {
+                                         NSMutableDictionary *dict=(NSMutableDictionary*)result;
+                                         
+                                         id tempUser=[dict objectForKey:@"User"];
+                                         if ([tempUser isKindOfClass:[ModelUser class]]) {
+                                             user=(ModelUser*)tempUser;
+                                         }
+                                         id tempAllUser=[dict objectForKey:@"AllUser"];
+                                         if ([tempAllUser isKindOfClass:[NSMutableArray class]]) {
+                                             allUser=(NSMutableArray*)tempAllUser;
+                                         }
+                                         stringUserID=user.strID;
+                                         [[OnlineOfflineTrackerManager manager] startTrackingUserForUserID:user.strID];
+                                         [self makeSocketConnectionWithUser:user];
+                                     }
                                  }
                                  StepOneViewController *master=[[StepOneViewController alloc] initWithNibName:@"StepOneViewController" bundle:nil];
                                  [self.navigationController pushViewController:master animated:YES];
@@ -164,7 +214,62 @@ NSUserDefaults *sharedPref;
 
 -(void)twitterLoginPressedWithPlaceMark:(CLPlacemark*)placemark
 {
+    NSDictionary *dict=[self addressDictionaryForPlaceMark:placemark];
     
+    btnBGTwitter = [TWTRLogInButton buttonWithLogInCompletion:^(TWTRSession *session, NSError *error) {
+        // play with Twitter session
+        NSLog(@"userID = %@",[session userID]);
+        NSLog(@"userName = %@",[session userName]);
+        NSLog(@"authToken = %@",[session authToken]);
+        NSLog(@"authTokenSecret = %@",[session authTokenSecret]);
+        
+        [[[Twitter sharedInstance] APIClient] loadUserWithID:[session userID] completion:^(TWTRUser *twitterUser, NSError *error) {
+            NSLog(@"Tweet User Name = %@",twitterUser.name);
+            NSLog(@"Tweet User profileImageLargeURL = %@",twitterUser.profileImageLargeURL);
+            NSLog(@"Tweet User profileImageMiniURL = %@",twitterUser.profileImageMiniURL);
+            NSLog(@"Tweet User profileImageURL = %@",twitterUser.profileImageURL);
+            NSLog(@"Tweet User screenName = %@",twitterUser.screenName);
+            NSLog(@"Tweet User screenName = %@",twitterUser.userID);
+            
+            /*
+             
+             [resultDict setObject:[dict objectForKey:@"City"] forKey:@"City"];
+             [resultDict setObject:[dict objectForKey:@"Country"] forKey:@"Country"];
+             [resultDict setObject:[dict objectForKey:@"State"] forKey:@"State"];
+             [resultDict setObject:[NSString stringWithFormat:@"%f",placeMark.location.coordinate.latitude] forKey:@"Latitude"];
+             [resultDict setObject:[NSString stringWithFormat:@"%f",placeMark.location.coordinate.longitude] forKey:@"Longitude"];
+             
+            */
+            
+            
+            [[WebService service] callTwitterLoginWithUserName:twitterUser.name DisplayName:twitterUser.screenName Email:@"" ProfileImageLargeURL:twitterUser.profileImageLargeURL ProfileImageMini:twitterUser.profileImageMiniURL ProfileImageURL:twitterUser.profileImageURL Country:[dict objectForKey:@"Country"] State:[dict objectForKey:@"State"] City:[dict objectForKey:@"City"] Latitude:[dict objectForKey:@"Latitude"] Longitude:[dict objectForKey:@"Longitude"] TwitterUserID:twitterUser.userID WithCompletionHandler:^(id result, BOOL isError, NSString *strMessage) {
+                if (isError) {
+                    
+                }else{
+                    
+                    if ([result isKindOfClass:[NSDictionary class]]) {
+                        NSMutableDictionary *dict=(NSMutableDictionary*)result;
+                        
+                        id tempUser=[dict objectForKey:@"User"];
+                        if ([tempUser isKindOfClass:[ModelUser class]]) {
+                            user=(ModelUser*)tempUser;
+                        }
+                        id tempAllUser=[dict objectForKey:@"AllUser"];
+                        if ([tempAllUser isKindOfClass:[NSMutableArray class]]) {
+                            allUser=(NSMutableArray*)tempAllUser;
+                        }
+                        stringUserID=user.strID;
+                        [[OnlineOfflineTrackerManager manager] startTrackingUserForUserID:user.strID];
+                        [self makeSocketConnectionWithUser:user];
+                        
+                        StepOneViewController *master=[[StepOneViewController alloc] initWithNibName:@"StepOneViewController" bundle:nil];
+                        [self.navigationController pushViewController:master animated:YES];
+                    }
+                }
+            }];
+        }];
+    }];
+    [btnBGTwitter sendActionsForControlEvents:UIControlEventTouchUpInside];
 }
 
 -(void)didLocationManagerCompletedWithError:(NSError*)error
@@ -193,7 +298,7 @@ NSUserDefaults *sharedPref;
 }
 
 
--(void)setOAuthToken:(NSString *)token oauthVerifier:(NSString *)verifier {
+/*-(void)setOAuthToken:(NSString *)token oauthVerifier:(NSString *)verifier {
     
     // in case the user has just authenticated through WebViewVC
     [self dismissViewControllerAnimated:YES completion:^{
@@ -230,31 +335,9 @@ NSUserDefaults *sharedPref;
         NSLog(@"-- %@", [error localizedDescription]);
     }];
     
-}
+}*/
 
 
-- (IBAction)twitterClick:(id)sender {
-    
-    self.twitter = [STTwitterAPI twitterAPIWithOAuthConsumerKey:TWITTER_CLIENT_KEY
-                                                 consumerSecret:TWITTER_CLIENT_SECRET];
-    
-    
-    [_twitter postTokenRequest:^(NSURL *url, NSString *oauthToken) {
-        NSLog(@"-- url: %@", url);
-        NSLog(@"-- oauthToken: %@", oauthToken);
-        
-        
-        [[UIApplication sharedApplication] openURL:url];
-        
-    } authenticateInsteadOfAuthorize:NO
-                    forceLogin:@(YES)
-                    screenName:nil
-                 oauthCallback:@"myapp://twitter_access_tokens/"
-                    errorBlock:^(NSError *error) {
-                        NSLog(@"-- error: %@", error);
-                    }];
-    
-    
-}
+
 
 @end

@@ -19,11 +19,5 @@
 
 -(void)localnotification;
 
-+(void)userStatusChangeToOnlineForUserID:(NSString*)strUserID;
-
-+(void)userStatusChangeToOfflineForUserID:(NSString*)strUserID;
-
-+(void)lastSeenForUserID:(NSString*)strUserID;
-
 @end
 

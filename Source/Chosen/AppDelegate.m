@@ -82,11 +82,6 @@
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation {
     
-//    NSLog(@"%@",url);
-//    NSLog(@"%@",sourceApplication);
-//    NSLog(@"%@",annotation);
-    
-    
     if ([ [url absoluteString] rangeOfString:@"fb1642674679280166"].location != NSNotFound)
     {
         return [[FBSDKApplicationDelegate sharedInstance] application:application
@@ -184,45 +179,6 @@
 {
     
 }
-
-+(void)userStatusChangeToOnlineForUserID:(NSString*)strUserID
-{
-    
-    if (strUserID) {
-        if ([strUserID stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]].length>0) {
-            [[WebService service] callStatusChangeToOfflineWithUserID:strUserID WithCompletionHandler:^(id result, BOOL isError, NSString *strMessage) {
-                
-            }];
-        }
-    }
-}
-
-+(void)userStatusChangeToOfflineForUserID:(NSString*)strUserID
-{
-    if (strUserID) {
-        if ([strUserID stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]].length>0) {
-            
-        }
-    }
-}
-
-#pragma mark
-#pragma mark Last Seen API Calling
-#pragma mark
-
-+(void)lastSeenForUserID:(NSString*)strUserID
-{
-    if (user) {
-        [[WebService service] callLastSeenServiceForUserID:user.strID WithCompletionHandler:^(id result, BOOL isError, NSString *strMessage) {
-            NSLog(@"response = %@",strMessage);
-            
-            [self performSelector:@selector(lastSeenCalling) withObject:nil afterDelay:30.0];
-        }];
-    }else{
-        [self performSelector:@selector(lastSeenCalling) withObject:nil afterDelay:30.0];
-    }
-}
-
 
 
 @end

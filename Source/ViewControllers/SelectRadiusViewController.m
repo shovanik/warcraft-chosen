@@ -26,6 +26,7 @@
     IBOutlet UILabel *addressLabel;
     IBOutlet UIToolbar *radiousToolBar;
     IBOutlet UILabel *lblSelectedRadious;
+    IBOutlet UIButton *btnRadious;
 
     NSString *strMapRadious;
     NSString *latitude;
@@ -75,6 +76,8 @@
     }
     radiousArray = [[NSArray alloc] initWithObjects:@"1", @"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10", nil];
    
+    playeNameLabel.text=user.strUserName;
+    addressLabel.text=[NSString stringWithFormat:@"%@,%@",user.strCountryName,user.strCityName];
     
 }
 
@@ -219,7 +222,7 @@
     [mapRadious removeOverlay:circle];
     circle = [MKCircle circleWithCenterCoordinate:CLLocationCoordinate2DMake(locManager.location.coordinate.latitude, locManager.location.coordinate.longitude) radius:meter];
     [mapRadious addOverlay:circle];
-    
+    [btnRadious setTitle:lblSelectedRadious.text forState:UIControlStateNormal];
 }
 
 - (void)didReceiveMemoryWarning {

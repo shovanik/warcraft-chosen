@@ -19,12 +19,15 @@
 -(void)didContractClicked;
 -(void)didTournamentClicked;
 -(void)didSettingsClicked;
+-(void)didLogoutTapped;
 
 @end
 
 @interface SlideOutMenuViewController : UIViewController
 
 @property(weak,nonatomic) id <SlideOutMenuDelegate> delegate;
+
+-(void)setAvtarImageForURL:(NSURL*)urlImg;
 
 
 @end

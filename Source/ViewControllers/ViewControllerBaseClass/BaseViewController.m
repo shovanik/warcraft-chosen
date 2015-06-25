@@ -21,6 +21,7 @@
 #import "SocketIO.h"
 #import "SocketIOPacket.h"
 #import "AttackViewController.h"
+#import "WorldMapViewController.h"
 
 @import AVKit;
 
@@ -48,6 +49,30 @@
 #pragma mark
 #pragma mark Initialization Methods
 #pragma mark
+
+-(id)init
+{
+    if (self=[super init]) {
+        self.myParentViewController=self;
+    }
+    return self;
+}
+-(id)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self=[super initWithCoder:aDecoder]) {
+        self.myParentViewController=self;
+    }
+    return self;
+}
+-(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    if (self=[super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
+        self.myParentViewController=self;
+    }
+    return self;
+}
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -329,6 +354,12 @@
     [self closeSlideMenu];
 }
 
+-(void)didLogoutTapped
+{
+    NSLog(@"didLogoutTapped");
+    [self closeSlideMenu];
+}
+
 #pragma mark
 #pragma mark Slide Menu Delegate
 #pragma mark
@@ -393,6 +424,11 @@
     NSLog(@"sendFightRequest");
     [mySocket sendEvent:socketEvents[StartFight] withData:[NSDictionary dictionaryWithObjects:@[user.strID,userTo.strID,@"sendFightRequest"] forKeys:@[@"uid",@"fid",@"meta"]]];
 }
+-(void)sendBeginFight
+{
+    NSLog(@"sendFightRequest");
+    [mySocket sendEvent:socketEvents[beginFight] withData:[NSDictionary dictionaryWithObjects:@[user.strID,userRival.strID] forKeys:@[@"uid",@"fid"]]];
+}
 
 -(void)acceptFightPressed
 {
@@ -427,6 +463,17 @@
     [mySocket sendEvent:socketEvents[SendHit] withData:[NSDictionary dictionaryWithObjects:@[user.strID,userRival.strID,dict] forKeys:@[@"uid",@"fid",@"meta"]]];
 }
 
+-(void)sendHitWithIsHit:(BOOL)isHit HitValue:(NSString *)strHitValue
+{
+    NSDictionary *dict;
+    if (isHit) {
+        dict=[NSDictionary dictionaryWithObjects:@[[NSString stringWithFormat:@"1"],strHitValue] forKeys:@[@"hit",@"hitValue"]];
+    }else{
+        dict=[NSDictionary dictionaryWithObjects:@[[NSString stringWithFormat:@"0"],strHitValue] forKeys:@[@"hit",@"hitValue"]];
+    }
+    [mySocket sendEvent:socketEvents[SendHit] withData:[NSDictionary dictionaryWithObjects:@[user.strID,userRival.strID,dict] forKeys:@[@"uid",@"fid",@"meta"]]];
+}
+
 -(void)sendGetOnlineUsers
 {
     //[mySocket sendEvent:socketEvents[OnlineUsers] withData:nil forKeys:nil]];
@@ -447,80 +494,87 @@
 {
     //NSLog(@"didReceiveEvent()");
     
-    NSLog(@"%@",packet.data);
-    NSLog(@"%@",packet.dataAsJSON);
     
-    NSError *error;
-    NSDictionary *dict=packet.dataAsJSON;
-    
-    if ([[dict objectForKey:@"name"] isEqualToString:socketEvents[StartFight]]) {
-        NSLog(@"This is start Fight.");
+    if ([self.navigationController.topViewController isKindOfClass:[AttackViewController class]]) {
+        AttackViewController *master=(AttackViewController*)self.navigationController.topViewController;
+        [master socketIO:socket didReceiveEvent:packet];
+    }
+    else if ([self.navigationController.topViewController isKindOfClass:[WorldMapViewController class]]){
+        WorldMapViewController *master=(WorldMapViewController*)self.navigationController.topViewController;
+        [master socketIO:socket didReceiveEvent:packet];
+    }
+    else{
+        NSLog(@"%@",packet.data);
+        NSLog(@"%@",packet.dataAsJSON);
         
+        NSError *error;
         NSDictionary *dict=packet.dataAsJSON;
-        NSArray *arrTemp=[dict objectForKey:@"args"];
-        dict=arrTemp[0];
-        userRival=[allUser getUserForUserID:[dict objectForKey:@"uid"]];
         
-        UIAlertController *alertController=[UIAlertController alertControllerWithTitle:@"Fight Request" message:@"You have received a fight request, please confirm whether you want to fight or not." preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *actionStartFight=[UIAlertAction actionWithTitle:@"Start Fight" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-            [alertController dismissViewControllerAnimated:YES completion:^{
-                
-            }];
-            [self acceptFightPressed];
-        }];
-        UIAlertAction *actionDeclineFight=[UIAlertAction actionWithTitle:@"Decline Fight" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-            [alertController dismissViewControllerAnimated:YES completion:^{
-                
-            }];
-            [self declineFightPressed];
-        }];
-        [alertController addAction:actionStartFight];
-        [alertController addAction:actionDeclineFight];
-        [self presentViewController:alertController animated:YES completion:^{
+        if ([[dict objectForKey:@"name"] isEqualToString:socketEvents[StartFight]]) {
+            NSLog(@"This is start Fight.");
             
-        }];
-    }
-    else if ([[dict objectForKey:@"name"] isEqualToString:socketEvents[AcceptFight]]) {
-        NSLog(@"This is AcceptFight.");
-        
-        NSDictionary *dict=packet.dataAsJSON;
-        NSArray *arrTemp=[dict objectForKey:@"args"];
-        dict=arrTemp[0];
-        userRival=[allUser getUserForUserID:[dict objectForKey:@"uid"]];
-        AttackViewController *master=[[AttackViewController alloc] initWithNibName:@"AttackViewController" bundle:nil];
-        [[SocketService service] makeSocketDelegate:nil];
-        [[SocketService service] makeSocketDelegate:master];
-        [self.navigationController pushViewController:master animated:YES];
-    }
-    else if ([[dict objectForKey:@"name"] isEqualToString:socketEvents[DeclineFight]]) {
-        NSLog(@"This is DeclineFight.");
-    }
-    else if ([[dict objectForKey:@"name"] isEqualToString:socketEvents[SocketError]]) {
-        UIAlertController *alertController=[UIAlertController alertControllerWithTitle:@"Error" message:@"Sorry you have send the game play request to an offline user." preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *actionOK=[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-            [alertController dismissViewControllerAnimated:YES completion:^{
+            NSDictionary *dict=packet.dataAsJSON;
+            NSArray *arrTemp=[dict objectForKey:@"args"];
+            dict=arrTemp[0];
+            userRival=[allUser getUserForUserID:[dict objectForKey:@"uid"]];
+            
+            UIAlertController *alertController=[UIAlertController alertControllerWithTitle:@"Fight Request" message:@"You have received a fight request, please confirm whether you want to fight or not." preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *actionStartFight=[UIAlertAction actionWithTitle:@"Start Fight" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                [alertController dismissViewControllerAnimated:YES completion:^{
+                    
+                }];
+                [self acceptFightPressed];
+            }];
+            UIAlertAction *actionDeclineFight=[UIAlertAction actionWithTitle:@"Decline Fight" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                [alertController dismissViewControllerAnimated:YES completion:^{
+                    
+                }];
+                [self declineFightPressed];
+            }];
+            [alertController addAction:actionStartFight];
+            [alertController addAction:actionDeclineFight];
+            [self presentViewController:alertController animated:YES completion:^{
                 
             }];
-        }];
-        [alertController addAction:actionOK];
-        [self presentViewController:alertController animated:YES completion:^{
+        }
+        else if ([[dict objectForKey:@"name"] isEqualToString:socketEvents[AcceptFight]]) {
+            NSLog(@"This is AcceptFight.");
             
-        }];
+            NSDictionary *dict=packet.dataAsJSON;
+            NSArray *arrTemp=[dict objectForKey:@"args"];
+            dict=arrTemp[0];
+            userRival=[allUser getUserForUserID:[dict objectForKey:@"uid"]];
+            AttackViewController *master=[[AttackViewController alloc] initWithNibName:@"AttackViewController" bundle:nil];
+            [[SocketService service] makeSocketDelegate:nil];
+            [[SocketService service] makeSocketDelegate:master];
+            [self.navigationController pushViewController:master animated:YES];
+        }
+        else if ([[dict objectForKey:@"name"] isEqualToString:socketEvents[DeclineFight]]) {
+            NSLog(@"This is DeclineFight.");
+        }
+        else if ([[dict objectForKey:@"name"] isEqualToString:socketEvents[SocketError]]) {
+            UIAlertController *alertController=[UIAlertController alertControllerWithTitle:@"Error" message:@"Sorry you have send the game play request to an offline user." preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *actionOK=[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                [alertController dismissViewControllerAnimated:YES completion:^{
+                    
+                }];
+            }];
+            [alertController addAction:actionOK];
+            [self presentViewController:alertController animated:YES completion:^{
+                
+            }];
+        }
+        
+        if (error) {
+            [socket disconnectForced];
+        }else{
+            NSLog(@"%@",dict);
+        }
     }
     
     
     
     
-    
-    
-    
-    if (error) {
-        [socket disconnectForced];
-    }else{
-        NSLog(@"%@",dict);
-        
-        
-    }
 }
 
 - (void) socketIO:(SocketIO *)socket onError:(NSError *)error
@@ -536,6 +590,11 @@
 - (void) socketIODidDisconnect:(SocketIO *)socket disconnectedWithError:(NSError *)error
 {
     NSLog(@"socket.io disconnected. did error occur? %@", error);
+}
+
+-(void)disconnectSocket
+{
+    [[SocketService service] disConnectSocket];
 }
 
 @end

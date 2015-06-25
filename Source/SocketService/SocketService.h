@@ -16,4 +16,6 @@
 
 -(void)makeSocketDelegate:(id)myDelegate;
 
+-(void)disConnectSocket;
+
 @end

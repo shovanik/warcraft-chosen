@@ -20,6 +20,6 @@
 
 -(void)didReceiveLocalNotifications:(UILocalNotification *)notification;
 
-- (void) socketIO:(SocketIO *)socket didReceiveEvent:(SocketIOPacket *)packet;
+- (void)socketIO:(SocketIO *)socket didReceiveEvent:(SocketIOPacket *)packet;
 
 @end

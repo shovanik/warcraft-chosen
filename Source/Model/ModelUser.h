@@ -39,6 +39,11 @@
 @property(strong,nonatomic) NSString *strAge;
 @property(strong,nonatomic) NSString *strAvtarImage;
 @property(strong,nonatomic) NSString *strLevel;
+@property(strong,nonatomic) NSString *strXP;
+@property(strong,nonatomic) NSString *strTotalWins;
+@property(strong,nonatomic) NSString *strTotalLoss;
+@property(strong,nonatomic) NSString *strStatusPoint;
+@property(strong,nonatomic) NSString *strLastGameFinisehd;
 
 
 @property(strong,nonatomic) NSString *strFBId;

@@ -136,7 +136,7 @@ NSUserDefaults *sharedPref;
                                  allUser=(NSMutableArray*)tempAllUser;
                              }
                              stringUserID=user.strID;
-                             [[OnlineOfflineTrackerManager manager] startTrackingUserForUserID:user.strID];
+                             //[[OnlineOfflineTrackerManager manager] startTrackingUserForUserID:user.strID];
                              [self makeSocketConnectionWithUser:user];
                          }
                      }
@@ -185,7 +185,7 @@ NSUserDefaults *sharedPref;
                                              allUser=(NSMutableArray*)tempAllUser;
                                          }
                                          stringUserID=user.strID;
-                                         [[OnlineOfflineTrackerManager manager] startTrackingUserForUserID:user.strID];
+                                         //[[OnlineOfflineTrackerManager manager] startTrackingUserForUserID:user.strID];
                                          [self makeSocketConnectionWithUser:user];
                                      }
                                  }
@@ -259,7 +259,7 @@ NSUserDefaults *sharedPref;
                             allUser=(NSMutableArray*)tempAllUser;
                         }
                         stringUserID=user.strID;
-                        [[OnlineOfflineTrackerManager manager] startTrackingUserForUserID:user.strID];
+                        //[[OnlineOfflineTrackerManager manager] startTrackingUserForUserID:user.strID];
                         [self makeSocketConnectionWithUser:user];
                         
                         StepOneViewController *master=[[StepOneViewController alloc] initWithNibName:@"StepOneViewController" bundle:nil];

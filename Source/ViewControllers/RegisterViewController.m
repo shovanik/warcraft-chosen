@@ -432,6 +432,7 @@ NSUserDefaults *pref;
                     id tempUser=[dict objectForKey:@"User"];
                     if ([tempUser isKindOfClass:[ModelUser class]]) {
                         user=(ModelUser*)tempUser;
+                        [slideMenu setAvtarImageForURL:[NSURL URLWithString:user.strDefaultImageURL]];
                     }
                     id tempAllUser=[dict objectForKey:@"AllUser"];
                     if ([tempAllUser isKindOfClass:[NSMutableArray class]]) {

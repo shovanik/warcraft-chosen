@@ -15,14 +15,30 @@
 #import "TournamentHomeViewController.h"
 
 #import "ContractViewController.h"
+#import "ImageViewGuild.h"
+
+typedef NS_ENUM(NSUInteger, SidePanelContent) {
+    WorldMap=0,
+    Guild,
+    Tournament,
+    Settings,
+    Total,
+};
 
 
-NSString static *arrImages[]={
+/*NSString static *arrImages[]={
     [0]=@"world_map_icon.png",
     [1]=@"guild_icon.png",
     [2]=@"contract_icon.png",
     [3]=@"tournameny_icon.png",
     [4]=@"settings_icon.png",
+};*/
+
+NSString static *arrImages[]={
+    [WorldMap]=@"world_map_icon.png",
+    [Guild]=@"guild_icon.png",
+    [Tournament]=@"tournameny_icon.png",
+    [Settings]=@"settings_icon.png",
 };
 
 NSString static *arrSelectionImages[]={
@@ -30,27 +46,28 @@ NSString static *arrSelectionImages[]={
     [1]=@"menu_button_2.png",
 };
 
-NSString static *arrContentText[]={
+/*NSString static *arrContentText[]={
     [0]=@"WORLD MAP",
     [1]=@"GUILD",
     [2]=@"CONTRACT",
     [3]=@"TOURNAMENT",
     [4]=@"SETTINGS",
+};*/
+
+NSString static *arrContentText[]={
+    [WorldMap]=@"WORLD MAP",
+    [Guild]=@"GUILD",
+    [Tournament]=@"TOURNAMENT",
+    [Settings]=@"SETTINGS",
 };
 
 NSUserDefaults *pref;
 @interface SlideOutMenuViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
     IBOutlet UILabel *trainingTimeLeftLabel;
-    IBOutlet UILabel *trainingTimeLeftValueLabel;
     IBOutlet UILabel *lastBatttleLabel;
-    IBOutlet UILabel *lastBatttValueleLabel;
-    IBOutlet UIButton *worldButton;
-    IBOutlet UIButton *guildButton;
-    IBOutlet UIButton *contractButton;
-    IBOutlet UIButton *tournamentButton;
-    IBOutlet UIButton *settingsButton;
     IBOutlet UITableView *menuTableview;
+    IBOutlet ImageViewGuild *imgAvtar;
     
     NSIndexPath *indexPathSelected;
     NSMutableArray *arrAllIndexPath;
@@ -67,17 +84,15 @@ NSUserDefaults *pref;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    indexPathSelected=[NSIndexPath indexPathForRow:0 inSection:0];
+    
     arrAllIndexPath=[[NSMutableArray alloc] init];
     
-    guildButton.selected = NO;
     pref = [NSUserDefaults standardUserDefaults];
 
 
     // Do any additional setup after loading the view from its nib.
-    trainingTimeLeftLabel.font = [UIFont fontWithName:@"Garamond" size:11];
-    trainingTimeLeftValueLabel.font = [UIFont fontWithName:@"Garamond" size:13];
-    lastBatttleLabel.font = [UIFont fontWithName:@"Garamond" size:12];
-    lastBatttValueleLabel.font = [UIFont fontWithName:@"Garamond" size:13];
+    
     
     if (___isIphone4_4s) {
         NSLog(@"iPhone4");
@@ -96,6 +111,12 @@ NSUserDefaults *pref;
     [menuTableview reloadData];
 
 }
+
+-(void)setAvtarImageForURL:(NSURL*)urlImg
+{
+    [imgAvtar setImageFromURL:urlImg.absoluteString];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -105,7 +126,12 @@ NSUserDefaults *pref;
     return YES;
 }
 - (IBAction)logoutButtonTapped:(id)sender {
-    
+    BaseViewController *base=(BaseViewController*)self.delegate;
+    [base.navigationController popToRootViewControllerAnimated:YES];
+    [base disconnectSocket];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(didLogoutTapped)]) {
+        [self.delegate didLogoutTapped];
+    }
 }
 
 
@@ -119,22 +145,30 @@ NSUserDefaults *pref;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    return Total;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CGFloat height=0.0f;
     if (___isIphone4_4s) {
-        height=58.0f;
+        height=71.0f;
+        
+        //Contract dhukle 58 hobe
     }
     else if (___isIphone5_5s){
-        height=75.0f;
+        height=93.0f;
+        
+        //Contract dhukle 85 hobe
     }
     else if (___isIphone6){
-        height=96.0f;
+        height=118.0f;
+        
+        //Contract dhukle 96 hobe
     }
     else if (___isIphone6Plus){
-        height=108.0f;
+        height=135.0f;
+        
+        //Contract dhukle 108 hobe
     }
     return height;
 }
@@ -148,7 +182,7 @@ NSUserDefaults *pref;
     }
     //[cell.btn setBackgroundImage:[arrImage objectAtIndex:indexPath.row] forState:UIControlStateNormal];
     
-    if (indexPathSelected==indexPath) {
+    if (indexPathSelected.row==indexPath.row) {
         cell.imgBackGround.image=[UIImage imageNamed:arrSelectionImages[1]];
     }else{
         cell.imgBackGround.image=[UIImage imageNamed:arrSelectionImages[0]];
@@ -181,19 +215,19 @@ NSUserDefaults *pref;
     indexPathSelected=indexPath;
     [tableView reloadData];
     switch (indexPath.row) {
-        case 0:
+        case WorldMap:
             [self btnWorldMapClicked];
             break;
-        case 1:
+        case Guild:
             [self btnGuildClicked];
             break;
-        case 2:
+        /*case 2:
             [self btnContractClicked];
-            break;
-        case 3:
+            break;*/
+        case Tournament:
             [self btnTournamentClicked];
             break;
-        case 4:
+        case Settings:
             [self btnSettingsClicked];
             break;
         default:

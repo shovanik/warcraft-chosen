@@ -14,6 +14,7 @@
 #import "SocketIOPacket.h"
 #import "WebServiceConstant.h"
 #import "CustomTimerLabel.h"
+#import "SocketService.h"
 
 @interface AttackViewController ()<ImageTouchDetectionDelegate,SocketIODelegate,TimerLabelDelegate>
 {
@@ -32,6 +33,10 @@
     
     BOOL isOponentImageDownloaded;
     BOOL isSelfImageDownloadComplete;
+    
+    BOOL isFirstHit;
+    
+    CGFloat prevPercentage;
 }
 
 @end
@@ -74,6 +79,13 @@
     isOponentImageDownloaded=NO;
     isSelfImageDownloadComplete=NO;
     [imgMain loadImageFromURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",__kBaseURL,userRival.strAvtarImage]]];
+    isFirstHit=YES;
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    prevPercentage=imgSliderOwn.parcentage;
 }
 
 
@@ -110,7 +122,9 @@
 -(void)didHitTargetOwnWithDistance:(CGFloat)distance
 {
     
-    [self sendHitWithStatus:@"HIT" Distance:[NSString stringWithFormat:@"%f",distance]];
+    
+    
+    //[self sendHitWithStatus:@"HIT" Distance:[NSString stringWithFormat:@"%f",distance]];
     NSLog(@"Distance = %f",distance);
     
     
@@ -130,24 +144,32 @@
     else if (distance>17){
         damage=0.3125f;
     }
-    if (imgSliderRival.parcentage-damage>=0) {
+    
+    
+    if (isFirstHit) {
+        [self sendBeginFight];
+        isFirstHit=NO;
+        
+    }
+    
+    if (imgSliderRival.parcentage-damage>0) {
+        
         [imgSliderRival setPercentage:imgSliderRival.parcentage-damage];
         lblLifeOther.text=[NSString stringWithFormat:@"%d",(int)imgSliderRival.parcentage];
-    }else{
-        //User Win...
         
-        UIAlertController *controller=[UIAlertController alertControllerWithTitle:@"Congrats" message:@"You have win" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *actionOk=[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-            [controller dismissViewControllerAnimated:YES completion:^{
-                
-            }];
-            [self.navigationController popViewControllerAnimated:YES];
-        }];
-        [controller addAction:actionOk];
-        [self presentViewController:controller animated:YES completion:^{
-            
-        }];
+        
+        [self sendHitWithIsHit:YES HitValue:[NSString stringWithFormat:@"%f",prevPercentage-imgSliderRival.parcentage]];
+        prevPercentage=imgSliderRival.parcentage;
+    }else{
+        [imgSliderRival setPercentage:0];
+        lblLifeOther.text=[NSString stringWithFormat:@"0"];
+        
+        
+        [self sendHitWithIsHit:YES HitValue:[NSString stringWithFormat:@"%f",/*prevPercentage-imgSliderRival.parcentage*/50.0f]];
+        prevPercentage=imgSliderRival.parcentage;
     }
+    
+    
     
     
     for (UILocalNotification *localNotification in [[UIApplication sharedApplication] scheduledLocalNotifications]) {
@@ -162,9 +184,10 @@
 }
 -(void)didMissTargetOwn
 {
-    [self sendHitWithStatus:@"MISS" Distance:@"-1.0"];
+    //[self sendHitWithStatus:@"MISS" Distance:@"-1.0"];
+    [self sendHitWithIsHit:NO HitValue:@"0.0"];
+    
     for (UILocalNotification *localNotification in [[UIApplication sharedApplication] scheduledLocalNotifications]) {
-        
         if ([[localNotification.userInfo objectForKey:@"UserID"] isEqualToString:user.strID]) {
             [[UIApplication sharedApplication] cancelLocalNotification:localNotification] ;
             [self stopAnimation];
@@ -321,7 +344,8 @@
 
 -(void)didReceiveLocalNotifications:(UILocalNotification *)notification
 {
-    [self sendHitWithStatus:@"MISS" Distance:@"-1.0"];
+    //[self sendHitWithStatus:@"MISS" Distance:@"-1.0"];
+    [self sendHitWithIsHit:NO HitValue:@"0.0"];
     NSLog(@"UserInfo = %@",notification.userInfo);
     
     if ([user.strID isEqualToString:[notification.userInfo objectForKey:@"UserID"]] && [[notification.userInfo objectForKey:@"Player"] isEqualToString:@"OWN"]) {
@@ -336,11 +360,6 @@
 # pragma mark socket.IO-objc delegate methods
 #pragma mark
 
-- (void) socketIODidConnect:(SocketIO *)socket
-{
-    NSLog(@"socket.io connected.");
-    mySocket=socket;
-}
 - (void) socketIO:(SocketIO *)socket didReceiveEvent:(SocketIOPacket *)packet
 {
     NSLog(@"%@",packet.data);
@@ -370,12 +389,37 @@
             [self sendReadyToFight];
         }
     }
+    
     else if ([[dict objectForKey:@"name"] isEqualToString:socketEvents[SendHit]]) {
         NSDictionary *dict=packet.dataAsJSON;
         dict=[(NSArray*)[dict objectForKey:@"args"] objectAtIndex:0];
         dict=[dict objectForKey:@"meta"];
         CGFloat damage;
         
+        if ([[dict objectForKey:@"hit"] floatValue]==0) {
+            damage=0.0f;
+        }else{
+            damage=[[dict objectForKey:@"hitValue"] floatValue];
+        }
+        
+        /*
+        if (imgSliderOwn.parcentage-damage>=0) {
+            [imgSliderOwn setPercentage:imgSliderOwn.parcentage-damage];
+            lblLifeOwn.text=[NSString stringWithFormat:@"%d",(int)imgSliderOwn.parcentage];
+        }
+        */
+        
+        if (imgSliderOwn.parcentage-damage>0) {
+            [imgSliderOwn setPercentage:imgSliderOwn.parcentage-damage];
+            lblLifeOwn.text=[NSString stringWithFormat:@"%d",(int)imgSliderOwn.parcentage];
+        }else{
+            [imgSliderOwn setPercentage:0];
+            lblLifeOwn.text=[NSString stringWithFormat:@"0"];
+        }
+        
+        
+        
+        /*
         if ([dict objectForKey:@"Distance"] && ![[dict objectForKey:@"Distance"] isKindOfClass:[NSNull class]]) {
             if ([[dict objectForKey:@"Distance"] floatValue]>0 && [[dict objectForKey:@"Distance"] floatValue]<2) {
                 damage=5.0f;
@@ -415,23 +459,45 @@
                 }];
             }
         }
+         */
+        
+        
         [self startAnimation];
     }
-}
-
-- (void) socketIO:(SocketIO *)socket onError:(NSError *)error
-{
-    if ([error code] == SocketIOUnauthorized) {
-        NSLog(@"not authorized");
-    } else {
-        NSLog(@"onError() %@", error);
+    
+    else if ([[dict objectForKey:@"name"] isEqualToString:socketEvents[endFight]]){
+        NSDictionary *dict=(NSDictionary*)packet.dataAsJSON;
+        NSLog(@"Response = %@",dict);
+        NSDictionary *dictFinalResult=[(NSArray*)[dict objectForKey:@"args"] objectAtIndex:0];
+        
+        [[SocketService service] makeSocketDelegate:self.parentViewController];
+        
+        if ([user.strID isEqualToString:[dictFinalResult objectForKey:@"winner_id"]]) {
+            UIAlertController *alertController=[UIAlertController alertControllerWithTitle:@"Congrats" message:@"You have win the match..." preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *actionOK=[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                [alertController dismissViewControllerAnimated:YES completion:^{
+                    
+                }];
+                [self.navigationController popViewControllerAnimated:YES];
+            }];
+            [alertController addAction:actionOK];
+            [self presentViewController:alertController animated:YES completion:^{
+                
+            }];
+        }else{
+            UIAlertController *alertController=[UIAlertController alertControllerWithTitle:@"Sorry" message:@"Oponent have win the match..." preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *actionOK=[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                [alertController dismissViewControllerAnimated:YES completion:^{
+                    
+                }];
+                [self.navigationController popViewControllerAnimated:YES];
+            }];
+            [alertController addAction:actionOK];
+            [self presentViewController:alertController animated:YES completion:^{
+                
+            }];
+        }
     }
-}
-
-
-- (void) socketIODidDisconnect:(SocketIO *)socket disconnectedWithError:(NSError *)error
-{
-    NSLog(@"socket.io disconnected. did error occur? %@", error);
 }
 
 #pragma mark

@@ -10,4 +10,6 @@
 
 @interface WorldMapViewController : BaseViewController
 
+- (void) socketIO:(SocketIO *)socket didReceiveEvent:(SocketIOPacket *)packet;
+
 @end

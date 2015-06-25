@@ -28,7 +28,7 @@
 #import "NSMutableArray+FoundUser.h"
 #import "CustomConfirmationViewController.h"
 
-#import "OnlineOfflineTrackerManager.h"
+#import "WebServiceConstant.h"
 
 typedef enum : NSUInteger {
     StartFight=0,
@@ -39,6 +39,9 @@ typedef enum : NSUInteger {
     SendHit,
     SocketError,
     OnlineUsers,
+    OnlineUsersResponse,
+    beginFight,
+    endFight,
 } SocketEvent;
 
 
@@ -50,7 +53,10 @@ NSString static *socketEvents[]={
     [ReadyToFightResponse]=@"readyToFightResponse",
     [SendHit]=@"sendHit",
     [SocketError]=@"socketError",
-    [OnlineUsers]=@"getOnlineUsers"
+    [OnlineUsers]=@"getOnlineUsers",
+    [OnlineUsersResponse]=@"getOnlineUsersResponse",
+    [beginFight]=@"beginFight",
+    [endFight]=@"endFight",
 };
 
 
@@ -67,6 +73,7 @@ NSString static *socketEvents[]={
 
 @property(assign,nonatomic) BOOL isNetworkRechable;
 
+@property(strong,nonatomic) BaseViewController *myParentViewController;
 
 
 -(void)startLocationManager;
@@ -86,12 +93,16 @@ NSString static *socketEvents[]={
 
 -(void)sendFightRequestToUser:(ModelUser*)userTo;
 
+-(void)sendBeginFight;
+
 -(void)sendReadyToFight;
 
 -(void)sendReadyToFightResponse:(NSString*)strResponse;
 
--(void)sendHitWithStatus:(NSString*)strStatus Distance:(NSString*)strDistance;
+-(void)sendHitWithIsHit:(BOOL)isHit HitValue:(NSString *)strHitValue;
 
 -(void)sendGetOnlineUsers;
+
+-(void)disconnectSocket;
 
 @end

@@ -47,11 +47,19 @@
     socketIO.delegate=myDelegate;
     //[socketIO connectToHost:@"192.168.0.133" onPort:8088 withParams:[NSDictionary dictionaryWithObjects:@[myUser.strID,myUser.strUserName] forKeys:@[@"uid",@"name"]]];//For Local Test
     [socketIO connectToHost:@"106.187.95.65" onPort:8088 withParams:[NSDictionary dictionaryWithObjects:@[myUser.strID,myUser.strUserName] forKeys:@[@"uid",@"name"]]];//For remote Test
+    
+    NSLog(@"%@",[NSDictionary dictionaryWithObjects:@[myUser.strID,myUser.strUserName] forKeys:@[@"uid",@"name"]]);
+    
 }
 
 -(void)makeSocketDelegate:(id)myDelegate
 {
     socketIO.delegate=myDelegate;
+}
+
+-(void)disConnectSocket
+{
+    [socketIO disconnectForced];
 }
 
 

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SlideOutMenuViewController">
             <connections>
+                <outlet property="imgAvtar" destination="4iP-HK-pur" id="hs3-aD-LeB"/>
                 <outlet property="lastBatttleLabel" destination="Unj-dS-iJi" id="rJ8-tM-tI6"/>
                 <outlet property="menuTableview" destination="bCb-4r-HPh" id="g0c-mn-PbV"/>
                 <outlet property="trainingTimeLeftLabel" destination="sAn-Jj-Syg" id="35q-S1-Qbo"/>
@@ -26,7 +27,7 @@
                         <constraint firstAttribute="height" constant="146" id="jxD-vQ-Qs6"/>
                     </constraints>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smenu_propic_iphn4.png" translatesAutoresizingMaskIntoConstraints="NO" id="4iP-HK-pur">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smenu_propic_iphn4.png" translatesAutoresizingMaskIntoConstraints="NO" id="4iP-HK-pur" customClass="ImageViewGuild">
                     <rect key="frame" x="10" y="15" width="73" height="115"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="73" id="2lC-xJ-u6p"/>
@@ -121,7 +122,7 @@
     </objects>
     <resources>
         <image name="cpr_iphn4.png" width="320" height="49"/>
-        <image name="menu_bg_iphn6@2x.png" width="320" height="480"/>
+        <image name="menu_bg_iphn6@2x.png" width="500" height="252"/>
         <image name="smenu_details_bg_iphn4.png" width="320" height="146"/>
         <image name="smenu_propic_iphn4.png" width="73" height="115"/>
     </resources>

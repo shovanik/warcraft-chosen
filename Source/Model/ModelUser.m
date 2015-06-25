@@ -38,7 +38,11 @@
 {
     if (self=[super init]) {
         if ([dictionary objectForKey:@"id"]&&!([[dictionary objectForKey:@"id"] isKindOfClass:[[NSNull null] class]])) {
-            self.strID=[[dictionary objectForKey:@"id"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+            if ([[dictionary objectForKey:@"id"] isKindOfClass:[NSString class]]) {
+                self.strID=[[dictionary objectForKey:@"id"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+            }else{
+                self.strID=[NSString stringWithFormat:@"%ld",(long)[[dictionary objectForKey:@"id"] integerValue]];
+            }
         }else{
             self.strID=@"";
         }
@@ -98,7 +102,17 @@
         
 
         if ([dictionary objectForKey:@"date_of_birth"]&&!([[dictionary objectForKey:@"date_of_birth"] isKindOfClass:[[NSNull null] class]])) {
-            self.strDateOfBirth=[[dictionary objectForKey:@"date_of_birth"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+            if ([[dictionary objectForKey:@"date_of_birth"] isKindOfClass:[NSString class]]) {
+                self.strDateOfBirth=[[dictionary objectForKey:@"date_of_birth"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+            }else{
+                if (!dateFormattter) {
+                    dateFormattter=[[NSDateFormatter alloc] init];
+                    [dateFormattter setTimeZone:[NSTimeZone systemTimeZone]];
+                }
+                NSDate *myDate=[NSDate dateWithTimeIntervalSince1970:[[dictionary objectForKey:@"date_of_birth"] longLongValue]];
+                [dateFormattter setDateFormat:@"yyyy-MM-dd"];
+                self.strDateOfBirth=[dateFormattter stringFromDate:myDate];
+            }
         }else{
             self.strDateOfBirth=@"";
         }
@@ -158,7 +172,12 @@
         }
         
         if ([dictionary objectForKey:@"online"]&&!([[dictionary objectForKey:@"online"] isKindOfClass:[[NSNull null] class]])) {
-            self.strOnline=[[dictionary objectForKey:@"online"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+            if ([[dictionary objectForKey:@"online"] isKindOfClass:[NSString class]]) {
+                self.strOnline=[[dictionary objectForKey:@"online"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+            }else{
+                self.strOnline=[NSString stringWithFormat:@"%ld",(long)[[dictionary objectForKey:@"online"] integerValue]];
+            }
+            
         }else{
             self.strOnline=@"";
         }
@@ -177,13 +196,18 @@
         }
         
         if ([dictionary objectForKey:@"default_image_picture"]&&!([[dictionary objectForKey:@"default_image_picture"] isKindOfClass:[[NSNull null] class]])) {
-            self.strDefaultImageURL=[[dictionary objectForKey:@"default_image_picture"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+            self.strDefaultImageURL=[NSString stringWithFormat:@"%@%@",strBaseURL,[[dictionary objectForKey:@"default_image_picture"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
         }else{
             self.strDefaultImageURL=@"";
         }
         
         if ([dictionary objectForKey:@"default_image"]&&!([[dictionary objectForKey:@"default_image"] isKindOfClass:[[NSNull null] class]])) {
-            self.strDefaultImage=[[dictionary objectForKey:@"default_image"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+            if ([[dictionary objectForKey:@"default_image"] isKindOfClass:[NSString class]]) {
+                self.strDefaultImage=[[dictionary objectForKey:@"default_image"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+            }else{
+                self.strDefaultImage=[NSString stringWithFormat:@"%ld",(long)[[dictionary objectForKey:@"default_image"] integerValue]];
+            }
+            
         }else{
             self.strDefaultImage=@"";
         }
@@ -206,7 +230,12 @@
         }
         
         if ([dictionary objectForKey:@"level"]&&!([[dictionary objectForKey:@"level"] isKindOfClass:[[NSNull null] class]])) {
-            self.strLevel=[[dictionary objectForKey:@"level"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+            if ([[dictionary objectForKey:@"level"] isKindOfClass:[NSString class]]) {
+                self.strLevel=[[dictionary objectForKey:@"level"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+            }else{
+                self.strLevel=[NSString stringWithFormat:@"%ld",(long)[[dictionary objectForKey:@"level"] integerValue]];
+            }
+            
         }else{
             self.strLevel=@"0";
         }
@@ -258,8 +287,57 @@
         self.strAge=@"0";
     }
     
+    if ([dictionary objectForKey:@"xp"]&&!([[dictionary objectForKey:@"xp"] isKindOfClass:[[NSNull null] class]])) {
+        if ([[dictionary objectForKey:@"xp"] isKindOfClass:[NSString class]]) {
+            self.strXP=[[dictionary objectForKey:@"xp"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        }else{
+            self.strXP=[NSString stringWithFormat:@"%ld",(long)[[dictionary objectForKey:@"xp"] integerValue]];
+        }
+        
+    }else{
+        self.strXP=@"0";
+    }
     
+    if ([dictionary objectForKey:@"total_wins"]&&!([[dictionary objectForKey:@"total_wins"] isKindOfClass:[[NSNull null] class]])) {
+        if ([[dictionary objectForKey:@"total_wins"] isKindOfClass:[NSString class]]) {
+            self.strTotalWins=[[dictionary objectForKey:@"total_wins"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        }else{
+            self.strTotalWins=[NSString stringWithFormat:@"%ld",(long)[[dictionary objectForKey:@"total_wins"] integerValue]];
+        }
+        
+    }else{
+        self.strTotalWins=@"0";
+    }
     
+    if ([dictionary objectForKey:@"total_loss"]&&!([[dictionary objectForKey:@"total_loss"] isKindOfClass:[[NSNull null] class]])) {
+        if ([[dictionary objectForKey:@"total_loss"] isKindOfClass:[NSString class]]) {
+            self.strTotalLoss=[[dictionary objectForKey:@"total_loss"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        }else{
+            self.strTotalLoss=[NSString stringWithFormat:@"%ld",(long)[[dictionary objectForKey:@"total_loss"] integerValue]];
+        }
+    }else{
+        self.strTotalLoss=@"0";
+    }
+    
+    if ([dictionary objectForKey:@"status_points"]&&!([[dictionary objectForKey:@"status_points"] isKindOfClass:[[NSNull null] class]])) {
+        if ([[dictionary objectForKey:@"status_points"] isKindOfClass:[NSString class]]) {
+            self.strStatusPoint=[[dictionary objectForKey:@"status_points"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        }else{
+            self.strStatusPoint=[NSString stringWithFormat:@"%ld",(long)[[dictionary objectForKey:@"status_points"] integerValue]];
+        }
+    }else{
+        self.strStatusPoint=@"0";
+    }
+    
+    if ([dictionary objectForKey:@"last_game_finished"]&&!([[dictionary objectForKey:@"last_game_finished"] isKindOfClass:[[NSNull null] class]])) {
+        if ([[dictionary objectForKey:@"last_game_finished"] isKindOfClass:[NSString class]]) {
+            self.strLastGameFinisehd=[[dictionary objectForKey:@"last_game_finished"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        }else{
+            self.strDateOfBirth=[NSString stringWithFormat:@"%lld",[[dictionary objectForKey:@"last_game_finished"] longLongValue]];
+        }
+    }else{
+        self.strDateOfBirth=@"";
+    }
     
     return self;
 }
@@ -293,6 +371,10 @@
         self.strStatus=[NSString stringWithString:myUser.strStatus];
         self.strUpdated=[NSString stringWithString:myUser.strUpdated];
         self.strUserName=[NSString stringWithString:myUser.strUserName];
+        self.strXP=[NSString stringWithString:myUser.strXP];
+        self.strTotalWins=[NSString stringWithString:myUser.strTotalWins];
+        self.strTotalLoss=[NSString stringWithString:myUser.strTotalLoss];
+        self.strStatusPoint=[NSString stringWithString:myUser.strStatusPoint];
     }
     return self;
 }

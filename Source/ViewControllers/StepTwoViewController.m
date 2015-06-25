@@ -10,6 +10,7 @@
 #import "SlideOutMenuViewController.h"
 #import "StepOneViewController.h"
 #import "Context.h"
+#import "WorldMapViewController.h"
 
 @interface StepTwoViewController ()
 {
@@ -96,8 +97,6 @@
     else{
         helpLabel.font = [UIFont fontWithName:@"Garamond" size:14];
     }
-
-
 }
 
 - (void)didReceiveMemoryWarning {
@@ -108,7 +107,8 @@
     return YES;
 }
 -(IBAction)playButtonTapped:(id)sender{
-    GuildViewController *master  = [[GuildViewController alloc] initWithNibName:@"GuildViewController" bundle:nil];
+    /*GuildViewController *master  = [[GuildViewController alloc] initWithNibName:@"GuildViewController" bundle:nil];*/
+    WorldMapViewController *master=[[WorldMapViewController alloc] initWithNibName:@"WorldMapViewController" bundle:nil];
     [self.navigationController pushViewController:master animated:YES];
 }
 

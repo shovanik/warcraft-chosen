@@ -24,8 +24,8 @@ typedef enum : NSUInteger {
     UpdateUserService,
     UploadAvtarService,
     ResetPassword,
-    LastSeen,
-    NearByUser,
+    //LastSeen,
+    //NearByUser,
     PrivacyPolicy,
     AboutUS,
     TermsConditions,
@@ -36,8 +36,9 @@ typedef enum : NSUInteger {
     GetSpecificUserGuilds,
     GetTournamentCategory,
     GetNearTournament,
-    StatusChangeToOnline,
-    StatusChangeToOffline
+    //StatusChangeToOnline,
+    //StatusChangeToOffline
+    CreateTournament,
 } WebServiceType;
 
 static NSString *const allServices[]={
@@ -48,8 +49,8 @@ static NSString *const allServices[]={
     [UpdateUserService]=@"api/user/update",
     [UploadAvtarService]=@"dfwefsdfds",
     [ResetPassword]=@"api/user/old_password",
-    [LastSeen]=@"api/user/lastseen",
-    [NearByUser]=@"api/user/nearbyuser",
+    //[LastSeen]=@"api/user/lastseen",
+    //[NearByUser]=@"api/user/nearbyuser",
     [PrivacyPolicy]=@"api/pages",
     [AboutUS]=@"api/pages",
     [TermsConditions]=@"api/pages",
@@ -60,8 +61,9 @@ static NSString *const allServices[]={
     [GetSpecificUserGuilds]=@"api/user/guilds",
     [GetTournamentCategory]=@"api/tournament/tournaments_category",
     [GetNearTournament]=@"api/tournament/near_tournament",
-    [StatusChangeToOnline]=@"api/user/staus_change_to_online",
-    [StatusChangeToOffline]=@"/api/user/staus_change_to_offline"
+    //[StatusChangeToOnline]=@"api/user/staus_change_to_online",
+    //[StatusChangeToOffline]=@"/api/user/staus_change_to_offline"
+    [CreateTournament]=@"api/tournament",
 };
 
 @implementation WebService
@@ -80,12 +82,12 @@ static NSString *const allServices[]={
 
 +(WebService*)service
 {
-    static WebService *loginService;
+    static WebService *webService;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        loginService=[[WebService alloc] init];
+        webService=[[WebService alloc] init];
     });
-    return loginService;
+    return webService;
 }
 
 #pragma mark
@@ -124,23 +126,29 @@ static NSString *const allServices[]={
                 }else{
                     BOOL status=[[responseDict objectForKey:@"status"] boolValue];
                     if (status) {
-                        NSDictionary *dict=[responseDict objectForKey:@"response"];
-                        NSDictionary *dictUserInfo=[dict objectForKey:@"user_info"];
-                        NSMutableArray *arrAllUserInfo=[[dict objectForKey:@"all_user_info"] mutableCopy];
                         
-                        
-                        ModelUser *user=[[ModelUser alloc] initWithDictionary:dictUserInfo BaseURL:self.strBaseURL];
-                        for (int i=0; i<arrAllUserInfo.count; i++) {
-                            ModelUser *obj=[[ModelUser alloc] initWithDictionary:[arrAllUserInfo objectAtIndex:i] BaseURL:self.strBaseURL];
-                            [arrAllUserInfo removeObjectAtIndex:i];
-                            [arrAllUserInfo insertObject:obj atIndex:i];
+                        if (data.length>0) {
+                            
+                            NSLog(@"%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+                            
+                            NSDictionary *dict=[responseDict objectForKey:@"response"];
+                            NSDictionary *dictUserInfo=[dict objectForKey:@"user_info"];
+                            NSMutableArray *arrAllUserInfo=[[dict objectForKey:@"all_user_info"] mutableCopy];
+                            
+                            
+                            ModelUser *user=[[ModelUser alloc] initWithDictionary:dictUserInfo BaseURL:self.strBaseURL];
+                            for (int i=0; i<arrAllUserInfo.count; i++) {
+                                ModelUser *obj=[[ModelUser alloc] initWithDictionary:[arrAllUserInfo objectAtIndex:i] BaseURL:self.strBaseURL];
+                                [arrAllUserInfo removeObjectAtIndex:i];
+                                [arrAllUserInfo insertObject:obj atIndex:i];
+                            }
+                            NSLog(@"UserInfo = %@",dictUserInfo);
+                            NSLog(@"arrAllUserInfo = %@",arrAllUserInfo);
+                            
+                            NSDictionary *dictResult=[[NSDictionary alloc] initWithObjects:@[user,arrAllUserInfo] forKeys:@[@"User",@"AllUser"]];
+                            
+                            handler(dictResult,NO,@"User Logged In Successfully !!!");
                         }
-                        NSLog(@"UserInfo = %@",dictUserInfo);
-                        NSLog(@"arrAllUserInfo = %@",arrAllUserInfo);
-                        
-                        NSDictionary *dictResult=[[NSDictionary alloc] initWithObjects:@[user,arrAllUserInfo] forKeys:@[@"User",@"AllUser"]];
-                        
-                        handler(dictResult,NO,@"User Logged In Successfully !!!");
                     }else{
                         handler(nil,YES,[responseDict objectForKey:@"error"]);
                     }
@@ -482,6 +490,10 @@ static NSString *const allServices[]={
         });
     }];
 }
+
+/////////////////////////////////////// Last Seen ///////////////////////////////////////
+
+/*
 -(void)callLastSeenServiceForUserID:(NSString*)strUserID WithCompletionHandler:(CompletionHandler)handler
 {
     NSMutableArray *arr=[[NSMutableArray alloc] init];
@@ -506,6 +518,11 @@ static NSString *const allServices[]={
         }
     }];
 }
+*/
+
+/////////////////////////////////////// Near By User ///////////////////////////////////////
+
+/*
 -(void)callNearByUserServiceForUserID:(NSString*)strUserID WithCompletionHandler:(CompletionHandler)handler
 {
     NSMutableArray *arr=[[NSMutableArray alloc] init];
@@ -549,6 +566,9 @@ static NSString *const allServices[]={
         });
     }];
 }
+*/
+ 
+ 
 -(void)callAboutUsServiceWithCompletionHandler:(CompletionHandler)handler
 {
     NSMutableArray *arr=[[NSMutableArray alloc] init];
@@ -954,6 +974,9 @@ static NSString *const allServices[]={
     }];
 }
 
+/////////////////////////////////////// Status Change To Online ///////////////////////////////////////
+
+/*
 -(void)callStatusChangeToOnlineWithUserID:(NSString*)strUserID WithCompletionHandler:(CompletionHandler)handler
 {
     @synchronized(self){
@@ -980,7 +1003,12 @@ static NSString *const allServices[]={
         }];
     }
 }
+*/
 
+/////////////////////////////////////// Status Change To Offline ///////////////////////////////////////
+
+
+/*
 -(void)callStatusChangeToOfflineWithUserID:(NSString*)strUserID WithCompletionHandler:(CompletionHandler)handler
 {
     @synchronized(self){
@@ -1007,5 +1035,6 @@ static NSString *const allServices[]={
         }];
     }
 }
+*/
 
 @end

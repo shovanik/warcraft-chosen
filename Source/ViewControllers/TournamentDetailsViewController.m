@@ -65,7 +65,7 @@
 {
     [super viewDidAppear:animated];
     
-    [[WebService service] callGetNearTournamentWithUserID:/*user.strID*/@"75" CategoryID:/*_tournamentCategory.strID*/@"1" WithCompletionHandler:^(id result, BOOL isError, NSString *strMessage) {
+    [[WebService service] callGetNearTournamentWithUserID:user.strID CategoryID:_tournamentCategory.strID WithCompletionHandler:^(id result, BOOL isError, NSString *strMessage) {
         if (isError) {
             UIAlertController *controller=[UIAlertController alertControllerWithTitle:@"Error" message:strMessage preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *actionOK=[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {

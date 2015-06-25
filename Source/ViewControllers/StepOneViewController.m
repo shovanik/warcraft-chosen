@@ -12,6 +12,7 @@
 #import "SlideOutMenuViewController.h"
 #import "GuildViewController.h"
 #import "Context.h"
+#import "WorldMapViewController.h"
 
 
 @interface StepOneViewController ()
@@ -105,16 +106,14 @@
     else{
         helpLabel.font = [UIFont fontWithName:@"Garamond" size:14];
     }
-    
-    [self sendGetOnlineUsers];
 }
 -(IBAction)nextButtonTapped:(id)sender{
-    [self sendGetOnlineUsers];
     StepTwoViewController *master  = [[StepTwoViewController alloc] initWithNibName:@"StepTwoViewController" bundle:nil];
     [self.navigationController pushViewController:master animated:NO];
 }
 -(IBAction)skipButtonTapped:(id)sender{
-    GuildViewController *master  = [[GuildViewController alloc] initWithNibName:@"GuildViewController" bundle:nil];
+    /*GuildViewController *master  = [[GuildViewController alloc] initWithNibName:@"GuildViewController" bundle:nil];*/
+    WorldMapViewController *master=[[WorldMapViewController alloc] initWithNibName:@"WorldMapViewController" bundle:nil];
     [self.navigationController pushViewController:master animated:NO];
 }
 - (BOOL)prefersStatusBarHidden {

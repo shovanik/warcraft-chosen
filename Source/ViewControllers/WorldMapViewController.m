@@ -253,7 +253,11 @@ shouldRecognizeSimultaneouslyWithGestureRecognizer
                 if ([result isKindOfClass:[NSDictionary class]]) {
                     NSDictionary *dict=(NSDictionary*)result;
                     user=[dict objectForKey:@"User"];
-                    [self sendGetOnlineUsers];
+                    if (self.isCalledFromTournament) {
+                        [self sendGetOnlineUsersForTournamentId:self.strTournamentID];
+                    }else{
+                        [self sendGetOnlineUsers];
+                    }
                 }
             }
         }];

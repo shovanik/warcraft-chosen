@@ -432,7 +432,8 @@ NSUserDefaults *pref;
                     id tempUser=[dict objectForKey:@"User"];
                     if ([tempUser isKindOfClass:[ModelUser class]]) {
                         user=(ModelUser*)tempUser;
-                        [slideMenu setAvtarImageForURL:[NSURL URLWithString:user.strDefaultImageURL]];
+                        //[slideMenu setAvtarImageForURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",__kBaseURL,user.strAvtarImage]]];
+                        [slideMenu setAvtarImageForURL:[NSURL URLWithString:@"http://chosen.sulavmart.com/avatar/thumb/imgo.jpeg"]];
                     }
                     id tempAllUser=[dict objectForKey:@"AllUser"];
                     if ([tempAllUser isKindOfClass:[NSMutableArray class]]) {

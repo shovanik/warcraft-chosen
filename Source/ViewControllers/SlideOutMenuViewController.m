@@ -22,23 +22,17 @@ typedef NS_ENUM(NSUInteger, SidePanelContent) {
     Guild,
     Tournament,
     Settings,
+    LogOut,
     Total,
 };
 
-
-/*NSString static *arrImages[]={
-    [0]=@"world_map_icon.png",
-    [1]=@"guild_icon.png",
-    [2]=@"contract_icon.png",
-    [3]=@"tournameny_icon.png",
-    [4]=@"settings_icon.png",
-};*/
 
 NSString static *arrImages[]={
     [WorldMap]=@"world_map_icon.png",
     [Guild]=@"guild_icon.png",
     [Tournament]=@"tournameny_icon.png",
     [Settings]=@"settings_icon.png",
+    [LogOut]=@"logout_icon.png",
 };
 
 NSString static *arrSelectionImages[]={
@@ -46,19 +40,12 @@ NSString static *arrSelectionImages[]={
     [1]=@"menu_button_2.png",
 };
 
-/*NSString static *arrContentText[]={
-    [0]=@"WORLD MAP",
-    [1]=@"GUILD",
-    [2]=@"CONTRACT",
-    [3]=@"TOURNAMENT",
-    [4]=@"SETTINGS",
-};*/
-
 NSString static *arrContentText[]={
     [WorldMap]=@"WORLD MAP",
     [Guild]=@"GUILD",
     [Tournament]=@"TOURNAMENT",
     [Settings]=@"SETTINGS",
+    [LogOut]=@"Log Out",
 };
 
 NSUserDefaults *pref;
@@ -68,6 +55,7 @@ NSUserDefaults *pref;
     IBOutlet UILabel *lastBatttleLabel;
     IBOutlet UITableView *menuTableview;
     IBOutlet ImageViewGuild *imgAvtar;
+    IBOutlet UIView *vwLastBattle;
     
     NSIndexPath *indexPathSelected;
     NSMutableArray *arrAllIndexPath;
@@ -89,27 +77,9 @@ NSUserDefaults *pref;
     arrAllIndexPath=[[NSMutableArray alloc] init];
     
     pref = [NSUserDefaults standardUserDefaults];
-
-
-    // Do any additional setup after loading the view from its nib.
-    
-    
-    if (___isIphone4_4s) {
-        NSLog(@"iPhone4");
-    }
-    else if (___isIphone5_5s){
-        NSLog(@"iPhone5");
-    }
-    else if (___isIphone6){
-        NSLog(@"iPhone6");
-    }
-    else if (___isIphone6Plus){
-        NSLog(@"iPhone 6 Plus");
-    }
-    
-    
     [menuTableview reloadData];
-
+    
+    vwLastBattle.layer.borderColor=[UIColor colorWithRed:44.0f/255.0f green:50.0f/255.0f blue:54.0f/255.0f alpha:1.0].CGColor;
 }
 
 -(void)setAvtarImageForURL:(NSURL*)urlImg
@@ -126,12 +96,7 @@ NSUserDefaults *pref;
     return YES;
 }
 - (IBAction)logoutButtonTapped:(id)sender {
-    BaseViewController *base=(BaseViewController*)self.delegate;
-    [base.navigationController popToRootViewControllerAnimated:YES];
-    [base disconnectSocket];
-    if (self.delegate && [self.delegate respondsToSelector:@selector(didLogoutTapped)]) {
-        [self.delegate didLogoutTapped];
-    }
+    
 }
 
 
@@ -151,24 +116,16 @@ NSUserDefaults *pref;
 {
     CGFloat height=0.0f;
     if (___isIphone4_4s) {
-        height=71.0f;
-        
-        //Contract dhukle 58 hobe
+        height=70.0f;
     }
     else if (___isIphone5_5s){
-        height=93.0f;
-        
-        //Contract dhukle 85 hobe
+        height=88.0f;
     }
     else if (___isIphone6){
-        height=118.0f;
-        
-        //Contract dhukle 96 hobe
+        height=104.0f;
     }
     else if (___isIphone6Plus){
-        height=135.0f;
-        
-        //Contract dhukle 108 hobe
+        height=117.0f;
     }
     return height;
 }
@@ -180,16 +137,18 @@ NSUserDefaults *pref;
     if (cell==nil) {
         cell=[[[NSBundle mainBundle] loadNibNamed:@"SlideMenuTableViewCell" owner:self options:nil] objectAtIndex:0];
     }
-    //[cell.btn setBackgroundImage:[arrImage objectAtIndex:indexPath.row] forState:UIControlStateNormal];
     
-    if (indexPathSelected.row==indexPath.row) {
-        cell.imgBackGround.image=[UIImage imageNamed:arrSelectionImages[1]];
+    if (indexPath.row==Total-1) {
+        cell.imgBackGround.backgroundColor=[UIColor colorWithRed:20.0f/255.0f green:20.0f/255.0f blue:22.0f/255.0f alpha:1.0];
     }else{
-        cell.imgBackGround.image=[UIImage imageNamed:arrSelectionImages[0]];
+        if (indexPathSelected.row==indexPath.row) {
+            cell.imgBackGround.image=[UIImage imageNamed:arrSelectionImages[1]];
+        }else{
+            cell.imgBackGround.image=[UIImage imageNamed:arrSelectionImages[0]];
+        }
     }
-    
     cell.imgIcon.image=[UIImage imageNamed:arrImages[indexPath.row]];
-    cell.lblText.text=arrContentText[indexPath.row];
+    cell.lblText.text=[arrContentText[indexPath.row] uppercaseString];
     
     
     if (___isIphone4_4s) {
@@ -204,6 +163,8 @@ NSUserDefaults *pref;
     else if (___isIphone6Plus){
         cell.consImageHeight.constant=40.0f;
     }
+    
+    
     
     cell.selectionStyle=UITableViewCellSelectionStyleNone;
     cell.backgroundColor=cell.contentView.backgroundColor=[UIColor clearColor];
@@ -229,6 +190,9 @@ NSUserDefaults *pref;
             break;
         case Settings:
             [self btnSettingsClicked];
+            break;
+        case LogOut:
+            [self btnLogoutClicked];
             break;
         default:
             break;
@@ -300,7 +264,17 @@ NSUserDefaults *pref;
         }
     }
 }
-
+-(void)btnLogoutClicked
+{
+    if (self.delegate) {
+        BaseViewController *base=(BaseViewController*)self.delegate;
+        [base.navigationController popToRootViewControllerAnimated:YES];
+        [base disconnectSocket];
+        if (self.delegate && [self.delegate respondsToSelector:@selector(didLogoutTapped)]) {
+            [self.delegate didLogoutTapped];
+        }
+    }
+}
 
 
 @end

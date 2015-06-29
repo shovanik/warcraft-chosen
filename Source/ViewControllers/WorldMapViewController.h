@@ -10,6 +10,10 @@
 
 @interface WorldMapViewController : BaseViewController
 
+@property(assign,nonatomic) BOOL isCalledFromTournament;
+
+@property(strong,nonatomic) NSString *strTournamentID;
+
 - (void) socketIO:(SocketIO *)socket didReceiveEvent:(SocketIOPacket *)packet;
 
 @end

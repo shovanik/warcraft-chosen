@@ -79,6 +79,9 @@ NSString static *socketEvents[]={
 -(void)startLocationManager;
 -(void)stopLocationManager;
 
+-(void)acceptFightPressed;
+-(void)declineFightPressed;
+
 -(NSDictionary*)addressDictionaryForPlaceMark:(CLPlacemark *)placeMark;
 
 -(BOOL) NSStringIsValidEmail:(NSString *)checkString;
@@ -102,6 +105,8 @@ NSString static *socketEvents[]={
 -(void)sendHitWithIsHit:(BOOL)isHit HitValue:(NSString *)strHitValue;
 
 -(void)sendGetOnlineUsers;
+
+-(void)sendGetOnlineUsersForTournamentId:(NSString*)strTournamentID;
 
 -(void)disconnectSocket;
 

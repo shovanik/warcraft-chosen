@@ -109,6 +109,8 @@
 -(IBAction)playButtonTapped:(id)sender{
     /*GuildViewController *master  = [[GuildViewController alloc] initWithNibName:@"GuildViewController" bundle:nil];*/
     WorldMapViewController *master=[[WorldMapViewController alloc] initWithNibName:@"WorldMapViewController" bundle:nil];
+    master.isCalledFromTournament=NO;
+    master.strTournamentID=@"";
     [self.navigationController pushViewController:master animated:YES];
 }
 

@@ -20,6 +20,7 @@
 		202831DF1AB2DD0900C65D98 /* GuildImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 202831DE1AB2DD0900C65D98 /* GuildImageView.m */; };
 		202831E11AB2E9D200C65D98 /* tranparent_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 202831E01AB2E9D200C65D98 /* tranparent_bg.png */; };
 		202831F11AB30ECA00C65D98 /* NSMutableArray+FoundGuild.m in Sources */ = {isa = PBXBuildFile; fileRef = 202831F01AB30ECA00C65D98 /* NSMutableArray+FoundGuild.m */; };
+		2037448C1B417AA3007CA3AC /* logout_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2037448B1B417AA3007CA3AC /* logout_icon.png */; };
 		2039481A1B04C49200059F1B /* CustomTimerLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 203948191B04C49200059F1B /* CustomTimerLabel.m */; };
 		20408A751ACE86E2007537E8 /* ContractViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20408A741ACE86E2007537E8 /* ContractViewController.m */; };
 		20408A771ACE86FC007537E8 /* ContractViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20408A761ACE86FC007537E8 /* ContractViewController.xib */; };
@@ -102,6 +103,9 @@
 		2094C7751AEA8CC600665733 /* SocketIOTransportWebsocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 2094C76F1AEA8CC600665733 /* SocketIOTransportWebsocket.m */; };
 		2094C7761AEA8CC600665733 /* SocketIOTransportXHR.m in Sources */ = {isa = PBXBuildFile; fileRef = 2094C7711AEA8CC600665733 /* SocketIOTransportXHR.m */; };
 		2094C7811AEA8D8000665733 /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 2094C77E1AEA8D8000665733 /* SRWebSocket.m */; };
+		2096F6731B3D599900B8BBBA /* weapons_blue_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2096F6721B3D599900B8BBBA /* weapons_blue_icon.png */; };
+		2096F6771B3D82CA00B8BBBA /* PrivatePublicConfirmationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2096F6751B3D82CA00B8BBBA /* PrivatePublicConfirmationViewController.m */; };
+		2096F6781B3D82CA00B8BBBA /* PrivatePublicConfirmationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2096F6761B3D82CA00B8BBBA /* PrivatePublicConfirmationViewController.xib */; };
 		20A253411AE937C600DB6E8A /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 20A253401AE937C600DB6E8A /* libicucore.dylib */; };
 		20A253431AE937D400DB6E8A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20A253421AE937D400DB6E8A /* CFNetwork.framework */; };
 		20B9ECE71AA4B1B400400626 /* ModelAvtarImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 20B9ECE61AA4B1B400400626 /* ModelAvtarImage.m */; };
@@ -215,8 +219,6 @@
 		CD8E033B1A40435D00112282 /* LunchImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD8E03381A40435D00112282 /* LunchImage@2x.png */; };
 		CD8E033C1A40435D00112282 /* LunchImage@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD8E03391A40435D00112282 /* LunchImage@3x.png */; };
 		CD989EF21A41D6C9005D0380 /* GARABD.TTF in Resources */ = {isa = PBXBuildFile; fileRef = CD989EF11A41D6C9005D0380 /* GARABD.TTF */; };
-		CDA080E91A42F1E60056BA7F /* cpr_iphn4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA080DC1A42F1E60056BA7F /* cpr_iphn4@2x.png */; };
-		CDA080EC1A42F1E60056BA7F /* smenu_details_bg_iphn4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA080DF1A42F1E60056BA7F /* smenu_details_bg_iphn4@2x.png */; };
 		CDA080F11A42F1E60056BA7F /* smenu_propic_iphn4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA080E41A42F1E60056BA7F /* smenu_propic_iphn4@2x.png */; };
 		CDE1C21F1A49D3D200287F9F /* kfh_iphn4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDE1C2151A49D3D200287F9F /* kfh_iphn4@2x.png */; };
 		CDE1C2201A49D3D200287F9F /* ls_iphn4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDE1C2161A49D3D200287F9F /* ls_iphn4@2x.png */; };
@@ -288,6 +290,7 @@
 		202831E01AB2E9D200C65D98 /* tranparent_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tranparent_bg.png; sourceTree = "<group>"; };
 		202831EF1AB30ECA00C65D98 /* NSMutableArray+FoundGuild.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSMutableArray+FoundGuild.h"; path = "Category/NSMutableArray+FoundGuild.h"; sourceTree = "<group>"; };
 		202831F01AB30ECA00C65D98 /* NSMutableArray+FoundGuild.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSMutableArray+FoundGuild.m"; path = "Category/NSMutableArray+FoundGuild.m"; sourceTree = "<group>"; };
+		2037448B1B417AA3007CA3AC /* logout_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logout_icon.png; sourceTree = "<group>"; };
 		203948181B04C49200059F1B /* CustomTimerLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomTimerLabel.h; path = CustomControl/CustomTimerLabel.h; sourceTree = "<group>"; };
 		203948191B04C49200059F1B /* CustomTimerLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomTimerLabel.m; path = CustomControl/CustomTimerLabel.m; sourceTree = "<group>"; };
 		20408A731ACE86E2007537E8 /* ContractViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContractViewController.h; sourceTree = "<group>"; };
@@ -388,6 +391,10 @@
 		2094C7711AEA8CC600665733 /* SocketIOTransportXHR.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketIOTransportXHR.m; sourceTree = "<group>"; };
 		2094C77D1AEA8D8000665733 /* SRWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRWebSocket.h; sourceTree = "<group>"; };
 		2094C77E1AEA8D8000665733 /* SRWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWebSocket.m; sourceTree = "<group>"; };
+		2096F6721B3D599900B8BBBA /* weapons_blue_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weapons_blue_icon.png; sourceTree = "<group>"; };
+		2096F6741B3D82CA00B8BBBA /* PrivatePublicConfirmationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PrivatePublicConfirmationViewController.h; path = CustomDelegate/PrivatePublicConfirmationViewController.h; sourceTree = "<group>"; };
+		2096F6751B3D82CA00B8BBBA /* PrivatePublicConfirmationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PrivatePublicConfirmationViewController.m; path = CustomDelegate/PrivatePublicConfirmationViewController.m; sourceTree = "<group>"; };
+		2096F6761B3D82CA00B8BBBA /* PrivatePublicConfirmationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PrivatePublicConfirmationViewController.xib; path = CustomDelegate/PrivatePublicConfirmationViewController.xib; sourceTree = "<group>"; };
 		20A253401AE937C600DB6E8A /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		20A253421AE937D400DB6E8A /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		20B9ECE51AA4B1B400400626 /* ModelAvtarImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelAvtarImage.h; sourceTree = "<group>"; };
@@ -555,8 +562,6 @@
 		CD8E03381A40435D00112282 /* LunchImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LunchImage@2x.png"; sourceTree = "<group>"; };
 		CD8E03391A40435D00112282 /* LunchImage@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LunchImage@3x.png"; sourceTree = "<group>"; };
 		CD989EF11A41D6C9005D0380 /* GARABD.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = GARABD.TTF; sourceTree = "<group>"; };
-		CDA080DC1A42F1E60056BA7F /* cpr_iphn4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cpr_iphn4@2x.png"; sourceTree = "<group>"; };
-		CDA080DF1A42F1E60056BA7F /* smenu_details_bg_iphn4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "smenu_details_bg_iphn4@2x.png"; sourceTree = "<group>"; };
 		CDA080E41A42F1E60056BA7F /* smenu_propic_iphn4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "smenu_propic_iphn4@2x.png"; sourceTree = "<group>"; };
 		CDE1C2151A49D3D200287F9F /* kfh_iphn4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kfh_iphn4@2x.png"; sourceTree = "<group>"; };
 		CDE1C2161A49D3D200287F9F /* ls_iphn4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ls_iphn4@2x.png"; sourceTree = "<group>"; };
@@ -821,6 +826,9 @@
 				20408AA11ACEA708007537E8 /* CustomConfirmationViewController.h */,
 				20408AA21ACEA708007537E8 /* CustomConfirmationViewController.m */,
 				20408AA31ACEA708007537E8 /* CustomConfirmationViewController.xib */,
+				2096F6741B3D82CA00B8BBBA /* PrivatePublicConfirmationViewController.h */,
+				2096F6751B3D82CA00B8BBBA /* PrivatePublicConfirmationViewController.m */,
+				2096F6761B3D82CA00B8BBBA /* PrivatePublicConfirmationViewController.xib */,
 			);
 			name = CustomDelegate;
 			sourceTree = "<group>";
@@ -1322,6 +1330,8 @@
 		CD79B1691A3F31EA00AFD912 /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				2037448B1B417AA3007CA3AC /* logout_icon.png */,
+				2096F6721B3D599900B8BBBA /* weapons_blue_icon.png */,
 				2009D5861ADFEC3C00562900 /* red_target */,
 				20D10F511AD426AC007C204E /* new_game_btn.png */,
 				2058FAAE1AD2D08000FF1D8F /* btn_bg.png */,
@@ -1472,8 +1482,6 @@
 		CDA080DB1A42F1E60056BA7F /* slidemenu */ = {
 			isa = PBXGroup;
 			children = (
-				CDA080DC1A42F1E60056BA7F /* cpr_iphn4@2x.png */,
-				CDA080DF1A42F1E60056BA7F /* smenu_details_bg_iphn4@2x.png */,
 				CDA080E41A42F1E60056BA7F /* smenu_propic_iphn4@2x.png */,
 			);
 			path = slidemenu;
@@ -1624,6 +1632,7 @@
 				D6C44B4A1A666F6E00AFFB9B /* trm_details_mostKwin_logo_iphn6@2x.png in Resources */,
 				20408AB31ACEB6E0007537E8 /* AttackViewController.xib in Resources */,
 				20D4BC471AA74665004EB2AD /* Change-Avatar.png in Resources */,
+				2096F6731B3D599900B8BBBA /* weapons_blue_icon.png in Resources */,
 				20CF37721AC2B8520085A78E /* TournamentDetailsTableViewCell_iphn4.xib in Resources */,
 				CDA080F11A42F1E60056BA7F /* smenu_propic_iphn4@2x.png in Resources */,
 				208FA0431AD6867D00CE4CDC /* menu_bg_iphn6@2x.png in Resources */,
@@ -1645,8 +1654,8 @@
 				208FBE3D1AB0896400B391DF /* zero_star.png in Resources */,
 				2058FAB41AD2D08000FF1D8F /* join_create_page.jpg in Resources */,
 				2009D58C1ADFEC3C00562900 /* r1.png in Resources */,
-				CDA080EC1A42F1E60056BA7F /* smenu_details_bg_iphn4@2x.png in Resources */,
 				20408AF71ACEE7FC007537E8 /* target5.png in Resources */,
+				2037448C1B417AA3007CA3AC /* logout_icon.png in Resources */,
 				20408AD91ACED936007537E8 /* 16.png in Resources */,
 				20408AE41ACED936007537E8 /* 8.png in Resources */,
 				20E484361AD293C5005B3DA4 /* TournamentHomeViewController.xib in Resources */,
@@ -1672,7 +1681,6 @@
 				D6C44B5A1A66746600AFFB9B /* trmDet_group_iphn4@2x.png in Resources */,
 				20D4BC531AA750C2004EB2AD /* AvatarSelectionViewController.xib in Resources */,
 				CDE1C21F1A49D3D200287F9F /* kfh_iphn4@2x.png in Resources */,
-				CDA080E91A42F1E60056BA7F /* cpr_iphn4@2x.png in Resources */,
 				20408A981ACE91DC007537E8 /* top_box.png in Resources */,
 				CD8E033B1A40435D00112282 /* LunchImage@2x.png in Resources */,
 				20D4BC5D1AA76362004EB2AD /* UserDetailsChangeViewController.xib in Resources */,
@@ -1743,6 +1751,7 @@
 				D63CB1FB1A89FBA800049F58 /* blue_point.png in Resources */,
 				20BAC4121A94A8B100E895FE /* RegisterViewController.xib in Resources */,
 				20D4BC4C1AA75087004EB2AD /* avatar_1.png in Resources */,
+				2096F6781B3D82CA00B8BBBA /* PrivatePublicConfirmationViewController.xib in Resources */,
 				20BAC41E1A94A8B100E895FE /* StepTwoViewController.xib in Resources */,
 				20408ADF1ACED936007537E8 /* 3.png in Resources */,
 				2009D5901ADFEC3C00562900 /* r5.png in Resources */,
@@ -1818,6 +1827,7 @@
 				20BAC3D11A94A89900E895FE /* InfinitePagingView.m in Sources */,
 				20CFBABD1AC031D30092556D /* ModelTournamentSubCategory.m in Sources */,
 				20BAC4111A94A8B100E895FE /* RegisterViewController.m in Sources */,
+				2096F6771B3D82CA00B8BBBA /* PrivatePublicConfirmationViewController.m in Sources */,
 				20BAC4371A94BE2C00E895FE /* ModelUser.m in Sources */,
 				4C8783671AE8E9B1006443CE /* TournamentInviteViewController.m in Sources */,
 				2094C7751AEA8CC600665733 /* SocketIOTransportWebsocket.m in Sources */,
@@ -1961,7 +1971,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
-				PROVISIONING_PROFILE = "ed50fa67-df0c-4b09-92cc-4b203a09b270";
+				PROVISIONING_PROFILE = "09737edb-ec00-4284-9b53-c6158cfaf93f";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv7 armv7s arm64";
@@ -2007,7 +2017,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
-				PROVISIONING_PROFILE = "ed50fa67-df0c-4b09-92cc-4b203a09b270";
+				PROVISIONING_PROFILE = "09737edb-ec00-4284-9b53-c6158cfaf93f";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -2035,7 +2045,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ed50fa67-df0c-4b09-92cc-4b203a09b270";
+				PROVISIONING_PROFILE = "09737edb-ec00-4284-9b53-c6158cfaf93f";
 				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/**";
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
@@ -2061,7 +2071,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ed50fa67-df0c-4b09-92cc-4b203a09b270";
+				PROVISIONING_PROFILE = "09737edb-ec00-4284-9b53-c6158cfaf93f";
 				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/**";
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
@@ -2083,7 +2093,7 @@
 				INFOPLIST_FILE = ChosenTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ed50fa67-df0c-4b09-92cc-4b203a09b270";
+				PROVISIONING_PROFILE = "09737edb-ec00-4284-9b53-c6158cfaf93f";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Chosen.app/Chosen";
 			};
 			name = Debug;
@@ -2100,7 +2110,7 @@
 				INFOPLIST_FILE = ChosenTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ed50fa67-df0c-4b09-92cc-4b203a09b270";
+				PROVISIONING_PROFILE = "09737edb-ec00-4284-9b53-c6158cfaf93f";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Chosen.app/Chosen";
 			};
 			name = Release;

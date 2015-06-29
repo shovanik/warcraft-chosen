@@ -37,6 +37,7 @@
     NSString *strGoldRequired;
     NSString *strRanking;
     NSString *strPlayTime;
+    NSString *strTitle;
 }
 
 @end
@@ -67,9 +68,43 @@
     [textField resignFirstResponder];
     return YES;
 }
--(IBAction)radiusButtonTapped:(id)sender{
-    SelectRadiusViewController *tdVC  = [[SelectRadiusViewController alloc] initWithNibName:@"SelectRadiusViewController" bundle:nil];
-    [self.navigationController pushViewController:tdVC animated:YES];
+
+-(BOOL)alertChecking
+{
+    if ([strTitle stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]].length==0) {
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Please enter the title" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+        return NO;
+    }
+    if ([strNoOfPlayer stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]].length==0) {
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Please enter the no of player" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+        return NO;
+    }
+    if ([strNoOfPlayer stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]].length==0) {
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Please enter the gold required" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+        return NO;
+    }
+    if ([strNoOfPlayer stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]].length==0) {
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Please enter the ranking required" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+        return NO;
+    }
+    if ([strNoOfPlayer stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]].length==0) {
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Please enter the play time" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+        return NO;
+    }
+    return YES;
+}
+
+-(void)radiusButtonTapped:(id)sender{
+    if ([self alertChecking]) {
+        SelectRadiusViewController *master  = [[SelectRadiusViewController alloc] initWithNibName:@"SelectRadiusViewController" bundle:nil];
+        master.strTitle=strTitle;
+        master.strNoOfPlayer=strNoOfPlayer;
+        master.strGoldRequired=strGoldRequired;
+        master.strRanking=strRanking;
+        master.strPlayTime=strPlayTime;
+        master.tournamentCategory=self.tournamentCategory;
+        [self.navigationController pushViewController:master animated:YES];
+    }
 }
 
 
@@ -141,6 +176,9 @@
             cell.labelSelectedValue.hidden=YES;
             cell.btnSelect.hidden=YES;
             cell.vwDropDown.hidden=YES;
+            cell.textFieldTitle.delegate=self;
+            cell.textFieldTitle.returnKeyType=UIReturnKeyDone;
+            [cell.textFieldTitle addTarget:self action:@selector(textFieldValueChanged:) forControlEvents:UIControlEventEditingChanged];
         }
         else if(indexPath.row == [tableView numberOfRowsInSection:indexPath.section] -1){
             cell.labelTitle.text = @"Radious";
@@ -148,6 +186,7 @@
             cell.imgArrow.hidden = YES;
             cell.labelSelectedValue.hidden=YES;
             cell.vwDropDown.hidden=YES;
+            [cell.btnSelect addTarget:self action:@selector(radiusButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
         }else{
             [cell.btnSelect setBackgroundColor:[UIColor clearColor]];
             [cell.btnSelect setTitle:@"" forState:UIControlStateNormal];
@@ -192,6 +231,7 @@
         UITableViewCell *cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:tableCellIdentfire];
         cell.textLabel.text=[NSString stringWithFormat:@"%ld",indexPath.row];
         [cell.textLabel setTextColor:[UIColor whiteColor]];
+        [cell.textLabel setMinimumScaleFactor:0.5];
         
         cell.backgroundColor=[UIColor clearColor];
         cell.contentView.backgroundColor=[UIColor clearColor];
@@ -201,7 +241,9 @@
         UITableViewCell *cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:tableCellIdentfire];
         cell.textLabel.text=[NSString stringWithFormat:@"%ld",indexPath.row*100];
         [cell.textLabel setTextColor:[UIColor whiteColor]];
-        
+        //[cell.textLabel setMinimumScaleFactor:0.4];
+        cell.textLabel.adjustsFontSizeToFitWidth=YES;
+
         cell.backgroundColor=[UIColor clearColor];
         cell.contentView.backgroundColor=[UIColor clearColor];
         
@@ -213,7 +255,8 @@
         UITableViewCell *cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:tableCellIdentfire];
         cell.textLabel.text=[NSString stringWithFormat:@"%ld",indexPath.row];
         [cell.textLabel setTextColor:[UIColor whiteColor]];
-        
+        [cell.textLabel setMinimumScaleFactor:0.5];
+
         cell.backgroundColor=[UIColor clearColor];
         cell.contentView.backgroundColor=[UIColor clearColor];
         
@@ -225,7 +268,8 @@
         UITableViewCell *cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:tableCellIdentfire];
         cell.textLabel.text=[NSString stringWithFormat:@"%ld",indexPath.row];
         [cell.textLabel setTextColor:[UIColor whiteColor]];
-        
+        [cell.textLabel setMinimumScaleFactor:0.5];
+
         cell.backgroundColor=[UIColor clearColor];
         cell.contentView.backgroundColor=[UIColor clearColor];
         
@@ -363,9 +407,18 @@
         }
     }
     else if (indexPath.row==5){
+        /*
         SelectRadiusViewController *master=[[SelectRadiusViewController alloc] initWithNibName:@"SelectRadiusViewController" bundle:nil];
         [self.navigationController pushViewController:master animated:YES];
+        */
     }
+}
+
+-(void)textFieldValueChanged:(id)sender
+{
+    UITextField *txtField=(UITextField*)sender;
+    strTitle=txtField.text;
+    NSLog(@"Title = %@",strTitle);
 }
 
 @end

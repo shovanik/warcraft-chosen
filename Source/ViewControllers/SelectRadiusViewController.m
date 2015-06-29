@@ -13,8 +13,9 @@
 #import "AppDelegate.h"
 #import "DataClass.h"
 #import <CoreLocation/CoreLocation.h>
+#import "PrivatePublicConfirmationViewController.h"
 
-@interface SelectRadiusViewController ()<UIPickerViewDataSource, UIPickerViewDelegate, MKMapViewDelegate,CLLocationManagerDelegate,MKOverlay>
+@interface SelectRadiusViewController ()<UIPickerViewDataSource, UIPickerViewDelegate, MKMapViewDelegate,CLLocationManagerDelegate,MKOverlay,PrivatePublicConfirmationViewControllerDelegate>
 {
     IBOutlet MKMapView *mapRadious;
     
@@ -25,13 +26,14 @@
     IBOutlet UILabel *playeNameLabel;
     IBOutlet UILabel *addressLabel;
     IBOutlet UIToolbar *radiousToolBar;
-    IBOutlet UILabel *lblSelectedRadious;
     IBOutlet UIButton *btnRadious;
 
     NSString *strMapRadious;
     NSString *latitude;
     NSString *longitude;
     MKPointAnnotation *annotationPoint;
+    
+    NSString *strSelectedRadious;
 
     
     CGFloat _offset;
@@ -40,6 +42,8 @@
     CLLocationManager *locManager;
     
     MKCircle *circle;
+    
+    PrivatePublicConfirmationViewController *confirmationController;
 }
 
 @end
@@ -63,7 +67,6 @@
         navTitleLabel.font = [UIFont fontWithName:@"LithosPro-Regular" size:17];
         playeNameLabel.font = [UIFont fontWithName:@"Garamond" size:19];
         addressLabel.font = [UIFont fontWithName:@"Garamond" size:15];
-        lblSelectedRadious.font = [UIFont fontWithName:@"Garamond" size:18];
 
     }else{
         
@@ -71,14 +74,13 @@
         navTitleLabel.font = [UIFont fontWithName:@"LithosPro-Regular" size:30];
         playeNameLabel.font = [UIFont fontWithName:@"Garamond" size:19];
         addressLabel.font = [UIFont fontWithName:@"Garamond" size:15];
-        lblSelectedRadious.font = [UIFont fontWithName:@"Garamond" size:21];
-        
     }
     radiousArray = [[NSArray alloc] initWithObjects:@"1", @"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10", nil];
    
     playeNameLabel.text=user.strUserName;
     addressLabel.text=[NSString stringWithFormat:@"%@,%@",user.strCountryName,user.strCityName];
     
+    strSelectedRadious=@"5 Mile";
 }
 
 
@@ -145,7 +147,7 @@
 
 -(void) mapViewImpliment
 {
-    float meter = 5*1000*0.621;
+    float meter = [self getMileFromSelection]*1000*0.621;
 
     NSLog(@"latitude :%f",locManager.location.coordinate.latitude);
     NSLog(@"longitude :%f",locManager.location.coordinate.longitude);
@@ -193,8 +195,7 @@
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    lblSelectedRadious.text = [NSString stringWithFormat:@"%@ Mile",[radiousArray objectAtIndex:row]];
-    
+    strSelectedRadious=[NSString stringWithFormat:@"%@ Mile",[radiousArray objectAtIndex:row]];
 }
 - (void) alertStatus:(NSString *)msg :(NSString *)title
 {
@@ -209,10 +210,13 @@
 
 -(NSInteger)getMileFromSelection
 {
-    return [[[lblSelectedRadious.text componentsSeparatedByString:@" "] firstObject] integerValue];
+    return [[[strSelectedRadious componentsSeparatedByString:@" "] firstObject] integerValue];
 }
 
 -(IBAction)saveButtonTapped:(id)sender{
+    
+    [btnRadious setTitle:[NSString stringWithFormat:@"%@    ",strSelectedRadious] forState:UIControlStateNormal];
+    
     radiousPicker.hidden = YES;
     radiousToolBar.hidden=YES;
     NSLog(@"Selected Radious = %ld",(long)[self getMileFromSelection]);
@@ -222,7 +226,62 @@
     [mapRadious removeOverlay:circle];
     circle = [MKCircle circleWithCenterCoordinate:CLLocationCoordinate2DMake(locManager.location.coordinate.latitude, locManager.location.coordinate.longitude) radius:meter];
     [mapRadious addOverlay:circle];
-    [btnRadious setTitle:lblSelectedRadious.text forState:UIControlStateNormal];
+    
+    confirmationController=[[PrivatePublicConfirmationViewController alloc] initWithNibName:@"PrivatePublicConfirmationViewController" bundle:nil];
+    confirmationController.delegate=self;
+    [confirmationController.view setFrame:[[UIScreen mainScreen] bounds]];
+    [self.view addSubview:confirmationController.view];
+}
+
+-(void)didPublicPressed
+{
+    NSLog(@"%s",__func__);
+    [confirmationController.view removeFromSuperview];
+    confirmationController=nil;
+    
+    [[WebService service] callCreateTournamentForCategoryId:self.tournamentCategory.strID Title:self.strTitle NoOfPlayer:self.strNoOfPlayer GoldRequired:self.strGoldRequired Playtime:self.strPlayTime Radious:[[strSelectedRadious componentsSeparatedByString:@" "] firstObject] UserID:user.strID Private:@"0" WithCompletionHandler:^(id result, BOOL isError, NSString *strMessage) {
+        if (isError) {
+            UIAlertController *alertController=[UIAlertController alertControllerWithTitle:@"Error" message:strMessage preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *actionOK=[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                [alertController dismissViewControllerAnimated:YES completion:^{
+                    
+                }];
+            }];
+            [alertController addAction:actionOK];
+            [self presentViewController:alertController animated:YES completion:^{
+                
+            }];
+        }else{
+            [[[UIAlertView alloc] initWithTitle:@"SUCCESS" message:@"The game is successfully created, please select the game from the join to play the game" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+            [self.navigationController popToViewController:tournamentHome animated:YES];
+        }
+    }];
+    
+}
+
+-(void)didPrivatePressed
+{
+    NSLog(@"%s",__func__);
+    [confirmationController.view removeFromSuperview];
+    confirmationController=nil;
+    
+    [[WebService service] callCreateTournamentForCategoryId:self.tournamentCategory.strID Title:self.strTitle NoOfPlayer:self.strNoOfPlayer GoldRequired:self.strGoldRequired Playtime:self.strPlayTime Radious:[[strSelectedRadious componentsSeparatedByString:@" "] firstObject] UserID:user.strID Private:@"1" WithCompletionHandler:^(id result, BOOL isError, NSString *strMessage) {
+        if (isError) {
+            UIAlertController *alertController=[UIAlertController alertControllerWithTitle:@"Error" message:strMessage preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *actionOK=[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                [alertController dismissViewControllerAnimated:YES completion:^{
+                    
+                }];
+            }];
+            [alertController addAction:actionOK];
+            [self presentViewController:alertController animated:YES completion:^{
+                
+            }];
+        }else{
+            [[[UIAlertView alloc] initWithTitle:@"SUCCESS" message:@"The game is successfully created, please select the game from the join to play the game" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+            [self.navigationController popToViewController:tournamentHome animated:YES];
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

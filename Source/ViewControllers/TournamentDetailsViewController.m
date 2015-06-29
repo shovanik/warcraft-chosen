@@ -11,7 +11,7 @@
 #import "TournamentDetailsTableViewCell.h"
 #import "AddTournamentViewController.h"
 #import "SlideOutMenuViewController.h"
-#import "AttackViewController.h"
+#import "WorldMapViewController.h"
 
 @interface TournamentDetailsViewController ()<UITableViewDataSource, UITableViewDelegate,CustomConfirmationViewControllerDelegate>
 {
@@ -20,6 +20,8 @@
     
     NSMutableArray *arrResponse;
     CustomConfirmationViewController *confirmationDiagolueView;
+    
+    NSInteger selectedIndex;
 }
 
 @end
@@ -138,6 +140,8 @@
     confirmationDiagolueView.view.frame=[[UIScreen mainScreen] bounds];
     [self.view addSubview:confirmationDiagolueView.view];
     confirmationDiagolueView.delegate=self;
+    
+    selectedIndex=indexPath.row;
 }
 
 #pragma mark
@@ -156,8 +160,12 @@
 -(void)didYesPressed
 {
     NSLog(@"didYesPressed");
+    
+    ModelTournamentSubCategory *obj=[arrResponse objectAtIndex:selectedIndex];
     [confirmationDiagolueView.view removeFromSuperview];
-    AttackViewController *master=[[AttackViewController alloc] initWithNibName:@"AttackViewController" bundle:nil];
+    WorldMapViewController *master=[[WorldMapViewController alloc] initWithNibName:@"WorldMapViewController" bundle:nil];
+    master.isCalledFromTournament=YES;
+    master.strTournamentID=obj.strID;
     [self.navigationController pushViewController:master animated:YES];
 }
 

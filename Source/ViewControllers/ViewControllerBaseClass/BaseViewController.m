@@ -303,7 +303,7 @@
     if (!_isSlidemenuOpen) {
         UIWindow *window=[[UIApplication sharedApplication] keyWindow];
         [UIView animateWithDuration:0.5 animations:^{
-            window.rootViewController.view.frame=CGRectMake(window.frame.size.width-50, 0, window.frame.size.width, window.frame.size.height);
+            window.rootViewController.view.frame=CGRectMake(LeftPanelWidth, 0, window.frame.size.width, window.frame.size.height);
         } completion:^(BOOL finished) {
             _isSlidemenuOpen=YES;
         }];
@@ -421,18 +421,18 @@
 
 -(void)sendFightRequestToUser:(ModelUser*)userTo
 {
-    NSLog(@"sendFightRequest");
+    NSLog(@"%s -> %@",__func__,[NSDictionary dictionaryWithObjects:@[user.strID,userTo.strID,@"sendFightRequest"] forKeys:@[@"uid",@"fid",@"meta"]]);
     [mySocket sendEvent:socketEvents[StartFight] withData:[NSDictionary dictionaryWithObjects:@[user.strID,userTo.strID,@"sendFightRequest"] forKeys:@[@"uid",@"fid",@"meta"]]];
 }
 -(void)sendBeginFight
 {
-    NSLog(@"sendFightRequest");
+    NSLog(@"%s -> %@",__func__,[NSDictionary dictionaryWithObjects:@[user.strID,userRival.strID] forKeys:@[@"uid",@"fid"]]);
     [mySocket sendEvent:socketEvents[beginFight] withData:[NSDictionary dictionaryWithObjects:@[user.strID,userRival.strID] forKeys:@[@"uid",@"fid"]]];
 }
 
 -(void)acceptFightPressed
 {
-    NSLog(@"acceptFightPressed");
+    NSLog(@"%s -> %@",__func__,[NSDictionary dictionaryWithObjects:@[user.strID,userRival.strID,socketEvents[AcceptFight]] forKeys:@[@"uid",@"fid",@"meta"]]);
     [mySocket sendEvent:socketEvents[AcceptFight] withData:[NSDictionary dictionaryWithObjects:@[user.strID,userRival.strID,socketEvents[AcceptFight]] forKeys:@[@"uid",@"fid",@"meta"]]];
     AttackViewController *master=[[AttackViewController alloc] initWithNibName:@"AttackViewController" bundle:nil];
     [[SocketService service] makeSocketDelegate:nil];
@@ -443,23 +443,26 @@
 
 -(void)declineFightPressed
 {
-    NSLog(@"declineFightPressed");
+    NSLog(@"%s -> %@",__func__,[NSDictionary dictionaryWithObjects:@[user.strID,userRival.strID,socketEvents[DeclineFight]] forKeys:@[@"uid",@"fid",@"meta"]]);
     [mySocket sendEvent:socketEvents[DeclineFight] withData:[NSDictionary dictionaryWithObjects:@[user.strID,userRival.strID,socketEvents[DeclineFight]] forKeys:@[@"uid",@"fid",@"meta"]]];
 }
 
 -(void)sendReadyToFight
 {
+    NSLog(@"%s -> %@",__func__,[NSDictionary dictionaryWithObjects:@[user.strID,userRival.strID,socketEvents[ReadyToFight]] forKeys:@[@"uid",@"fid",@"meta"]]);
     [mySocket sendEvent:socketEvents[ReadyToFight] withData:[NSDictionary dictionaryWithObjects:@[user.strID,userRival.strID,socketEvents[ReadyToFight]] forKeys:@[@"uid",@"fid",@"meta"]]];
 }
 
 -(void)sendReadyToFightResponse:(NSString *)strResponse
 {
+    NSLog(@"%s -> %@",__func__,[NSDictionary dictionaryWithObjects:@[user.strID,userRival.strID,strResponse] forKeys:@[@"uid",@"fid",@"meta"]]);
     [mySocket sendEvent:socketEvents[ReadyToFightResponse] withData:[NSDictionary dictionaryWithObjects:@[user.strID,userRival.strID,strResponse] forKeys:@[@"uid",@"fid",@"meta"]]];
 }
 
 -(void)sendHitWithStatus:(NSString*)strStatus Distance:(NSString*)strDistance
 {
     NSDictionary *dict=[NSDictionary dictionaryWithObjects:@[strStatus,strDistance] forKeys:@[@"Status",@"Distance"]];
+    NSLog(@"%s -> %@",__func__,[NSDictionary dictionaryWithObjects:@[user.strID,userRival.strID,dict] forKeys:@[@"uid",@"fid",@"meta"]]);
     [mySocket sendEvent:socketEvents[SendHit] withData:[NSDictionary dictionaryWithObjects:@[user.strID,userRival.strID,dict] forKeys:@[@"uid",@"fid",@"meta"]]];
 }
 
@@ -471,13 +474,21 @@
     }else{
         dict=[NSDictionary dictionaryWithObjects:@[[NSString stringWithFormat:@"0"],strHitValue] forKeys:@[@"hit",@"hitValue"]];
     }
+    NSLog(@"%s -> %@",__func__,[NSDictionary dictionaryWithObjects:@[user.strID,userRival.strID,dict] forKeys:@[@"uid",@"fid",@"meta"]]);
     [mySocket sendEvent:socketEvents[SendHit] withData:[NSDictionary dictionaryWithObjects:@[user.strID,userRival.strID,dict] forKeys:@[@"uid",@"fid",@"meta"]]];
 }
 
 -(void)sendGetOnlineUsers
 {
     //[mySocket sendEvent:socketEvents[OnlineUsers] withData:nil forKeys:nil]];
+    NSLog(@"%s",__func__);
     [mySocket sendEvent:socketEvents[OnlineUsers] withData:nil];
+}
+
+-(void)sendGetOnlineUsersForTournamentId:(NSString*)strTournamentID
+{
+    NSLog(@"%s",__func__);
+    [mySocket sendEvent:socketEvents[OnlineUsers] withData:[NSDictionary dictionaryWithObjects:@[strTournamentID] forKeys:@[@"tournament_id"]]];
 }
 
 
@@ -487,26 +498,20 @@
 
 - (void) socketIODidConnect:(SocketIO *)socket
 {
-    NSLog(@"socket.io connected.");
+    NSLog(@"%s",__func__);
+    
     mySocket=socket;
 }
 - (void) socketIO:(SocketIO *)socket didReceiveEvent:(SocketIOPacket *)packet
 {
     //NSLog(@"didReceiveEvent()");
-    
+    NSLog(@"%s -> %@",__func__,packet.dataAsJSON);
     
     if ([self.navigationController.topViewController isKindOfClass:[AttackViewController class]]) {
         AttackViewController *master=(AttackViewController*)self.navigationController.topViewController;
         [master socketIO:socket didReceiveEvent:packet];
     }
-    else if ([self.navigationController.topViewController isKindOfClass:[WorldMapViewController class]]){
-        WorldMapViewController *master=(WorldMapViewController*)self.navigationController.topViewController;
-        [master socketIO:socket didReceiveEvent:packet];
-    }
     else{
-        NSLog(@"%@",packet.data);
-        NSLog(@"%@",packet.dataAsJSON);
-        
         NSError *error;
         NSDictionary *dict=packet.dataAsJSON;
         
@@ -553,16 +558,36 @@
             NSLog(@"This is DeclineFight.");
         }
         else if ([[dict objectForKey:@"name"] isEqualToString:socketEvents[SocketError]]) {
-            UIAlertController *alertController=[UIAlertController alertControllerWithTitle:@"Error" message:@"Sorry you have send the game play request to an offline user." preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction *actionOK=[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-                [alertController dismissViewControllerAnimated:YES completion:^{
+            
+            if ([self.navigationController.topViewController isKindOfClass:[WorldMapViewController class]]){
+                WorldMapViewController *master=(WorldMapViewController*)self.navigationController.topViewController;
+                [master socketIO:socket didReceiveEvent:packet];
+            }else{
+                UIAlertController *alertController=[UIAlertController alertControllerWithTitle:@"Error" message:@"Sorry you have send the game play request to an offline user." preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *actionOK=[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                    [alertController dismissViewControllerAnimated:YES completion:^{
+                        
+                    }];
+                }];
+                [alertController addAction:actionOK];
+                [self presentViewController:alertController animated:YES completion:^{
                     
                 }];
-            }];
-            [alertController addAction:actionOK];
-            [self presentViewController:alertController animated:YES completion:^{
-                
-            }];
+            }
+        }
+        else if ([[dict objectForKey:@"name"] isEqualToString:socketEvents[OnlineUsersResponse]]){
+            if ([self.navigationController.topViewController isKindOfClass:[WorldMapViewController class]]){
+                WorldMapViewController *master=(WorldMapViewController*)self.navigationController.topViewController;
+                [master socketIO:socket didReceiveEvent:packet];
+            }else{
+                dict=[(NSArray*)[dict objectForKey:@"args"] objectAtIndex:0];
+                allUser=[[dict objectForKey:@"response"] mutableCopy];
+                for (int i=0; i<allUser.count; i++) {
+                    ModelUser *myUser=[[ModelUser alloc] initWithDictionary:[allUser objectAtIndex:i] BaseURL:__kBaseURL];
+                    [allUser removeObjectAtIndex:i];
+                    [allUser insertObject:myUser atIndex:i];
+                }
+            }
         }
         
         if (error) {
@@ -571,10 +596,6 @@
             NSLog(@"%@",dict);
         }
     }
-    
-    
-    
-    
 }
 
 - (void) socketIO:(SocketIO *)socket onError:(NSError *)error

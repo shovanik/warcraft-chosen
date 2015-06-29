@@ -117,6 +117,7 @@
                 <constraint firstAttribute="bottom" secondItem="w5x-Yg-4B8" secondAttribute="bottom" id="y6W-FD-uFx"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="295" y="380"/>
         </view>
     </objects>
     <resources>

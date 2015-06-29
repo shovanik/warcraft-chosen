@@ -37,9 +37,11 @@
 
 #import "SlideOutMenuViewController.h"
 #import "SocketIO.h"
+#import "TournamentHomeViewController.h"
 
 SlideOutMenuViewController *slideMenu;
 SocketIO *mySocket;
 ModelUser *userRival;
+TournamentHomeViewController *tournamentHome;
 
 NSString *stringUserID;

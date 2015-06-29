@@ -14,6 +14,7 @@
                 <outlet property="addressLabel" destination="jnE-aj-8PP" id="oKG-Bs-oKd"/>
                 <outlet property="btnRadious" destination="tXU-6a-Wy3" id="6Xs-M4-1LY"/>
                 <outlet property="mapRadious" destination="oRh-7Y-YP5" id="6D0-fc-5ck"/>
+                <outlet property="navTitleLabel" destination="A7M-xo-e8b" id="0Ld-nG-b4N"/>
                 <outlet property="playeNameLabel" destination="Tmy-Ev-Diz" id="1H5-M9-iYc"/>
                 <outlet property="radiousPicker" destination="GKl-af-6BR" id="Goc-CJ-A41"/>
                 <outlet property="radiousToolBar" destination="dQO-Aq-MbO" id="E2p-mQ-91A"/>
@@ -43,7 +44,7 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KyW-gs-WQN" userLabel="Button - Slide Menu Custome">
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KyW-gs-WQN" userLabel="Button - Slide Menu Custome">
                     <rect key="frame" x="-1" y="-1" width="61" height="54"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="59" id="fDm-8o-qmH"/>
@@ -65,7 +66,7 @@
                         <action selector="btnMenuTapped:" destination="-1" eventType="touchUpInside" id="C9O-Dq-pFq"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CaS-ND-UlV" userLabel="Button - BACK">
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CaS-ND-UlV" userLabel="Button - BACK">
                     <rect key="frame" x="336" y="12" width="18" height="28"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="15" id="WPd-hh-Eh7"/>
@@ -87,7 +88,7 @@
                         </mask>
                     </variation>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fgy-F7-tp9" userLabel="Button - Back Custom">
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fgy-F7-tp9" userLabel="Button - Back Custom">
                     <rect key="frame" x="314" y="1" width="61" height="54"/>
                     <state key="normal">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -303,6 +304,12 @@
                     <exclude reference="GKl-af-6BR"/>
                 </mask>
                 <mask key="constraints">
+                    <exclude reference="I1P-fd-MaN"/>
+                    <exclude reference="iMR-V1-Vo5"/>
+                    <exclude reference="mNt-SO-LzF"/>
+                    <exclude reference="opb-Bj-jDE"/>
+                    <exclude reference="6b4-ca-ljB"/>
+                    <exclude reference="oGc-Ga-nb9"/>
                     <exclude reference="01U-HK-3uU"/>
                     <exclude reference="9I6-w7-23u"/>
                     <exclude reference="A7y-bP-9Jz"/>
@@ -310,10 +317,6 @@
                     <exclude reference="rog-Bd-xil"/>
                     <exclude reference="tsu-bQ-8BX"/>
                     <exclude reference="v9k-Uv-QNC"/>
-                    <exclude reference="4cq-vq-D9a"/>
-                    <exclude reference="TY9-1C-8E7"/>
-                    <exclude reference="eQf-Hk-YUA"/>
-                    <exclude reference="tzb-o9-udl"/>
                     <exclude reference="34k-t8-M81"/>
                     <exclude reference="Hqb-9T-zuk"/>
                     <exclude reference="jvq-0l-eMs"/>
@@ -321,16 +324,14 @@
                     <exclude reference="UjR-5v-hkC"/>
                     <exclude reference="FZ1-Zl-rHy"/>
                     <exclude reference="hnL-5T-Rtl"/>
+                    <exclude reference="4cq-vq-D9a"/>
+                    <exclude reference="TY9-1C-8E7"/>
+                    <exclude reference="eQf-Hk-YUA"/>
+                    <exclude reference="tzb-o9-udl"/>
                     <exclude reference="SO0-99-v8t"/>
                     <exclude reference="WnE-TQ-4yB"/>
                     <exclude reference="bw2-Yr-2iu"/>
                     <exclude reference="zK9-hB-KKs"/>
-                    <exclude reference="6b4-ca-ljB"/>
-                    <exclude reference="oGc-Ga-nb9"/>
-                    <exclude reference="I1P-fd-MaN"/>
-                    <exclude reference="iMR-V1-Vo5"/>
-                    <exclude reference="mNt-SO-LzF"/>
-                    <exclude reference="opb-Bj-jDE"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=compact">
@@ -341,6 +342,12 @@
                     <include reference="GKl-af-6BR"/>
                 </mask>
                 <mask key="constraints">
+                    <include reference="I1P-fd-MaN"/>
+                    <include reference="iMR-V1-Vo5"/>
+                    <include reference="mNt-SO-LzF"/>
+                    <include reference="opb-Bj-jDE"/>
+                    <include reference="6b4-ca-ljB"/>
+                    <include reference="oGc-Ga-nb9"/>
                     <include reference="01U-HK-3uU"/>
                     <include reference="9I6-w7-23u"/>
                     <include reference="A7y-bP-9Jz"/>
@@ -348,10 +355,6 @@
                     <include reference="rog-Bd-xil"/>
                     <include reference="tsu-bQ-8BX"/>
                     <include reference="v9k-Uv-QNC"/>
-                    <include reference="4cq-vq-D9a"/>
-                    <include reference="TY9-1C-8E7"/>
-                    <include reference="eQf-Hk-YUA"/>
-                    <include reference="tzb-o9-udl"/>
                     <include reference="34k-t8-M81"/>
                     <include reference="Hqb-9T-zuk"/>
                     <include reference="jvq-0l-eMs"/>
@@ -359,16 +362,14 @@
                     <include reference="UjR-5v-hkC"/>
                     <include reference="FZ1-Zl-rHy"/>
                     <include reference="hnL-5T-Rtl"/>
+                    <include reference="4cq-vq-D9a"/>
+                    <include reference="TY9-1C-8E7"/>
+                    <include reference="eQf-Hk-YUA"/>
+                    <include reference="tzb-o9-udl"/>
                     <include reference="SO0-99-v8t"/>
                     <include reference="WnE-TQ-4yB"/>
                     <include reference="bw2-Yr-2iu"/>
                     <include reference="zK9-hB-KKs"/>
-                    <include reference="6b4-ca-ljB"/>
-                    <include reference="oGc-Ga-nb9"/>
-                    <include reference="I1P-fd-MaN"/>
-                    <include reference="iMR-V1-Vo5"/>
-                    <include reference="mNt-SO-LzF"/>
-                    <include reference="opb-Bj-jDE"/>
                 </mask>
             </variation>
         </view>

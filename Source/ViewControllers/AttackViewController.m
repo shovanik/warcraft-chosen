@@ -78,7 +78,8 @@
     imgTimerLeft.hidden=imgTimerRight.hidden=YES;
     isOponentImageDownloaded=NO;
     isSelfImageDownloadComplete=NO;
-    [imgMain loadImageFromURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",__kBaseURL,userRival.strAvtarImage]]];
+    [imgMain loadImageFromURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",__kBaseURL,[userRival.strAvtarImage stringByReplacingOccurrencesOfString:@"thumb" withString:@"big"]]]];
+    
     isFirstHit=YES;
 }
 
@@ -367,6 +368,36 @@
     
     NSDictionary *dict=packet.dataAsJSON;
     
+    /*if ([[dict objectForKey:@"name"] isEqualToString:socketEvents[StartFight]]) {
+        NSLog(@"This is start Fight.");
+        
+        NSDictionary *dict=packet.dataAsJSON;
+        NSArray *arrTemp=[dict objectForKey:@"args"];
+        dict=arrTemp[0];
+        userRival=[allUser getUserForUserID:[dict objectForKey:@"uid"]];
+        
+        UIAlertController *alertController=[UIAlertController alertControllerWithTitle:@"Fight Request" message:@"You have received a fight request, please confirm whether you want to fight or not." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *actionStartFight=[UIAlertAction actionWithTitle:@"Start Fight" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            [alertController dismissViewControllerAnimated:YES completion:^{
+                
+            }];
+            [self acceptFightPressed];
+        }];
+        UIAlertAction *actionDeclineFight=[UIAlertAction actionWithTitle:@"Decline Fight" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            [alertController dismissViewControllerAnimated:YES completion:^{
+                
+            }];
+            [self declineFightPressed];
+        }];
+        [alertController addAction:actionStartFight];
+        [alertController addAction:actionDeclineFight];
+        [self presentViewController:alertController animated:YES completion:^{
+            
+        }];
+    }*/
+    
+    
+    
     if ([[dict objectForKey:@"name"] isEqualToString:socketEvents[ReadyToFight]]) {
         NSLog(@"This is ReadyToFight.");
         isOponentImageDownloaded=YES;
@@ -469,6 +500,7 @@
         NSDictionary *dict=(NSDictionary*)packet.dataAsJSON;
         NSLog(@"Response = %@",dict);
         NSDictionary *dictFinalResult=[(NSArray*)[dict objectForKey:@"args"] objectAtIndex:0];
+        //[imgSliderOwn setPercentage:0];
         
         [[SocketService service] makeSocketDelegate:self.parentViewController];
         

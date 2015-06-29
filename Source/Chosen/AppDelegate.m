@@ -54,7 +54,7 @@
     self.window.rootViewController=navigationcontroller;
     
     slideMenu=[[SlideOutMenuViewController alloc] initWithNibName:@"SlideOutMenuViewController_iPhone4" bundle:nil];
-    slideMenu.view.frame=[[UIScreen mainScreen] bounds];
+    slideMenu.view.frame=CGRectMake(0, 0, LeftPanelWidth, [[UIScreen mainScreen] bounds].size.height);
     NSLog(@"master = %@",NSStringFromCGRect(slideMenu.view.frame));
     [self.window addSubview:slideMenu.view];
     

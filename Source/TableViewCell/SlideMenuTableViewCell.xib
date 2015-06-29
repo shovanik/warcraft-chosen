@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="GARA.TTF">
@@ -21,40 +22,36 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UIk-y0-9HO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="57"/>
                     </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CJD-0l-XWl">
+                        <rect key="frame" x="19" y="17" width="23" height="23"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="CJD-0l-XWl" secondAttribute="height" multiplier="1:1" id="nP2-Oz-Iln"/>
+                        </constraints>
+                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iUI-87-X9U">
-                        <rect key="frame" x="94" y="9" width="213" height="40"/>
+                        <rect key="frame" x="99" y="17" width="216" height="23"/>
                         <fontDescription key="fontDescription" name="Garamond" family="Garamond" pointSize="20"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CJD-0l-XWl">
-                        <rect key="frame" x="19" y="9" width="40" height="40"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="40" id="Nfr-es-hv2"/>
-                            <constraint firstAttribute="height" constant="40" id="OgG-9J-2pK"/>
-                        </constraints>
-                    </imageView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
-                    <constraint firstItem="UIk-y0-9HO" firstAttribute="leading" secondItem="tU7-xc-uDz" secondAttribute="leadingMargin" constant="-8" id="17J-Yb-OR7"/>
-                    <constraint firstItem="iUI-87-X9U" firstAttribute="leading" secondItem="CJD-0l-XWl" secondAttribute="trailing" constant="35" id="26f-ad-qrR"/>
-                    <constraint firstItem="iUI-87-X9U" firstAttribute="trailing" secondItem="UIk-y0-9HO" secondAttribute="trailing" constant="-13" id="5h3-aU-Euh"/>
-                    <constraint firstItem="iUI-87-X9U" firstAttribute="bottom" secondItem="CJD-0l-XWl" secondAttribute="bottom" id="5wo-Gj-AhE"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="UIk-y0-9HO" secondAttribute="trailing" constant="-8" id="6Fg-VW-Nba"/>
-                    <constraint firstItem="UIk-y0-9HO" firstAttribute="centerY" secondItem="CJD-0l-XWl" secondAttribute="centerY" constant="-0.5" id="CuV-rg-3vc"/>
-                    <constraint firstAttribute="centerY" secondItem="UIk-y0-9HO" secondAttribute="centerY" id="SrC-Y8-XES"/>
-                    <constraint firstAttribute="centerX" secondItem="UIk-y0-9HO" secondAttribute="centerX" id="ZIG-o7-0QS"/>
-                    <constraint firstItem="iUI-87-X9U" firstAttribute="centerY" secondItem="CJD-0l-XWl" secondAttribute="centerY" id="aNo-HJ-hao"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="UIk-y0-9HO" secondAttribute="bottom" constant="-8" id="bDO-zO-bs2"/>
-                    <constraint firstItem="iUI-87-X9U" firstAttribute="top" secondItem="CJD-0l-XWl" secondAttribute="top" id="hIT-iI-8Wl"/>
-                    <constraint firstItem="UIk-y0-9HO" firstAttribute="leading" secondItem="CJD-0l-XWl" secondAttribute="leading" constant="-19" id="hSq-o4-Uq8"/>
-                    <constraint firstItem="UIk-y0-9HO" firstAttribute="top" secondItem="tU7-xc-uDz" secondAttribute="topMargin" constant="-8" id="pdT-us-MHU"/>
+                    <constraint firstItem="UIk-y0-9HO" firstAttribute="top" secondItem="tU7-xc-uDz" secondAttribute="top" id="1UI-ML-XDx"/>
+                    <constraint firstItem="UIk-y0-9HO" firstAttribute="leading" secondItem="tU7-xc-uDz" secondAttribute="leading" id="4jQ-Bm-MXj"/>
+                    <constraint firstAttribute="trailing" secondItem="UIk-y0-9HO" secondAttribute="trailing" id="6vx-Mq-d0k"/>
+                    <constraint firstItem="CJD-0l-XWl" firstAttribute="centerY" secondItem="UIk-y0-9HO" secondAttribute="centerY" id="DQ0-GK-X5s"/>
+                    <constraint firstItem="iUI-87-X9U" firstAttribute="leading" secondItem="UIk-y0-9HO" secondAttribute="centerX" multiplier="0.62" id="LKb-fB-lBv"/>
+                    <constraint firstItem="CJD-0l-XWl" firstAttribute="height" secondItem="UIk-y0-9HO" secondAttribute="height" multiplier="0.4" id="SUM-G3-WuD"/>
+                    <constraint firstItem="iUI-87-X9U" firstAttribute="trailing" secondItem="UIk-y0-9HO" secondAttribute="trailing" constant="-5" id="cas-ul-amt"/>
+                    <constraint firstItem="iUI-87-X9U" firstAttribute="height" secondItem="CJD-0l-XWl" secondAttribute="height" id="fcv-qR-VD0"/>
+                    <constraint firstItem="CJD-0l-XWl" firstAttribute="leading" secondItem="UIk-y0-9HO" secondAttribute="leading" constant="19" id="kBG-Y7-gjk"/>
+                    <constraint firstItem="iUI-87-X9U" firstAttribute="centerY" secondItem="CJD-0l-XWl" secondAttribute="centerY" id="mQn-Gg-Ez8"/>
+                    <constraint firstAttribute="bottom" secondItem="UIk-y0-9HO" secondAttribute="bottom" id="xrP-Ph-soh"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
-                <outlet property="consImageHeight" destination="OgG-9J-2pK" id="etq-H8-vVd"/>
                 <outlet property="imgBackGround" destination="UIk-y0-9HO" id="IeP-SK-2sh"/>
                 <outlet property="imgIcon" destination="CJD-0l-XWl" id="ZCY-eo-1dj"/>
                 <outlet property="lblText" destination="iUI-87-X9U" id="xnz-hF-57U"/>

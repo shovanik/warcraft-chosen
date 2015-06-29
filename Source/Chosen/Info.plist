@@ -25,7 +25,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb1642674679280166</string>
+				<string>fb1449023875399597</string>
 			</array>
 		</dict>
 	</array>
@@ -51,7 +51,7 @@
 		</array>
 	</dict>
 	<key>FacebookAppID</key>
-	<string>1642674679280166</string>
+	<string>1449023875399597</string>
 	<key>FacebookDisplayName</key>
 	<string>Chosen</string>
 	<key>LSRequiresIPhoneOS</key>

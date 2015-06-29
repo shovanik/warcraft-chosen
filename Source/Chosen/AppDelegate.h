@@ -11,6 +11,8 @@
 #import <CoreLocation/CoreLocation.h>
 #import "Reachability.h"
 
+#define LeftPanelWidth [[UIScreen mainScreen] bounds].size.width - [[UIScreen mainScreen] bounds].size.width/6.5
+
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, CLLocationManagerDelegate>
 

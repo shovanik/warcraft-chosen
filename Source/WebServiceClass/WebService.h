@@ -47,4 +47,6 @@
 
 //-(void)callStatusChangeToOfflineWithUserID:(NSString*)strUserID WithCompletionHandler:(CompletionHandler)handler;
 
+-(void)callCreateTournamentForCategoryId:(NSString*)strCategoryID Title:(NSString*)strTitle NoOfPlayer:(NSString*)strNoOfPlayer GoldRequired:(NSString*)strGoldRequired Playtime:(NSString*)strPlaytime Radious:(NSString*)strRadious UserID:(NSString*)strUserID Private:(NSString*)strPrivate WithCompletionHandler:(CompletionHandler)handler;
+
 @end

@@ -63,6 +63,14 @@
             if ([result isKindOfClass:[NSMutableArray class]]) {
                 arrResponse=(NSMutableArray*)result;
                 
+                
+/////////////////////////////////////// This is a static section for the time START //////////////////////////////////////////////////////
+                
+                [arrResponse removeLastObject];
+                [arrResponse removeLastObject];
+                
+/////////////////////////////////////// This is a static section for the time START //////////////////////////////////////////////////////
+
                 tblTournament.dataSource=self;
                 tblTournament.delegate=self;
                 [tblTournament reloadData];

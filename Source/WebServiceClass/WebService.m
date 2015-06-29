@@ -1037,4 +1037,61 @@ static NSString *const allServices[]={
 }
 */
 
+-(void)callCreateTournamentForCategoryId:(NSString*)strCategoryID Title:(NSString*)strTitle NoOfPlayer:(NSString*)strNoOfPlayer GoldRequired:(NSString*)strGoldRequired Playtime:(NSString*)strPlaytime Radious:(NSString*)strRadious UserID:(NSString*)strUserID Private:(NSString*)strPrivate WithCompletionHandler:(CompletionHandler)handler
+{
+    NSMutableArray *arr=[[NSMutableArray alloc] init];
+    [arr addObject:[NSString stringWithFormat:@"category_id=%@",strCategoryID]];
+    [arr addObject:[NSString stringWithFormat:@"title=%@",strTitle]];
+    [arr addObject:[NSString stringWithFormat:@"no_of_players=%@",strNoOfPlayer]];
+    [arr addObject:[NSString stringWithFormat:@"gold_required=%@",strGoldRequired]];
+    [arr addObject:[NSString stringWithFormat:@"playtime=%@",strPlaytime]];
+    [arr addObject:[NSString stringWithFormat:@"radius=%@",strRadious]];
+    [arr addObject:[NSString stringWithFormat:@"user_id=%@",strUserID]];
+    [arr addObject:[NSString stringWithFormat:@"is_private=%@",strPrivate]];
+    
+    NSString *postParams = [arr componentsJoinedByString:@"&"];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[self getTotalURL:allServices[CreateTournament]] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+    NSData *RequestPostData = [NSData dataWithBytes: [postParams UTF8String] length: [postParams length]];
+    NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[RequestPostData length]];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:RequestPostData];
+    NSOperationQueue *queue=[NSOperationQueue new];
+    [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (connectionError) {
+                handler(connectionError,YES,@"Connection error is happen, please try again later.");
+            }else{
+                //NSLog(@"%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+                if (data.length>0) {
+                    NSError *errorJSON;
+                    NSDictionary *dictResponse=[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&errorJSON];
+                    if (errorJSON) {
+                        handler(nil,YES,@"Something is wrong, please try again later.");
+                    }else{
+                        if ([[dictResponse objectForKey:@"status"] boolValue]) {
+                            if ([dictResponse objectForKey:@"response"] && ![[dictResponse objectForKey:@"response"] isKindOfClass:[NSNull class]]) {
+                                dictResponse=[dictResponse objectForKey:@"response"];
+                                if ([dictResponse objectForKey:@"create_tournament"] && ![[dictResponse objectForKey:@"create_tournament"] isKindOfClass:[NSNull class]]) {
+                                    dictResponse=[dictResponse objectForKey:@"create_tournament"];
+                                    handler(dictResponse,NO,@"The game has been created successfully...");
+                                }else{
+                                    handler(nil,YES,@"Something is wrong, please try again later.");
+                                }
+                            }else{
+                                handler(nil,YES,@"Something is wrong, please try again later.");
+                            }
+                        }else{
+                            handler(nil,YES,@"Something is wrong, please try again later.");
+                        }
+                    }
+                }else{
+                    handler(nil,YES,@"Something is wrong, please try again later.");
+                }
+            }
+        });
+    }];
+}
+
 @end

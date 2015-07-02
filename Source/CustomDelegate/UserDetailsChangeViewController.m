@@ -41,7 +41,9 @@
     // Do any additional setup after loading the view from its nib.
     
     txtUserName.text=user.strUserName;
-    txtDateOfBirth.text=user.strDateOfBirth;
+    
+    NSDate *myDate=[NSDate dateWithTimeIntervalSince1970:[user.strDateOfBirth longLongValue]];
+    txtDateOfBirth.text=[dateFormattter stringFromDate:myDate];
     
     
     master=[[CustomDatePickerViewController alloc] initWithNibName:@"CustomDatePickerViewController" bundle:nil MaxDate:[NSDate date] MinDate:nil Delegate:self];
@@ -49,7 +51,16 @@
     [self.view addSubview:master.view];
     [master.view setHidden:YES];
     
-    strGender=nil;
+    if ([[[user.strGenderShort stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString] isEqualToString:@"M"]) {
+        [btnMale setSelected:YES];
+        [btnFemale setSelected:NO];
+        strGender=@"M";
+    }
+    else if ([[[user.strGenderShort stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString] isEqualToString:@"F"]){
+        [btnMale setSelected:NO];
+        [btnFemale setSelected:YES];
+        strGender=@"F";
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -106,17 +117,21 @@
 
 -(IBAction)btnMalePressed:(id)sender
 {
+    [btnMale setSelected:YES];
+    [btnFemale setSelected:NO];
     strGender=@"M";
 }
 -(IBAction)btnFemalePressed:(id)sender
 {
+    [btnMale setSelected:NO];
+    [btnFemale setSelected:YES];
     strGender=@"F";
 }
 
 -(IBAction)btnSubmitPressed:(id)sender
 {
     if ([self alertChecking]) {
-        [[WebService service] callUpdateUserserviceWithUserName:[txtUserName.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] UserID:user.strID DateOfBirth:[txtDateOfBirth.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] Email:@"" Gender:strGender StateName:@"" CountryName:@"" CityName:@"" Latitude:@"" Longitude:@"" WithCompletionHandler:^(id result, BOOL isError, NSString *strMessage) {
+        [[WebService service] callUpdateUserserviceWithUserName:@""/*[txtUserName.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]*/ UserID:user.strID DateOfBirth:[txtDateOfBirth.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] Email:@"" Gender:strGender StateName:@"" CountryName:@"" CityName:@"" Latitude:@"" Longitude:@"" WithCompletionHandler:^(id result, BOOL isError, NSString *strMessage) {
             if (isError) {
                 UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Error" message:strMessage delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
                 alert.tag=1;
@@ -126,7 +141,7 @@
                     NSDictionary *dict=(NSDictionary*)result;
                     user=[dict objectForKey:@"User"];
                     allUser=[dict objectForKey:@"AllUser"];
-                    UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Success" message:@"Your location is updated successfully." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+                    UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Success" message:@"Your information is updated successfully." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
                     alert.tag=2;
                     [alert show];
                 }

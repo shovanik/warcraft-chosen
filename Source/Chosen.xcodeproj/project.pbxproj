@@ -22,6 +22,8 @@
 		202831F11AB30ECA00C65D98 /* NSMutableArray+FoundGuild.m in Sources */ = {isa = PBXBuildFile; fileRef = 202831F01AB30ECA00C65D98 /* NSMutableArray+FoundGuild.m */; };
 		2037448C1B417AA3007CA3AC /* logout_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2037448B1B417AA3007CA3AC /* logout_icon.png */; };
 		2039481A1B04C49200059F1B /* CustomTimerLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 203948191B04C49200059F1B /* CustomTimerLabel.m */; };
+		203991291B42F1E3006F420B /* SingleButtonAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 203991271B42F1E3006F420B /* SingleButtonAlertViewController.m */; };
+		2039912A1B42F1E3006F420B /* SingleButtonAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 203991281B42F1E3006F420B /* SingleButtonAlertViewController.xib */; };
 		20408A751ACE86E2007537E8 /* ContractViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20408A741ACE86E2007537E8 /* ContractViewController.m */; };
 		20408A771ACE86FC007537E8 /* ContractViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20408A761ACE86FC007537E8 /* ContractViewController.xib */; };
 		20408A8D1ACE91DC007537E8 /* BUY-CONTRACT_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 20408A7C1ACE91DC007537E8 /* BUY-CONTRACT_button.png */; };
@@ -108,6 +110,7 @@
 		2096F6781B3D82CA00B8BBBA /* PrivatePublicConfirmationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2096F6761B3D82CA00B8BBBA /* PrivatePublicConfirmationViewController.xib */; };
 		20A253411AE937C600DB6E8A /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 20A253401AE937C600DB6E8A /* libicucore.dylib */; };
 		20A253431AE937D400DB6E8A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20A253421AE937D400DB6E8A /* CFNetwork.framework */; };
+		20A760251B443FFC00CC7742 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 20A760241B443FFC00CC7742 /* Entitlements.plist */; };
 		20B9ECE71AA4B1B400400626 /* ModelAvtarImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 20B9ECE61AA4B1B400400626 /* ModelAvtarImage.m */; };
 		20BAC3981A94A87B00E895FE /* DataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BAC3971A94A87B00E895FE /* DataClass.m */; };
 		20BAC3C91A94A89200E895FE /* TournamentDetailsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 20BAC3C61A94A89200E895FE /* TournamentDetailsTableViewCell.m */; };
@@ -293,6 +296,9 @@
 		2037448B1B417AA3007CA3AC /* logout_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logout_icon.png; sourceTree = "<group>"; };
 		203948181B04C49200059F1B /* CustomTimerLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomTimerLabel.h; path = CustomControl/CustomTimerLabel.h; sourceTree = "<group>"; };
 		203948191B04C49200059F1B /* CustomTimerLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomTimerLabel.m; path = CustomControl/CustomTimerLabel.m; sourceTree = "<group>"; };
+		203991261B42F1E3006F420B /* SingleButtonAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SingleButtonAlertViewController.h; path = CustomDelegate/SingleButtonAlertViewController.h; sourceTree = "<group>"; };
+		203991271B42F1E3006F420B /* SingleButtonAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SingleButtonAlertViewController.m; path = CustomDelegate/SingleButtonAlertViewController.m; sourceTree = "<group>"; };
+		203991281B42F1E3006F420B /* SingleButtonAlertViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SingleButtonAlertViewController.xib; path = CustomDelegate/SingleButtonAlertViewController.xib; sourceTree = "<group>"; };
 		20408A731ACE86E2007537E8 /* ContractViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContractViewController.h; sourceTree = "<group>"; };
 		20408A741ACE86E2007537E8 /* ContractViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContractViewController.m; sourceTree = "<group>"; };
 		20408A761ACE86FC007537E8 /* ContractViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContractViewController.xib; sourceTree = "<group>"; };
@@ -397,6 +403,7 @@
 		2096F6761B3D82CA00B8BBBA /* PrivatePublicConfirmationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PrivatePublicConfirmationViewController.xib; path = CustomDelegate/PrivatePublicConfirmationViewController.xib; sourceTree = "<group>"; };
 		20A253401AE937C600DB6E8A /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		20A253421AE937D400DB6E8A /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		20A760241B443FFC00CC7742 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		20B9ECE51AA4B1B400400626 /* ModelAvtarImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelAvtarImage.h; sourceTree = "<group>"; };
 		20B9ECE61AA4B1B400400626 /* ModelAvtarImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelAvtarImage.m; sourceTree = "<group>"; };
 		20BAC3961A94A87B00E895FE /* DataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataClass.h; sourceTree = "<group>"; };
@@ -829,6 +836,9 @@
 				2096F6741B3D82CA00B8BBBA /* PrivatePublicConfirmationViewController.h */,
 				2096F6751B3D82CA00B8BBBA /* PrivatePublicConfirmationViewController.m */,
 				2096F6761B3D82CA00B8BBBA /* PrivatePublicConfirmationViewController.xib */,
+				203991261B42F1E3006F420B /* SingleButtonAlertViewController.h */,
+				203991271B42F1E3006F420B /* SingleButtonAlertViewController.m */,
+				203991281B42F1E3006F420B /* SingleButtonAlertViewController.xib */,
 			);
 			name = CustomDelegate;
 			sourceTree = "<group>";
@@ -1305,6 +1315,7 @@
 				CD79B1651A3F272800AFD912 /* Default-667h.png */,
 				CD79B1661A3F272800AFD912 /* Default-736h.png */,
 				CD79B13B1A3F1DB800AFD912 /* Info.plist */,
+				20A760241B443FFC00CC7742 /* Entitlements.plist */,
 				CD79B13C1A3F1DB800AFD912 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -1691,6 +1702,7 @@
 				208FA0491AD6867D00CE4CDC /* tournameny_icon.png in Resources */,
 				2058FAB51AD2D08000FF1D8F /* join_icon.png in Resources */,
 				208FBE3A1AB088DA00B391DF /* three_star.png in Resources */,
+				20A760251B443FFC00CC7742 /* Entitlements.plist in Resources */,
 				20408AF51ACEE7FC007537E8 /* target3.png in Resources */,
 				20408AE01ACED936007537E8 /* 4.png in Resources */,
 				20408AA51ACEA708007537E8 /* CustomConfirmationViewController.xib in Resources */,
@@ -1762,6 +1774,7 @@
 				CD79B1881A3F3D5000AFD912 /* Icon-60@2x.png in Resources */,
 				20408A971ACE91DC007537E8 /* lost_icon.png in Resources */,
 				20408ADA1ACED936007537E8 /* 17.png in Resources */,
+				2039912A1B42F1E3006F420B /* SingleButtonAlertViewController.xib in Resources */,
 				4C8783681AE8E9B1006443CE /* TournamentInviteViewController.xib in Resources */,
 				2009D58F1ADFEC3C00562900 /* r4.png in Resources */,
 				20408A911ACE91DC007537E8 /* transparent_back.png in Resources */,
@@ -1837,6 +1850,7 @@
 				20C1EE501AB024AB00197A80 /* ModelGuild.m in Sources */,
 				20BAC41B1A94A8B100E895FE /* StepOneViewController.m in Sources */,
 				20408AA41ACEA708007537E8 /* CustomConfirmationViewController.m in Sources */,
+				203991291B42F1E3006F420B /* SingleButtonAlertViewController.m in Sources */,
 				20408AE91ACEE6AC007537E8 /* ImageTouchDetection.m in Sources */,
 				D67780A31AB986670086BEBE /* AddTournamentTableViewCell.m in Sources */,
 				20B9ECE71AA4B1B400400626 /* ModelAvtarImage.m in Sources */,
@@ -1943,8 +1957,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Brandon Doyle (9RRURJAZA8)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Brandon Doyle (9RRURJAZA8)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: WALLAROO MEDIA LLC APPS (638PWFZH3E)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: WALLAROO MEDIA LLC APPS (638PWFZH3E)";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1971,7 +1985,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
-				PROVISIONING_PROFILE = "09737edb-ec00-4284-9b53-c6158cfaf93f";
+				PROVISIONING_PROFILE = "61ea6656-9415-48ba-ab53-07cadc8b04d8";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv7 armv7s arm64";
@@ -1995,8 +2009,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Brandon Doyle (9RRURJAZA8)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Brandon Doyle (9RRURJAZA8)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: WALLAROO MEDIA LLC APPS (638PWFZH3E)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: WALLAROO MEDIA LLC APPS (638PWFZH3E)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -2017,7 +2031,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
-				PROVISIONING_PROFILE = "09737edb-ec00-4284-9b53-c6158cfaf93f";
+				PROVISIONING_PROFILE = "61ea6656-9415-48ba-ab53-07cadc8b04d8";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -2029,8 +2043,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Brandon Doyle (9RRURJAZA8)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Brandon Doyle (9RRURJAZA8)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: WALLAROO MEDIA LLC APPS (638PWFZH3E)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: WALLAROO MEDIA LLC APPS (638PWFZH3E)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Chosen/FacebookSDK",
@@ -2045,7 +2059,8 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "09737edb-ec00-4284-9b53-c6158cfaf93f";
+				PROVISIONING_PROFILE = "61ea6656-9415-48ba-ab53-07cadc8b04d8";
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/**";
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
@@ -2055,8 +2070,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Brandon Doyle (9RRURJAZA8)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Brandon Doyle (9RRURJAZA8)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: WALLAROO MEDIA LLC APPS (638PWFZH3E)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: WALLAROO MEDIA LLC APPS (638PWFZH3E)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Chosen/FacebookSDK",
@@ -2071,7 +2086,8 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "09737edb-ec00-4284-9b53-c6158cfaf93f";
+				PROVISIONING_PROFILE = "61ea6656-9415-48ba-ab53-07cadc8b04d8";
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/**";
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
@@ -2081,7 +2097,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Brandon Doyle (9RRURJAZA8)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: WALLAROO MEDIA LLC APPS (638PWFZH3E)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -2093,7 +2109,7 @@
 				INFOPLIST_FILE = ChosenTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "09737edb-ec00-4284-9b53-c6158cfaf93f";
+				PROVISIONING_PROFILE = "61ea6656-9415-48ba-ab53-07cadc8b04d8";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Chosen.app/Chosen";
 			};
 			name = Debug;
@@ -2102,7 +2118,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Brandon Doyle (9RRURJAZA8)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: WALLAROO MEDIA LLC APPS (638PWFZH3E)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -2110,7 +2126,7 @@
 				INFOPLIST_FILE = ChosenTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "09737edb-ec00-4284-9b53-c6158cfaf93f";
+				PROVISIONING_PROFILE = "61ea6656-9415-48ba-ab53-07cadc8b04d8";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Chosen.app/Chosen";
 			};
 			name = Release;

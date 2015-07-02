@@ -26,8 +26,12 @@
 @interface SlideOutMenuViewController : UIViewController
 
 @property(weak,nonatomic) id <SlideOutMenuDelegate> delegate;
+@property(assign,nonatomic) BOOL isSlideMenuPlaced;
+@property(assign,nonatomic) BOOL isSlideMenuOpen;
 
 -(void)setAvtarImageForURL:(NSURL*)urlImg;
+
++(SlideOutMenuViewController*)sharedInstance;
 
 
 @end

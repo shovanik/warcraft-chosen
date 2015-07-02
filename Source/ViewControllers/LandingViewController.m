@@ -22,7 +22,7 @@
 
 NSUserDefaults *sharedPref;
 
-@interface LandingViewController ()<CustomLocationManagerDelegate>
+@interface LandingViewController ()<CustomLocationManagerDelegate,SingleButtonDelegate>
 {
     IBOutlet UIButton *btnFacebook;
     IBOutlet UIButton *btnTwitter;
@@ -59,6 +59,9 @@ NSUserDefaults *sharedPref;
 - (IBAction)fbloginClick:(id)sender {
     [sharedPref setInteger:2 forKey:@"LoggedInState"];
     
+    
+    [self.activityIndicatorView startAnimating];
+    [self.view setUserInteractionEnabled:NO];
     
     
     if ([CLLocationManager locationServicesEnabled]) {
@@ -122,7 +125,16 @@ NSUserDefaults *sharedPref;
                  
                  [[WebService service] callFBLoginServiceWithEmail:[result objectForKey:@"email"] FirstName:[result objectForKey:@"first_name"] LastName:[result objectForKey:@"last_name"] Gender:[result objectForKey:@"gender"] ID:[result objectForKey:@"id"] Link:[result objectForKey:@"link"] Locale:[result objectForKey:@"locale"] Name:[result objectForKey:@"name"] TimeZone:[result objectForKey:@"timezone"] Latitude:[dict objectForKey:@"Latitude"] Longitude:[dict objectForKey:@"Longitude"] Country:[dict objectForKey:@"Country"] State:[dict objectForKey:@"State"] City:[dict objectForKey:@"City"] WithCompletionHandler:^(id result, BOOL isError, NSString *strMessage) {
                      if (isError) {
-                         
+                         UIAlertController *alertController=[UIAlertController alertControllerWithTitle:@"Error" message:strMessage preferredStyle:UIAlertControllerStyleAlert];
+                         UIAlertAction *actionOk=[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                             [alertController dismissViewControllerAnimated:YES completion:^{
+                                 
+                             }];
+                         }];
+                         [alertController addAction:actionOk];
+                         [self presentViewController:alertController animated:YES completion:^{
+                             
+                         }];
                      }else{
                          if ([result isKindOfClass:[NSDictionary class]]) {
                              NSMutableDictionary *dict=(NSMutableDictionary*)result;
@@ -158,10 +170,38 @@ NSUserDefaults *sharedPref;
          }];
     }else{
         [login logInWithReadPermissions:@[@"email",@"public_profile",@"user_friends"] handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+            NSLog(@"%@",result);
             if (error) {
                 // Process error
+                NSLog(@"Process Error");
+                
+                UIAlertController *alertController=[UIAlertController alertControllerWithTitle:@"Error" message:@"Facebook login failed" preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *actionOk=[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                    [alertController dismissViewControllerAnimated:YES completion:^{
+                        
+                    }];
+                }];
+                [alertController addAction:actionOk];
+                [self presentViewController:alertController animated:YES completion:^{
+                    
+                }];
+                
+                
             } else if (result.isCancelled) {
                 // Handle cancellations
+                NSLog(@"Canceled...");
+                
+                UIAlertController *alertController=[UIAlertController alertControllerWithTitle:@"Error" message:@"Login Canceled by the user." preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *actionOk=[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                    [alertController dismissViewControllerAnimated:YES completion:^{
+                        
+                    }];
+                }];
+                [alertController addAction:actionOk];
+                [self presentViewController:alertController animated:YES completion:^{
+                    
+                }];
+                
             } else {
                 if ([[result grantedPermissions] containsObject:@"public_profile"]) {
                     [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil]
@@ -185,7 +225,6 @@ NSUserDefaults *sharedPref;
                                              allUser=(NSMutableArray*)tempAllUser;
                                          }
                                          stringUserID=user.strID;
-                                         //[[OnlineOfflineTrackerManager manager] startTrackingUserForUserID:user.strID];
                                          [self makeSocketConnectionWithUser:user];
                                      }
                                  }
@@ -244,7 +283,16 @@ NSUserDefaults *sharedPref;
             
             [[WebService service] callTwitterLoginWithUserName:twitterUser.name DisplayName:twitterUser.screenName Email:@"" ProfileImageLargeURL:twitterUser.profileImageLargeURL ProfileImageMini:twitterUser.profileImageMiniURL ProfileImageURL:twitterUser.profileImageURL Country:[dict objectForKey:@"Country"] State:[dict objectForKey:@"State"] City:[dict objectForKey:@"City"] Latitude:[dict objectForKey:@"Latitude"] Longitude:[dict objectForKey:@"Longitude"] TwitterUserID:twitterUser.userID WithCompletionHandler:^(id result, BOOL isError, NSString *strMessage) {
                 if (isError) {
-                    
+                    UIAlertController *alertController=[UIAlertController alertControllerWithTitle:@"Error" message:strMessage preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction *actionOk=[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                        [alertController dismissViewControllerAnimated:YES completion:^{
+                            
+                        }];
+                    }];
+                    [alertController addAction:actionOk];
+                    [self presentViewController:alertController animated:YES completion:^{
+                        
+                    }];
                 }else{
                     
                     if ([result isKindOfClass:[NSDictionary class]]) {

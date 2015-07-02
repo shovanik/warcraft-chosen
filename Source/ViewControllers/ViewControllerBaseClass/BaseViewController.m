@@ -22,18 +22,20 @@
 #import "SocketIOPacket.h"
 #import "AttackViewController.h"
 #import "WorldMapViewController.h"
+#import "SingleButtonAlertViewController.h"
+#import "SlideOutMenuViewController.h"
+
+#define LeftPanelWidth [[UIScreen mainScreen] bounds].size.width - [[UIScreen mainScreen] bounds].size.width/6.5
+
 
 @import AVKit;
 
-@interface BaseViewController ()<CustomLocationManagerDelegate,SlideOutMenuDelegate,SocketIODelegate>
+@interface BaseViewController ()<CustomLocationManagerDelegate,SlideOutMenuDelegate,SocketIODelegate,SingleButtonDelegate>
 {
     CustomLocationManager *locationManager;
     SocketService *socketService;
-    
-    
     NSString *strSocketFromUID;
     NSString *strSocketToUID;
-    
     BOOL isReadyToFightReceived;
 }
 
@@ -76,6 +78,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    SlideOutMenuViewController *slideMenu=[SlideOutMenuViewController sharedInstance];
+    if (!slideMenu.isSlideMenuPlaced) {
+        slideMenu.view.frame=CGRectMake(0, 0, LeftPanelWidth, [[UIScreen mainScreen] bounds].size.height);
+        NSLog(@"master = %@",NSStringFromCGRect(slideMenu.view.frame));
+        UIWindow *myWindow=[[UIApplication sharedApplication] keyWindow];
+        [myWindow addSubview:slideMenu.view];
+        slideMenu.isSlideMenuPlaced=YES;
+        [myWindow sendSubviewToBack:slideMenu.view];
+    }
+    
     // Do any additional setup after loading the view.
 #pragma mark
 #pragma mark DateFormat String Initialization
@@ -92,13 +105,6 @@
 #pragma mark
     
     [self.activityIndicatorView setHidesWhenStopped:YES];
-    
-#pragma mark
-#pragma mark Side Panel Initialization
-#pragma mark
-    
-    slideMenu.delegate=self;
-    _isSlidemenuOpen=NO;
     
 #pragma mark
 #pragma mark Location Manager Initialization
@@ -235,7 +241,9 @@
 
 -(IBAction)btnMenuTapped:(id)sender
 {
-    if (self.isSlidemenuOpen) {
+    SlideOutMenuViewController *slideMenu=[SlideOutMenuViewController sharedInstance];
+    
+    if (slideMenu.isSlideMenuOpen) {
         [self closeSlideMenu];
     }else{
         [self openSlideMenu];
@@ -300,25 +308,25 @@
 
 -(void)openSlideMenu
 {
-    if (!_isSlidemenuOpen) {
-        UIWindow *window=[[UIApplication sharedApplication] keyWindow];
-        [UIView animateWithDuration:0.5 animations:^{
-            window.rootViewController.view.frame=CGRectMake(LeftPanelWidth, 0, window.frame.size.width, window.frame.size.height);
-        } completion:^(BOOL finished) {
-            _isSlidemenuOpen=YES;
-        }];
-    }
+    UIWindow *window=[[UIApplication sharedApplication] keyWindow];
+    [UIView animateWithDuration:0.5 animations:^{
+        window.rootViewController.view.frame=CGRectMake(LeftPanelWidth, 0, window.frame.size.width, window.frame.size.height);
+    } completion:^(BOOL finished) {
+        SlideOutMenuViewController *slideMenu=[SlideOutMenuViewController sharedInstance];
+        slideMenu.isSlideMenuOpen=YES;
+        slideMenu.delegate=(id<SlideOutMenuDelegate>)self.navigationController.topViewController;
+    }];
 }
 -(void)closeSlideMenu
 {
-    if (_isSlidemenuOpen) {
-        UIWindow *window=[[UIApplication sharedApplication] keyWindow];
-        [UIView animateWithDuration:0.5 animations:^{
-            window.rootViewController.view.frame=CGRectMake(0, 0, window.frame.size.width, window.frame.size.height);
-        } completion:^(BOOL finished) {
-            _isSlidemenuOpen=NO;
-        }];
-    }
+    UIWindow *window=[[UIApplication sharedApplication] keyWindow];
+    [UIView animateWithDuration:0.5 animations:^{
+        window.rootViewController.view.frame=CGRectMake(0, 0, window.frame.size.width, window.frame.size.height);
+    } completion:^(BOOL finished) {
+        SlideOutMenuViewController *slideMenu=[SlideOutMenuViewController sharedInstance];
+        slideMenu.isSlideMenuOpen=NO;
+        slideMenu.delegate=nil;
+    }];
 }
 
 
@@ -563,6 +571,7 @@
                 WorldMapViewController *master=(WorldMapViewController*)self.navigationController.topViewController;
                 [master socketIO:socket didReceiveEvent:packet];
             }else{
+                /*
                 UIAlertController *alertController=[UIAlertController alertControllerWithTitle:@"Error" message:@"Sorry you have send the game play request to an offline user." preferredStyle:UIAlertControllerStyleAlert];
                 UIAlertAction *actionOK=[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                     [alertController dismissViewControllerAnimated:YES completion:^{
@@ -573,6 +582,12 @@
                 [self presentViewController:alertController animated:YES completion:^{
                     
                 }];
+                */
+                
+                SingleButtonAlertViewController *singlebtn=[SingleButtonAlertViewController sharedInstance];
+                [singlebtn.view setFrame:[[UIScreen mainScreen] bounds]];
+                [singlebtn displayMessageWithMessageBody:[@"Sorry you have send the game play request to an offline user." capitalizedString] ButtonTitle:@"OK" Delegate:self];
+                [self.view addSubview:singlebtn.view];
             }
         }
         else if ([[dict objectForKey:@"name"] isEqualToString:socketEvents[OnlineUsersResponse]]){
@@ -617,5 +632,12 @@
 {
     [[SocketService service] disConnectSocket];
 }
+
+-(void)didOkPressed
+{
+    SingleButtonAlertViewController *singlebtn=[SingleButtonAlertViewController sharedInstance];
+    [singlebtn.view removeFromSuperview];
+}
+
 
 @end

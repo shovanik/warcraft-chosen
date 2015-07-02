@@ -12,7 +12,6 @@
 #import "LandingViewController.h"
 #import <Social/Social.h>
 #import "LandingViewController.h"
-#import "SlideOutMenuViewController.h"
 #import "AttackViewController.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <StoreKit/StoreKit.h>  
@@ -53,10 +52,7 @@
     
     self.window.rootViewController=navigationcontroller;
     
-    slideMenu=[[SlideOutMenuViewController alloc] initWithNibName:@"SlideOutMenuViewController_iPhone4" bundle:nil];
-    slideMenu.view.frame=CGRectMake(0, 0, LeftPanelWidth, [[UIScreen mainScreen] bounds].size.height);
-    NSLog(@"master = %@",NSStringFromCGRect(slideMenu.view.frame));
-    [self.window addSubview:slideMenu.view];
+    
     
     
     [self.window makeKeyAndVisible];
@@ -82,7 +78,7 @@
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation {
     
-    if ([ [url absoluteString] rangeOfString:@"fb1642674679280166"].location != NSNotFound)
+    if ([ [url absoluteString] rangeOfString:@"fb935303636531709"].location != NSNotFound)
     {
         return [[FBSDKApplicationDelegate sharedInstance] application:application
                                                               openURL:url

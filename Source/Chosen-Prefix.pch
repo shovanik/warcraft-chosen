@@ -39,7 +39,6 @@
 #import "SocketIO.h"
 #import "TournamentHomeViewController.h"
 
-SlideOutMenuViewController *slideMenu;
 SocketIO *mySocket;
 ModelUser *userRival;
 TournamentHomeViewController *tournamentHome;

@@ -25,6 +25,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     [self displayFromUser];
 }
 
@@ -80,7 +85,13 @@
 -(void)displayFromUser
 {
     lblLocationDetails.text=[NSString stringWithFormat:@"%@, %@, %@",user.strCountryName,user.strStateName,user.strCityName];
-    lblUserDetails.text=[NSString stringWithFormat:@"%@, %@, %@",user.strUserName,user.strAge,user.strGenderLong];
+    NSDate *myDate=[NSDate dateWithTimeIntervalSince1970:[user.strDateOfBirth longLongValue]];
+    NSDateComponents* ageComponents = [[NSCalendar currentCalendar]
+                                       components:NSCalendarUnitYear
+                                       fromDate:myDate
+                                       toDate:[NSDate date]
+                                       options:0];
+    lblUserDetails.text=[NSString stringWithFormat:@"%@, %ld, %@",user.strUserName,(long)[ageComponents year],user.strGenderLong];
 }
 -(void)userDetailsDidChanged
 {

@@ -69,6 +69,44 @@ NSUserDefaults *pref;
 #pragma mark Initialization Method
 #pragma mark
 
+-(id)init
+{
+    if (self=[super init]) {
+        self.isSlideMenuPlaced=NO;
+        self.isSlideMenuOpen=NO;
+    }
+    return self;
+}
+
+-(id)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self=[super initWithCoder:aDecoder]) {
+        self.isSlideMenuPlaced=NO;
+        self.isSlideMenuOpen=NO;
+    }
+    return self;
+}
+
+-(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    if (self=[super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
+        self.isSlideMenuPlaced=NO;
+        self.isSlideMenuOpen=NO;
+    }
+    return self;
+}
+
++(SlideOutMenuViewController*)sharedInstance
+{
+    static SlideOutMenuViewController *slideOut=nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        slideOut=[[SlideOutMenuViewController alloc] initWithNibName:@"SlideOutMenuViewController_iPhone4" bundle:nil];
+    });
+    return slideOut;
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     

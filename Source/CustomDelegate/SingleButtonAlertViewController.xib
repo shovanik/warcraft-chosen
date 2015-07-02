@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="GARABD.TTF">
+            <string>Garamond-Bold</string>
+            <string>Garamond-Bold</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SingleButtonAlertViewController">
+            <connections>
+                <outlet property="btn" destination="NLF-wA-Ryy" id="VP0-4q-CxH"/>
+                <outlet property="lblMessageBody" destination="YWJ-Ir-gzO" id="RIL-Rp-rRJ"/>
+                <outlet property="view" destination="bUB-lx-RIs" id="Za0-dE-DfL"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="bUB-lx-RIs">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Sft-j3-vEK">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vCe-oU-aXA">
+                    <rect key="frame" x="75" y="210" width="450" height="240"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tournament3_back.png" translatesAutoresizingMaskIntoConstraints="NO" id="SNn-CA-4nR">
+                            <rect key="frame" x="0.0" y="0.0" width="450" height="180"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="YWJ-Ir-gzO">
+                            <rect key="frame" x="10" y="10" width="430" height="160"/>
+                            <fontDescription key="fontDescription" name="Garamond-Bold" family="Garamond" pointSize="20"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tournament4_back.png" translatesAutoresizingMaskIntoConstraints="NO" id="ETi-yN-fnY">
+                            <rect key="frame" x="0.0" y="180" width="450" height="60"/>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NLF-wA-Ryy">
+                            <rect key="frame" x="75" y="184" width="300" height="52"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="NLF-wA-Ryy" secondAttribute="height" multiplier="402:70" id="mxd-wK-B9N"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Garamond-Bold" family="Garamond" pointSize="18"/>
+                            <state key="normal" title="Public" backgroundImage="Tournament3_no_button.png">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="selected" backgroundImage="Tournament3_yes_button.png">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="highlighted" backgroundImage="Tournament3_yes_button.png">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="btnPresed:" destination="-1" eventType="touchUpInside" id="mr0-wk-hSO"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="ETi-yN-fnY" firstAttribute="top" secondItem="SNn-CA-4nR" secondAttribute="bottom" id="1E1-cn-UYl"/>
+                        <constraint firstItem="ETi-yN-fnY" firstAttribute="centerX" secondItem="NLF-wA-Ryy" secondAttribute="centerX" id="3Z0-AG-8V0"/>
+                        <constraint firstAttribute="bottom" secondItem="ETi-yN-fnY" secondAttribute="bottom" id="5ZG-q7-JjE"/>
+                        <constraint firstItem="YWJ-Ir-gzO" firstAttribute="bottom" secondItem="SNn-CA-4nR" secondAttribute="bottom" constant="-10" id="AMB-qE-MYq"/>
+                        <constraint firstItem="SNn-CA-4nR" firstAttribute="top" secondItem="vCe-oU-aXA" secondAttribute="top" id="Hu2-vI-c4D"/>
+                        <constraint firstItem="SNn-CA-4nR" firstAttribute="leading" secondItem="vCe-oU-aXA" secondAttribute="leading" id="LIW-bx-fmn"/>
+                        <constraint firstItem="ETi-yN-fnY" firstAttribute="leading" secondItem="vCe-oU-aXA" secondAttribute="leading" id="QlK-aV-piW"/>
+                        <constraint firstItem="YWJ-Ir-gzO" firstAttribute="trailing" secondItem="SNn-CA-4nR" secondAttribute="trailing" constant="-10" id="SgB-5I-dmM"/>
+                        <constraint firstItem="ETi-yN-fnY" firstAttribute="centerY" secondItem="NLF-wA-Ryy" secondAttribute="centerY" constant="-0.5" id="W4k-pL-9FT"/>
+                        <constraint firstItem="SNn-CA-4nR" firstAttribute="bottom" secondItem="vCe-oU-aXA" secondAttribute="centerY" multiplier="1.5" id="Yao-Id-Xso"/>
+                        <constraint firstAttribute="trailing" secondItem="ETi-yN-fnY" secondAttribute="trailing" id="dhS-zu-NFd"/>
+                        <constraint firstItem="YWJ-Ir-gzO" firstAttribute="top" secondItem="SNn-CA-4nR" secondAttribute="top" constant="10" id="fSI-7A-ew8"/>
+                        <constraint firstAttribute="trailing" secondItem="SNn-CA-4nR" secondAttribute="trailing" id="kMC-jo-vYV"/>
+                        <constraint firstItem="SNn-CA-4nR" firstAttribute="width" secondItem="NLF-wA-Ryy" secondAttribute="width" multiplier="1.5" id="meQ-8s-kL2"/>
+                        <constraint firstItem="YWJ-Ir-gzO" firstAttribute="leading" secondItem="SNn-CA-4nR" secondAttribute="leading" constant="10" id="nHd-KO-EL0"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="vCe-oU-aXA" firstAttribute="top" secondItem="Sft-j3-vEK" secondAttribute="centerY" multiplier="0.7" id="2Yv-AR-lVj"/>
+                <constraint firstItem="Sft-j3-vEK" firstAttribute="leading" secondItem="bUB-lx-RIs" secondAttribute="leading" id="6c6-M7-Zst"/>
+                <constraint firstItem="Sft-j3-vEK" firstAttribute="top" secondItem="bUB-lx-RIs" secondAttribute="top" id="SH9-BV-pWI"/>
+                <constraint firstItem="vCe-oU-aXA" firstAttribute="bottom" secondItem="Sft-j3-vEK" secondAttribute="centerY" multiplier="1.5" id="SUg-Qg-Ale"/>
+                <constraint firstItem="vCe-oU-aXA" firstAttribute="leading" secondItem="Sft-j3-vEK" secondAttribute="centerX" multiplier="0.25" id="ScQ-oq-Sd7"/>
+                <constraint firstAttribute="bottom" secondItem="Sft-j3-vEK" secondAttribute="bottom" id="a3L-9h-kVy"/>
+                <constraint firstItem="vCe-oU-aXA" firstAttribute="trailing" secondItem="Sft-j3-vEK" secondAttribute="centerX" multiplier="1.75" id="lNq-my-x1h"/>
+                <constraint firstAttribute="trailing" secondItem="Sft-j3-vEK" secondAttribute="trailing" id="mGL-qf-ooP"/>
+            </constraints>
+            <point key="canvasLocation" x="361" y="365"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Tournament3_back.png" width="500" height="252"/>
+        <image name="Tournament3_no_button.png" width="216" height="78"/>
+        <image name="Tournament3_yes_button.png" width="216" height="78"/>
+        <image name="Tournament4_back.png" width="500" height="122"/>
+    </resources>
+</document>

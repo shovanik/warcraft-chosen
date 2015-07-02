@@ -78,7 +78,7 @@
     imgTimerLeft.hidden=imgTimerRight.hidden=YES;
     isOponentImageDownloaded=NO;
     isSelfImageDownloadComplete=NO;
-    [imgMain loadImageFromURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",__kBaseURL,[userRival.strAvtarImage stringByReplacingOccurrencesOfString:@"thumb" withString:@"big"]]]];
+    [imgMain loadImageFromURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",__kBaseURL,userRival.strAvtarImage]]];
     
     isFirstHit=YES;
 }

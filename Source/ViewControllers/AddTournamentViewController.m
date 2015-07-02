@@ -289,24 +289,56 @@
         AddTournamentTableViewCell *cell=(AddTournamentTableViewCell*)[tblAddTournament cellForRowAtIndexPath:myIndexPath];
         cell.labelSelectedValue.text=[NSString stringWithFormat:@"%ld",indexPath.row];
         strNoOfPlayer=[NSString stringWithFormat:@"%ld",indexPath.row];
+        if (isPlayerOpen) {
+            [tblPlayer removeFromSuperview];
+            tblPlayer=nil;
+            isPlayerOpen=NO;
+            [UIView animateWithDuration:0.1 animations:^{
+                cell.imgArrow.transform=CGAffineTransformMakeRotation(M_PI*2);
+            }];
+        }
     }
     else if (tableView==tblGold){
         NSIndexPath *myIndexPath=[NSIndexPath indexPathForRow:2 inSection:0];
         AddTournamentTableViewCell *cell=(AddTournamentTableViewCell*)[tblAddTournament cellForRowAtIndexPath:myIndexPath];
         cell.labelSelectedValue.text=[NSString stringWithFormat:@"%ld",indexPath.row*100];
         strGoldRequired=[NSString stringWithFormat:@"%ld",indexPath.row*100];
+        if (isGoldOpen) {
+            [tblGold removeFromSuperview];
+            tblGold=nil;
+            isGoldOpen=NO;
+            [UIView animateWithDuration:0.1 animations:^{
+                cell.imgArrow.transform=CGAffineTransformMakeRotation(M_PI*2);
+            }];
+        }
     }
     else if (tableView==tblRanking){
         NSIndexPath *myIndexPath=[NSIndexPath indexPathForRow:3 inSection:0];
         AddTournamentTableViewCell *cell=(AddTournamentTableViewCell*)[tblAddTournament cellForRowAtIndexPath:myIndexPath];
         cell.labelSelectedValue.text=[NSString stringWithFormat:@"%ld",indexPath.row];
         strRanking=[NSString stringWithFormat:@"%ld",indexPath.row];
+        if (isRankingOpen) {
+            [tblRanking removeFromSuperview];
+            tblRanking=nil;
+            isRankingOpen=NO;
+            [UIView animateWithDuration:0.1 animations:^{
+                cell.imgArrow.transform=CGAffineTransformMakeRotation(M_PI*2);
+            }];
+        }
     }
     else if (tableView==tblPlayTime){
         NSIndexPath *myIndexPath=[NSIndexPath indexPathForRow:4 inSection:0];
         AddTournamentTableViewCell *cell=(AddTournamentTableViewCell*)[tblAddTournament cellForRowAtIndexPath:myIndexPath];
         cell.labelSelectedValue.text=[NSString stringWithFormat:@"%ld",indexPath.row];
         strPlayTime=[NSString stringWithFormat:@"%ld",indexPath.row];
+        if (isPlayTimeOpen) {
+            [tblPlayTime removeFromSuperview];
+            tblPlayTime=nil;
+            isPlayTimeOpen=NO;
+            [UIView animateWithDuration:0.1 animations:^{
+                cell.imgArrow.transform=CGAffineTransformMakeRotation(M_PI*2);
+            }];
+        }
     }
 }
 

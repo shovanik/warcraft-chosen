@@ -12,10 +12,11 @@
 #import "LandingViewController.h"
 #import "DataClass.h"
 #import "SettingsViewController.h"
+#import "SingleButtonAlertViewController.h"
 
 NSUserDefaults *pref;
 
-@interface RegisterViewController () <UITextFieldDelegate,UIAlertViewDelegate>
+@interface RegisterViewController () <UITextFieldDelegate,UIAlertViewDelegate,SingleButtonDelegate>
 {
     IBOutlet UIView *regContentView;
     IBOutlet UILabel *navTitle;
@@ -432,8 +433,7 @@ NSUserDefaults *pref;
                     id tempUser=[dict objectForKey:@"User"];
                     if ([tempUser isKindOfClass:[ModelUser class]]) {
                         user=(ModelUser*)tempUser;
-                        //[slideMenu setAvtarImageForURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",__kBaseURL,user.strAvtarImage]]];
-                        [slideMenu setAvtarImageForURL:[NSURL URLWithString:@"http://chosen.sulavmart.com/avatar/thumb/imgo.jpeg"]];
+                        [[SlideOutMenuViewController sharedInstance] setAvtarImageForURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",__kBaseURL,user.strAvtarThumbImg]]];
                     }
                     id tempAllUser=[dict objectForKey:@"AllUser"];
                     if ([tempAllUser isKindOfClass:[NSMutableArray class]]) {
@@ -441,9 +441,10 @@ NSUserDefaults *pref;
                     }
                 }
                 
-                UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Success" message:strMessage delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                alert.tag=1;
-                [alert show];
+                SingleButtonAlertViewController *singlebtn=[SingleButtonAlertViewController sharedInstance];
+                [singlebtn.view setFrame:[[UIScreen mainScreen] bounds]];
+                [singlebtn displayMessageWithMessageBody:[strMessage capitalizedString] ButtonTitle:@"OK" Delegate:self];
+                [self.view addSubview:singlebtn.view];
             }
             [self.view setUserInteractionEnabled:YES];
             [self.activityIndicatorView stopAnimating];
@@ -458,13 +459,15 @@ NSUserDefaults *pref;
 #pragma mark UIAlertView Delegate Method
 #pragma mark
 
--(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+-(void)didOkPressed
 {
-    if (alertView.tag==1) {
-        StepOneViewController *master=[[StepOneViewController alloc] initWithNibName:@"StepOneViewController" bundle:nil];
-        [self.navigationController pushViewController:master animated:YES];
-    }
+    SingleButtonAlertViewController *singlebtn=[SingleButtonAlertViewController sharedInstance];
+    [singlebtn.view removeFromSuperview];
+    
+    [self makeSocketConnectionWithUser:user];
+    
+    StepOneViewController *sVC  = [[StepOneViewController alloc] initWithNibName:@"StepOneViewController" bundle:nil];
+    [self.navigationController pushViewController:sVC animated:YES];
 }
-
 
 @end

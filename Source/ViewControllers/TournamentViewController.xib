@@ -46,6 +46,9 @@
                     <state key="normal" backgroundImage="slidemenu">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="btnMenuTapped:" destination="-1" eventType="touchUpInside" id="O5Q-hR-9Q9"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F1o-aT-hx3" userLabel="Button - Slide Menu Custome">
                     <rect key="frame" x="0.0" y="0.0" width="86" height="55"/>
@@ -63,7 +66,7 @@
                         </mask>
                     </variation>
                     <connections>
-                        <action selector="btnMenuTapped:" destination="-1" eventType="touchUpInside" id="kBG-nj-VyJ"/>
+                        <action selector="btnMenuTapped:" destination="-1" eventType="touchUpInside" id="kC2-Xd-PRK"/>
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="TOURNAMENT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5KO-JJ-afD">

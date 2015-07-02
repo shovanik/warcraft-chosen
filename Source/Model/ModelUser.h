@@ -44,6 +44,7 @@
 @property(strong,nonatomic) NSString *strTotalLoss;
 @property(strong,nonatomic) NSString *strStatusPoint;
 @property(strong,nonatomic) NSString *strLastGameFinisehd;
+@property(strong,nonatomic) NSString *strAvtarThumbImg;
 
 
 @property(strong,nonatomic) NSString *strFBId;

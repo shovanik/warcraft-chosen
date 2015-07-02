@@ -28,6 +28,8 @@
 #import "NSMutableArray+FoundUser.h"
 #import "CustomConfirmationViewController.h"
 
+#import "SingleButtonAlertViewController.h"
+
 #import "WebServiceConstant.h"
 
 typedef enum : NSUInteger {
@@ -69,7 +71,6 @@ NSString static *socketEvents[]={
 
 @property(strong,nonatomic) IBOutlet UIActivityIndicatorView *activityIndicatorView;
 
-@property(assign,nonatomic) BOOL isSlidemenuOpen;
 
 @property(assign,nonatomic) BOOL isNetworkRechable;
 
@@ -91,6 +92,9 @@ NSString static *socketEvents[]={
 -(void)closeSlideMenu;
 
 -(IBAction)btnMenuTapped:(id)sender;
+
+
+
 
 -(void)makeSocketConnectionWithUser:(ModelUser*)myUser;
 

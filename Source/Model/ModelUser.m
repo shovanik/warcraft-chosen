@@ -339,6 +339,12 @@
         self.strDateOfBirth=@"";
     }
     
+    if ([dictionary objectForKey:@"avatar_thumb"]&&!([[dictionary objectForKey:@"avatar_thumb"] isKindOfClass:[[NSNull null] class]])) {
+        self.strAvtarThumbImg=[[dictionary objectForKey:@"avatar_thumb"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    }else{
+        self.strAvtarThumbImg=@"";
+    }
+    
     return self;
 }
 

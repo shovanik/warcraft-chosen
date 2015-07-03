@@ -438,13 +438,13 @@
     [mySocket sendEvent:socketEvents[beginFight] withData:[NSDictionary dictionaryWithObjects:@[user.strID,userRival.strID] forKeys:@[@"uid",@"fid"]]];
 }
 
--(void)acceptFightPressed
+-(void)acceptFightReceived
 {
     NSLog(@"%s -> %@",__func__,[NSDictionary dictionaryWithObjects:@[user.strID,userRival.strID,socketEvents[AcceptFight]] forKeys:@[@"uid",@"fid",@"meta"]]);
     [mySocket sendEvent:socketEvents[AcceptFight] withData:[NSDictionary dictionaryWithObjects:@[user.strID,userRival.strID,socketEvents[AcceptFight]] forKeys:@[@"uid",@"fid",@"meta"]]];
     AttackViewController *master=[[AttackViewController alloc] initWithNibName:@"AttackViewController" bundle:nil];
-    [[SocketService service] makeSocketDelegate:nil];
-    [[SocketService service] makeSocketDelegate:master];
+    //[[SocketService service] makeSocketDelegate:nil];
+    //[[SocketService service] makeSocketDelegate:master];
     master.isStartFightReceived=YES;
     [self.navigationController pushViewController:master animated:YES];
 }
@@ -536,7 +536,7 @@
                 [alertController dismissViewControllerAnimated:YES completion:^{
                     
                 }];
-                [self acceptFightPressed];
+                [self acceptFightReceived];
             }];
             UIAlertAction *actionDeclineFight=[UIAlertAction actionWithTitle:@"Decline Fight" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                 [alertController dismissViewControllerAnimated:YES completion:^{
@@ -558,8 +558,8 @@
             dict=arrTemp[0];
             userRival=[allUser getUserForUserID:[dict objectForKey:@"uid"]];
             AttackViewController *master=[[AttackViewController alloc] initWithNibName:@"AttackViewController" bundle:nil];
-            [[SocketService service] makeSocketDelegate:nil];
-            [[SocketService service] makeSocketDelegate:master];
+#pragma mark I hope it is Corrected...
+            //[[SocketService service] makeSocketDelegate:master];
             [self.navigationController pushViewController:master animated:YES];
         }
         else if ([[dict objectForKey:@"name"] isEqualToString:socketEvents[DeclineFight]]) {
@@ -602,6 +602,57 @@
                     [allUser removeObjectAtIndex:i];
                     [allUser insertObject:myUser atIndex:i];
                 }
+            }
+        }
+        
+        else if ([[dict objectForKey:@"name"] isEqualToString:socketEvents[ReadyToFight]]) {
+            if ([self.navigationController.topViewController isKindOfClass:[AttackViewController class]]) {
+                AttackViewController *master=(AttackViewController*)self.navigationController.topViewController;
+                [master socketIO:socket didReceiveEvent:packet];
+            }
+        }
+        
+        else if ([[dict objectForKey:@"name"] isEqualToString:socketEvents[ReadyToFightResponse]]) {
+            NSLog(@"Enter Over Here");
+            if ([self.navigationController.topViewController isKindOfClass:[AttackViewController class]]) {
+                AttackViewController *master=(AttackViewController*)self.navigationController.topViewController;
+                [master socketIO:socket didReceiveEvent:packet];
+            }
+        }
+        
+        else if ([[dict objectForKey:@"name"] isEqualToString:socketEvents[SendHit]]) {
+            if ([self.navigationController.topViewController isKindOfClass:[AttackViewController class]]) {
+                AttackViewController *master=(AttackViewController*)self.navigationController.topViewController;
+                [master socketIO:socket didReceiveEvent:packet];
+            }
+        }
+        
+        else if ([[dict objectForKey:@"name"] isEqualToString:socketEvents[endFight]]){
+            if ([self.navigationController.topViewController isKindOfClass:[AttackViewController class]]) {
+                AttackViewController *master=(AttackViewController*)self.navigationController.topViewController;
+                [master socketIO:socket didReceiveEvent:packet];
+            }
+        }
+        
+        else if ([[dict objectForKey:@"name"] isEqualToString:socketEvents[onlineUsersIn]]){
+            NSLog(@"Response = %@",packet.data);
+            NSMutableDictionary *dictTemp=[[[dict objectForKey:@"args"] mutableCopy] objectAtIndex:0];
+            if ([[dictTemp objectForKey:@"status"] boolValue]) {
+                NSMutableArray *arrresult=[[dictTemp objectForKey:@"response"] mutableCopy];
+                for (int i=0; i<arrresult.count; i++) {
+                    ModelUser *myUser=[[ModelUser alloc] initWithDictionary:[arrresult objectAtIndex:i] BaseURL:__kBaseURL];
+                    [arrresult removeObjectAtIndex:i];
+                    [arrresult insertObject:myUser atIndex:i];
+                }
+                allUser=[[NSMutableArray alloc] initWithArray:(NSArray*)arrresult];
+                arrresult=nil;
+                
+                if ([self.navigationController.topViewController isKindOfClass:[WorldMapViewController class]]) {
+                    WorldMapViewController *master=(WorldMapViewController*)self.navigationController.topViewController;
+                    [master updateWorldMapWithWebserViceResult:allUser];
+                }
+            }else{
+                NSLog(@"There is some error while getting list of OnlineUsers");
             }
         }
         

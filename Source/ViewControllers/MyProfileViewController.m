@@ -40,9 +40,20 @@
 
 -(IBAction)btnChangeAvatarPressed:(id)sender
 {
-    AvatarSelectionViewController *master=[[AvatarSelectionViewController alloc] initWithNibName:@"AvatarSelectionViewController" bundle:nil];
+    /*AvatarSelectionViewController *master=[[AvatarSelectionViewController alloc] initWithNibName:@"AvatarSelectionViewController" bundle:nil];
     master.delegate=self;
     [self presentViewController:master animated:YES completion:^{
+        
+    }];*/
+    
+    UIAlertController *alertController=[UIAlertController alertControllerWithTitle:@"Warning" message:@"This feature is currently unavailable in this version." preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *actionOK=[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        [alertController dismissViewControllerAnimated:YES completion:^{
+            
+        }];
+    }];
+    [alertController addAction:actionOK];
+    [self presentViewController:alertController animated:YES completion:^{
         
     }];
 }

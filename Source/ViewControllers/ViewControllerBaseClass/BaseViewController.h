@@ -44,6 +44,7 @@ typedef enum : NSUInteger {
     OnlineUsersResponse,
     beginFight,
     endFight,
+    onlineUsersIn,
 } SocketEvent;
 
 
@@ -59,6 +60,7 @@ NSString static *socketEvents[]={
     [OnlineUsersResponse]=@"getOnlineUsersResponse",
     [beginFight]=@"beginFight",
     [endFight]=@"endFight",
+    [onlineUsersIn]=@"onlineUsersIn",
 };
 
 

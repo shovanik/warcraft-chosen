@@ -169,7 +169,6 @@ NSUserDefaults *pref;
         }
         NSLog(@"Latitude = %f Longitude = %f",annotation.coordinate.latitude,annotation.coordinate.longitude);
         return pinView;
-        
     }
     if ([annotation isKindOfClass:[MKPointAnnotation class]]) {
         
@@ -177,10 +176,12 @@ NSUserDefaults *pref;
         {
             // If an existing pin view was not available, create one.
             pinView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"CustomPinAnnotationView"];
-            //pinView.animatesDrop = YES;
-            //pinView.canShowCallout = YES;
-            pinView.image = [UIImage imageNamed:@"whi_point.png"];
-            //pinView.calloutOffset = CGPointMake(0, 32);
+            ModelUser *myUser=[allUser getUserForLatitude:annotation.coordinate.latitude Longitude:annotation.coordinate.longitude];
+            if ([[myUser.strOnline stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:@"0"]) {
+                pinView.image = [UIImage imageNamed:@"whi_point.png"];
+            }else{
+                pinView.image = [UIImage imageNamed:@"blue_point.png"];
+            }
         } else {
             pinView.annotation = annotation;
         }
@@ -211,7 +212,6 @@ NSUserDefaults *pref;
             annotationViewController.view.center=CGPointMake(self.view.center.x, self.view.center.y-annotationViewController.view.frame.size.height/2-20);
             [self.view addSubview:annotationViewController.view];
             [wrldMapView setUserInteractionEnabled:NO];
-            
         }
     }
 }

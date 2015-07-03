@@ -14,6 +14,9 @@
 
 @property(strong,nonatomic) NSString *strTournamentID;
 
+
+-(void)updateWorldMapWithWebserViceResult:(NSMutableArray*)arrAllUsers;
+
 - (void) socketIO:(SocketIO *)socket didReceiveEvent:(SocketIOPacket *)packet;
 
 @end
